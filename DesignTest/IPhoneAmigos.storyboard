@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Gph-Hi-X7L">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Amigos-->
+        <scene sceneID="wf8-XG-wtT">
+            <objects>
+                <viewController title="Amigos" id="crv-pJ-6gS" customClass="AmigosViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lzw-Hy-dyL"/>
+                        <viewControllerLayoutGuide type="bottom" id="JXB-h2-zuP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4sj-AC-UeB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="NmT-3B-eNx">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="s6o-nN-Bpu">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="NmT-3B-eNx" secondAttribute="centerX" id="99r-OA-fyH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NmT-3B-eNx" secondAttribute="trailing" constant="-16" id="9o8-RZ-Zhh"/>
+                            <constraint firstAttribute="centerX" secondItem="s6o-nN-Bpu" secondAttribute="centerX" id="Jaj-7H-fhL"/>
+                            <constraint firstItem="s6o-nN-Bpu" firstAttribute="top" secondItem="NmT-3B-eNx" secondAttribute="bottom" id="Kkf-8a-U17"/>
+                            <constraint firstItem="JXB-h2-zuP" firstAttribute="top" secondItem="s6o-nN-Bpu" secondAttribute="bottom" id="KyE-hj-eEa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="s6o-nN-Bpu" secondAttribute="trailing" constant="-16" id="LMg-DV-MnB"/>
+                            <constraint firstItem="NmT-3B-eNx" firstAttribute="leading" secondItem="4sj-AC-UeB" secondAttribute="leadingMargin" constant="-16" id="Mfi-AQ-Zx5"/>
+                            <constraint firstItem="NmT-3B-eNx" firstAttribute="top" secondItem="Lzw-Hy-dyL" secondAttribute="bottom" id="OBh-m6-8gX"/>
+                            <constraint firstItem="s6o-nN-Bpu" firstAttribute="leading" secondItem="4sj-AC-UeB" secondAttribute="leadingMargin" constant="-16" id="dtY-lJ-r26"/>
+                            <constraint firstItem="s6o-nN-Bpu" firstAttribute="top" secondItem="NmT-3B-eNx" secondAttribute="bottom" id="rPt-QN-6yl"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="NmT-3B-eNx"/>
+                                <exclude reference="s6o-nN-Bpu"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="KyE-hj-eEa"/>
+                                <exclude reference="99r-OA-fyH"/>
+                                <exclude reference="9o8-RZ-Zhh"/>
+                                <exclude reference="Mfi-AQ-Zx5"/>
+                                <exclude reference="OBh-m6-8gX"/>
+                                <exclude reference="Jaj-7H-fhL"/>
+                                <exclude reference="Kkf-8a-U17"/>
+                                <exclude reference="LMg-DV-MnB"/>
+                                <exclude reference="dtY-lJ-r26"/>
+                                <exclude reference="rPt-QN-6yl"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="NmT-3B-eNx"/>
+                                <include reference="s6o-nN-Bpu"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="KyE-hj-eEa"/>
+                                <include reference="99r-OA-fyH"/>
+                                <include reference="9o8-RZ-Zhh"/>
+                                <include reference="Mfi-AQ-Zx5"/>
+                                <include reference="OBh-m6-8gX"/>
+                                <include reference="Jaj-7H-fhL"/>
+                                <include reference="Kkf-8a-U17"/>
+                                <include reference="LMg-DV-MnB"/>
+                                <include reference="dtY-lJ-r26"/>
+                                <include reference="rPt-QN-6yl"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Amigos" id="VOC-5n-BR8">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="C5O-NQ-KIW"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="C5O-NQ-KIW" id="XlL-IG-WPB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="40o-ex-fpz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-124.5" y="-762"/>
+        </scene>
+        <!--Custom Navigation View Controller-->
+        <scene sceneID="wFW-d1-tpo">
+            <objects>
+                <navigationController id="Gph-Hi-X7L" customClass="CustomNavigationViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gO9-Ci-wu2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="crv-pJ-6gS" kind="relationship" relationship="rootViewController" id="aBK-R3-xMh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9yW-lk-Gwe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1119" y="-762"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="menu" width="22" height="22"/>
+    </resources>
+</document>

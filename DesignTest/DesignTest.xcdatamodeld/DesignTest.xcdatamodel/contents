@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="15A284" minimumToolsVersion="Automatic">
+    <entity name="Pais" representedClassName=".Pais" syncable="YES">
+        <attribute name="nome" optional="YES" attributeType="String" defaultValueString="&quot;&quot;" syncable="YES"/>
+    </entity>
+    <entity name="Questao_registro" representedClassName=".Questao_registro" syncable="YES">
+        <attribute name="id_parse" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="respondido" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="registro" maxCount="1" deletionRule="Deny" destinationEntity="Registro" inverseName="questoes" inverseEntity="Registro" syncable="YES"/>
+    </entity>
+    <entity name="Registro" representedClassName=".Registro" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="questoes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Questao_registro" inverseName="registro" inverseEntity="Questao_registro" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Questao_registro" positionX="-54" positionY="27" width="128" height="88"/>
+        <element name="Registro" positionX="-218" positionY="-126" width="128" height="88"/>
+        <element name="Pais" positionX="-216" positionY="-313" width="128" height="58"/>
+    </elements>
+</model>

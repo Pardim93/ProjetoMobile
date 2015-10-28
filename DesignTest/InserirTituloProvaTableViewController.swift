@@ -1,0 +1,127 @@
+//
+//  InserirTituloProvaTableViewController.swift
+//  DesignTest
+//
+//  Created by Andre Lucas Ota on 21/10/15.
+//  Copyright © 2015 Wellington Pardim Ferreira. All rights reserved.
+//
+
+import UIKit
+
+class InserirTituloProvaTableViewController: UITableViewController, UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBOutlet weak var imagem: UIImageView!
+    @IBOutlet weak var adicionarImgBotao: ZFRippleButton!
+    @IBOutlet weak var tituloTextField: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.configNavBarHidingCells()
+        self.configTableView()
+        self.configImagemCell()
+    }
+    
+//    MARK: Config
+    func configTableView(){
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+    }
+    
+    func configNavBarHidingCells(){
+        let top = UIView(frame: CGRectMake(0, 0, 1, 30))
+        top.backgroundColor = UIColor.clearColor()
+        self.tableView.tableHeaderView = top
+    }
+    
+//    MARK: ConfigCells
+    func configImagemCell(){
+        self.configAddBotao()
+        self.configGestureRecognizer()
+    }
+
+//    MARK: ConfigImagemCell
+    func configImageView(){
+        self.imagem.layer.borderColor = UIColor.blackColor().CGColor
+        self.imagem.layer.borderWidth = 4.0
+    }
+    
+    func configAddBotao(){
+        self.adicionarImgBotao.layer.borderColor = UIColor.clearColor().CGColor
+        self.adicionarImgBotao.layer.borderWidth = 0.5
+        self.adicionarImgBotao.layer.cornerRadius = 5
+    }
+    
+    func configGestureRecognizer(){
+        let gesture = UITapGestureRecognizer(target: self, action: "showActionSheet")
+        gesture.delegate = self
+        self.imagem.userInteractionEnabled = true
+        self.imagem.addGestureRecognizer(gesture)
+    }
+    
+//    MARK: ButtonAction
+    @IBAction func adicionarImagemAction(sender: AnyObject) {
+        self.showActionSheet()
+    }
+    
+//    MARK: ImagePicker
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        guard let selectedImage = info[UIImagePickerControllerEditedImage] as? UIImage else{
+            picker.dismissViewControllerAnimated(true, completion: nil)
+            return
+        }
+        
+        imagem.image = selectedImage
+//        cell.deleteButton.hidden = false
+        self.configImageView()
+        
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+//    MARK: Action Sheet
+    func showActionSheet() {
+        let actionSheet = UIAlertController(title: "Vestibulandos", message: "", preferredStyle: .ActionSheet)
+        actionSheet.addAction(self.getCameraAction())
+        actionSheet.addAction(self.getGaleryAction())
+        actionSheet.addAction(self.getCancelAction())
+        
+        self.navigationController?.presentViewController(actionSheet, animated: true, completion: nil)
+    }
+    
+    func getCameraAction() -> UIAlertAction{
+        let cameraAction = UIAlertAction(title: "Câmera", style: .Default) { (action) in
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.allowsEditing = true
+            picker.sourceType = UIImagePickerControllerSourceType.Camera
+            self.navigationController?.presentViewController(picker, animated: true, completion: nil)
+        }
+        
+        return cameraAction
+    }
+    
+    func getGaleryAction() -> UIAlertAction{
+        let galeryAction = UIAlertAction(title: "Fotos", style: .Default) { (action) in
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.allowsEditing = true
+            picker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
+            self.navigationController?.presentViewController(picker, animated: true, completion: nil)
+        }
+        
+        return galeryAction
+    }
+    
+    func getCancelAction() -> UIAlertAction{
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil)
+        return cancelAction
+    }
+    
+//    MARK: TableView
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.view.endEditing(true)
+    }    
+}
