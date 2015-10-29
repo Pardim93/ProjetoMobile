@@ -28,7 +28,6 @@
 		242D253D1BB5D786007450C2 /* InserirTituloTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242D253C1BB5D786007450C2 /* InserirTituloTableViewController.swift */; };
 		244BB5161BC4376A001BD0ED /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244BB5151BC4376A001BD0ED /* FacebookManager.swift */; };
 		244BB5181BC459BE001BD0ED /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244BB5171BC459BE001BD0ED /* LoginManager.swift */; };
-		244C2FC31BB1BBBC008E3BE1 /* IPhoneInserirExercicio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244C2FC21BB1BBBC008E3BE1 /* IPhoneInserirExercicio.storyboard */; };
 		244C2FC61BB1BFA2008E3BE1 /* InserirExTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244C2FC51BB1BFA2008E3BE1 /* InserirExTableViewController.swift */; };
 		244C2FC81BB1C9A2008E3BE1 /* InserirTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244C2FC71BB1C9A2008E3BE1 /* InserirTextView.swift */; };
 		244C2FCA1BB1D066008E3BE1 /* InserirExTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244C2FC91BB1D066008E3BE1 /* InserirExTableViewCell.swift */; };
@@ -71,11 +70,14 @@
 		24EE26F21BC2ED2800E0AB6A /* IPhoneRegistros.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24EE26F11BC2ED2800E0AB6A /* IPhoneRegistros.storyboard */; };
 		24EE26F41BC2ED8500E0AB6A /* IPhoneListaExercicios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24EE26F31BC2ED8500E0AB6A /* IPhoneListaExercicios.storyboard */; };
 		24EE26F71BC2EE3700E0AB6A /* IPhoneAmigos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24EE26F61BC2EE3700E0AB6A /* IPhoneAmigos.storyboard */; };
+		521293341BE2AC720093D905 /* AvaliacaoQuestaoTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521293311BE2AC720093D905 /* AvaliacaoQuestaoTabBarController.swift */; };
+		521293351BE2AC720093D905 /* AvaliacaoQuestaoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521293321BE2AC720093D905 /* AvaliacaoQuestaoTableViewController.swift */; };
+		521293361BE2AC720093D905 /* PerguntasAvaliacaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521293331BE2AC720093D905 /* PerguntasAvaliacaoViewController.swift */; };
+		521293381BE2ACB70093D905 /* IPhoneExercicios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 521293371BE2ACB70093D905 /* IPhoneExercicios.storyboard */; };
 		5243FBD91BD2F74800462071 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5243FBD71BD2F74800462071 /* PopUpViewController.swift */; };
 		5243FBDC1BD2FE6A00462071 /* PopUpViewController_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5243FBDB1BD2FE6A00462071 /* PopUpViewController_iPhone6.xib */; };
 		52499F551BB5B0BE004B5E21 /* QuestoesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52499F541BB5B0BE004B5E21 /* QuestoesManager.swift */; };
 		524E43DA1BA2185C00BBB2E0 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E43D91BA2185C00BBB2E0 /* CollectionViewCell.swift */; };
-		524E43E11BA34E2F00BBB2E0 /* IPhoneExercicios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524E43E01BA34E2F00BBB2E0 /* IPhoneExercicios.storyboard */; };
 		524E43E51BA3614600BBB2E0 /* AlternativaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E43E41BA3614600BBB2E0 /* AlternativaTableViewController.swift */; };
 		52514CFE1BD3078F006289B2 /* PopUpViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52514CFC1BD3078F006289B2 /* PopUpViewController_iPad.xib */; };
 		52514CFF1BD3078F006289B2 /* PopUpViewController_iPhone6Plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52514CFD1BD3078F006289B2 /* PopUpViewController_iPhone6Plus.xib */; };
@@ -127,7 +129,6 @@
 		242D253C1BB5D786007450C2 /* InserirTituloTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InserirTituloTableViewController.swift; sourceTree = "<group>"; };
 		244BB5151BC4376A001BD0ED /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
 		244BB5171BC459BE001BD0ED /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
-		244C2FC21BB1BBBC008E3BE1 /* IPhoneInserirExercicio.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneInserirExercicio.storyboard; sourceTree = "<group>"; };
 		244C2FC51BB1BFA2008E3BE1 /* InserirExTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InserirExTableViewController.swift; sourceTree = "<group>"; };
 		244C2FC71BB1C9A2008E3BE1 /* InserirTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InserirTextView.swift; sourceTree = "<group>"; };
 		244C2FC91BB1D066008E3BE1 /* InserirExTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InserirExTableViewCell.swift; sourceTree = "<group>"; };
@@ -170,11 +171,14 @@
 		24EE26F11BC2ED2800E0AB6A /* IPhoneRegistros.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneRegistros.storyboard; sourceTree = "<group>"; };
 		24EE26F31BC2ED8500E0AB6A /* IPhoneListaExercicios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneListaExercicios.storyboard; sourceTree = "<group>"; };
 		24EE26F61BC2EE3700E0AB6A /* IPhoneAmigos.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneAmigos.storyboard; sourceTree = "<group>"; };
+		521293311BE2AC720093D905 /* AvaliacaoQuestaoTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliacaoQuestaoTabBarController.swift; sourceTree = "<group>"; };
+		521293321BE2AC720093D905 /* AvaliacaoQuestaoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliacaoQuestaoTableViewController.swift; sourceTree = "<group>"; };
+		521293331BE2AC720093D905 /* PerguntasAvaliacaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerguntasAvaliacaoViewController.swift; sourceTree = "<group>"; };
+		521293371BE2ACB70093D905 /* IPhoneExercicios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = IPhoneExercicios.storyboard; path = ../IPhoneExercicios.storyboard; sourceTree = "<group>"; };
 		5243FBD71BD2F74800462071 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		5243FBDB1BD2FE6A00462071 /* PopUpViewController_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController_iPhone6.xib; sourceTree = "<group>"; };
 		52499F541BB5B0BE004B5E21 /* QuestoesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestoesManager.swift; sourceTree = "<group>"; };
 		524E43D91BA2185C00BBB2E0 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = ../CollectionViewCell.swift; sourceTree = "<group>"; };
-		524E43E01BA34E2F00BBB2E0 /* IPhoneExercicios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneExercicios.storyboard; sourceTree = "<group>"; };
 		524E43E41BA3614600BBB2E0 /* AlternativaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlternativaTableViewController.swift; path = DesignTest/AlternativaTableViewController.swift; sourceTree = "<group>"; };
 		52514CFC1BD3078F006289B2 /* PopUpViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController_iPad.xib; sourceTree = "<group>"; };
 		52514CFD1BD3078F006289B2 /* PopUpViewController_iPhone6Plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController_iPhone6Plus.xib; sourceTree = "<group>"; };
@@ -283,7 +287,6 @@
 			children = (
 				246CBC781B879812002E6A6E /* MainViewController.swift */,
 				246CBC7C1B87B6B7002E6A6E /* RegistrosViewController.swift */,
-				2488995D1BA750AC000CCA21 /* ExerciciosViewController.swift */,
 				2488995B1BA74624000CCA21 /* AmigosViewController.swift */,
 				246F29BA1BA0B703007C9F73 /* ProvasViewController.swift */,
 				24B39FF91B8F9A3500401C21 /* Login */,
@@ -408,16 +411,17 @@
 		24EE26ED1BC2EC6C00E0AB6A /* IPhone */ = {
 			isa = PBXGroup;
 			children = (
+				24EE26EE1BC2EC7E00E0AB6A /* IPad */,
+				521293371BE2ACB70093D905 /* IPhoneExercicios.storyboard */,
 				52DF78AC1B790EE30047A107 /* Main.storyboard */,
 				246F29BC1BA0B9A6007C9F73 /* IPhoneLogin.storyboard */,
 				246F29BE1BA0C90B007C9F73 /* IPhoneProva.storyboard */,
 				249322A11BA33DA3005579DD /* IPhonePerfil.storyboard */,
-				524E43E01BA34E2F00BBB2E0 /* IPhoneExercicios.storyboard */,
-				244C2FC21BB1BBBC008E3BE1 /* IPhoneInserirExercicio.storyboard */,
 				52BE35CA1BBC55830092042D /* IPhoneListaProvas.storyboard */,
 				2406630C1BD1627D007032F3 /* IPhoneInserirProva.storyboard */,
 				24EE26F11BC2ED2800E0AB6A /* IPhoneRegistros.storyboard */,
 				24EE26F31BC2ED8500E0AB6A /* IPhoneListaExercicios.storyboard */,
+				2488995D1BA750AC000CCA21 /* ExerciciosViewController.swift */,
 				24EE26F61BC2EE3700E0AB6A /* IPhoneAmigos.storyboard */,
 				24EE26EF1BC2ECA400E0AB6A /* IPhoneAjustes.storyboard */,
 			);
@@ -430,6 +434,18 @@
 				2405E32C1B7E54320091FAFC /* IPad.storyboard */,
 			);
 			name = IPad;
+			sourceTree = "<group>";
+		};
+		521293411BE2AE190093D905 /* Avaliacao */ = {
+			isa = PBXGroup;
+			children = (
+				521293311BE2AC720093D905 /* AvaliacaoQuestaoTabBarController.swift */,
+				521293321BE2AC720093D905 /* AvaliacaoQuestaoTableViewController.swift */,
+				521293331BE2AC720093D905 /* PerguntasAvaliacaoViewController.swift */,
+				529C68661BE00249001BE3CE /* QuestaoTableViewCell.swift */,
+				529C68641BDFFAFE001BE3CE /* AvaliacaoQuestoesTableViewController.swift */,
+			);
+			name = Avaliacao;
 			sourceTree = "<group>";
 		};
 		524E43DB1BA2186F00BBB2E0 /* Main */ = {
@@ -454,7 +470,7 @@
 		52A8484E1BB06D0E000ECCE9 /* Exercicios */ = {
 			isa = PBXGroup;
 			children = (
-				529C68641BDFFAFE001BE3CE /* AvaliacaoQuestoesTableViewController.swift */,
+				521293411BE2AE190093D905 /* Avaliacao */,
 				52514CFB1BD30757006289B2 /* PopUp */,
 				52EC8EB61BC7019B002DCF52 /* ResultadoInfoViewController.swift */,
 				52FF8EA21BB32BE900A5BC7A /* TabBarControllerExercicios.swift */,
@@ -471,7 +487,6 @@
 		52DF78971B790EE30047A107 = {
 			isa = PBXGroup;
 			children = (
-				529C68661BE00249001BE3CE /* QuestaoTableViewCell.swift */,
 				52DF78A21B790EE30047A107 /* DesignTest */,
 				52DF78BB1B790EE30047A107 /* DesignTestTests */,
 				52DF78A11B790EE30047A107 /* Products */,
@@ -495,7 +510,6 @@
 				2405E32F1B7E55000091FAFC /* DesignTest-Bridging-Header.h */,
 				52DF78AF1B790EE30047A107 /* Images.xcassets */,
 				2405E32E1B7E54380091FAFC /* StoryBoard */,
-				24EE26EE1BC2EC7E00E0AB6A /* IPad */,
 				2405E3331B7E550C0091FAFC /* SideBar (IPhone) */,
 				24857ED51BA0993100DF2938 /* Views */,
 				249322A91BA362D4005579DD /* Classes */,
@@ -643,16 +657,15 @@
 				240DB1DA1BE149CA00654178 /* InserirQuestaoTableViewCell.xib in Resources */,
 				2405E32D1B7E54320091FAFC /* IPad.storyboard in Resources */,
 				249322A21BA33DA3005579DD /* IPhonePerfil.storyboard in Resources */,
-				524E43E11BA34E2F00BBB2E0 /* IPhoneExercicios.storyboard in Resources */,
 				52DF78AE1B790EE30047A107 /* Main.storyboard in Resources */,
 				52DF78B31B790EE30047A107 /* LaunchScreen.xib in Resources */,
 				24EE26F21BC2ED2800E0AB6A /* IPhoneRegistros.storyboard in Resources */,
 				246F29BD1BA0B9A6007C9F73 /* IPhoneLogin.storyboard in Resources */,
 				5243FBDC1BD2FE6A00462071 /* PopUpViewController_iPhone6.xib in Resources */,
-				244C2FC31BB1BBBC008E3BE1 /* IPhoneInserirExercicio.storyboard in Resources */,
 				24EE26F41BC2ED8500E0AB6A /* IPhoneListaExercicios.storyboard in Resources */,
 				52DF78B01B790EE30047A107 /* Images.xcassets in Resources */,
 				24EE26F01BC2ECA400E0AB6A /* IPhoneAjustes.storyboard in Resources */,
+				521293381BE2ACB70093D905 /* IPhoneExercicios.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,6 +722,7 @@
 				244C2FC61BB1BFA2008E3BE1 /* InserirExTableViewController.swift in Sources */,
 				524E43E51BA3614600BBB2E0 /* AlternativaTableViewController.swift in Sources */,
 				2488995E1BA750AC000CCA21 /* ExerciciosViewController.swift in Sources */,
+				521293361BE2AC720093D905 /* PerguntasAvaliacaoViewController.swift in Sources */,
 				52DF78A91B790EE30047A107 /* DesignTest.xcdatamodeld in Sources */,
 				2422E4C91B96268D00ACEE90 /* CustomTextField.swift in Sources */,
 				244BB5161BC4376A001BD0ED /* FacebookManager.swift in Sources */,
@@ -720,8 +734,10 @@
 				5243FBD91BD2F74800462071 /* PopUpViewController.swift in Sources */,
 				249322A41BA33DD3005579DD /* PerfilTableViewController.swift in Sources */,
 				242D253D1BB5D786007450C2 /* InserirTituloTableViewController.swift in Sources */,
+				521293341BE2AC720093D905 /* AvaliacaoQuestaoTabBarController.swift in Sources */,
 				24A20FA31B97695500FD2A30 /* UpdateTableViewController.swift in Sources */,
 				246CBC771B878B84002E6A6E /* RegistroViewController.swift in Sources */,
+				521293351BE2AC720093D905 /* AvaliacaoQuestaoTableViewController.swift in Sources */,
 				249322A61BA356D7005579DD /* RegisterManager.swift in Sources */,
 				24D4FAE21BDAC0E800776CB7 /* InserirQuestaoProvaViewController.swift in Sources */,
 				246CBC7B1B87A34F002E6A6E /* NovaProvaViewController.swift in Sources */,
@@ -900,8 +916,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FINALPROJECT/TestDesign/Pods/ParseFacebookUtilsV4",
+				);
 				INFOPLIST_FILE = DesignTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FINALPROJECT/TestDesign/Pods/ParseFacebookUtilsV4",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Bepid.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DesignTest/DesignTest-Bridging-Header.h";
@@ -916,8 +940,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FINALPROJECT/TestDesign/Pods/ParseFacebookUtilsV4",
+				);
 				INFOPLIST_FILE = DesignTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FINALPROJECT/TestDesign/Pods/ParseFacebookUtilsV4",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Bepid.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DesignTest/DesignTest-Bridging-Header.h";

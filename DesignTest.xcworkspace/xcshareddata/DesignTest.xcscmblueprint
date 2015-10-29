@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "879F435752D7EBF9EA3CDE027897ACC6E97CF411",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "879F435752D7EBF9EA3CDE027897ACC6E97CF411" : 0,
+    "C7429526A73E831E778100C0C840AD684BCFBDEB" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D7E91EEC-0F57-4E30-B4ED-EA6218CFED5F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "879F435752D7EBF9EA3CDE027897ACC6E97CF411" : "TestDesign\/",
+    "C7429526A73E831E778100C0C840AD684BCFBDEB" : "TestDesign\/FINALPROJECT\/TestDesign\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "DesignTest",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "DesignTest.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Wellpardim\/ProjetoMobile.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "879F435752D7EBF9EA3CDE027897ACC6E97CF411"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Wellpardim\/TestDesign.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C7429526A73E831E778100C0C840AD684BCFBDEB"
+    }
+  ]
+}
