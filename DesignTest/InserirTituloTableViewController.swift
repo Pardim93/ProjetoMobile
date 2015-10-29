@@ -74,12 +74,12 @@ class InserirTituloTableViewController: UITableViewController{
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let row = indexPath.row
         if (row == 0){
-            return 130
+            return 160
         } else{
             if (row == 1){
                 return 275
             } else{
-                return 150
+                return 140
             }
         }
     }

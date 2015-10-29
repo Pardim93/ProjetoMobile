@@ -10,22 +10,22 @@ import UIKit
 
 class TituloTableViewCell: UITableViewCell, UITextFieldDelegate {
     
-    @IBOutlet weak var titulo: UITextField!
+    @IBOutlet weak var descricaoTextView: InserirTextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        titulo.layer.borderWidth = 0.3
-        titulo.layer.masksToBounds = true
-        titulo.layer.cornerRadius = 8
-        titulo.placeholder = "Uma breve descrição do seu exercício.\nExemplo: Analisar trecho do livro 'A hora da estrela', de Clarisse Lispector."
+        descricaoTextView.limitHeight = 80
+        descricaoTextView.enableScroll = true
+        descricaoTextView.limitChar = 400
+        descricaoTextView.placeholder = "Uma breve descrição do seu exercício.\nExemplo: Analisar trecho do livro 'A hora da estrela', de Clarisse Lispector."
     }
     
 //    MARK: CheckConteudo
     func tituloValido() -> Bool{
-        titulo.layer.borderColor = UIColor.redColor().CGColor
+        descricaoTextView.layer.borderColor = UIColor.redColor().CGColor
         
-        guard let text = self.titulo.text else{
+        guard let text = self.descricaoTextView.text else{
             return false
         }
         
@@ -38,7 +38,7 @@ class TituloTableViewCell: UITableViewCell, UITextFieldDelegate {
             return false
         }
         
-        titulo.layer.borderColor = UIColor.blackColor().CGColor
+        descricaoTextView.layer.borderColor = UIColor.blackColor().CGColor
         return true
     }
     

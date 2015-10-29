@@ -57,6 +57,7 @@
 		24A20C8E1B8D034B00DC8482 /* ExercicioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A20C8D1B8D034B00DC8482 /* ExercicioViewController.swift */; };
 		24A20FA31B97695500FD2A30 /* UpdateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A20FA21B97695500FD2A30 /* UpdateTableViewController.swift */; };
 		24A418661B9778C0007E97F1 /* ModelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A418651B9778C0007E97F1 /* ModelList.swift */; };
+		24B4CCBB1BE294E700DBDDDD /* CellTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B4CCBA1BE294E700DBDDDD /* CellTextView.swift */; };
 		24BF93BD1BD817A70085DBD8 /* InserirProvaTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF93BC1BD817A70085DBD8 /* InserirProvaTabBarViewController.swift */; };
 		24BF93BF1BD819B40085DBD8 /* InserirTituloProvaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF93BE1BD819B40085DBD8 /* InserirTituloProvaTableViewController.swift */; };
 		24C1BCCF1B8B864F00119539 /* AjustesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C1BCCE1B8B864F00119539 /* AjustesTableViewController.swift */; };
@@ -158,6 +159,7 @@
 		24A20C8D1B8D034B00DC8482 /* ExercicioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExercicioViewController.swift; path = DesignTest/ExercicioViewController.swift; sourceTree = "<group>"; };
 		24A20FA21B97695500FD2A30 /* UpdateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTableViewController.swift; sourceTree = "<group>"; };
 		24A418651B9778C0007E97F1 /* ModelList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelList.swift; sourceTree = "<group>"; };
+		24B4CCBA1BE294E700DBDDDD /* CellTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellTextView.swift; sourceTree = "<group>"; };
 		24BF93BC1BD817A70085DBD8 /* InserirProvaTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InserirProvaTabBarViewController.swift; sourceTree = "<group>"; };
 		24BF93BE1BD819B40085DBD8 /* InserirTituloProvaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InserirTituloProvaTableViewController.swift; sourceTree = "<group>"; };
 		24C1BCCE1B8B864F00119539 /* AjustesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AjustesTableViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			children = (
 				240DB1D71BE149CA00654178 /* InserirQuestaoTableViewCell.swift */,
 				240DB1D81BE149CA00654178 /* InserirQuestaoTableViewCell.xib */,
+				24B4CCBA1BE294E700DBDDDD /* CellTextView.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -776,6 +779,7 @@
 				2488995C1BA74624000CCA21 /* AmigosViewController.swift in Sources */,
 				240DB1D91BE149CA00654178 /* InserirQuestaoTableViewCell.swift in Sources */,
 				248899621BA756A6000CCA21 /* Questao_registro.swift in Sources */,
+				24B4CCBB1BE294E700DBDDDD /* CellTextView.swift in Sources */,
 				248899611BA756A6000CCA21 /* Registro.swift in Sources */,
 				24C1BCCF1B8B864F00119539 /* AjustesTableViewController.swift in Sources */,
 				2488995A1BA73B33000CCA21 /* ProvasCollectionViewCell.swift in Sources */,
