@@ -137,7 +137,8 @@ class ParseManager: NSObject {
 //    MARK: QUESTÃO GET
     func getQuestoesByKeyword(keyword: String, completionHandler: (ParseManager, NSArray, NSError?) -> ()){
         let query = PFQuery(className: "Questao")
-        query.whereKey("Tags", containedIn: [keyword])
+        query.whereKey("Tags", containedIn: [keyword.simpleString()])
+        query.orderByDescending("TimesUsed")
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             var erro: NSError?
@@ -206,7 +207,7 @@ class ParseManager: NSObject {
         return questao
         
         //        let enunciado = questao.objectForKey("Enunciado") as! String
-        //        let titulo = questao.objectForKey("Titulo") as! String
+        //        let titulo = questao.objectForKey("Descricao") as! String
         //        let img = questao.objectForKey("Imagem") as? UIImage
         //
         //        let arrayAlternativas = NSMutableArray()
@@ -243,8 +244,18 @@ class ParseManager: NSObject {
         questao.setObject(PFUser.currentUser()!, forKey: "Dono")
         questao.setObject(titulo, forKey: "Descricao")
         questao.setObject(disciplina, forKey: "Disciplina")
-        questao.setObject(tags, forKey: "Tags")
         questao.setObject(enunciado, forKey: "Enunciado")
+        
+        var tagsLowerCase: [String] = []
+        
+        for obj in tags{
+            let newTag = obj.simpleString()
+            tagsLowerCase.append(newTag)
+        }
+        
+        tagsLowerCase.append(disciplina.simpleString())
+        
+        questao.setObject(tagsLowerCase, forKey: "Tags")
         
         //        let patterImage = UIImage(named: "Login4")
         //        if (img != patterImage){

@@ -47,3 +47,9 @@ extension UINavigationController{
         self.presentViewController(alertController, animated: true, completion: nil)
     }
 }
+
+extension String{
+    func simpleString() -> String{
+        return self.lowercaseString.stringByFoldingWithOptions(.DiacriticInsensitiveSearch, locale: NSLocale.currentLocale())
+    }
+}

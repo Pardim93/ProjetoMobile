@@ -70,6 +70,10 @@ class InserirProvaTabBarViewController: UITabBarController {
         self.selectedViewController = self.viewControllers![proxView]
         self.segmented.selectedSegmentIndex = proxView
     }
+    
+    func saveEx(){
+        print("Salvar")
+    }
 
 //    MARK: Segmented
     func changeView(){

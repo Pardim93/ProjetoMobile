@@ -176,7 +176,7 @@ class InserirExTabBarViewController: UITabBarController {
         let disciplinaCell = view.arrayCell.objectAtIndex(1) as! DisciplinaTableViewCell
         let palavrasChaveCell = view.arrayCell.objectAtIndex(2) as! PalavrasChaveTableViewCell
         
-        let titulo = tituloCell.titulo.text!
+        let titulo = tituloCell.descricaoTextView.text!
         let disciplina = disciplinaCell.getDisciplina()
         let palavrasChave = palavrasChaveCell.getPalavrasChave()
         

@@ -12,7 +12,7 @@ class InserirTextView: UITextView, UITextViewDelegate {
     
     var placeHolderActive = true
     var placeholder = ""
-    var limitChar = 0
+    var limitChar = 400
     var limitHeight: CGFloat = 0
     var enableScroll = false
     
@@ -129,7 +129,7 @@ class InserirTextView: UITextView, UITextViewDelegate {
         
         scrollEnabled =  false
         
-        return (((newText.length <= limitChar) && (self.contentSize.height < self.limitHeight)) || (text == ""))
+        return (((newText.length <= limitChar) && (self.contentSize.height <= self.limitHeight)) || (text == ""))
     }
     
     func makeRed(){

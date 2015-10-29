@@ -16,19 +16,13 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tituloCell" rowHeight="130" id="UK3-N7-TXS" customClass="TituloTableViewCell" customModule="DesignTest" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tituloCell" rowHeight="203" id="UK3-N7-TXS" customClass="TituloTableViewCell" customModule="DesignTest" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="600" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UK3-N7-TXS" id="Byi-26-QLB">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="129.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Descrição da questão" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AdB-NY-Kdm">
-                                            <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                            <animations/>
-                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrição" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTy-UF-9qO">
                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                             <animations/>
@@ -49,53 +43,59 @@
                                                 </mask>
                                             </variation>
                                         </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dIb-ZC-lXl" customClass="InserirTextView" customModule="DesignTest" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
                                     </subviews>
                                     <animations/>
                                     <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="dIb-ZC-lXl" secondAttribute="trailing" constant="30" id="3TM-Qk-rFV"/>
                                         <constraint firstItem="WTy-UF-9qO" firstAttribute="top" secondItem="Byi-26-QLB" secondAttribute="topMargin" constant="5" id="5Yh-sT-n9v"/>
                                         <constraint firstItem="WTy-UF-9qO" firstAttribute="leading" secondItem="Byi-26-QLB" secondAttribute="leadingMargin" constant="-8" id="9si-uY-YcT"/>
                                         <constraint firstItem="WTy-UF-9qO" firstAttribute="top" secondItem="Byi-26-QLB" secondAttribute="topMargin" constant="5" id="Fcc-C5-yr5"/>
-                                        <constraint firstItem="AdB-NY-Kdm" firstAttribute="top" secondItem="WTy-UF-9qO" secondAttribute="bottom" constant="10" id="LFG-wN-tMy">
-                                            <variation key="heightClass=regular-widthClass=compact" constant="20"/>
-                                        </constraint>
+                                        <constraint firstItem="dIb-ZC-lXl" firstAttribute="top" secondItem="WTy-UF-9qO" secondAttribute="bottom" constant="10" id="Lh2-Gk-BQ7"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="WTy-UF-9qO" secondAttribute="trailing" constant="-8" id="bhW-RG-3WV"/>
-                                        <constraint firstItem="AdB-NY-Kdm" firstAttribute="leading" secondItem="Byi-26-QLB" secondAttribute="leadingMargin" constant="30" id="jtl-Nk-IRE"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="AdB-NY-Kdm" secondAttribute="trailing" constant="30" id="tte-fF-OEw"/>
+                                        <constraint firstItem="dIb-ZC-lXl" firstAttribute="leading" secondItem="Byi-26-QLB" secondAttribute="leadingMargin" constant="30" id="eQ4-7N-ZX0"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="subviews">
-                                            <exclude reference="AdB-NY-Kdm"/>
                                             <exclude reference="WTy-UF-9qO"/>
+                                            <exclude reference="dIb-ZC-lXl"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="LFG-wN-tMy"/>
-                                            <exclude reference="jtl-Nk-IRE"/>
-                                            <exclude reference="tte-fF-OEw"/>
                                             <exclude reference="5Yh-sT-n9v"/>
                                             <exclude reference="9si-uY-YcT"/>
                                             <exclude reference="Fcc-C5-yr5"/>
                                             <exclude reference="bhW-RG-3WV"/>
+                                            <exclude reference="3TM-Qk-rFV"/>
+                                            <exclude reference="Lh2-Gk-BQ7"/>
+                                            <exclude reference="eQ4-7N-ZX0"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
                                         <mask key="subviews">
-                                            <include reference="AdB-NY-Kdm"/>
                                             <include reference="WTy-UF-9qO"/>
+                                            <include reference="dIb-ZC-lXl"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="LFG-wN-tMy"/>
-                                            <include reference="jtl-Nk-IRE"/>
-                                            <include reference="tte-fF-OEw"/>
                                             <include reference="5Yh-sT-n9v"/>
                                             <include reference="9si-uY-YcT"/>
                                             <exclude reference="Fcc-C5-yr5"/>
                                             <include reference="bhW-RG-3WV"/>
+                                            <include reference="3TM-Qk-rFV"/>
+                                            <include reference="Lh2-Gk-BQ7"/>
+                                            <include reference="eQ4-7N-ZX0"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <outlet property="titulo" destination="AdB-NY-Kdm" id="kJt-li-Jfx"/>
+                                    <outlet property="descricaoTextView" destination="dIb-ZC-lXl" id="74t-Ld-cC8"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="disciplinaCell" rowHeight="275" id="BQH-6O-jha" customClass="DisciplinaTableViewCell" customModule="DesignTest" customModuleProvider="target">
