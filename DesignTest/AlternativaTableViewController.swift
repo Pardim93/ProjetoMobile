@@ -117,7 +117,11 @@ class AlternativaTableViewController: UITableViewController  {
         
         
         cell.labelResposta.text = (String( UnicodeScalar ( 65 + indexPath.row)))
-
+        cell.textViewResposta.layer.borderColor = UIColor.blueColor().colorWithAlphaComponent(0.5).CGColor
+        cell.textViewResposta.layer.borderWidth = 0.5
+        cell.textViewResposta.layer.cornerRadius = 6
+        cell.textViewResposta.clipsToBounds = true
+      
     
         
         if (arrayCell.count < 5) {
@@ -146,6 +150,8 @@ class AlternativaTableViewController: UITableViewController  {
     
         
         selected = arrayCell.objectAtIndex(indexPath.row) as? PerguntasTableViewCell
+        
+        
         
         questoesManager.adicionaResposta((selected?.textViewResposta.text)!, index: questoesManager.contRespostas)
         
