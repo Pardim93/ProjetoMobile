@@ -25,8 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        self.beginProvas()
 //        self.beginProva()
 //        self.beginFinishRegistro()
-        self.verifyLogin()
+//        self.verifyLogin()
 //        self.beginInserir()
+        self.beginAvaliarPerguntas()
         
         //Facebook
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
@@ -144,6 +145,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                let registroView = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("RegistroViewController") as! RegistroViewController
 //            }
         }
+    }
+    
+    func beginAvaliarPerguntas(){
+        let newStoryboard = UIStoryboard(name: "AvaliarPerguntas", bundle: nil)
+        self.window?.rootViewController = newStoryboard.instantiateInitialViewController()
+
     }
     
     func beginFinishRegistro(){
