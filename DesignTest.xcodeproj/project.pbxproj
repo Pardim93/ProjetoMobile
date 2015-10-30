@@ -25,6 +25,9 @@
 		24175F9E1BB5EB7E0064C048 /* PalavrasChaveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24175F9D1BB5EB7E0064C048 /* PalavrasChaveTableViewCell.swift */; };
 		2422E4C91B96268D00ACEE90 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2422E4C81B96268D00ACEE90 /* CustomTextField.swift */; };
 		2424D07F1BB09486002290C3 /* RecuperarSenhaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2424D07E1BB09486002290C3 /* RecuperarSenhaViewController.swift */; };
+		242C9B1D1BE3E4FF004AD703 /* VerQuestaoTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C9B1C1BE3E4FF004AD703 /* VerQuestaoTabBarViewController.swift */; };
+		242C9B1F1BE3E7AA004AD703 /* VerAlternativasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C9B1E1BE3E7AA004AD703 /* VerAlternativasTableViewController.swift */; };
+		242C9B211BE3EAE2004AD703 /* VerQuestaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C9B201BE3EAE2004AD703 /* VerQuestaoViewController.swift */; };
 		242D253D1BB5D786007450C2 /* InserirTituloTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242D253C1BB5D786007450C2 /* InserirTituloTableViewController.swift */; };
 		244BB5161BC4376A001BD0ED /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244BB5151BC4376A001BD0ED /* FacebookManager.swift */; };
 		244BB5181BC459BE001BD0ED /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244BB5171BC459BE001BD0ED /* LoginManager.swift */; };
@@ -125,6 +128,9 @@
 		24175F9D1BB5EB7E0064C048 /* PalavrasChaveTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalavrasChaveTableViewCell.swift; sourceTree = "<group>"; };
 		2422E4C81B96268D00ACEE90 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		2424D07E1BB09486002290C3 /* RecuperarSenhaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecuperarSenhaViewController.swift; sourceTree = "<group>"; };
+		242C9B1C1BE3E4FF004AD703 /* VerQuestaoTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerQuestaoTabBarViewController.swift; sourceTree = "<group>"; };
+		242C9B1E1BE3E7AA004AD703 /* VerAlternativasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerAlternativasTableViewController.swift; sourceTree = "<group>"; };
+		242C9B201BE3EAE2004AD703 /* VerQuestaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerQuestaoViewController.swift; sourceTree = "<group>"; };
 		242D253C1BB5D786007450C2 /* InserirTituloTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InserirTituloTableViewController.swift; sourceTree = "<group>"; };
 		244BB5151BC4376A001BD0ED /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
 		244BB5171BC459BE001BD0ED /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
@@ -267,6 +273,16 @@
 			name = TituloCells;
 			sourceTree = "<group>";
 		};
+		242C9B1B1BE3E4D6004AD703 /* Visualizar Questão */ = {
+			isa = PBXGroup;
+			children = (
+				242C9B1C1BE3E4FF004AD703 /* VerQuestaoTabBarViewController.swift */,
+				242C9B1E1BE3E7AA004AD703 /* VerAlternativasTableViewController.swift */,
+				242C9B201BE3EAE2004AD703 /* VerQuestaoViewController.swift */,
+			);
+			name = "Visualizar Questão";
+			sourceTree = "<group>";
+		};
 		244C2FC41BB1BF67008E3BE1 /* Inserir Exercicio */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +389,7 @@
 		24BF93BB1BD8178C0085DBD8 /* Inserir Prova */ = {
 			isa = PBXGroup;
 			children = (
+				242C9B1B1BE3E4D6004AD703 /* Visualizar Questão */,
 				240DB1D61BE149AB00654178 /* Cell */,
 				24BF93BC1BD817A70085DBD8 /* InserirProvaTabBarViewController.swift */,
 				24BF93BE1BD819B40085DBD8 /* InserirTituloProvaTableViewController.swift */,
@@ -719,6 +736,7 @@
 				248E4A1E1BB4761100C6E0CD /* InserirExTabBarViewController.swift in Sources */,
 				244C2FC81BB1C9A2008E3BE1 /* InserirTextView.swift in Sources */,
 				529C68651BDFFAFE001BE3CE /* AvaliacaoQuestoesTableViewController.swift in Sources */,
+				242C9B1D1BE3E4FF004AD703 /* VerQuestaoTabBarViewController.swift in Sources */,
 				245095EF1BD7F1E700E5E468 /* TrocarInfoTableViewController.swift in Sources */,
 				5243FBD91BD2F74800462071 /* PopUpViewController.swift in Sources */,
 				249322A41BA33DD3005579DD /* PerfilTableViewController.swift in Sources */,
@@ -732,6 +750,7 @@
 				24CA658F1BBF0E7B002CBCCD /* ImagemTableViewCell.swift in Sources */,
 				24E088991BA1ED450025E2E6 /* ProvaTableViewController.swift in Sources */,
 				24BF93BF1BD819B40085DBD8 /* InserirTituloProvaTableViewController.swift in Sources */,
+				242C9B211BE3EAE2004AD703 /* VerQuestaoViewController.swift in Sources */,
 				527763C61BB30E4B003B037D /* NavigationControllerAlternativas.swift in Sources */,
 				2406630F1BD17C6C007032F3 /* Colors.swift in Sources */,
 				248899651BA757FA000CCA21 /* CoreDataManager.swift in Sources */,
@@ -739,6 +758,7 @@
 				24093D481BBC5D540099823C /* CustomActivityView.swift in Sources */,
 				2483237C1B8F806500D7FC14 /* ParseManager.swift in Sources */,
 				24CA65871BBF0992002CBCCD /* Enums.swift in Sources */,
+				242C9B1F1BE3E7AA004AD703 /* VerAlternativasTableViewController.swift in Sources */,
 				2405E3321B7E55000091FAFC /* SWRevealViewController.m in Sources */,
 				244BB5181BC459BE001BD0ED /* LoginManager.swift in Sources */,
 				246B149B1B90E140009DF283 /* CustomNavigationViewController.swift in Sources */,

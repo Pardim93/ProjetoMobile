@@ -17,7 +17,7 @@
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdX-7q-Z1M" customClass="CellTextView" customModule="DesignTest" customModuleProvider="target">
                         <rect key="frame" x="38" y="18" width="266" height="80"/>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="80" id="Srj-ye-mU0"/>
                         </constraints>
@@ -25,43 +25,62 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9A-r6-i8k">
-                        <rect key="frame" x="38" y="126" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disciplina" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rN3-qG-gWW">
+                        <rect key="frame" x="38" y="115" width="65" height="31"/>
                         <animations/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Disciplina" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rN3-qG-gWW">
-                        <rect key="frame" x="238" y="126" width="42" height="21"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cS-Lm-9WC" customClass="ZFRippleButton" customModule="DesignTest" customModuleProvider="target">
+                        <rect key="frame" x="220" y="115" width="84" height="31"/>
                         <animations/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                        <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                        <state key="normal" title="Adicionar">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="rippleBackgroundColor">
+                                <color key="value" red="0.0" green="0.4784313738" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
+                                <color key="value" red="0.058823529630000003" green="0.23137255009999999" blue="0.37254902719999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="rippleOverBounds" value="NO"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="shadowRippleEnable" value="NO"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="trackTouchLocation" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </button>
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstItem="P9A-r6-i8k" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="30" id="5e9-sX-I75"/>
+                    <constraint firstItem="7cS-Lm-9WC" firstAttribute="top" secondItem="rN3-qG-gWW" secondAttribute="top" id="2Rb-a2-AeK"/>
+                    <constraint firstItem="7cS-Lm-9WC" firstAttribute="trailing" secondItem="jdX-7q-Z1M" secondAttribute="trailing" id="AgX-yV-12s"/>
                     <constraint firstItem="jdX-7q-Z1M" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="EMU-5G-DeH"/>
                     <constraint firstItem="jdX-7q-Z1M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="30" id="G4H-oQ-mBd"/>
+                    <constraint firstItem="rN3-qG-gWW" firstAttribute="leading" secondItem="jdX-7q-Z1M" secondAttribute="leading" id="GjH-7M-wGO"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="rN3-qG-gWW" secondAttribute="bottom" constant="5" id="OCZ-wp-2pr"/>
                     <constraint firstAttribute="trailingMargin" secondItem="rN3-qG-gWW" secondAttribute="trailing" constant="30" id="RHd-uW-zSX"/>
+                    <constraint firstItem="7cS-Lm-9WC" firstAttribute="bottom" secondItem="rN3-qG-gWW" secondAttribute="bottom" id="UxP-S1-FMg"/>
                     <constraint firstAttribute="trailingMargin" secondItem="jdX-7q-Z1M" secondAttribute="trailing" constant="30" id="cME-IZ-egt"/>
                     <constraint firstAttribute="bottomMargin" secondItem="jdX-7q-Z1M" secondAttribute="bottom" constant="10" id="esl-Nv-EMg"/>
                     <constraint firstAttribute="bottomMargin" secondItem="rN3-qG-gWW" secondAttribute="bottom" constant="5" id="tDd-yF-2vk"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="P9A-r6-i8k" secondAttribute="bottom" constant="5" id="vqm-yb-mcJ"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
                         <exclude reference="esl-Nv-EMg"/>
+                        <exclude reference="RHd-uW-zSX"/>
+                        <exclude reference="tDd-yF-2vk"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <animations/>
             <connections>
+                <outlet property="adicionarButton" destination="7cS-Lm-9WC" id="kwc-Aq-LWL"/>
                 <outlet property="descricaoTextView" destination="jdX-7q-Z1M" id="NFF-zU-6VK"/>
                 <outlet property="disciplinaLabel" destination="rN3-qG-gWW" id="Y2F-Mc-Jos"/>
-                <outlet property="timesUsedLabel" destination="P9A-r6-i8k" id="gMB-z1-fsL"/>
             </connections>
             <point key="canvasLocation" x="975" y="573"/>
         </tableViewCell>

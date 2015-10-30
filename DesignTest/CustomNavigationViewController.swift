@@ -40,6 +40,7 @@ class CustomNavigationViewController: UINavigationController {
     }
 }
 
+//Mostrar alertas na view
 extension UINavigationController{
     func showAlert(mensagem: String){
         let alertController = UIAlertController(title: "Simulandos", message: mensagem, preferredStyle: UIAlertControllerStyle.Alert)
@@ -48,6 +49,7 @@ extension UINavigationController{
     }
 }
 
+//Transformar a string para lowerCase e remover acentos
 extension String{
     func simpleString() -> String{
         return self.lowercaseString.stringByFoldingWithOptions(.DiacriticInsensitiveSearch, locale: NSLocale.currentLocale())

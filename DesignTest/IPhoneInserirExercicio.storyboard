@@ -17,10 +17,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tituloCell" rowHeight="203" id="UK3-N7-TXS" customClass="TituloTableViewCell" customModule="DesignTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="130"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="203"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UK3-N7-TXS" id="Byi-26-QLB">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="129.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="202.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrição" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTy-UF-9qO">
@@ -99,7 +99,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="disciplinaCell" rowHeight="275" id="BQH-6O-jha" customClass="DisciplinaTableViewCell" customModule="DesignTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="158" width="600" height="275"/>
+                                <rect key="frame" x="0.0" y="231" width="600" height="275"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BQH-6O-jha" id="wZT-Jw-d3B">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="274.5"/>
@@ -180,7 +180,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="palavrasChaveCell" rowHeight="200" id="CeD-jf-bxf" customClass="PalavrasChaveTableViewCell" customModule="DesignTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="433" width="600" height="200"/>
+                                <rect key="frame" x="0.0" y="506" width="600" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CeD-jf-bxf" id="V8A-Ee-aAw">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
@@ -424,7 +424,7 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="trackTouchLocation" value="YES"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="rippleOverBounds" value="NO"/>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="rippleBackgroundColor">
-                                                    <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="value" red="0.0" green="0.47843137383460999" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>

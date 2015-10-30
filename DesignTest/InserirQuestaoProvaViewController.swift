@@ -130,7 +130,11 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("newCell", forIndexPath: indexPath) as! InserirQuestaoTableViewCell
         
-        cell.questao = filtered.objectAtIndex(indexPath.row) as! PFObject
+        guard let newQuestao = filtered.objectAtIndex(indexPath.row) as? PFObject else{
+            return cell
+        }
+        
+        cell.questao = newQuestao
         cell.setInfo()
         cell.descricaoTextView.customDelegate = self
         cell.descricaoTextView.cellRow = indexPath.row
@@ -148,6 +152,13 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.view.endEditing(true)
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        
+        guard let newQuestao = filtered.objectAtIndex(indexPath.row) as? PFObject else{
+            return
+        }
+        
+        self.prepareGoToQuestao(newQuestao)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -157,7 +168,52 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
 //    MARK: Delegate
     func finishEdit(cellRow: Int) {
         self.view.endEditing(true)
-        self.tableView.selectRowAtIndexPath(NSIndexPath(forRow: cellRow, inSection: 0), animated: false, scrollPosition: UITableViewScrollPosition.None)
+        
+        self.tableView.selectRowAtIndexPath(NSIndexPath(forRow: cellRow, inSection: 1), animated: false, scrollPosition: UITableViewScrollPosition.None)
+        self.tableView.deselectRowAtIndexPath(NSIndexPath(forRow: cellRow, inSection: 1), animated: false)
+        
+        guard let newQuestao = filtered.objectAtIndex(cellRow) as? PFObject else{
+            return
+        }
+        
+        self.prepareGoToQuestao(newQuestao)
+    }
+    
+//    MARK: Prepare To Change View
+    func prepareGoToQuestao(questao: PFObject){
+        self.disabeView()
+        
+        self.getImg(questao){(registerManager, newImg) -> () in
+            self.enableView()
+            self.goToQuestao(questao, img: newImg)
+        }
+    }
+    
+    func getImg(questao: PFObject, completionHandler:(InserirQuestaoProvaViewController, UIImage?)->()){
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var img: UIImage?
+            
+            guard let newImage = questao.objectForKey("Imagem") as? PFFile else{
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(self, img)
+                })
+                return
+            }
+            
+            guard let newData = newImage.getData() else{
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(self, img)
+                })
+                return
+            }
+            
+            img = UIImage(data: newData)
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                completionHandler(self, img)
+            })
+            return
+        })
     }
     
 //    MARK: View
@@ -174,6 +230,16 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesBegan(touches, withEvent: event)
         self.view.endEditing(true)
+    }
+    
+//    MARK: Navigation
+    func goToQuestao(questao: PFObject, img: UIImage?){
+        
+        let newTabBar = self.storyboard?.instantiateViewControllerWithIdentifier("verExTabBar") as! VerQuestaoTabBarViewController
+        newTabBar.questao = questao
+        newTabBar.img = img
+        
+        self.navigationController?.pushViewController(newTabBar, animated: true)
     }
     
 }

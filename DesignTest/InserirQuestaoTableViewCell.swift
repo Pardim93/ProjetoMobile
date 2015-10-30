@@ -11,9 +11,8 @@ import UIKit
 class InserirQuestaoTableViewCell: UITableViewCell{
     
     @IBOutlet weak var descricaoTextView: CellTextView!
-    @IBOutlet weak var timesUsedLabel: UILabel!
     @IBOutlet weak var disciplinaLabel: UILabel!
-    
+    @IBOutlet weak var adicionarButton: ZFRippleButton!
     
     var questao: PFObject?
     
@@ -21,6 +20,7 @@ class InserirQuestaoTableViewCell: UITableViewCell{
         super.awakeFromNib()
         
 //        self.setDescricao()
+        self.configAddButton()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -30,9 +30,22 @@ class InserirQuestaoTableViewCell: UITableViewCell{
     }
     
 //    Config
+    func configTextView(){
+        self.descricaoTextView.layer.borderWidth = 0.3
+        self.descricaoTextView.layer.cornerRadius = 5
+        self.descricaoTextView.font = UIFont(name: "Avenir Book", size: 15)
+        self.descricaoTextView.userInteractionEnabled = true
+    }
+    
+    func configAddButton(){
+        self.adicionarButton.layer.cornerRadius = 5
+        self.adicionarButton.layer.borderWidth = 0.5
+        self.adicionarButton.layer.borderColor = UIColor.clearColor().CGColor
+    }
+    
+//    MARK: Set
     func setInfo(){
         self.setDescricao()
-        self.setTimesUsed()
         self.setDisciplina()
     }
     
@@ -46,29 +59,16 @@ class InserirQuestaoTableViewCell: UITableViewCell{
         self.configTextView()
     }
     
-    func setTimesUsed(){
-        guard let timesUsed = questao!.objectForKey("TimesUsed") as? NSNumber else{
-            timesUsedLabel.text = "?"
-            return
-        }
-        
-        timesUsedLabel.text = "Usada: \(timesUsed) vezes!"
-    }
-    
     func setDisciplina(){
         guard let disciplina = questao!.objectForKey("Disciplina") as? String else{
             disciplinaLabel.text = "?"
             return
         }
         
-        disciplinaLabel.text = disciplina
-    }
-    
-    func configTextView(){
-        self.descricaoTextView.layer.borderWidth = 0.3
-        self.descricaoTextView.layer.cornerRadius = 5
-        self.descricaoTextView.font = UIFont(name: "Avenir Book", size: 15)
-        self.descricaoTextView.textColor = UIColor.newBlueColor()
-        self.descricaoTextView.userInteractionEnabled = true
+        let underlineAttribute = [NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue]
+        let underlineAttributedString = NSAttributedString(string: disciplina, attributes: underlineAttribute)
+        disciplinaLabel.attributedText = underlineAttributedString
+        
+        self.disciplinaLabel.font = UIFont(name: "Avenir Book", size: 15)
     }
 }
