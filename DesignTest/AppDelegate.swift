@@ -25,9 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        self.beginProvas()
 //        self.beginProva()
 //        self.beginFinishRegistro()
-//        self.verifyLogin()
+        self.verifyLogin()
 //        self.beginInserir()
-        self.beginAvaliarPerguntas()
         
         //Facebook
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
