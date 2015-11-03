@@ -46,6 +46,7 @@
 		246F29BD1BA0B9A6007C9F73 /* IPhoneLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 246F29BC1BA0B9A6007C9F73 /* IPhoneLogin.storyboard */; };
 		246F29BF1BA0C90B007C9F73 /* IPhoneProva.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 246F29BE1BA0C90B007C9F73 /* IPhoneProva.storyboard */; };
 		2483237C1B8F806500D7FC14 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483237B1B8F806500D7FC14 /* ParseManager.swift */; };
+		24862C0F1BE90E640082FF72 /* IPhoneInserirExercicio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24862C0E1BE90E640082FF72 /* IPhoneInserirExercicio.storyboard */; };
 		2488995A1BA73B33000CCA21 /* ProvasCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248899591BA73B33000CCA21 /* ProvasCollectionViewCell.swift */; };
 		2488995C1BA74624000CCA21 /* AmigosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488995B1BA74624000CCA21 /* AmigosViewController.swift */; };
 		2488995E1BA750AC000CCA21 /* ExerciciosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488995D1BA750AC000CCA21 /* ExerciciosViewController.swift */; };
@@ -158,6 +159,7 @@
 		246F29BC1BA0B9A6007C9F73 /* IPhoneLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneLogin.storyboard; sourceTree = "<group>"; };
 		246F29BE1BA0C90B007C9F73 /* IPhoneProva.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneProva.storyboard; sourceTree = "<group>"; };
 		2483237B1B8F806500D7FC14 /* ParseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
+		24862C0E1BE90E640082FF72 /* IPhoneInserirExercicio.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneInserirExercicio.storyboard; sourceTree = "<group>"; };
 		248899591BA73B33000CCA21 /* ProvasCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvasCollectionViewCell.swift; sourceTree = "<group>"; };
 		2488995B1BA74624000CCA21 /* AmigosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmigosViewController.swift; sourceTree = "<group>"; };
 		2488995D1BA750AC000CCA21 /* ExerciciosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciciosViewController.swift; path = DesignTest/ExerciciosViewController.swift; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 				249322A11BA33DA3005579DD /* IPhonePerfil.storyboard */,
 				52BE35CA1BBC55830092042D /* IPhoneListaProvas.storyboard */,
 				2406630C1BD1627D007032F3 /* IPhoneInserirProva.storyboard */,
+				24862C0E1BE90E640082FF72 /* IPhoneInserirExercicio.storyboard */,
 				24EE26F11BC2ED2800E0AB6A /* IPhoneRegistros.storyboard */,
 				24EE26F31BC2ED8500E0AB6A /* IPhoneListaExercicios.storyboard */,
 				24EE26F61BC2EE3700E0AB6A /* IPhoneAmigos.storyboard */,
@@ -695,6 +698,7 @@
 				52514CFE1BD3078F006289B2 /* PopUpViewController_iPad.xib in Resources */,
 				2406630D1BD1627D007032F3 /* IPhoneInserirProva.storyboard in Resources */,
 				246F29BF1BA0C90B007C9F73 /* IPhoneProva.storyboard in Resources */,
+				24862C0F1BE90E640082FF72 /* IPhoneInserirExercicio.storyboard in Resources */,
 				240DB1DA1BE149CA00654178 /* InserirQuestaoTableViewCell.xib in Resources */,
 				5297600A1BE3F13F00DB551D /* AvaliarPerguntas.storyboard in Resources */,
 				2405E32D1B7E54320091FAFC /* IPad.storyboard in Resources */,
