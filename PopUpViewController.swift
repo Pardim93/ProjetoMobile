@@ -33,7 +33,7 @@ class PopUpViewController: UIViewController {
     
     func showInView(aView: UIView!, withImage image : UIImage!, withMessage message: String!, animated: Bool){
         aView.addSubview(self.view)
-        logoImg.contentMode = .ScaleToFill
+        logoImg.contentMode = .ScaleAspectFit
         logoImg!.image = image
         messageLabel!.text = message
         if animated

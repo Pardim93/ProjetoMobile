@@ -25,7 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        self.beginProvas()
 //        self.beginProva()
 //        self.beginFinishRegistro()
-        self.verifyLogin()
+//        self.verifyLogin()
+        self.beginAvaliacao()
+        
 //        self.beginInserir()
         
         //Facebook
@@ -157,11 +159,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = newStoryboard.instantiateViewControllerWithIdentifier("RegistroViewController")
     }
     
-    func beginProva(){
-        let newStoryboard = UIStoryboard(name: "IPhoneProva", bundle: nil)
+
+    func beginAvaliacao(){
+        let newStoryboard = UIStoryboard(name: "AvaliacaoExercicios", bundle: nil)
         self.window?.rootViewController = newStoryboard.instantiateInitialViewController()
     }
-    
     func beginProvas(){
         let newStoryboard = UIStoryboard(name: "iPhoneProvas", bundle: nil)
         self.window?.rootViewController = newStoryboard.instantiateInitialViewController()

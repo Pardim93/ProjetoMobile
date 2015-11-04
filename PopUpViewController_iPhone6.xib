@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -19,11 +19,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FvE-39-pUU">
-                    <rect key="frame" x="27" y="48" width="320" height="479"/>
+                    <rect key="frame" x="27" y="144" width="320" height="346"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ddu-ny-h6P">
-                            <rect key="frame" x="8" y="64" width="304" height="382"/>
-                        </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="243" translatesAutoresizingMaskIntoConstraints="NO" id="d9y-sm-xub">
                             <rect key="frame" x="72" y="8" width="176" height="56"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -43,6 +40,9 @@
                                 <action selector="closePopup:" destination="-1" eventType="touchUpInside" id="h7o-1k-CN6"/>
                             </connections>
                         </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ddu-ny-h6P">
+                            <rect key="frame" x="8" y="64" width="304" height="262"/>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <constraints>
@@ -55,7 +55,7 @@
                         <constraint firstItem="ddu-ny-h6P" firstAttribute="centerX" secondItem="d9y-sm-xub" secondAttribute="centerX" id="UBL-hN-ShT"/>
                         <constraint firstItem="moA-sG-w9U" firstAttribute="top" secondItem="FvE-39-pUU" secondAttribute="top" constant="9" id="hU0-nL-Do5"/>
                         <constraint firstItem="ddu-ny-h6P" firstAttribute="leading" secondItem="FvE-39-pUU" secondAttribute="leadingMargin" id="mxL-ND-xpF"/>
-                        <constraint firstAttribute="bottom" secondItem="ddu-ny-h6P" secondAttribute="bottom" constant="33" id="rhB-LS-eQ1"/>
+                        <constraint firstAttribute="bottom" secondItem="ddu-ny-h6P" secondAttribute="bottom" constant="20" id="rhB-LS-eQ1"/>
                         <constraint firstItem="ddu-ny-h6P" firstAttribute="top" secondItem="moA-sG-w9U" secondAttribute="bottom" constant="27" id="sUb-HC-3Qo"/>
                     </constraints>
                 </view>
@@ -63,9 +63,9 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="FvE-39-pUU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="27" id="DgS-6O-XMA"/>
-                <constraint firstAttribute="bottom" secondItem="FvE-39-pUU" secondAttribute="bottom" constant="140" id="R7c-Ki-eQd"/>
+                <constraint firstAttribute="bottom" secondItem="FvE-39-pUU" secondAttribute="bottom" constant="177" id="R7c-Ki-eQd"/>
                 <constraint firstItem="FvE-39-pUU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fD2-1n-g4B"/>
-                <constraint firstItem="FvE-39-pUU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" constant="40" id="nn3-Zq-kBm"/>
+                <constraint firstItem="FvE-39-pUU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" constant="136" id="nn3-Zq-kBm"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="348.5" y="398.5"/>

@@ -61,6 +61,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         self.switchSelected(indexPath.row)
     }
     
+ 
     func switchSelected(row: Int){
 //        switch(row){
 //        case 2:

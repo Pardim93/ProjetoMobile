@@ -14,13 +14,14 @@
                         <viewControllerLayoutGuide type="bottom" id="0RH-9c-gRY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5Z5-g0-rNe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wLz-iW-bna" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-403.5" y="-32.25"/>
+            <point key="canvasLocation" x="-784.5" y="465.75"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -40,12 +41,12 @@
                         <segue destination="c8U-hf-vWv" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="YcT-O6-7MJ"/>
                         <segue destination="dXH-rC-dKS" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="3Gt-dm-g2L"/>
                         <segue destination="YST-2z-g0L" kind="custom" customClass="SWRevealViewControllerSegueSetController" id="doz-Ho-2wu"/>
-                        <segue destination="0J7-Hk-VFu" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="jYk-nN-SpU"/>
+                        <segue destination="0J7-Hk-VFu" kind="custom" identifier="" customClass="SWRevealViewControllerSegueSetController" id="jYk-nN-SpU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="636" y="-272.25"/>
+            <point key="canvasLocation" x="-333" y="-294.75"/>
         </scene>
         <!--Map-->
         <scene sceneID="MMi-W1-KaJ">
@@ -95,7 +96,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="243" id="m7N-Q8-5h6" customClass="NewsTableViewCell" customModule="DesignTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="86" width="600" height="243"/>
+                                <rect key="frame" x="0.0" y="22" width="600" height="243"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m7N-Q8-5h6" id="uxv-3b-FYp">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="243"/>
@@ -336,7 +337,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vkz-3n-E2z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1327.5" y="-594.75"/>
+            <point key="canvasLocation" x="1063.5" y="-776.25"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="O4a-aL-NR9">
@@ -602,8 +603,8 @@
         <image name="tag" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pnt-VL-Q8Z"/>
         <segue reference="jYk-nN-SpU"/>
-        <segue reference="emK-gG-wXw"/>
+        <segue reference="k5k-6y-jnZ"/>
+        <segue reference="bET-4Z-Oxi"/>
     </inferredMetricsTieBreakers>
 </document>
