@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol TratarQuestaoDelegate{
+    func tratarQuestao(questao: PFObject)
+}
+
 class InserirQuestaoTableViewCell: UITableViewCell{
     
     @IBOutlet weak var descricaoTextView: CellTextView!
@@ -15,6 +19,7 @@ class InserirQuestaoTableViewCell: UITableViewCell{
     @IBOutlet weak var adicionarButton: ZFRippleButton!
     
     var questao: PFObject?
+    var delegate: TratarQuestaoDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,9 +49,12 @@ class InserirQuestaoTableViewCell: UITableViewCell{
     }
     
 //    MARK: Set
-    func setInfo(){
+    func setInfo(newQuestao: PFObject, newRow: Int){
+        self.questao = newQuestao
         self.setDescricao()
         self.setDisciplina()
+        
+        self.descricaoTextView.cellRow = newRow
     }
     
     func setDescricao(){
@@ -70,5 +78,10 @@ class InserirQuestaoTableViewCell: UITableViewCell{
         disciplinaLabel.attributedText = underlineAttributedString
         
         self.disciplinaLabel.font = UIFont(name: "Avenir Book", size: 15)
+    }
+    
+//    MARK: Button
+    @IBAction func usarQuestao(sender: AnyObject) {
+        self.delegate?.tratarQuestao(self.questao!)
     }
 }

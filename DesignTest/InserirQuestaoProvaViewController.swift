@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, CustomTextViewDelegate {
+class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, CustomTextViewDelegate, TratarQuestaoDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -17,6 +17,7 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
     var filtered = NSArray()
     let parseManager = ParseManager.singleton
     let activityView = CustomActivityView()
+    let inserirQuestoesManager = InserirQuestoesProvaManager.singleton
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,10 +135,23 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
             return cell
         }
         
-        cell.questao = newQuestao
-        cell.setInfo()
+        cell.delegate = self
         cell.descricaoTextView.customDelegate = self
-        cell.descricaoTextView.cellRow = indexPath.row
+//        cell.questao = newQuestao
+        cell.setInfo(newQuestao, newRow: indexPath.row)
+//        cell.descricaoTextView.cellRow = indexPath.row
+        
+        let adicionadas = inserirQuestoesManager.adicionadas
+        
+        let actualId = newQuestao.objectId
+        for adicionada in adicionadas{
+            let oldId = adicionada.objectId
+            
+            if(oldId == actualId){
+                cell.adicionarButton.enabled = false
+                break
+            }
+        }
         
         return cell
     }
@@ -179,41 +193,18 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
         self.prepareGoToQuestao(newQuestao)
     }
     
+    func tratarQuestao(questao: PFObject) {
+        inserirQuestoesManager.adicionadas.append(questao)
+    }
+    
 //    MARK: Prepare To Change View
     func prepareGoToQuestao(questao: PFObject){
         self.disabeView()
         
-        self.getImg(questao){(registerManager, newImg) -> () in
+        self.inserirQuestoesManager.getImg(questao){(newImg) -> () in
             self.enableView()
             self.goToQuestao(questao, img: newImg)
         }
-    }
-    
-    func getImg(questao: PFObject, completionHandler:(InserirQuestaoProvaViewController, UIImage?)->()){
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-            var img: UIImage?
-            
-            guard let newImage = questao.objectForKey("Imagem") as? PFFile else{
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionHandler(self, img)
-                })
-                return
-            }
-            
-            guard let newData = newImage.getData() else{
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionHandler(self, img)
-                })
-                return
-            }
-            
-            img = UIImage(data: newData)
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                completionHandler(self, img)
-            })
-            return
-        })
     }
     
 //    MARK: View
@@ -241,5 +232,4 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
         
         self.navigationController?.pushViewController(newTabBar, animated: true)
     }
-    
 }
