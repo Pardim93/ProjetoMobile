@@ -8,88 +8,128 @@
 
 import UIKit
 
-class InserirAdicionadasQuestoesTableViewController: UITableViewController {
+class InserirAdicionadasQuestoesTableViewController: UITableViewController, TratarQuestaoDelegate, CustomTextViewDelegate {
+    
+    var questoes: [PFObject] = []
+    let inserirQuestoesManager = InserirQuestoesProvaManager.singleton
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.configTableView()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.updateQuestoes()
+    }
+    
+//    MARK: Config
+    func configTableView(){
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        self.tableView.registerNib(UINib(nibName: "InserirQuestaoTableViewCell", bundle: nil), forCellReuseIdentifier: "newCell")
+        
+        self.configTabbarHidingCells()
+        
+        self.view.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
+    }
+    
+    func configTabbarHidingCells(){
+        let footer = UIView(frame: CGRectMake(0, 0, 1, 50))
+        footer.backgroundColor = UIColor.clearColor()
+        self.tableView.tableFooterView = footer
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+//    MARK: Delegate
+    func finishEdit(cellRow: Int) {
+        self.view.endEditing(true)
+        
+        self.tableView.selectRowAtIndexPath(NSIndexPath(forRow: cellRow, inSection: 1), animated: false, scrollPosition: UITableViewScrollPosition.None)
+        self.tableView.deselectRowAtIndexPath(NSIndexPath(forRow: cellRow, inSection: 1), animated: false)
+        
+        guard let newQuestao = questoes[cellRow] as? PFObject else{
+            return
+        }
+        
+//        self.prepareGoToQuestao(newQuestao)
     }
-
-    // MARK: - Table view data source
-
+    
+    func tratarQuestao(questao: PFObject) {
+        let oldId = questao.objectId
+        for i in 0...self.questoes.count{
+            let obj = questoes[i] 
+            let newId = obj.objectId
+            
+            if(newId == oldId){
+                inserirQuestoesManager.adicionadas.removeAtIndex(i)
+                break
+            }
+        }
+        
+        self.updateQuestoes()
+    }
+    
+// MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return questoes.count
     }
-
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("newCell", forIndexPath: indexPath) as! InserirQuestaoTableViewCell
+        
+        let newQuestao = questoes[indexPath.row]
+        
+        cell.delegate = self
+        cell.descricaoTextView.customDelegate = self
+        //        cell.questao = newQuestao
+        cell.setInfo(newQuestao, newRow: indexPath.row)
+        //        cell.descricaoTextView.cellRow = indexPath.row
+        
+        let adicionadas = inserirQuestoesManager.adicionadas
+        
+        let actualId = newQuestao.objectId
+        for adicionada in adicionadas{
+            let oldId = adicionada.objectId
+            
+            if(oldId == actualId){
+                cell.adicionarButton.enabled = false
+                break
+            }
+        }
+        
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+//    MARK: Update
+    func updateQuestoes(){
+        self.questoes = inserirQuestoesManager.adicionadas
+        self.tableView.reloadData()
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+//    MARK: View
+    func enableView(){
+        self.view.userInteractionEnabled = true
+//        self.activityView.stopAnimating()
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    
+    func disabeView(){
+        self.view.userInteractionEnabled = false
+//        self.activityView.startAnimating()
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+//    MARK: Navigation
+    func prepareGoToQuestao(questao: PFObject){
+        self.disabeView()
+        
+        self.inserirQuestoesManager.getImg(questao){(newImg) -> () in
+            self.enableView()
+//            self.goToQuestao(questao, img: newImg)
+        }
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

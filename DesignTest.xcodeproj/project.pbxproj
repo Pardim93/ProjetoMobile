@@ -16,6 +16,8 @@
 		2406630D1BD1627D007032F3 /* IPhoneInserirProva.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2406630C1BD1627D007032F3 /* IPhoneInserirProva.storyboard */; };
 		2406630F1BD17C6C007032F3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2406630E1BD17C6C007032F3 /* Colors.swift */; };
 		24093D481BBC5D540099823C /* CustomActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24093D471BBC5D540099823C /* CustomActivityView.swift */; };
+		240A00ED1BEA74DB00ADDE24 /* InserirQuestoesProvaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240A00EC1BEA74DB00ADDE24 /* InserirQuestoesProvaManager.swift */; };
+		240A00EF1BEA7EC900ADDE24 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240A00EE1BEA7EC900ADDE24 /* Extensions.swift */; };
 		240DB1D91BE149CA00654178 /* InserirQuestaoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DB1D71BE149CA00654178 /* InserirQuestaoTableViewCell.swift */; };
 		240DB1DA1BE149CA00654178 /* InserirQuestaoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 240DB1D81BE149CA00654178 /* InserirQuestaoTableViewCell.xib */; };
 		2412954F1B8515F2006B93C0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2412954E1B8515F2006B93C0 /* HomeViewController.swift */; };
@@ -129,6 +131,8 @@
 		2406630C1BD1627D007032F3 /* IPhoneInserirProva.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneInserirProva.storyboard; sourceTree = "<group>"; };
 		2406630E1BD17C6C007032F3 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		24093D471BBC5D540099823C /* CustomActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityView.swift; sourceTree = "<group>"; };
+		240A00EC1BEA74DB00ADDE24 /* InserirQuestoesProvaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InserirQuestoesProvaManager.swift; sourceTree = "<group>"; };
+		240A00EE1BEA7EC900ADDE24 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		240DB1D71BE149CA00654178 /* InserirQuestaoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InserirQuestaoTableViewCell.swift; sourceTree = "<group>"; };
 		240DB1D81BE149CA00654178 /* InserirQuestaoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InserirQuestaoTableViewCell.xib; sourceTree = "<group>"; };
 		2412954E1B8515F2006B93C0 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -379,6 +383,7 @@
 				24093D471BBC5D540099823C /* CustomActivityView.swift */,
 				24CA65861BBF0992002CBCCD /* Enums.swift */,
 				2406630E1BD17C6C007032F3 /* Colors.swift */,
+				240A00EE1BEA7EC900ADDE24 /* Extensions.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -414,6 +419,7 @@
 				24BF93BE1BD819B40085DBD8 /* InserirTituloProvaTableViewController.swift */,
 				240248DD1BD96BE30016C94A /* InserirDescricaoProvaTableViewController.swift */,
 				24D4FAE11BDAC0E800776CB7 /* InserirQuestaoProvaViewController.swift */,
+				240A00EC1BEA74DB00ADDE24 /* InserirQuestoesProvaManager.swift */,
 				2415AF701BE125CB009BBC7A /* InserirAdicionadasQuestoesTableViewController.swift */,
 			);
 			name = "Inserir Prova";
@@ -797,6 +803,7 @@
 				242C9B211BE3EAE2004AD703 /* VerQuestaoViewController.swift in Sources */,
 				527763C61BB30E4B003B037D /* NavigationControllerAlternativas.swift in Sources */,
 				2406630F1BD17C6C007032F3 /* Colors.swift in Sources */,
+				240A00ED1BEA74DB00ADDE24 /* InserirQuestoesProvaManager.swift in Sources */,
 				248899651BA757FA000CCA21 /* CoreDataManager.swift in Sources */,
 				52EC8EB71BC7019B002DCF52 /* ResultadoInfoViewController.swift in Sources */,
 				24093D481BBC5D540099823C /* CustomActivityView.swift in Sources */,
@@ -835,6 +842,7 @@
 				24C1BCCF1B8B864F00119539 /* AjustesTableViewController.swift in Sources */,
 				2488995A1BA73B33000CCA21 /* ProvasCollectionViewCell.swift in Sources */,
 				246CBC7D1B87B6B7002E6A6E /* RegistrosViewController.swift in Sources */,
+				240A00EF1BEA7EC900ADDE24 /* Extensions.swift in Sources */,
 				24BF93BD1BD817A70085DBD8 /* InserirProvaTabBarViewController.swift in Sources */,
 				52FF8EA31BB32BE900A5BC7A /* TabBarControllerExercicios.swift in Sources */,
 				5297600F1BE3F2C800DB551D /* NewsTableViewController.swift in Sources */,
@@ -886,7 +894,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -920,6 +928,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -932,7 +941,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -959,6 +968,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -970,7 +980,7 @@
 			baseConfigurationReference = 91E9ABB12388E8FBF0257D57 /* Pods-DesignTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -994,7 +1004,7 @@
 			baseConfigurationReference = 94ACBFE2CADF197AF25F0660 /* Pods-DesignTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

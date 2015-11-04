@@ -12,62 +12,57 @@ class VerQuestaoViewController: UIViewController, UIScrollViewDelegate {
     
     var questao: PFObject?
     var img: UIImage?
-    private var imgExercicio = UIImageView()
     private var popViewController = PopUpViewController()
     
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var txtExercicio: UITextView!
+    @IBOutlet weak var imgExercicio: UIImageView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.configScrollView()
-        
 //        self.configImgView()
         self.configTextView()
+        self.configImgView()
         
 //        self.configScrollView()
     }
     
 //    MARK: Config
-    func configScrollView(){
-        self.scrollView.delegate = self
-        self.scrollView.scrollEnabled = true
-        self.scrollView.userInteractionEnabled = true
-        
-//        self.scrollView.frame.size = CGSizeMake(self.view.frame.width, 3000)
-//        self.scrollView.contentSize = CGSizeMake(self.view.frame.width, 3000)
-        
-        guard let _ = img else{
-            self.scrollView.frame.size = CGSizeMake(self.view.frame.width, 5000)
-            self.scrollView.contentSize = CGSizeMake(self.view.frame.width, 5000)
-            return
-        }
-        
-        self.scrollView.frame.size = CGSizeMake(self.view.frame.width, 5000)
-        self.scrollView.contentSize = CGSizeMake(self.view.frame.width, 5000)
-    }
-    
+//    func configScrollView(){
+//        self.scrollView.delegate = self
+//        self.scrollView.scrollEnabled = true
+//        self.scrollView.userInteractionEnabled = true
+//        
+////        self.scrollView.frame.size = CGSizeMake(self.view.frame.width, 3000)
+////        self.scrollView.contentSize = CGSizeMake(self.view.frame.width, 3000)
+//        
+//        guard let _ = img  else{
+//            self.scrollView.frame.size = CGSizeMake(self.view.frame.width, 5000)
+//            self.scrollView.contentSize = CGSizeMake(self.view.frame.width, 5000)
+//            return
+//        }
+//        
+//        self.scrollView.frame.size = CGSizeMake(self.view.frame.width, 5000)
+//        self.scrollView.contentSize = CGSizeMake(self.view.frame.width, 5000)
+//    }
+//    
     func configImgView(){
         
-        guard let newImage = img else{
-            return
+        if (self.img == nil){
+            imgExercicio.image = UIImage(named: "image6")
+        }
+        else{
+            imgExercicio.image = self.img
         }
         
-        imgExercicio.image = newImage
-        self.imgExercicio.layer.borderColor = UIColor.blueColor().colorWithAlphaComponent(0.5).CGColor
-        self.imgExercicio.layer.borderWidth = 0.5
-        self.imgExercicio.layer.cornerRadius = 5
-        self.imgExercicio.contentMode = .ScaleToFill
+//        self.imgExercicio.layer.borderColor = UIColor.blueColor().colorWithAlphaComponent(0.5).CGColor
+//        self.imgExercicio.layer.borderWidth = 0.5
+//        self.imgExercicio.layer.cornerRadius = 5
+        self.imgExercicio.contentMode = .ScaleAspectFit
         
         self.createButton()
         
-        self.imgExercicio.frame.size = CGSizeMake(250, 250)
-        self.imgExercicio.center = CGPointMake(self.view.center.x, 180)
         self.imgExercicio.userInteractionEnabled = true
-        
-        self.scrollView.addSubview(imgExercicio)
     }
     
     func createButton(){
@@ -76,29 +71,19 @@ class VerQuestaoViewController: UIViewController, UIScrollViewDelegate {
         button.tag = 1
         button.addTarget(self, action: "buttonPopUp:", forControlEvents: .TouchDown)
         
-        button.frame = CGRectMake(210, 210, 30, 30)
+        button.frame = CGRectMake(140, 140, 30, 30)
         
         self.imgExercicio.addSubview(button)
     }
     
     func configTextView(){
         self.txtExercicio.text = self.questao!.objectForKey("Enunciado") as! String
-        self.txtExercicio.font = UIFont(name: "Avenir Book", size: 15)
+        self.txtExercicio.font = UIFont(name: "Avenir Book", size: 16)
         
         self.txtExercicio.layer.borderColor = UIColor.blueColor().colorWithAlphaComponent(0.5).CGColor
         self.txtExercicio.layer.borderWidth = 0.5
         self.txtExercicio.layer.cornerRadius = 6
         self.txtExercicio.clipsToBounds = true
-        
-        self.txtExercicio.center.x = self.scrollView.center.x
-        self.txtExercicio.frame = CGRectMake(self.txtExercicio.frame.origin.x, 0, self.view.frame.width - 20, self.txtExercicio.frame.height)
-        
-        guard let _ = img else{
-            return
-        }
-        
-        self.txtExercicio.transform.ty = 0
-        self.txtExercicio.transform.ty = 250
     }
     
 //    MARK: Lupa
@@ -118,6 +103,7 @@ class VerQuestaoViewController: UIViewController, UIScrollViewDelegate {
                 } else {
                     self.popViewController = PopUpViewController(nibName: "PopUpViewController_iPhone6", bundle: nil)
                     self.popViewController.title = "Imagem do Enunciado"
+                    
                     self.popViewController.showInView(self.view, withImage:imgExercicio.image, withMessage: "Vestibulandos", animated: true)
                 }
             } else {
