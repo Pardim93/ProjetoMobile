@@ -70,8 +70,7 @@ class AlternativaTableViewController: UITableViewController  {
         }
         
         self.resposta = questao!.objectForKey("AlternativaA") as? String
-        self.idQuestao = (questao!.objectForKey("objectId") as? String)!
-        
+        self.idQuestao = questao!.objectId!
         let tabBarController = self.tabBarController as! TabBarControllerExercicios
         
         tabBarController.nextBtn.enabled = false
