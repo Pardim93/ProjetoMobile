@@ -9,7 +9,7 @@
 import UIKit
 
 protocol TratarQuestaoDelegate{
-    func tratarQuestao(questao: PFObject)
+    func tratarQuestao(questao: PFObject, willAdd: Bool)
 }
 
 class InserirQuestaoTableViewCell: UITableViewCell{
@@ -20,6 +20,7 @@ class InserirQuestaoTableViewCell: UITableViewCell{
     
     var questao: PFObject?
     var delegate: TratarQuestaoDelegate?
+    var willAdd = true
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -80,8 +81,26 @@ class InserirQuestaoTableViewCell: UITableViewCell{
         self.disciplinaLabel.font = UIFont(name: "Avenir Book", size: 15)
     }
     
+    func setButtonStatus(willAdicionar: Bool){
+        self.willAdd = willAdicionar
+        
+        if(self.willAdd){
+            self.adicionarButton.setTitle("Adicionar", forState: UIControlState.Normal)
+            self.adicionarButton.backgroundColor = UIColor.colorWithHexString("007AFF", alph: 1.0)
+            self.adicionarButton.rippleBackgroundColor = UIColor.colorWithHexString("007AFF", alph: 0.5)
+            self.adicionarButton.rippleColor = UIColor.colorWithHexString("0F3B5F", alph: 1.0)
+        }
+        else{
+            self.adicionarButton.setTitle("Remover", forState: UIControlState.Normal)
+            self.adicionarButton.backgroundColor = UIColor.colorWithHexString("C51419", alph: 1.0)
+            self.adicionarButton.rippleBackgroundColor = UIColor.colorWithHexString("C51419", alph: 0.5)
+            self.adicionarButton.rippleColor = UIColor.colorWithHexString("791619", alph: 1.0)
+        }
+    }
+    
 //    MARK: Button
     @IBAction func usarQuestao(sender: AnyObject) {
-        self.delegate?.tratarQuestao(self.questao!)
+        self.delegate?.tratarQuestao(self.questao!, willAdd: self.willAdd)
+        self.setButtonStatus(!willAdd)
     }
 }

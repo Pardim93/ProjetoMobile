@@ -8,19 +8,23 @@
 
 import UIKit
 
-class InserirAdicionadasQuestoesTableViewController: UITableViewController, TratarQuestaoDelegate, CustomTextViewDelegate {
+class InserirAdicionadasQuestoesTableViewController: UITableViewController, CustomTextViewDelegate {
     
     var questoes: [PFObject] = []
     let inserirQuestoesManager = InserirQuestoesProvaManager.singleton
+    var longTapGesture: UILongPressGestureRecognizer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.configTableView()
+        self.configSegmentedHidingCells()
+        self.configGestureRecognizer()
+        self.configToolbar()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.configTableView()
         self.updateQuestoes()
     }
     
@@ -37,8 +41,15 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Trat
         self.tableView.registerNib(UINib(nibName: "InserirQuestaoTableViewCell", bundle: nil), forCellReuseIdentifier: "newCell")
         
         self.configTabbarHidingCells()
+        self.tableView.addGestureRecognizer(longTapGesture!)
         
         self.view.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
+    }
+
+    func configSegmentedHidingCells(){
+        let header = UIView(frame: CGRectMake(0, 0, 1, 42))
+        header.backgroundColor = UIColor.clearColor()
+        self.tableView.tableHeaderView = header
     }
     
     func configTabbarHidingCells(){
@@ -46,37 +57,43 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Trat
         footer.backgroundColor = UIColor.clearColor()
         self.tableView.tableFooterView = footer
     }
-
-//    MARK: Delegate
+    
+    func configGestureRecognizer(){
+        self.longTapGesture = UILongPressGestureRecognizer(target: self, action: "changeEditing")
+    }
+    
+    func configToolbar(){
+        let finishButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "finishEditing")
+        
+        self.navigationController?.toolbar.setItems([finishButton], animated: false)
+    }
+    
+//    MARK: Selectors
+    func changeEditing(){
+        self.tableView.removeGestureRecognizer(longTapGesture!)
+        self.editing = true
+        
+        self.navigationController?.setToolbarHidden(false, animated: true)
+    }
+    
     func finishEdit(cellRow: Int) {
         self.view.endEditing(true)
         
         self.tableView.selectRowAtIndexPath(NSIndexPath(forRow: cellRow, inSection: 1), animated: false, scrollPosition: UITableViewScrollPosition.None)
         self.tableView.deselectRowAtIndexPath(NSIndexPath(forRow: cellRow, inSection: 1), animated: false)
         
-        guard let newQuestao = questoes[cellRow] as? PFObject else{
-            return
-        }
+        let newQuestao = questoes[cellRow]
         
-//        self.prepareGoToQuestao(newQuestao)
+        self.prepareGoToQuestao(newQuestao)
     }
     
-    func tratarQuestao(questao: PFObject) {
-        let oldId = questao.objectId
-        for i in 0...self.questoes.count{
-            let obj = questoes[i] 
-            let newId = obj.objectId
-            
-            if(newId == oldId){
-                inserirQuestoesManager.adicionadas.removeAtIndex(i)
-                break
-            }
-        }
-        
-        self.updateQuestoes()
+    func finishEditing(){
+        self.tableView.addGestureRecognizer(longTapGesture!)
+        self.tableView.editing = false
+        self.navigationController?.setToolbarHidden(true, animated: true)
     }
     
-// MARK: - Table view data source
+//    MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -85,30 +102,49 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Trat
         return questoes.count
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 160
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("newCell", forIndexPath: indexPath) as! InserirQuestaoTableViewCell
         
         let newQuestao = questoes[indexPath.row]
         
-        cell.delegate = self
         cell.descricaoTextView.customDelegate = self
-        //        cell.questao = newQuestao
         cell.setInfo(newQuestao, newRow: indexPath.row)
-        //        cell.descricaoTextView.cellRow = indexPath.row
         
-        let adicionadas = inserirQuestoesManager.adicionadas
-        
-        let actualId = newQuestao.objectId
-        for adicionada in adicionadas{
-            let oldId = adicionada.objectId
-            
-            if(oldId == actualId){
-                cell.adicionarButton.enabled = false
-                break
-            }
-        }
+        cell.setButtonStatus(false)
+        cell.adicionarButton.enabled = false
+        cell.adicionarButton.hidden = true
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.view.endEditing(true)
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        
+        let newQuestao = questoes[indexPath.row]
+        
+        self.prepareGoToQuestao(newQuestao)
+    }
+    
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        let itemToMove = questoes[sourceIndexPath.row]
+        questoes.removeAtIndex(sourceIndexPath.row)
+        questoes.insert(itemToMove, atIndex: destinationIndexPath.row)
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        self.questoes.removeAtIndex(indexPath.row)
+        self.inserirQuestoesManager.adicionadas.removeAtIndex(indexPath.row)
+        
+        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     }
     
 //    MARK: Update
@@ -117,24 +153,22 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Trat
         self.tableView.reloadData()
     }
     
-//    MARK: View
-//    func enableView(){
-//        self.view.userInteractionEnabled = true
-////        self.activityView.stopAnimating()
-//    }
-//    
-//    func disabeView(){
-//        self.view.userInteractionEnabled = false
-////        self.activityView.startAnimating()
-//    }
-    
 //    MARK: Navigation
     func prepareGoToQuestao(questao: PFObject){
         self.disabeView()
         
         self.inserirQuestoesManager.getImg(questao){(newImg) -> () in
             self.enableView()
-//            self.goToQuestao(questao, img: newImg)
+            self.goToQuestao(questao, img: newImg)
         }
+    }
+    
+    func goToQuestao(questao: PFObject, img: UIImage?){
+        
+        let newTabBar = self.storyboard?.instantiateViewControllerWithIdentifier("verExTabBar") as! VerQuestaoTabBarViewController
+        newTabBar.questao = questao
+        newTabBar.img = img
+        
+        self.navigationController?.pushViewController(newTabBar, animated: true)
     }
 }

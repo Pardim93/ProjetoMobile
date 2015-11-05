@@ -27,7 +27,7 @@ extension UIViewController{
     }
     
     func enableView(){
-        self.view.userInteractionEnabled = false
+        self.view.userInteractionEnabled = true
         
         let activityView = self.view.viewWithTag(30) as! CustomActivityView
         activityView.stopAnimating()

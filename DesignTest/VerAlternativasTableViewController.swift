@@ -55,6 +55,10 @@ class VerAlternativasTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("exercicioCell") as! PerguntasTableViewCell
         cell.textViewResposta.text = arrayAlternativas[indexPath.row] as? String
+        cell.textViewResposta.font = UIFont(name: "Avenir Book", size: 16)
+        cell.textViewResposta.layer.borderWidth = 0.5
+        cell.textViewResposta.userInteractionEnabled = true
+        cell.textViewResposta.scrollEnabled = true
         
         cell.labelResposta.text = (String( UnicodeScalar ( 65 + indexPath.row)))
 
@@ -66,10 +70,14 @@ class VerAlternativasTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }
 }
