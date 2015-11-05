@@ -19,15 +19,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="hca-KH-Sbc" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="fSE-Ou-jTC"/>
-                        <segue destination="Za6-Nq-BRM" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="4mV-a3-86e"/>
-                        <segue destination="scv-XQ-M1M" kind="custom" identifier="" customClass="SWRevealViewControllerSegueSetController" id="HZb-jx-omp"/>
-                        <segue destination="IcV-yy-V59" kind="custom" identifier="" customClass="SWRevealViewControllerSegueSetController" id="YF4-FN-k22"/>
+                        <segue destination="hca-KH-Sbc" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="daK-7y-n7U"/>
+                        <segue destination="Za6-Nq-BRM" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="0gY-eP-0GP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V0t-eZ-ieE" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="252" y="44.25"/>
+            <point key="canvasLocation" x="259.5" y="-54"/>
         </scene>
         <!--Map-->
         <scene sceneID="0oN-tE-dBv">
@@ -62,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="coF-Tp-1fa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2673" y="-54"/>
+            <point key="canvasLocation" x="2656.5" y="-54"/>
         </scene>
         <!--News-->
         <scene sceneID="X3V-tW-qRx">
@@ -211,9 +209,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.94085192679999996" green="0.94903725390000004" blue="0.95307987930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <segue destination="Za6-Nq-BRM" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="XPO-np-8rJ"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bGf-ci-lzy">
                                         <rect key="frame" x="0.0" y="88" width="600" height="44"/>
@@ -234,9 +229,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.94085192679999996" green="0.94903725390000004" blue="0.95307987930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <segue destination="scv-XQ-M1M" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="UiW-nQ-ov8"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="LLX-3c-AD9">
                                         <rect key="frame" x="0.0" y="132" width="600" height="44"/>
@@ -257,9 +249,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.94085192679999996" green="0.94903725390000004" blue="0.95307987930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <segue destination="IcV-yy-V59" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="wGn-1W-41a"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -276,7 +265,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </mapView>
             </objects>
-            <point key="canvasLocation" x="1044" y="412.5"/>
+            <point key="canvasLocation" x="1222.5" y="376.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XNi-oU-LQt">
@@ -289,12 +278,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="xtQ-WM-bph" kind="relationship" relationship="rootViewController" id="hOe-4i-YmD"/>
+                        <segue destination="xtQ-WM-bph" kind="relationship" relationship="rootViewController" id="Vc4-lz-sBs"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h7S-cE-X3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1327.5" y="-594.75"/>
+            <point key="canvasLocation" x="1702.5" y="-651.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iAF-uy-dTr">
@@ -365,7 +354,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ihU-rc-fhb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901.5" y="957"/>
+            <point key="canvasLocation" x="1044" y="1221.75"/>
         </scene>
         <!--Menu Controller-->
         <scene sceneID="eHW-Nq-mc7">
@@ -416,9 +405,6 @@
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="22"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="301" y="7" width="87" height="31"/>
-                                                    </variation>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comments" translatesAutoresizingMaskIntoConstraints="NO" id="g4j-DF-idF">
                                                     <rect key="frame" x="457" y="4" width="35" height="35"/>
@@ -426,9 +412,6 @@
                                                         <constraint firstAttribute="height" constant="35" id="5kU-L9-ARG"/>
                                                         <constraint firstAttribute="width" constant="35" id="WKr-k7-pCq"/>
                                                     </constraints>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="258" y="4" width="35" height="35"/>
-                                                    </variation>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -458,9 +441,6 @@
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="22"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="301" y="7" width="71" height="31"/>
-                                                    </variation>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" translatesAutoresizingMaskIntoConstraints="NO" id="nkp-pt-izb">
                                                     <rect key="frame" x="458" y="4" width="35" height="35"/>
@@ -468,9 +448,6 @@
                                                         <constraint firstAttribute="height" constant="35" id="0ge-YD-Nee"/>
                                                         <constraint firstAttribute="width" constant="35" id="edP-cJ-XHS"/>
                                                     </constraints>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="258" y="4" width="35" height="35"/>
-                                                    </variation>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -510,9 +487,6 @@
                                                         <constraint firstAttribute="height" constant="35" id="KVN-3Q-sX4"/>
                                                         <constraint firstAttribute="width" constant="35" id="Lr8-BZ-nvJ"/>
                                                     </constraints>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="257" y="5" width="35" height="35"/>
-                                                    </variation>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -539,7 +513,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </mapView>
             </objects>
-            <point key="canvasLocation" x="225" y="953"/>
+            <point key="canvasLocation" x="15" y="1119.75"/>
         </scene>
     </scenes>
     <resources>
@@ -552,9 +526,4 @@
         <image name="photo" width="1024" height="1024"/>
         <image name="tag" width="1024" height="1024"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="YF4-FN-k22"/>
-        <segue reference="HZb-jx-omp"/>
-        <segue reference="4mV-a3-86e"/>
-    </inferredMetricsTieBreakers>
 </document>
