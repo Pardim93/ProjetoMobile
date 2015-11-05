@@ -15,20 +15,24 @@ class RecuperarSenhaViewController: UIViewController {
     @IBOutlet weak var emailTextField: CustomTextField!
     
     let parseManager = ParseManager.singleton
-    let activityView = CustomActivityView()
+//    let activityView = CustomActivityView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.configureConfirmar()
         self.configureCancelar()
-        self.configActivityView()
         self.configureTextFields()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.view.userInteractionEnabled = true
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.configActivityView()
     }
     
 //    MARK: Configure
@@ -54,13 +58,7 @@ class RecuperarSenhaViewController: UIViewController {
         self.cancelarButton.layer.borderWidth = 0.5
         self.cancelarButton.layer.cornerRadius = 5
     }
-    
-    func configActivityView(){
-        self.activityView.center = self.view.center
-        self.activityView.stopAnimating()
-        self.view.addSubview(activityView)
-    }
-    
+
 //    MARK: Button
     @IBAction func tryRetrieve(sender: AnyObject) {
         guard let email = emailTextField.text else{
@@ -113,15 +111,15 @@ class RecuperarSenhaViewController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    func enableView(){
-        self.view.userInteractionEnabled = true
-        self.activityView.stopAnimating()
-    }
-    
-    func disabeView(){
-        self.view.userInteractionEnabled = false
-        self.activityView.startAnimating()
-    }
+//    func enableView(){
+//        self.view.userInteractionEnabled = true
+//        self.activityView.stopAnimating()
+//    }
+//    
+//    func disabeView(){
+//        self.view.userInteractionEnabled = false
+//        self.activityView.startAnimating()
+//    }
     
 //    MARK: Alert
     

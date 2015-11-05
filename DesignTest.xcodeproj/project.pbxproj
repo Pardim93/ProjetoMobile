@@ -11,7 +11,6 @@
 		240248D91BD9505E0016C94A /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240248D81BD9505E0016C94A /* ZFRippleButton.swift */; };
 		240248DE1BD96BE30016C94A /* InserirDescricaoProvaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240248DD1BD96BE30016C94A /* InserirDescricaoProvaTableViewController.swift */; };
 		2405E32D1B7E54320091FAFC /* IPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2405E32C1B7E54320091FAFC /* IPad.storyboard */; };
-		2405E3321B7E55000091FAFC /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2405E3301B7E55000091FAFC /* SWRevealViewController.m */; };
 		2405E3351B7E55CC0091FAFC /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405E3341B7E55CC0091FAFC /* MenuTableViewController.swift */; };
 		2406630D1BD1627D007032F3 /* IPhoneInserirProva.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2406630C1BD1627D007032F3 /* IPhoneInserirProva.storyboard */; };
 		2406630F1BD17C6C007032F3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2406630E1BD17C6C007032F3 /* Colors.swift */; };
@@ -60,6 +59,7 @@
 		249322A21BA33DA3005579DD /* IPhonePerfil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 249322A11BA33DA3005579DD /* IPhonePerfil.storyboard */; };
 		249322A41BA33DD3005579DD /* PerfilTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249322A31BA33DD3005579DD /* PerfilTableViewController.swift */; };
 		249322A61BA356D7005579DD /* RegisterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249322A51BA356D7005579DD /* RegisterManager.swift */; };
+		24961E291BEA8C0E00221EBB /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24961E281BEA8C0E00221EBB /* SWRevealViewController.m */; };
 		24A20C8E1B8D034B00DC8482 /* ExercicioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A20C8D1B8D034B00DC8482 /* ExercicioViewController.swift */; };
 		24A20FA31B97695500FD2A30 /* UpdateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A20FA21B97695500FD2A30 /* UpdateTableViewController.swift */; };
 		24A418661B9778C0007E97F1 /* ModelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A418651B9778C0007E97F1 /* ModelList.swift */; };
@@ -125,7 +125,6 @@
 		240248DD1BD96BE30016C94A /* InserirDescricaoProvaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InserirDescricaoProvaTableViewController.swift; sourceTree = "<group>"; };
 		2405E32C1B7E54320091FAFC /* IPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPad.storyboard; sourceTree = "<group>"; };
 		2405E32F1B7E55000091FAFC /* DesignTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DesignTest-Bridging-Header.h"; sourceTree = "<group>"; };
-		2405E3301B7E55000091FAFC /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		2405E3311B7E55000091FAFC /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		2405E3341B7E55CC0091FAFC /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		2406630C1BD1627D007032F3 /* IPhoneInserirProva.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneInserirProva.storyboard; sourceTree = "<group>"; };
@@ -175,6 +174,7 @@
 		249322A11BA33DA3005579DD /* IPhonePerfil.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhonePerfil.storyboard; sourceTree = "<group>"; };
 		249322A31BA33DD3005579DD /* PerfilTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfilTableViewController.swift; sourceTree = "<group>"; };
 		249322A51BA356D7005579DD /* RegisterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterManager.swift; sourceTree = "<group>"; };
+		24961E281BEA8C0E00221EBB /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		24A20C8D1B8D034B00DC8482 /* ExercicioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExercicioViewController.swift; path = DesignTest/ExercicioViewController.swift; sourceTree = "<group>"; };
 		24A20FA21B97695500FD2A30 /* UpdateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTableViewController.swift; sourceTree = "<group>"; };
 		24A418651B9778C0007E97F1 /* ModelList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelList.swift; sourceTree = "<group>"; };
@@ -270,7 +270,7 @@
 		2405E3331B7E550C0091FAFC /* SideBar (IPhone) */ = {
 			isa = PBXGroup;
 			children = (
-				2405E3301B7E55000091FAFC /* SWRevealViewController.m */,
+				24961E281BEA8C0E00221EBB /* SWRevealViewController.m */,
 				2405E3311B7E55000091FAFC /* SWRevealViewController.h */,
 				2405E3341B7E55CC0091FAFC /* MenuTableViewController.swift */,
 			);
@@ -783,6 +783,7 @@
 				240248DE1BD96BE30016C94A /* InserirDescricaoProvaTableViewController.swift in Sources */,
 				248E4A1E1BB4761100C6E0CD /* InserirExTabBarViewController.swift in Sources */,
 				244C2FC81BB1C9A2008E3BE1 /* InserirTextView.swift in Sources */,
+				24961E291BEA8C0E00221EBB /* SWRevealViewController.m in Sources */,
 				529C68651BDFFAFE001BE3CE /* AvaliacaoQuestoesTableViewController.swift in Sources */,
 				242C9B1D1BE3E4FF004AD703 /* VerQuestaoTabBarViewController.swift in Sources */,
 				245095EF1BD7F1E700E5E468 /* TrocarInfoTableViewController.swift in Sources */,
@@ -810,7 +811,6 @@
 				2483237C1B8F806500D7FC14 /* ParseManager.swift in Sources */,
 				24CA65871BBF0992002CBCCD /* Enums.swift in Sources */,
 				242C9B1F1BE3E7AA004AD703 /* VerAlternativasTableViewController.swift in Sources */,
-				2405E3321B7E55000091FAFC /* SWRevealViewController.m in Sources */,
 				244BB5181BC459BE001BD0ED /* LoginManager.swift in Sources */,
 				246B149B1B90E140009DF283 /* CustomNavigationViewController.swift in Sources */,
 				249013811BC1DFF600E9477B /* ResultadoProvaViewController.swift in Sources */,

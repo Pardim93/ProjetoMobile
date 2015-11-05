@@ -11,7 +11,7 @@ import UIKit
 class AjustesTableViewController: UITableViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet weak var activityView: UIActivityIndicatorView!
+//    @IBOutlet weak var activityView: UIActivityIndicatorView!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var senhaLabel: UILabel!
     @IBOutlet weak var paisLabel: UILabel!
@@ -31,6 +31,11 @@ class AjustesTableViewController: UITableViewController, UIGestureRecognizerDele
         self.configureTableView()
         self.configureCells()
         self.configGestureRecognizer()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.configActivityView()
     }
     
     func configureTableView(){
@@ -166,8 +171,7 @@ class AjustesTableViewController: UITableViewController, UIGestureRecognizerDele
     
 // MARK: Navigation
     func doLogout(){
-        self.view.userInteractionEnabled = false
-        self.activityView.startAnimating()
+        self.disabeView()
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         var unlogged = false
         
@@ -175,8 +179,7 @@ class AjustesTableViewController: UITableViewController, UIGestureRecognizerDele
             unlogged = self.parseManager.doLogout()
             
             dispatch_async(dispatch_get_main_queue()) {
-                self.view.userInteractionEnabled = true
-                self.activityView.stopAnimating()
+                self.enableView()
                 if(unlogged){
                     self.goToHome()
                 }
@@ -185,7 +188,7 @@ class AjustesTableViewController: UITableViewController, UIGestureRecognizerDele
     }
     
     func goToHome(){
-        self.activityView.stopAnimating()
+        self.enableView()
         let storyboard = UIStoryboard(name: "IPhoneLogin", bundle: NSBundle.mainBundle())
         let nextViewController: CustomNavigationViewController = storyboard.instantiateInitialViewController() as! CustomNavigationViewController
         self.navigationController!.presentViewController(nextViewController, animated: true, completion: nil)

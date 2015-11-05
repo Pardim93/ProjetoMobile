@@ -18,7 +18,7 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
     
     let parseManager = ParseManager.singleton
     let coreDataManager = CoreDataManager.singleton
-    let activityView = CustomActivityView()
+//    let activityView = CustomActivityView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,10 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
         self.configureCells()
         self.configSaveButton()
         self.view.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
-        
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         self.configActivityView()
     }
     
@@ -86,12 +89,6 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
         }
         
         return ("Não cadastrada", "Clique aqui para adicionar uma senha")
-    }
-    
-    func configActivityView(){
-        self.activityView.center = self.view.center
-        self.activityView.stopAnimating()
-        self.view.addSubview(activityView)
     }
     
 //    MARK: Setter
@@ -280,16 +277,16 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
     }
     
 //    MARK: View
-    func enableView(){
-        self.view.userInteractionEnabled = true
-        self.activityView.stopAnimating()
-    }
-    
-    func disabeView(){
-        self.view.userInteractionEnabled = false
-        self.activityView.startAnimating()
-    }
-    
+//    func enableView(){
+//        self.view.userInteractionEnabled = true
+//        self.activityView.stopAnimating()
+//    }
+//    
+//    func disabeView(){
+//        self.view.userInteractionEnabled = false
+//        self.activityView.startAnimating()
+//    }
+//    
 //    MARK: Navigation
     func goToHome(){
         self.enableView()

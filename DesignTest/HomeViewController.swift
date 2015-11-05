@@ -12,13 +12,12 @@ class HomeViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButto
     
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var senhaText: UITextField!
-    @IBOutlet weak var activityView: UIActivityIndicatorView!
+//    @IBOutlet weak var activityView: UIActivityIndicatorView!
     @IBOutlet weak var title1: UILabel!
     @IBOutlet weak var title2: UILabel!
     @IBOutlet weak var logarButton: ZFRippleButton!
     @IBOutlet weak var registrarButton: UIButton!
     @IBOutlet weak var entrarFacebook: FBSDKLoginButton!
-    
     
     let parseManager = ParseManager.singleton
     let loginManager = LoginManager.singleton
@@ -49,6 +48,8 @@ class HomeViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButto
         if(shouldAnimate){
             self.startView()
         }
+        
+        self.configActivityView()
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -139,7 +140,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButto
 //MARK: Button Func
     @IBAction func doLogin(sender: AnyObject) {
         if (!self.emailText.text!.isEmpty) && (!self.senhaText.text!.isEmpty){
-            self.disableView()
+            self.disabeView()
             let email = self.emailText.text
             let senha = self.senhaText.text
             
@@ -160,7 +161,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButto
     
     @IBAction func trySignUp(sender: AnyObject) {
         if (!self.emailText.text!.isEmpty) && (!self.senhaText.text!.isEmpty){
-            self.disableView()
+            self.disabeView()
             let email = self.emailText.text
             let senha = self.senhaText.text
             
@@ -185,7 +186,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButto
     
 //    MARK: Facebook
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        self.disableView()
+        self.disabeView()
         
         if (error != nil){
             //Erro ao logar
@@ -248,32 +249,16 @@ class HomeViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButto
         self.continueFacebookLogin(novoUsuario)
     }
     
-    //    @IBAction func tryFacebook(sender: AnyObject) {
-    //        self.disableView()
-    //
-    //        facebookManager.loginWithFacebook() {(facebookManager, error, novoUsuario) -> () in
-    //            self.enableView()
-    //
-    //            if error != nil{
-    //                let msg = error!.localizedDescription
-    //                self.showAlert(msg)
-    //            }
-    //            else{
-    //                self.continueFacebookLogin(novoUsuario)
-    //            }
-    //        }
-    //    }
-    
 //    MARK: ViewStatus
-    func enableView(){
-        self.view.userInteractionEnabled = true
-        self.activityView.stopAnimating()
-    }
-    
-    func disableView(){
-        self.view.userInteractionEnabled = false
-        self.activityView.startAnimating()
-    }
+//    func enableView(){
+//        self.view.userInteractionEnabled = true
+//        self.activityView.stopAnimating()
+//    }
+//    
+//    func disableView(){
+//        self.view.userInteractionEnabled = false
+//        self.activityView.startAnimating()
+//    }
     
 //MARK: Animation
     func startView(){

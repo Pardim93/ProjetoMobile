@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iSP-bG-waz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iSP-bG-waz">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -39,27 +39,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                             </imageView>
-                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="qOv-a1-gop" customClass="CustomActivityView" customModule="DesignTest" customModuleProvider="target">
-                                <rect key="frame" x="175" y="375" width="37" height="37"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Hri-sN-mXm"/>
-                                    <constraint firstAttribute="width" constant="50" id="fET-Ew-Iwt"/>
-                                </constraints>
-                                <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Hri-sN-mXm"/>
-                                        <exclude reference="fET-Ew-Iwt"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="Hri-sN-mXm"/>
-                                        <include reference="fET-Ew-Iwt"/>
-                                    </mask>
-                                </variation>
-                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAq-0D-EeF" customClass="ZFRippleButton" customModule="DesignTest" customModuleProvider="target">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
@@ -278,12 +257,10 @@
                             <constraint firstAttribute="centerX" secondItem="zAq-0D-EeF" secondAttribute="centerX" id="eiv-d9-zmM"/>
                             <constraint firstItem="zAq-0D-EeF" firstAttribute="trailing" secondItem="Fd3-5G-TUa" secondAttribute="trailing" id="h9r-R2-Mn8"/>
                             <constraint firstAttribute="centerX" secondItem="teR-JA-R2t" secondAttribute="centerX" id="lnE-sQ-O9F"/>
-                            <constraint firstAttribute="centerY" secondItem="qOv-a1-gop" secondAttribute="centerY" id="lvD-eg-lCZ"/>
                             <constraint firstItem="QHj-sf-zdC" firstAttribute="trailing" secondItem="zAq-0D-EeF" secondAttribute="trailing" id="mxN-9c-Obz"/>
                             <constraint firstAttribute="centerX" secondItem="GDn-3T-FsG" secondAttribute="centerX" id="nA1-x6-uQm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wt3-3S-X1u" secondAttribute="trailing" constant="-16" id="ngt-XX-fCb"/>
                             <constraint firstAttribute="centerX" secondItem="wYg-sd-iSl" secondAttribute="centerX" id="qs1-dL-jNL"/>
-                            <constraint firstAttribute="centerX" secondItem="qOv-a1-gop" secondAttribute="centerX" id="yHf-hW-lpv"/>
                             <constraint firstItem="UJJ-rI-rak" firstAttribute="top" secondItem="teR-JA-R2t" secondAttribute="bottom" constant="20" id="yXG-fX-9Aj">
                                 <variation key="heightClass=regular-widthClass=compact" constant="15"/>
                             </constraint>
@@ -291,7 +268,6 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="wt3-3S-X1u"/>
-                                <exclude reference="qOv-a1-gop"/>
                                 <exclude reference="zAq-0D-EeF"/>
                                 <exclude reference="GDn-3T-FsG"/>
                                 <exclude reference="Fd3-5G-TUa"/>
@@ -343,14 +319,11 @@
                                 <exclude reference="UTU-Kx-aUX"/>
                                 <exclude reference="eUr-AN-nnn"/>
                                 <exclude reference="ngt-XX-fCb"/>
-                                <exclude reference="lvD-eg-lCZ"/>
-                                <exclude reference="yHf-hW-lpv"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="wt3-3S-X1u"/>
-                                <include reference="qOv-a1-gop"/>
                                 <include reference="zAq-0D-EeF"/>
                                 <include reference="GDn-3T-FsG"/>
                                 <include reference="Fd3-5G-TUa"/>
@@ -402,15 +375,12 @@
                                 <exclude reference="UTU-Kx-aUX"/>
                                 <include reference="eUr-AN-nnn"/>
                                 <include reference="ngt-XX-fCb"/>
-                                <include reference="lvD-eg-lCZ"/>
-                                <include reference="yHf-hW-lpv"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="fFa-hR-ofs"/>
                     <connections>
                         <outlet property="EmailText" destination="GDn-3T-FsG" id="ard-cI-xuG"/>
-                        <outlet property="activityView" destination="qOv-a1-gop" id="Hra-Mv-dfM"/>
                         <outlet property="emailText" destination="GDn-3T-FsG" id="hL1-I6-bOg"/>
                         <outlet property="entrarFacebook" destination="QHj-sf-zdC" id="V2C-NE-IjQ"/>
                         <outlet property="logarButton" destination="zAq-0D-EeF" id="Emn-2m-MyU"/>

@@ -17,7 +17,7 @@ class ProvasViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var searchBar: UISearchBar!
     
     let parseManager = ParseManager.singleton
-    let activityView = CustomActivityView()
+//    let activityView = CustomActivityView()
     
     var populares: NSArray?
     var recentes: NSArray?
@@ -31,6 +31,11 @@ class ProvasViewController: UIViewController, UICollectionViewDataSource, UIColl
         self.configureSideBar()
         self.configureProvas()
         self.configSearchBar()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.configActivityView()
     }
     
 //    MARK: Config
@@ -135,24 +140,15 @@ class ProvasViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
 //    MARK: ActivityView
-    func enableView(){
-        self.view.userInteractionEnabled = true
-        self.activityView.stopAnimating()
-        self.removeActivityView()
-    }
-    
-    func disabeView(){
-        self.view.userInteractionEnabled = false
-        self.insertActivityView()
-        self.activityView.startAnimating()
-    }
-    
-    func insertActivityView(){
-        activityView.center = self.view.center
-        self.view.addSubview(activityView)
-    }
-    
-    func removeActivityView(){
-        activityView.removeFromSuperview()
-    }
+//    func enableView(){
+//        self.view.userInteractionEnabled = true
+//        self.activityView.stopAnimating()
+//        self.removeActivityView()
+//    }
+//    
+//    func disabeView(){
+//        self.view.userInteractionEnabled = false
+//        self.insertActivityView()
+//        self.activityView.startAnimating()
+//    }
 }
