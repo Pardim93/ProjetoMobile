@@ -10,9 +10,14 @@ import UIKit
 
 class MenuController: UITableViewController {
 
+    private var parseManager = ParseManager()
+    private var questoesManager = QuestoesManager()
+    private var myArray = NSArray()
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.getQuestoes()
+        print(self.myArray.count)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -24,31 +29,44 @@ class MenuController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = self.tableView.cellForRowAtIndexPath(indexPath)
+        print(cell?.textLabel?.text)
+    }
 
     
     // MARK: - Table view data source
 
-
-    /*
+   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.myArray.count
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+  
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
+        
+        cell.textLabel!.text =     self.myArray.objectAtIndex(indexPath.row).objectForKey("Enunciado") as? String
         // Configure the cell...
 
         return cell
     }
-    */
 
-    /*
+    func getQuestoes(){
+        self.myArray = (parseManager.getLeastRatedQuestions())
+    }
+    
+
+
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return NO if you do not want the specified item to be editable.
         return true
     }
-    */
-
-    /*
+   
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
@@ -58,7 +76,7 @@ class MenuController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -75,14 +93,7 @@ class MenuController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
+  
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -135,6 +135,22 @@ class ParseManager: NSObject {
     }
     
 //    MARK: QUESTÃO GET
+    
+    
+    func getLeastRatedQuestions() -> NSArray{
+        
+        
+        
+        let query = PFQuery(className: "Questao")
+        query.limit = 10
+        
+        let array = query.findObjects()
+        return array!
+        
+        
+    }
+    
+    
     func getQuestoesByKeyword(keyword: String, completionHandler: (ParseManager, NSArray, NSError?) -> ()){
         let query = PFQuery(className: "Questao")
         query.whereKey("Tags", containedIn: [keyword.simpleString()])
@@ -436,6 +452,8 @@ class ParseManager: NSObject {
             return
         })
     }
+    
+    
     
     func setNameForUser(name: String, user: PFUser) -> Bool{
         var erro = NSErrorPointer.init()
