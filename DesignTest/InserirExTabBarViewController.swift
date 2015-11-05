@@ -11,7 +11,7 @@ import UIKit
 class InserirExTabBarViewController: UITabBarController {
     
     let parseManager = ParseManager.singleton
-    let activityView = CustomActivityView()
+//    let activityView = CustomActivityView()
     let segmented = UISegmentedControl(items: ["Informações", "Enunciado", "Alternativas"])
     var cont = 0
     var backItem: UIBarButtonItem!
@@ -20,7 +20,6 @@ class InserirExTabBarViewController: UITabBarController {
         super.viewDidLoad()
         self.tabBar.hidden = true
         self.configSegmented()
-        self.configActivityView()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -29,11 +28,9 @@ class InserirExTabBarViewController: UITabBarController {
         self.configProxButton()
     }
     
-//    MARK: Config
-    func configActivityView(){
-        self.activityView.center = self.view.center
-        self.activityView.stopAnimating()
-        self.view.addSubview(activityView)
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.configActivityView()
     }
     
     func configBackButton(){
@@ -230,15 +227,15 @@ class InserirExTabBarViewController: UITabBarController {
     }
     
 //    MARK: View
-    func enableView(){
-        self.view.userInteractionEnabled = true
-        self.activityView.stopAnimating()
-    }
-    
-    func disabeView(){
-        self.view.userInteractionEnabled = false
-        self.activityView.startAnimating()
-    }
+//    func enableView(){
+//        self.view.userInteractionEnabled = true
+//        self.activityView.stopAnimating()
+//    }
+//    
+//    func disabeView(){
+//        self.view.userInteractionEnabled = false
+//        self.activityView.startAnimating()
+//    }
     
     func cancelViewsEditing(){
         for viewController in self.viewControllers!{

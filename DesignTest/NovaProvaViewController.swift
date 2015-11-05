@@ -13,19 +13,16 @@ class NovaProvaViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var timeField: UITextField!
     
     let questaoManager = QuestoesManager.singleton
-    let activityView = CustomActivityView()
+//    let activityView = CustomActivityView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.timeField.delegate = self
-        self.configActivityView()
     }
     
-    func configActivityView(){
-        self.activityView.center = self.view.center
-        self.activityView.hidden = false
-        self.activityView.stopAnimating()
-        self.view.addSubview(activityView)
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.configActivityView()
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -50,16 +47,16 @@ class NovaProvaViewController: UIViewController, UITextFieldDelegate {
     //    }
     
     //    MARK: View
-    func enableView(){
-        self.view.userInteractionEnabled = true
-        self.activityView.stopAnimating()
-    }
-    
-    func disabeView(){
-        self.view.userInteractionEnabled = false
-        self.activityView.startAnimating()
-        self.activityView.hidden = false
-    }
+//    func enableView(){
+//        self.view.userInteractionEnabled = true
+//        self.activityView.stopAnimating()
+//    }
+//    
+//    func disabeView(){
+//        self.view.userInteractionEnabled = false
+//        self.activityView.startAnimating()
+//        self.activityView.hidden = false
+//    }
     
     //    MARK: Button
     

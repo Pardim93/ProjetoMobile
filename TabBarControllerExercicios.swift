@@ -14,7 +14,7 @@ class TabBarControllerExercicios: UITabBarController , UITabBarControllerDelegat
     var atual = 0
     var firstTime = true
     var questao: PFObject?
-    let activityView = CustomActivityView()
+//    let activityView = CustomActivityView()
     
     @IBOutlet weak var backBtn: UIBarButtonItem!
     @IBOutlet weak var nextBtn: UIBarButtonItem!
@@ -29,7 +29,10 @@ class TabBarControllerExercicios: UITabBarController , UITabBarControllerDelegat
             self.backBtn.enabled = false
             self.nextBtn.enabled = false
         }
-        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         self.configActivityView()
     }
     
@@ -67,12 +70,6 @@ class TabBarControllerExercicios: UITabBarController , UITabBarControllerDelegat
                 self.questoesManager.getPrimeirasQuestoes()
             }
         }
-    }
-    
-    func configActivityView(){
-        self.activityView.center = self.view.center
-        self.activityView.stopAnimating()
-        self.view.addSubview(activityView)
     }
     
     //    func reloadViews(){

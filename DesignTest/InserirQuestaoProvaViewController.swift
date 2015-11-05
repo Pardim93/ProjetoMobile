@@ -16,7 +16,7 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
     var searchActive: Bool = false
     var filtered = NSArray()
     let parseManager = ParseManager.singleton
-    let activityView = CustomActivityView()
+//    let activityView = CustomActivityView()
     let inserirQuestoesManager = InserirQuestoesProvaManager.singleton
     
     override func viewDidLoad() {
@@ -30,10 +30,14 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
         
         self.configSearchBar()
         self.configTableView()
-        self.configActivityView()
         
         let tabBar = self.tabBarController as! InserirProvaTabBarViewController
         tabBar.configSaveButton()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.configActivityView()
     }
     
 //    MARK: Config
@@ -55,12 +59,6 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
     func moveViewsToAdjustSegmented(){
         self.searchBar.transform.ty = 38
         self.tableView.transform.ty = 38
-    }
-    
-    func configActivityView(){
-        self.activityView.center = self.view.center
-        self.activityView.stopAnimating()
-        self.view.addSubview(activityView)
     }
     
     func configTabbarHidingCells(){
@@ -208,15 +206,15 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
     }
     
 //    MARK: View
-    func enableView(){
-        self.view.userInteractionEnabled = true
-        self.activityView.stopAnimating()
-    }
-    
-    func disabeView(){
-        self.view.userInteractionEnabled = false
-        self.activityView.startAnimating()
-    }
+//    func enableView(){
+//        self.view.userInteractionEnabled = true
+//        self.activityView.stopAnimating()
+//    }
+//    
+//    func disabeView(){
+//        self.view.userInteractionEnabled = false
+//        self.activityView.startAnimating()
+//    }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesBegan(touches, withEvent: event)

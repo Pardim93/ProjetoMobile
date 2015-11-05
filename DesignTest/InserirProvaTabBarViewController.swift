@@ -11,7 +11,7 @@ import UIKit
 class InserirProvaTabBarViewController: UITabBarController {
     
     let segmented = UISegmentedControl(items: ["Capa", "Descrição", "Procurar", "Questões"])
-    let activityView = CustomActivityView()
+//    let activityView = CustomActivityView()
     var backItem: UIBarButtonItem!
 
     override func viewDidLoad() {
@@ -19,7 +19,6 @@ class InserirProvaTabBarViewController: UITabBarController {
 
         self.tabBar.hidden = true
         self.configSegmented()
-        self.configActivityView()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -29,11 +28,9 @@ class InserirProvaTabBarViewController: UITabBarController {
         self.configProxButton()
     }
 
-//    MARK: Config
-    func configActivityView(){
-        self.activityView.center = self.view.center
-        self.activityView.stopAnimating()
-        self.view.addSubview(activityView)
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.configActivityView()
     }
     
     func configBackButton(){
@@ -96,15 +93,15 @@ class InserirProvaTabBarViewController: UITabBarController {
     }
     
 //    MARK: View
-    func enableView(){
-        self.view.userInteractionEnabled = true
-        self.activityView.stopAnimating()
-    }
+//    func enableView(){
+//        self.view.userInteractionEnabled = true
+//        self.activityView.stopAnimating()
+//    }
     
-    func disabeView(){
-        self.view.userInteractionEnabled = false
-        self.activityView.startAnimating()
-    }
+//    func disabeView(){
+//        self.view.userInteractionEnabled = false
+//        self.activityView.startAnimating()
+//    }
     
     func cancelViewsEditing(){
         for viewController in self.viewControllers!{

@@ -17,7 +17,7 @@ class RegistroViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     let registerManager = RegisterManager.singleton
     let coreDataManager = CoreDataManager.singleton
-    let activityView = CustomActivityView()
+//    let activityView = CustomActivityView()
     var actual: UIButton?
     var paises: [String] = []
     
@@ -39,8 +39,7 @@ class RegistroViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-//        self.createBlackView()
+        self.configActivityView()
     }
     
 //    MARK: Config
@@ -60,12 +59,6 @@ class RegistroViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 break
             }
         }
-    }
-    
-    func configActivityView(){
-        self.activityView.center = self.view.center
-        self.activityView.stopAnimating()
-        self.view.addSubview(activityView)
     }
     
     func configureButton(){
@@ -142,7 +135,7 @@ class RegistroViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     @IBAction func registrar(sender: AnyObject) {
-        self.disableView()
+        self.disabeView()
         
         let newOcupacao = self.getOcupacao()
         let newIndex = self.paisPicker.selectedRowInComponent(0)
@@ -166,15 +159,15 @@ class RegistroViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
 //    MARK: ViewStatus
-    func enableView(){
-        self.view.userInteractionEnabled = true
-        self.activityView.stopAnimating()
-    }
-    
-    func disableView(){
-        self.view.userInteractionEnabled = false
-        self.activityView.startAnimating()
-    }
+//    func enableView(){
+//        self.view.userInteractionEnabled = true
+//        self.activityView.stopAnimating()
+//    }
+//    
+//    func disableView(){
+//        self.view.userInteractionEnabled = false
+//        self.activityView.startAnimating()
+//    }
     
 //    MARK: Navigation
     func goToMain(){

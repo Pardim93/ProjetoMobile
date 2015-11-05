@@ -7,11 +7,39 @@
 //
 
 import UIKit
+import ObjectiveC
 
 class Extensions: NSObject {
 
 }
 
+//MARK: UIViewController
+//Mostrar ActivityView
+extension UIViewController{    
+    func configActivityView(){
+        let activityView = CustomActivityView()
+        activityView.tag = 30
+        
+        activityView.center = self.view.center
+        activityView.stopAnimating()
+        self.view.bringSubviewToFront(activityView)
+        self.view.addSubview(activityView)
+    }
+    
+    func enableView(){
+        self.view.userInteractionEnabled = false
+        
+        let activityView = self.view.viewWithTag(30) as! CustomActivityView
+        activityView.stopAnimating()
+    }
+    
+    func disabeView(){
+        self.view.userInteractionEnabled = false
+        
+        let activityView = self.view.viewWithTag(30) as! CustomActivityView
+        activityView.startAnimating()
+    }
+}
 
 //MARK: UINavigationController
 //Mostrar alertas na view

@@ -469,28 +469,6 @@
                                                     <rect key="frame" x="-25" y="-15" width="51" height="31"/>
                                                     <animations/>
                                                 </switch>
-                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vlM-nr-Oge">
-                                                    <rect key="frame" x="-10" y="-10" width="20" height="20"/>
-                                                    <animations/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="2fr-6T-Sj4"/>
-                                                        <constraint firstAttribute="width" constant="50" id="NYl-IV-oeZ"/>
-                                                    </constraints>
-                                                    <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="2fr-6T-Sj4"/>
-                                                            <exclude reference="NYl-IV-oeZ"/>
-                                                        </mask>
-                                                    </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="175" y="-1" width="50" height="51"/>
-                                                        <mask key="constraints">
-                                                            <include reference="2fr-6T-Sj4"/>
-                                                            <include reference="NYl-IV-oeZ"/>
-                                                        </mask>
-                                                    </variation>
-                                                </activityIndicatorView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook34" translatesAutoresizingMaskIntoConstraints="NO" id="aqp-0l-QNT">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <animations/>
@@ -514,29 +492,24 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="centerX" secondItem="vlM-nr-Oge" secondAttribute="centerX" id="5AB-6C-akK"/>
                                                 <constraint firstItem="2yT-cl-qgH" firstAttribute="leading" secondItem="aqp-0l-QNT" secondAttribute="trailing" constant="15" id="9ht-Di-U7s"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="aKR-l7-WRy" secondAttribute="trailing" constant="25" id="LTF-oh-ntc"/>
                                                 <constraint firstAttribute="centerY" secondItem="aKR-l7-WRy" secondAttribute="centerY" id="QnH-cv-73b"/>
                                                 <constraint firstItem="aqp-0l-QNT" firstAttribute="leading" secondItem="Irp-ff-QJm" secondAttribute="leadingMargin" constant="25" id="RLT-zD-jGh"/>
                                                 <constraint firstItem="aqp-0l-QNT" firstAttribute="centerY" secondItem="Irp-ff-QJm" secondAttribute="centerY" id="rR2-mj-t1D"/>
                                                 <constraint firstAttribute="centerY" secondItem="2yT-cl-qgH" secondAttribute="centerY" id="ro0-ZF-AVn"/>
-                                                <constraint firstAttribute="centerY" secondItem="vlM-nr-Oge" secondAttribute="centerY" id="sfB-IM-xKU"/>
                                                 <constraint firstItem="2yT-cl-qgH" firstAttribute="leading" secondItem="Irp-ff-QJm" secondAttribute="leadingMargin" constant="25" id="spA-i8-3G5"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="2yT-cl-qgH"/>
                                                     <exclude reference="aKR-l7-WRy"/>
-                                                    <exclude reference="vlM-nr-Oge"/>
                                                     <exclude reference="aqp-0l-QNT"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="9ht-Di-U7s"/>
                                                     <exclude reference="ro0-ZF-AVn"/>
                                                     <exclude reference="spA-i8-3G5"/>
-                                                    <exclude reference="5AB-6C-akK"/>
-                                                    <exclude reference="sfB-IM-xKU"/>
                                                     <exclude reference="LTF-oh-ntc"/>
                                                     <exclude reference="QnH-cv-73b"/>
                                                     <exclude reference="RLT-zD-jGh"/>
@@ -547,15 +520,12 @@
                                                 <mask key="subviews">
                                                     <include reference="2yT-cl-qgH"/>
                                                     <include reference="aKR-l7-WRy"/>
-                                                    <include reference="vlM-nr-Oge"/>
                                                     <include reference="aqp-0l-QNT"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <include reference="9ht-Di-U7s"/>
                                                     <include reference="ro0-ZF-AVn"/>
                                                     <exclude reference="spA-i8-3G5"/>
-                                                    <include reference="5AB-6C-akK"/>
-                                                    <include reference="sfB-IM-xKU"/>
                                                     <include reference="LTF-oh-ntc"/>
                                                     <include reference="QnH-cv-73b"/>
                                                     <include reference="RLT-zD-jGh"/>
@@ -833,7 +803,6 @@
                         <barButtonItem key="leftBarButtonItem" image="menu" id="vxe-f3-cxc"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="activityView" destination="vlM-nr-Oge" id="uAm-lf-VxO"/>
                         <outlet property="editDadosImg" destination="v8O-NA-eF4" id="CJ6-QX-uVq"/>
                         <outlet property="emailLabel" destination="Jvy-Y3-SBY" id="5gz-Z4-ESR"/>
                         <outlet property="facebookSwitch" destination="aKR-l7-WRy" id="9rk-pn-KLi"/>

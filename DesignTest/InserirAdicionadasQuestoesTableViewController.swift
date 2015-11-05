@@ -24,6 +24,11 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Trat
         self.updateQuestoes()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.configActivityView()
+    }
+    
 //    MARK: Config
     func configTableView(){
         self.tableView.delegate = self
@@ -113,15 +118,15 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Trat
     }
     
 //    MARK: View
-    func enableView(){
-        self.view.userInteractionEnabled = true
-//        self.activityView.stopAnimating()
-    }
-    
-    func disabeView(){
-        self.view.userInteractionEnabled = false
-//        self.activityView.startAnimating()
-    }
+//    func enableView(){
+//        self.view.userInteractionEnabled = true
+////        self.activityView.stopAnimating()
+//    }
+//    
+//    func disabeView(){
+//        self.view.userInteractionEnabled = false
+////        self.activityView.startAnimating()
+//    }
     
 //    MARK: Navigation
     func prepareGoToQuestao(questao: PFObject){
