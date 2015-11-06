@@ -9,8 +9,8 @@
 import UIKit
 
 class PerguntasDetalhesTableViewController: UITableViewController {
-    @IBOutlet weak var button: UIBarButtonItem!
 
+    @IBOutlet weak var button: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureSideBar()

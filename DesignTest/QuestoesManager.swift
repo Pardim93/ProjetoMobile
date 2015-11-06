@@ -12,6 +12,7 @@ class QuestoesManager: NSObject {
     
     var parseManager = ParseManager.singleton
     static let  singleton = QuestoesManager()
+    private var questaoAuxiliar = PFObject()
     
     var questaoCarregada = false
     var disciplinas = NSArray()

@@ -1,42 +1,19 @@
 //
-//  MenuController.swift
-//  SidebarMenu
+//  MyTableViewController.swift
+//  DesignTest
 //
-//  Created by Simon Ng on 2/2/15.
-//  Copyright (c) 2015 AppCoda. All rights reserved.
+//  Created by Wellington Pardim Ferreira on 11/6/15.
+//  Copyright © 2015 Wellington Pardim Ferreira. All rights reserved.
 //
-
 
 import UIKit
 
-
-
-
-
-class MenuController: UITableViewController {
-    struct questao {
-        
-        var enunciado = String()
-        var alternativaA = String()
-        var alternativaB = String()
-        var alternativaC = String()
-        var alternativaD = String()
-        var alternativaE = String()
-        
-    }
-    
-    
-    private var questaoSelecionada = NSObject()
+class MyTableViewController: UITableViewController {
     private var parseManager = ParseManager()
+    private var questoesManager = QuestoesManager()
     private var myArray = NSArray()
+    private var selectedQuestion = PFObject()
     
-    
-    func getQuestaoData(q:NSObject)-> MenuController.questao{
-        
-        let q =  questao.init(enunciado: q.valueForKey("Enunciado") as! String, alternativaA: q.valueForKey("Enunciado") as! String, alternativaB: q.valueForKey("Enunciado") as! String, alternativaC: q.valueForKey("Enunciado") as! String, alternativaD: q.valueForKey("Enunciado") as! String, alternativaE: q.valueForKey("Enunciado") as! String)
-
-        return q
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getQuestoes()
@@ -54,12 +31,9 @@ class MenuController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        self.questaoSelecionada = self.myArray.objectAtIndex(indexPath.row) as! NSObject
-        
-        self.performSegueWithIdentifier("sw_front", sender: self)
-        
-        
+        self.selectedQuestion = self.myArray.objectAtIndex(indexPath.row) as! PFObject
+        //        self.popoverPresentationController
+        //    self.performSegueWithIdentifier("sw_front", sender:self)
     }
     
     
@@ -69,11 +43,9 @@ class MenuController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.myArray.count
-        
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
         return 1
     }
     
@@ -126,20 +98,17 @@ class MenuController: UITableViewController {
     }
     */
     
+    //   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    //
+    //        if(segue.identifier == "sw_front"){
+    //
+    ////            var myView = QuestaoDetalheViewController()
+    ////            myView.str = self.selectedQuestion.objectForKey("Enunciado") as! String
+    //            
+    //        }
+    //        
+    //    }
     
     
-       override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    
-            if(segue.identifier == "sw_front"){
-    
-                var myView = QuestaoDetalheViewController()
-                myView.questao = self.getQuestaoDat
-    
-            }
-    
-        }
-    
-    
-    
-    
+
 }
