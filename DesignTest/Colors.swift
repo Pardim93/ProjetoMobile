@@ -54,7 +54,7 @@ extension UIColor {
 }
 
 extension UIColor {
-    func colorWithHexString (hex:String) -> UIColor {
+    static func colorWithHexString (hex: String, alph: Float) -> UIColor {
         var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).uppercaseString
         
         if (cString.hasPrefix("#")) {
@@ -75,6 +75,6 @@ extension UIColor {
         NSScanner(string: bString).scanHexInt(&b)
         
         
-        return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: CGFloat(1))
+        return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: CGFloat(alph))
     }
 }

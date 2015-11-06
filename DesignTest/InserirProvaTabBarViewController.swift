@@ -10,8 +10,8 @@ import UIKit
 
 class InserirProvaTabBarViewController: UITabBarController {
     
+    let parseManager = ParseManager.singleton
     let segmented = UISegmentedControl(items: ["Capa", "Descrição", "Procurar", "Questões"])
-//    let activityView = CustomActivityView()
     var backItem: UIBarButtonItem!
 
     override func viewDidLoad() {
@@ -19,13 +19,16 @@ class InserirProvaTabBarViewController: UITabBarController {
 
         self.tabBar.hidden = true
         self.configSegmented()
+        
+        self.configBackButton()
+        self.configProxButton()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.configBackButton()
-        self.configProxButton()
+//        self.configBackButton()
+//        self.configProxButton()
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -47,7 +50,7 @@ class InserirProvaTabBarViewController: UITabBarController {
     }
     
     func configSaveButton(){
-        let buttonSave = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "saveEx")
+        let buttonSave = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "prepareToSave")
         self.navigationItem.rightBarButtonItem = buttonSave
     }
     
@@ -68,10 +71,83 @@ class InserirProvaTabBarViewController: UITabBarController {
         self.segmented.selectedSegmentIndex = proxView
     }
     
-    func saveEx(){
-        print("Salvar")
+    func prepareToSave(){
+        self.disabeView()
+        
+        if(!self.checkTitulo()){
+            self.enableView()
+            self.navigationController?.showAlert("Título inválido")
+            return
+        }
+        
+        if(!self.checkDescricao()){
+            self.enableView()
+            self.navigationController?.showAlert("Descrição inválida")
+            return
+        }
+        
+        if(!self.checkDescricao()){
+            self.enableView()
+            self.navigationController?.showAlert("Descrição inválida")
+            return
+        }
+        
+        if(!self.checkPalavrasChave()){
+            self.enableView()
+            self.navigationController?.showAlert("Tags inválidas")
+            return
+        }
+        
+        if(!self.checkQuestoes()){
+            self.enableView()
+            self.navigationController?.showAlert("Número de questões inválido. Mínimo 5 e máximo 90")
+            return
+        }
+        
+        self.save()
+    }
+    
+//    MARK: Check
+    func checkTitulo() -> Bool{
+        let tituloView = self.viewControllers![0] as! InserirTituloProvaTableViewController
+        return tituloView.checkTitulo()
+    }
+    
+    func checkImagem() -> Bool{
+        let tituloView = self.viewControllers![0] as! InserirTituloProvaTableViewController
+        return tituloView.checkImagem()
+    }
+    
+    func checkDescricao() -> Bool{
+        let descricaoView = self.viewControllers![1] as! InserirDescricaoProvaTableViewController
+        return descricaoView.checkDescricao()
+    }
+    
+    func checkPalavrasChave() -> Bool{
+        let descricaoView = self.viewControllers![1] as! InserirDescricaoProvaTableViewController
+        return descricaoView.checkTags()
+    }
+    
+    func checkQuestoes() -> Bool{
+        let questoesView = self.viewControllers![3] as! InserirAdicionadasQuestoesTableViewController
+        return questoesView.checkQuestoes()
     }
 
+//    MARK: Save
+    func save(){
+        let tituloView = self.viewControllers![0] as! InserirTituloProvaTableViewController
+        let descricaoView = self.viewControllers![1] as! InserirDescricaoProvaTableViewController
+        let questoesView = self.viewControllers![3] as! InserirAdicionadasQuestoesTableViewController
+        
+        let titulo = tituloView.getTitulo()
+        let img: UIImage? = tituloView.getCapa()
+        
+        let descricao = descricaoView.getDescricao()
+        let tags = descricaoView.getTags()
+        
+        let questoes = questoesView.getQuestoes()
+    }
+    
 //    MARK: Segmented
     func changeView(){
         self.selectedViewController = self.viewControllers![segmented.selectedSegmentIndex]
@@ -91,17 +167,6 @@ class InserirProvaTabBarViewController: UITabBarController {
         
         self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
     }
-    
-//    MARK: View
-//    func enableView(){
-//        self.view.userInteractionEnabled = true
-//        self.activityView.stopAnimating()
-//    }
-    
-//    func disabeView(){
-//        self.view.userInteractionEnabled = false
-//        self.activityView.startAnimating()
-//    }
     
     func cancelViewsEditing(){
         for viewController in self.viewControllers!{

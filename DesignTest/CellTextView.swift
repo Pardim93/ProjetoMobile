@@ -19,9 +19,15 @@ class CellTextView: UITextView {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.createGestureRecognizer()
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    func createGestureRecognizer(){
+        let gesture = UITapGestureRecognizer(target: self, action: "handleTap")
+        self.addGestureRecognizer(gesture)
+    }
+    
+    func handleTap(){
         self.customDelegate?.finishEdit(self.cellRow!)
     }
 }

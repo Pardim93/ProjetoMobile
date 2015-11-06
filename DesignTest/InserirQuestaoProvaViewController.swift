@@ -33,6 +33,8 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
         
         let tabBar = self.tabBarController as! InserirProvaTabBarViewController
         tabBar.configSaveButton()
+        
+        self.tableView.reloadData()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -135,21 +137,11 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
         
         cell.delegate = self
         cell.descricaoTextView.customDelegate = self
-//        cell.questao = newQuestao
+        
         cell.setInfo(newQuestao, newRow: indexPath.row)
-//        cell.descricaoTextView.cellRow = indexPath.row
         
-        let adicionadas = inserirQuestoesManager.adicionadas
-        
-        let actualId = newQuestao.objectId
-        for adicionada in adicionadas{
-            let oldId = adicionada.objectId
-            
-            if(oldId == actualId){
-                cell.adicionarButton.enabled = false
-                break
-            }
-        }
+        let willRemove = inserirQuestoesManager.questaoExiste(newQuestao)
+        cell.setButtonStatus(!willRemove)
         
         return cell
     }
@@ -191,8 +183,12 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
         self.prepareGoToQuestao(newQuestao)
     }
     
-    func tratarQuestao(questao: PFObject) {
-        inserirQuestoesManager.adicionadas.append(questao)
+    func tratarQuestao(questao: PFObject, willAdd: Bool) {
+        if(willAdd){
+            inserirQuestoesManager.adicionadas.append(questao)
+        } else{
+            inserirQuestoesManager.removeQuestao(questao)
+        }
     }
     
 //    MARK: Prepare To Change View
@@ -204,17 +200,6 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
             self.goToQuestao(questao, img: newImg)
         }
     }
-    
-//    MARK: View
-//    func enableView(){
-//        self.view.userInteractionEnabled = true
-//        self.activityView.stopAnimating()
-//    }
-//    
-//    func disabeView(){
-//        self.view.userInteractionEnabled = false
-//        self.activityView.startAnimating()
-//    }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesBegan(touches, withEvent: event)

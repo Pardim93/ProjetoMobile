@@ -23,18 +23,23 @@ class TituloTableViewCell: UITableViewCell, UITextFieldDelegate {
     
 //    MARK: CheckConteudo
     func tituloValido() -> Bool{
-        descricaoTextView.layer.borderColor = UIColor.redColor().CGColor
-        
         guard let text = self.descricaoTextView.text else{
+            descricaoTextView.layer.borderColor = UIColor.redColor().CGColor
+            return false
+        }
+        
+        if(descricaoTextView.placeHolderActive){
+            descricaoTextView.layer.borderColor = UIColor.redColor().CGColor
             return false
         }
         
         if (text.characters.count < 5){
-            
+            descricaoTextView.layer.borderColor = UIColor.redColor().CGColor
             return false
         }
         
-        guard let _ = text.rangeOfCharacterFromSet(NSCharacterSet.letterCharacterSet()) else{
+        if(!text.hasLetter()){
+            descricaoTextView.layer.borderColor = UIColor.redColor().CGColor
             return false
         }
         

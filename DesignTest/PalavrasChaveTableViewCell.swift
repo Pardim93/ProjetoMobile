@@ -27,29 +27,32 @@ class PalavrasChaveTableViewCell: UITableViewCell {
 
 //    MARK: CheckConteudo
     func palavrasValidas() -> Bool{
-        self.textView.makeRed()
-        
         if(self.textView.placeHolderActive){
+            self.textView.makeRed()
             return false
         }
         
         guard let text = self.textView.text else{
+            self.textView.makeRed()
             return false
         }
         
-        guard let _ = text.rangeOfCharacterFromSet(NSCharacterSet.letterCharacterSet()) else{
+        if(!text.hasLetter()){
+            self.textView.makeRed()
             return false
         }
         
-        let auxText = textView.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        let auxText = text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         let arrayTag = auxText.componentsSeparatedByString(",")
         
         for palavraChave in arrayTag{
-            guard let _ = palavraChave.rangeOfCharacterFromSet(NSCharacterSet.letterCharacterSet()) else{
+            if(!palavraChave.hasLetter()){
+                self.textView.makeRed()
                 return false
             }
             
             if(palavraChave.characters.count < 1){
+                self.textView.makeRed()
                 return false
             }
         }
