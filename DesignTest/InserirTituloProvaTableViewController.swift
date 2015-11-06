@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InserirTituloProvaTableViewController: UITableViewController, UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class InserirTituloProvaTableViewController: UITableViewController, UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var imagem: UIImageView!
     @IBOutlet weak var adicionarImgBotao: ZFRippleButton!
@@ -58,9 +58,53 @@ class InserirTituloProvaTableViewController: UITableViewController, UIGestureRec
         self.imagem.addGestureRecognizer(gesture)
     }
     
+//    MARK: Get
+    func getTitulo() -> String{
+        return self.tituloTextField.text!
+    }
+    
+    func getCapa() -> UIImage?{
+        return self.imagem.image
+    }
+    
 //    MARK: ButtonAction
     @IBAction func adicionarImagemAction(sender: AnyObject) {
         self.showActionSheet()
+    }
+    
+//    MARK: Check
+    func checkTitulo() -> Bool{
+        guard let text = self.tituloTextField.text else{
+            self.tituloTextField.layer.borderColor = UIColor.redColor().CGColor
+            return false
+        }
+        
+        if(text.characters.count < 5){
+            self.tituloTextField.layer.borderColor = UIColor.redColor().CGColor
+            return false
+        }
+        
+        if(!text.hasLetter()){
+            self.tituloTextField.layer.borderColor = UIColor.redColor().CGColor
+            return false
+        }
+        
+        self.tituloTextField.layer.borderColor = UIColor.blackColor().CGColor
+        return true
+    }
+    
+    func checkImagem() -> Bool{
+        return self.imagem != nil
+    }
+    
+//    MARK: TextField
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if(range.length + range.location > textField.text?.characters.count){
+            return false
+        }
+        
+        let newLength = (textField.text?.characters.count)! + string.characters.count - range.length
+        return (newLength <= 25)
     }
     
 //    MARK: ImagePicker

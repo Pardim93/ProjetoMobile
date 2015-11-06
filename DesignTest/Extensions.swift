@@ -14,8 +14,8 @@ class Extensions: NSObject {
 }
 
 //MARK: UIViewController
+extension UIViewController{
 //Mostrar ActivityView
-extension UIViewController{    
     func configActivityView(){
         let activityView = CustomActivityView()
         activityView.tag = 30
@@ -42,8 +42,8 @@ extension UIViewController{
 }
 
 //MARK: UINavigationController
-//Mostrar alertas na view
 extension UINavigationController{
+//Mostrar alertas na view
     func showAlert(mensagem: String){
         let alertController = UIAlertController(title: "Simulandos", message: mensagem, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Fechar", style: UIAlertActionStyle.Default, handler: nil))
@@ -52,9 +52,14 @@ extension UINavigationController{
 }
 
 //MARK: String
-//Transformar a string para lowerCase e remover acentos
 extension String{
+//Transformar a string para lowerCase e remover acentos
     func simpleString() -> String{
         return self.lowercaseString.stringByFoldingWithOptions(.DiacriticInsensitiveSearch, locale: NSLocale.currentLocale())
+    }
+    
+//Verificar se existem letrar na String
+    func hasLetter() -> Bool{
+        return self.rangeOfCharacterFromSet(NSCharacterSet.letterCharacterSet()) != nil
     }
 }

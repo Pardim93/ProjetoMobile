@@ -72,11 +72,7 @@ class ImagemTableViewCell: UITableViewCell{
     
     //    MARK: Validação
     func imagemValida() -> Bool{
-        guard let _ = self.imagem.image else{
-            return false
-        }
-        
-        return true
+        return self.imagem.image != nil
     }
     
 //        MARK: Gesture Handler

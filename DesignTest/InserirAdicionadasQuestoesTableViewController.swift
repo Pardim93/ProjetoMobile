@@ -40,7 +40,6 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
         
         self.tableView.registerNib(UINib(nibName: "InserirQuestaoTableViewCell", bundle: nil), forCellReuseIdentifier: "newCell")
         
-        self.configTabbarHidingCells()
         self.tableView.addGestureRecognizer(longTapGesture!)
         
         self.view.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
@@ -68,12 +67,28 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
         self.navigationController?.toolbar.setItems([finishButton], animated: false)
     }
     
+//    MARK: Get
+    func getQuestoes() -> [PFObject]{
+        return self.questoes
+    }
+    
 //    MARK: Selectors
     func changeEditing(){
         self.tableView.removeGestureRecognizer(longTapGesture!)
-        self.editing = true
+        self.setEditing(true, animated: true)
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        let finishButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "finishEditing")
         
         self.navigationController?.setToolbarHidden(false, animated: true)
+        
+        self.navigationController?.toolbar.setItems([flexibleSpace, finishButton], animated: false)
+    }
+    
+    func finishEditing(){
+        self.tableView.addGestureRecognizer(longTapGesture!)
+        self.tableView.setEditing(false, animated: true)
+        self.navigationController?.setToolbarHidden(true, animated: true)
     }
     
     func finishEdit(cellRow: Int) {
@@ -85,12 +100,6 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
         let newQuestao = questoes[cellRow]
         
         self.prepareGoToQuestao(newQuestao)
-    }
-    
-    func finishEditing(){
-        self.tableView.addGestureRecognizer(longTapGesture!)
-        self.tableView.editing = false
-        self.navigationController?.setToolbarHidden(true, animated: true)
     }
     
 //    MARK: - Table view data source
@@ -145,6 +154,11 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
         self.inserirQuestoesManager.adicionadas.removeAtIndex(indexPath.row)
         
         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+    }
+    
+//    MARK: Check
+    func checkQuestoes() -> Bool{
+        return (self.questoes.count >= 5 && self.questoes.count <= 90)
     }
     
 //    MARK: Update
