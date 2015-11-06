@@ -63,3 +63,15 @@ extension String{
         return self.rangeOfCharacterFromSet(NSCharacterSet.letterCharacterSet()) != nil
     }
 }
+
+//MARK: Array
+//extension Array where Element : Idable{
+////    MARK: Insere o objeto de forma a não haver repetidos
+//    func insertIfNew(newItem: Element){
+//        for item in self{
+//            if(item == newItem){
+//                
+//            }
+//        }
+//    }
+//}

@@ -106,6 +106,29 @@ class ParseManager: NSObject {
         return questoes
     }
     
+//    MARK: PROVAS INSERIR
+    func inserirProva(titulo: String, image: UIImage?, descricao: String, questoes: [PFObject], tags: [String], completionHander: (NSErrorPointer) -> ()){
+        let prova = PFObject(className: "Prova")
+        prova.setObject(titulo, forKey: "Titulo")
+        prova.setObject(descricao, forKey: "Descricao")
+        prova.setObject(tags, forKey: "Tags")
+        
+        if(image != nil){
+            prova.setObject(image!, forKey: "imagem")
+        }
+        
+        let relationDisciplinas = prova.relationForKey("Disciplinas")
+        let relationQuestoes = prova.relationForKey("Questoes")
+        var disciplinas: [PFObject] = []
+        
+        for questao in questoes{
+            relationQuestoes.addObject(questao)
+            
+            let disciplina = questao.objectForKey("Disciplina")
+            
+        }
+    }
+    
 //    MARK: QUESTÃO AVALIAR
     func dislikeQuestao(questao: PFObject, idQuestao:String){
         let  queryQuestao = PFQuery(className: "Questao")
@@ -135,21 +158,13 @@ class ParseManager: NSObject {
     }
     
 //    MARK: QUESTÃO GET
-    
-    
     func getLeastRatedQuestions() -> NSArray{
-        
-        
-        
         let query = PFQuery(className: "Questao")
         query.limit = 10
         
         let array = query.findObjects()
         return array!
-        
-        
     }
-    
     
     func getQuestoesByKeyword(keyword: String, completionHandler: (ParseManager, NSArray, NSError?) -> ()){
         let query = PFQuery(className: "Questao")
