@@ -52,6 +52,46 @@ class ParseManager: NSObject {
         })
     }
     
+    func getDisciplinaByNameSync(name: String) -> [PFObject]{
+        let query = PFQuery(className: "Disciplina")
+        
+        let array = query.findObjects()
+        
+        return array as! [PFObject]
+    }
+    
+    func getDisciplinaByNameAsync(name: String, completionHandler:([PFObject], NSError?)->()){
+        let query = PFQuery(className: "Disciplina")
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var erro: NSError?
+            
+            let array = query.findObjects(&erro)
+            
+            if(erro != nil){
+                let userInfo:[NSObject : AnyObject] = [
+                    NSLocalizedDescriptionKey : NSLocalizedString("Erro na rede. Verifique sua conexão.", comment: ""),
+                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Erro ao buscar disciplina.", comment: ""),
+                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Verifique sua conexão e tente novamente.", comment: "")
+                ]
+                
+                erro = NSError(domain: "ParseManager", code: 8, userInfo: userInfo)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler([], erro)
+                })
+                return
+            }
+            else{
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    let result = array as! [PFObject]
+                    completionHandler(result, erro)
+                })
+                return
+            }
+        })
+    }
+    
 //    MARK: Login/Logout
     func autoLogin() -> Bool{
         return (PFUser.currentUser() != nil)
@@ -117,7 +157,10 @@ class ParseManager: NSObject {
     }
     
     func getAllProvas() ->NSArray{
-        let query = PFQuery(className: "Questao")
+        let query = PFQuery(className: "Prova")
+        query.includeKey("Disciplinas")
+        query.includeKey("Questoes")
+        query.includeKey("Autor")
         let questoes = query.findObjects() as AnyObject! as! NSArray
         return questoes
     }
@@ -129,9 +172,9 @@ class ParseManager: NSObject {
         prova.setObject(descricao, forKey: "Descricao")
         prova.setObject(tags, forKey: "Tags")
         
-        if(image != nil){
-            prova.setObject(image!, forKey: "imagem")
-        }
+//        if(image != nil){
+//            prova.setObject(image!, forKey: "imagem")
+//        }
         
         let relationDisciplinas = prova.relationForKey("Disciplinas")
         let relationQuestoes = prova.relationForKey("Questoes")
@@ -193,6 +236,8 @@ class ParseManager: NSObject {
 //    MARK: QUESTÃO AVALIAR
     func dislikeQuestao(questao: PFObject, idQuestao:String){
         let  queryQuestao = PFQuery(className: "Questao")
+        queryQuestao.includeKey("Disciplina")
+        queryQuestao.includeKey("Autor")
         queryQuestao.whereKey("objectId", equalTo: idQuestao)
         
         let questao  = queryQuestao.getFirstObject()
@@ -206,6 +251,8 @@ class ParseManager: NSObject {
     func likeQuestao(questao:PFObject, idQuestao:String){
         
         let  queryQuestao = PFQuery(className: "Questao")
+        queryQuestao.includeKey("Disciplina")
+        queryQuestao.includeKey("Autor")
         queryQuestao.whereKey("objectId", equalTo: idQuestao)
         
         let questao  = queryQuestao.getFirstObject()
@@ -219,6 +266,8 @@ class ParseManager: NSObject {
 //    MARK: QUESTÃO GET
     func getLeastRatedQuestions() -> NSArray{
         let query = PFQuery(className: "Questao")
+        query.includeKey("Disciplina")
+        query.includeKey("Autor")
         query.limit = 10
         
         let array = query.findObjects()
@@ -227,6 +276,8 @@ class ParseManager: NSObject {
     
     func getQuestoesByKeyword(keyword: String, completionHandler: (ParseManager, NSArray, NSError?) -> ()){
         let query = PFQuery(className: "Questao")
+        query.includeKey("Disciplina")
+        query.includeKey("Autor")
         query.whereKey("Tags", containedIn: [keyword.simpleString()])
         query.orderByDescending("TimesUsed")
         
@@ -264,11 +315,15 @@ class ParseManager: NSObject {
         let user = arrayUser?.last as! PFUser
         
         let query = PFQuery(className: "Questao")
+        query.includeKey("Disciplina")
+        query.includeKey("Autor")
         query.whereKey("Dono", equalTo: user)
     }
     
     func getQuestoes(disciplina: String, index: Int)-> NSArray{
         let query = PFQuery(className:"Questao")
+        query.includeKey("Disciplina")
+        query.includeKey("Autor")
         
         let array = query.findObjects()
         
@@ -314,6 +369,8 @@ class ParseManager: NSObject {
     func getQuestoesProva(disciplina:String, tag: String)->NSMutableArray{
         
         let query = PFQuery(className: "Simulado")
+        query.includeKey("Disciplina")
+        query.includeKey("Autor")
         query.whereKey("Disciplina", equalTo: disciplina)
         let arrayQuery = query.findObjects() as NSArray!
         

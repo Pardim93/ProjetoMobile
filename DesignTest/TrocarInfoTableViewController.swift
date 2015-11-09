@@ -30,11 +30,6 @@ class TrocarInfoTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         self.selectCellWithOpcao(oldOpcao)
     }
-//    
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//        self.selectCellWithOpcao(oldOpcao)
-//    }
     
 //    MARK: Config
     func selectCellWithOpcao(opcao: String){
@@ -45,7 +40,7 @@ class TrocarInfoTableViewController: UITableViewController {
                 let indexPath = NSIndexPath(forRow: index, inSection: 0)
                 
                 tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.Middle)
-
+                tableView.deselectRowAtIndexPath(indexPath, animated: false)
                 break
             }
         }
@@ -78,34 +73,33 @@ class TrocarInfoTableViewController: UITableViewController {
         cell.layoutMargins = UIEdgeInsetsZero
         cell.setOpcao(arrayInfo[indexPath.row])
         
-//        if(arrayInfo[indexPath.row] == self.oldOpcao){
-////            cell.createCheck()
-//            let a = arrayInfo[indexPath.row]
-//            print(a)
-//        }
+        if(arrayInfo[indexPath.row] == self.oldOpcao){
+            cell.createCheck()
+        } else{
+            cell.removeCheck()
+        }
         
         return cell
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-//        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-//        guard let oldCell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: selectedRow, inSection: 0)) as? AjustesTableViewCell else{
-//            return
-//        }
+        if let oldCell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: selectedRow, inSection: 0)) as? AjustesTableViewCell{
+           oldCell.removeCheck()
+        }
         
-//        oldCell.removeCheck()
-//        
         guard let cell = tableView.cellForRowAtIndexPath(indexPath) as? AjustesTableViewCell else{
             return
         }
-//
-//        selectedRow = indexPath.row
-//        cell.createCheck()
+
+        cell.createCheck()
+        self.oldOpcao = cell.opcaoLabel.text!
+        selectedRow = indexPath.row
         
         self.delegate?.setNewValue(self.changeKey, newOpcao: cell.getOpcao())
-        self.navigationController?.popViewControllerAnimated(true)
+//        self.navigationController?.popViewControllerAnimated(true)
     }
     
 }

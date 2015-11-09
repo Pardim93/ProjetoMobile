@@ -146,6 +146,19 @@ class InserirProvaTabBarViewController: UITabBarController {
         let tags = descricaoView.getTags()
         
         let questoes = questoesView.getQuestoes()
+        
+        self.disabeView()
+        parseManager.inserirProva(titulo, image: img, descricao: descricao, questoes: questoes, tags: tags) { (erro) -> () in
+            self.enableView()
+            if(erro != nil){
+                self.enableView()
+                self.notificateSave()
+                return
+            }
+            else{
+                self.navigationController?.showAlert("Ocorreu um erro. Tente novamente")
+            }
+        }
     }
     
 //    MARK: Segmented
@@ -154,6 +167,19 @@ class InserirProvaTabBarViewController: UITabBarController {
     }
     
 //    MARK: Alert
+    func notificateSave(){
+        self.cancelViewsEditing()
+        
+        let alertController = UIAlertController(title: "Simulandos", message: "Salvo com sucesso!", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Ok", style: .Default) { (action) in
+            self.navigationItem.leftBarButtonItem = self.backItem
+            self.navigationController?.popViewControllerAnimated(true)
+            })
+        
+        self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     func notificateConfirmation(){
         self.cancelViewsEditing()
         

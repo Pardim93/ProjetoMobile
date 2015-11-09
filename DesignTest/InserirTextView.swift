@@ -14,6 +14,7 @@ class InserirTextView: UITextView, UITextViewDelegate {
     var placeholder = ""
     var limitChar = 400
     var limitHeight: CGFloat = 0
+    var limitHeightEnable = true
     var enableScroll = false
     
     required init?(coder aDecoder: NSCoder) {
@@ -118,18 +119,23 @@ class InserirTextView: UITextView, UITextViewDelegate {
             }
         }
         
-        if(self.contentSize.height >= limitHeight && enableScroll && !scrollEnabled){
-            self.scrollEnabled = true
-            return true
+        if(self.limitHeightEnable == true){
+            if(self.contentSize.height >= limitHeight && enableScroll && !scrollEnabled){
+                self.scrollEnabled = true
+                return true
+            }
+        
+            if (self.contentSize.height > limitHeight && enableScroll){
+                return true
+            }
+            
+            scrollEnabled =  false
+        }
+        else{
+            scrollEnabled = true
         }
         
-        if (self.contentSize.height > limitHeight && enableScroll){
-            return true
-        }
-        
-        scrollEnabled =  false
-        
-        return (((newText.length <= limitChar) && (self.contentSize.height <= self.limitHeight)) || (text == ""))
+        return (((newText.length <= limitChar) && (!self.limitHeightEnable || (self.contentSize.height <= self.limitHeight))) || (text == ""))
     }
     
     func makeRed(){
