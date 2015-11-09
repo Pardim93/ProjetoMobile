@@ -95,6 +95,10 @@
 		529760131BE3F44900DB551D /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529760111BE3F44900DB551D /* MenuController.swift */; };
 		529C68651BDFFAFE001BE3CE /* AvaliacaoQuestoesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C68641BDFFAFE001BE3CE /* AvaliacaoQuestoesTableViewController.swift */; };
 		529C68671BE00249001BE3CE /* QuestaoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C68661BE00249001BE3CE /* QuestaoTableViewCell.swift */; };
+		52AB5E861BF1040E00A4FE5D /* AuxiliarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB5E851BF1040E00A4FE5D /* AuxiliarData.swift */; };
+		52AB5E881BF1173F00A4FE5D /* AvaliacaoTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB5E871BF1173F00A4FE5D /* AvaliacaoTabBarController.swift */; };
+		52AB5E8A1BF11C1C00A4FE5D /* AvaliarAlternativasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB5E891BF11C1C00A4FE5D /* AvaliarAlternativasTableViewController.swift */; };
+		52AB5E8C1BF121D500A4FE5D /* AvaliacaoEnunciadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB5E8B1BF121D500A4FE5D /* AvaliacaoEnunciadoViewController.swift */; };
 		52BE35CB1BBC55830092042D /* IPhoneListaProvas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52BE35CA1BBC55830092042D /* IPhoneListaProvas.storyboard */; };
 		52D8C9CC1BF09502007E849E /* QuestaoDetalheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D8C9CB1BF09502007E849E /* QuestaoDetalheViewController.swift */; };
 		52DF78A61B790EE30047A107 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF78A51B790EE30047A107 /* AppDelegate.swift */; };
@@ -207,6 +211,10 @@
 		529760111BE3F44900DB551D /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		529C68641BDFFAFE001BE3CE /* AvaliacaoQuestoesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliacaoQuestoesTableViewController.swift; sourceTree = "<group>"; };
 		529C68661BE00249001BE3CE /* QuestaoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestaoTableViewCell.swift; sourceTree = "<group>"; };
+		52AB5E851BF1040E00A4FE5D /* AuxiliarData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuxiliarData.swift; sourceTree = "<group>"; };
+		52AB5E871BF1173F00A4FE5D /* AvaliacaoTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliacaoTabBarController.swift; sourceTree = "<group>"; };
+		52AB5E891BF11C1C00A4FE5D /* AvaliarAlternativasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliarAlternativasTableViewController.swift; sourceTree = "<group>"; };
+		52AB5E8B1BF121D500A4FE5D /* AvaliacaoEnunciadoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliacaoEnunciadoViewController.swift; sourceTree = "<group>"; };
 		52BE35CA1BBC55830092042D /* IPhoneListaProvas.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneListaProvas.storyboard; sourceTree = "<group>"; };
 		52D8C9CB1BF09502007E849E /* QuestaoDetalheViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestaoDetalheViewController.swift; sourceTree = "<group>"; };
 		52DF78A01B790EE30047A107 /* DesignTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -477,6 +485,10 @@
 		521293411BE2AE190093D905 /* Avaliacao */ = {
 			isa = PBXGroup;
 			children = (
+				52AB5E8B1BF121D500A4FE5D /* AvaliacaoEnunciadoViewController.swift */,
+				52AB5E891BF11C1C00A4FE5D /* AvaliarAlternativasTableViewController.swift */,
+				52AB5E871BF1173F00A4FE5D /* AvaliacaoTabBarController.swift */,
+				52AB5E851BF1040E00A4FE5D /* AuxiliarData.swift */,
 				52D8C9CB1BF09502007E849E /* QuestaoDetalheViewController.swift */,
 				529760111BE3F44900DB551D /* MenuController.swift */,
 				521293311BE2AC720093D905 /* AvaliacaoQuestaoTabBarController.swift */,
@@ -770,6 +782,7 @@
 				521293361BE2AC720093D905 /* PerguntasAvaliacaoViewController.swift in Sources */,
 				52DF78A91B790EE30047A107 /* DesignTest.xcdatamodeld in Sources */,
 				2422E4C91B96268D00ACEE90 /* CustomTextField.swift in Sources */,
+				52AB5E8C1BF121D500A4FE5D /* AvaliacaoEnunciadoViewController.swift in Sources */,
 				244BB5161BC4376A001BD0ED /* FacebookManager.swift in Sources */,
 				240248DE1BD96BE30016C94A /* InserirDescricaoProvaTableViewController.swift in Sources */,
 				248E4A1E1BB4761100C6E0CD /* InserirExTabBarViewController.swift in Sources */,
@@ -802,6 +815,7 @@
 				2483237C1B8F806500D7FC14 /* ParseManager.swift in Sources */,
 				24CA65871BBF0992002CBCCD /* Enums.swift in Sources */,
 				242C9B1F1BE3E7AA004AD703 /* VerAlternativasTableViewController.swift in Sources */,
+				52AB5E8A1BF11C1C00A4FE5D /* AvaliarAlternativasTableViewController.swift in Sources */,
 				244BB5181BC459BE001BD0ED /* LoginManager.swift in Sources */,
 				246B149B1B90E140009DF283 /* CustomNavigationViewController.swift in Sources */,
 				249013811BC1DFF600E9477B /* ResultadoProvaViewController.swift in Sources */,
@@ -814,8 +828,10 @@
 				245095ED1BD7EEBF00E5E468 /* Pais.swift in Sources */,
 				24A20C8E1B8D034B00DC8482 /* ExercicioViewController.swift in Sources */,
 				524E43DA1BA2185C00BBB2E0 /* CollectionViewCell.swift in Sources */,
+				52AB5E861BF1040E00A4FE5D /* AuxiliarData.swift in Sources */,
 				529C68671BE00249001BE3CE /* QuestaoTableViewCell.swift in Sources */,
 				52499F551BB5B0BE004B5E21 /* QuestoesManager.swift in Sources */,
+				52AB5E881BF1173F00A4FE5D /* AvaliacaoTabBarController.swift in Sources */,
 				24175F9C1BB5EB700064C048 /* DisciplinaTableViewCell.swift in Sources */,
 				240248D91BD9505E0016C94A /* ZFRippleButton.swift in Sources */,
 				24A418661B9778C0007E97F1 /* ModelList.swift in Sources */,

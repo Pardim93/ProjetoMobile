@@ -1,27 +1,27 @@
+
 //
-//  AvaliacaoQuestaoTableViewController.swift
+//  AvaliarAlternativasTableViewController.swift
 //  DesignTest
 //
-//  Created by Wellington Pardim Ferreira on 10/28/15.
+//  Created by Wellington Pardim Ferreira on 11/9/15.
 //  Copyright © 2015 Wellington Pardim Ferreira. All rights reserved.
 //
 
 import UIKit
 
-class AvaliacaoQuestaoTableViewController: UITableViewController {
+class AvaliarAlternativasTableViewController: UITableViewController {
+
+    private var arrayAlternartivas = NSMutableArray()
+    private var timer = NSTimer()
+    private var auxData = AuxiliarData.singleton
+    var questao = NSObject()
 
     
-    
-    private var arrayAlternativas = NSMutableArray()
-    var questao = NSObject()
-    var auxData = AuxiliarData.singleton
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    timer = NSTimer.scheduledTimerWithTimeInterval(0.4, target: self, selector: "loadImage", userInfo: nil, repeats: true)
 
-        if(self.auxData.flag){
-            self.getAlternativas(self.questao)
-            self.questao = self.auxData.questao
-        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -33,25 +33,6 @@ class AvaliacaoQuestaoTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func setArrayAlternativas(array:NSMutableArray){
-        
-        self.arrayAlternativas = array
-      
-        
-    }
-    
-    func getAlternativas(obj:NSObject){
-        
-        
-        for index in 65...69{
-            let letra = String(UnicodeScalar(index))
-            print(questao.valueForKey("Alternativa\(letra)"))
-
-            arrayAlternativas.addObject(questao.valueForKey("Alternativa\(letra)")!)
-        }
-    
-    }
 
     // MARK: - Table view data source
 
@@ -62,24 +43,31 @@ class AvaliacaoQuestaoTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return arrayAlternativas.count
+        return self.arrayAlternartivas.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellDetalhe", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel?.text = arrayAlternativas[indexPath.row] as? String
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        cell.textLabel?.text = arrayAlternartivas.objectAtIndex(indexPath.row) as? String
 
         return cell
     }
-
- override   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 200
+    
+    func loadImage(){
+        if(self.auxData.imgIsReady){
+            self.imgExercicio.image = auxData.returnImg()
+            timer.invalidate()
+        }
     }
-
+    
+    
+    @IBOutlet weak var imgExercicio: UIImageView!
+    
+    
+    
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

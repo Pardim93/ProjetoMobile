@@ -14,29 +14,17 @@ import UIKit
 
 
 class MenuController: UITableViewController {
-    struct questao {
-        
-        var enunciado = String()
-        var alternativaA = String()
-        var alternativaB = String()
-        var alternativaC = String()
-        var alternativaD = String()
-        var alternativaE = String()
-        
-    }
+
     
     
     private var questaoSelecionada = NSObject()
     private var parseManager = ParseManager()
     private var myArray = NSArray()
+    private var auxData = AuxiliarData.singleton
     
     
-    func getQuestaoData(q:NSObject)-> MenuController.questao{
+   
         
-        let q =  questao.init(enunciado: q.valueForKey("Enunciado") as! String, alternativaA: q.valueForKey("Enunciado") as! String, alternativaB: q.valueForKey("Enunciado") as! String, alternativaC: q.valueForKey("Enunciado") as! String, alternativaD: q.valueForKey("Enunciado") as! String, alternativaE: q.valueForKey("Enunciado") as! String)
-
-        return q
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getQuestoes()
@@ -56,8 +44,12 @@ class MenuController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         self.questaoSelecionada = self.myArray.objectAtIndex(indexPath.row) as! NSObject
+        self.auxData.questao = self.questaoSelecionada
+        self.auxData.flag = true
+        
         
         self.performSegueWithIdentifier("sw_front", sender: self)
+        
         
         
     }
@@ -83,7 +75,6 @@ class MenuController: UITableViewController {
         cell.textLabel!.text =     self.myArray.objectAtIndex(indexPath.row).objectForKey("Enunciado") as? String
         // Configure the cell...
         
-        print(self.myArray.objectAtIndex(indexPath.row))
         
         return cell
     }
@@ -128,19 +119,23 @@ class MenuController: UITableViewController {
     
     
     
-       override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    
-            if(segue.identifier == "sw_front"){
-    
-                let myView = QuestaoDetalheViewController()
-                myView.questao = self.questaoSelecionada
-                myView.flag = true
-                
-            
-    
-            }
-    
-        }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //
+        //            if(segue.identifier == "sw_front"){
+        ////                print(self.questaoSelecionada.valueForKey("Enunciado"))
+        //
+        //                let myView = QuestaoDetalheViewController()
+        //                myView.strEnunciado = "aaaaaaalol"
+        //                myView.questao = self.questaoSelecionada
+        //                myView.flag = true
+        //
+        //
+        //
+        //            
+        //    
+        //            }
+        
+    }
     
     
     

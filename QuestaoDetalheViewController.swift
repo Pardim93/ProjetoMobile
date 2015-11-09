@@ -8,29 +8,34 @@
 
 import UIKit
 
-class
-QuestaoDetalheViewController: UIViewController {
-    @IBOutlet weak var button: UIBarButtonItem!
+class QuestaoDetalheViewController: UIViewController {
+    @IBOutlet weak var txtEnunciado: UILabel!
+    var auxData = AuxiliarData.singleton
+
+    
+    var strEnunciado = String()
     var questao = NSObject()
-    var flag = false
     override func viewDidLoad() {
+  
+
         super.viewDidLoad()
-        self.configSideBar()
+        self.questao = auxData.questao
         
-        if(flag){
-            
-            self.txtEnunciado.text = questao.valueForKey("AlternativaA") as? String
+        if(self.auxData.flag ){
+            self.txtEnunciado.text = questao.valueForKey("Enunciado") as? String
         }
     }
     
-    @IBOutlet weak var txtEnunciado: UILabel!
-    func configSideBar(){
-        if self.revealViewController() != nil {
-            button.target = self.revealViewController()
-            button.action = "revealToggle:"
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
+    
+
+    func configView(){
+        self.txtEnunciado.text = questao.valueForKey("Enunciado") as? String
+        
+        
+        
+        
     }
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
