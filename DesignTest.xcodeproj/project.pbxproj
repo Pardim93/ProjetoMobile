@@ -46,6 +46,7 @@
 		246F29BB1BA0B703007C9F73 /* ProvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246F29BA1BA0B703007C9F73 /* ProvasViewController.swift */; };
 		246F29BD1BA0B9A6007C9F73 /* IPhoneLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 246F29BC1BA0B9A6007C9F73 /* IPhoneLogin.storyboard */; };
 		246F29BF1BA0C90B007C9F73 /* IPhoneProva.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 246F29BE1BA0C90B007C9F73 /* IPhoneProva.storyboard */; };
+		247BFA231BF12CF900451EEA /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247BFA221BF12CF900451EEA /* ErrorManager.swift */; };
 		2483237C1B8F806500D7FC14 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483237B1B8F806500D7FC14 /* ParseManager.swift */; };
 		24862C0F1BE90E640082FF72 /* IPhoneInserirExercicio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24862C0E1BE90E640082FF72 /* IPhoneInserirExercicio.storyboard */; };
 		2488995A1BA73B33000CCA21 /* ProvasCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248899591BA73B33000CCA21 /* ProvasCollectionViewCell.swift */; };
@@ -162,6 +163,7 @@
 		246F29BA1BA0B703007C9F73 /* ProvasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvasViewController.swift; sourceTree = "<group>"; };
 		246F29BC1BA0B9A6007C9F73 /* IPhoneLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneLogin.storyboard; sourceTree = "<group>"; };
 		246F29BE1BA0C90B007C9F73 /* IPhoneProva.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneProva.storyboard; sourceTree = "<group>"; };
+		247BFA221BF12CF900451EEA /* ErrorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
 		2483237B1B8F806500D7FC14 /* ParseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
 		24862C0E1BE90E640082FF72 /* IPhoneInserirExercicio.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneInserirExercicio.storyboard; sourceTree = "<group>"; };
 		248899591BA73B33000CCA21 /* ProvasCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvasCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				240248D71BD950400016C94A /* Externo */,
 				244C2FC71BB1C9A2008E3BE1 /* InserirTextView.swift */,
 				52499F541BB5B0BE004B5E21 /* QuestoesManager.swift */,
+				247BFA221BF12CF900451EEA /* ErrorManager.swift */,
 				248899641BA757FA000CCA21 /* CoreDataManager.swift */,
 				2483237B1B8F806500D7FC14 /* ParseManager.swift */,
 				244BB5171BC459BE001BD0ED /* LoginManager.swift */,
@@ -806,6 +809,7 @@
 				24E088991BA1ED450025E2E6 /* ProvaTableViewController.swift in Sources */,
 				24BF93BF1BD819B40085DBD8 /* InserirTituloProvaTableViewController.swift in Sources */,
 				242C9B211BE3EAE2004AD703 /* VerQuestaoViewController.swift in Sources */,
+				247BFA231BF12CF900451EEA /* ErrorManager.swift in Sources */,
 				527763C61BB30E4B003B037D /* NavigationControllerAlternativas.swift in Sources */,
 				2406630F1BD17C6C007032F3 /* Colors.swift in Sources */,
 				240A00ED1BEA74DB00ADDE24 /* InserirQuestoesProvaManager.swift in Sources */,

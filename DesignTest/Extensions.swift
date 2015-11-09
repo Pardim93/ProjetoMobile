@@ -69,14 +69,9 @@ extension String{
     }
 }
 
-//MARK: Array
-//extension Array where Element : Idable{
-////    MARK: Insere o objeto de forma a não haver repetidos
-//    func insertIfNew(newItem: Element){
-//        for item in self{
-//            if(item == newItem){
-//                
-//            }
-//        }
-//    }
-//}
+//MARK: NSObject
+extension NSObject{
+    static func getError(errorCode: Int) -> NSError{
+        return ErrorManager.getErrorForClass(NSStringFromClass(self), errorCode: errorCode)
+    }
+}

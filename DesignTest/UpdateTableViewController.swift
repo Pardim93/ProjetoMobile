@@ -275,18 +275,7 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
         
         self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
     }
-    
-//    MARK: View
-//    func enableView(){
-//        self.view.userInteractionEnabled = true
-//        self.activityView.stopAnimating()
-//    }
-//    
-//    func disabeView(){
-//        self.view.userInteractionEnabled = false
-//        self.activityView.startAnimating()
-//    }
-//    
+
 //    MARK: Navigation
     func goToHome(){
         self.enableView()
