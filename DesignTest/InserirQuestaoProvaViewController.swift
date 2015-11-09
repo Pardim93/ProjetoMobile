@@ -22,7 +22,7 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.moveViewsToAdjustSegmented()
+//        self.moveViewsToAdjustSegmented()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -53,20 +53,7 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
         
         self.tableView.registerNib(UINib(nibName: "InserirQuestaoTableViewCell", bundle: nil), forCellReuseIdentifier: "newCell")
         
-        self.configTabbarHidingCells()
-        
-        self.view.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
-    }
-    
-    func moveViewsToAdjustSegmented(){
-        self.searchBar.transform.ty = 38
-        self.tableView.transform.ty = 38
-    }
-    
-    func configTabbarHidingCells(){
-        let footer = UIView(frame: CGRectMake(0, 0, 1, 50))
-        footer.backgroundColor = UIColor.clearColor()
-        self.tableView.tableFooterView = footer
+        self.tableView.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
     }
     
 //    MARK: SearchBar
@@ -87,7 +74,30 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
         self.doSearch()
     }
     
+//    func searchBar(searchBar: UISearchBar, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+//        var newText = self.searchBar.text! as NSString
+//        newText = newText.stringByReplacingCharactersInRange(range, withString: text)
+//        let newTextString = newText as String
+//        
+//        if(!newTextString.hasAlphanumeric()){
+//            self.cleanBusca()
+//        }
+//        
+//        return true
+//    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if(!searchText.hasAlphanumeric()){
+            self.cleanBusca()
+        }
+    }
+    
 //    MARK: Search
+    func cleanBusca(){
+        self.filtered = NSArray()
+        self.tableView.reloadData()
+    }
+    
     func doSearch(){
         guard let text = self.searchBar.text else{
             self.tableView.reloadData()
@@ -168,7 +178,7 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 160
     }
-    
+
 //    MARK: Delegate
     func finishEdit(cellRow: Int) {
         self.view.endEditing(true)

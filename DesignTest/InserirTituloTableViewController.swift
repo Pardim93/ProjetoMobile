@@ -49,6 +49,7 @@ class InserirTituloTableViewController: UITableViewController{
         var cell = UITableViewCell()
         
         let row = indexPath.row
+        
         if (row == 0){
             cell = tableView.dequeueReusableCellWithIdentifier("tituloCell", forIndexPath: indexPath) as! TituloTableViewCell
         } else{

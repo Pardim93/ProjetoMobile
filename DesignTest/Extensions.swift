@@ -62,6 +62,11 @@ extension String{
     func hasLetter() -> Bool{
         return self.rangeOfCharacterFromSet(NSCharacterSet.letterCharacterSet()) != nil
     }
+    
+//Verificar se existem letrar na String
+    func hasAlphanumeric() -> Bool{
+        return self.rangeOfCharacterFromSet(NSCharacterSet.alphanumericCharacterSet()) != nil
+    }
 }
 
 //MARK: Array

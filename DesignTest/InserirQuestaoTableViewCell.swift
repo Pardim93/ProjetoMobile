@@ -69,13 +69,11 @@ class InserirQuestaoTableViewCell: UITableViewCell{
     }
     
     func setDisciplina(){
-        guard let disciplina = questao!.objectForKey("Disciplina") as? String else{
-            disciplinaLabel.text = "?"
-            return
-        }
+        let disciplina = questao!.objectForKey("Disciplina") as! PFObject
+        let discString = disciplina.objectForKey("Nome") as! String
         
         let underlineAttribute = [NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue]
-        let underlineAttributedString = NSAttributedString(string: disciplina, attributes: underlineAttribute)
+        let underlineAttributedString = NSAttributedString(string: discString, attributes: underlineAttribute)
         disciplinaLabel.attributedText = underlineAttributedString
         
         self.disciplinaLabel.font = UIFont(name: "Avenir Book", size: 15)

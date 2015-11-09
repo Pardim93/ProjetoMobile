@@ -44,7 +44,8 @@ class InserirDescricaoProvaTableViewController: UITableViewController {
     func configDescricaoCell(){
         self.descricaoTextView.enableScroll = true
         self.descricaoTextView.limitChar = 400
-        self.descricaoTextView.limitHeight = self.descricaoTextView.frame.height
+        self.descricaoTextView.limitHeightEnable = false
+//        self.descricaoTextView.limitHeight = self.descricaoTextView.frame.height
         self.descricaoTextView.placeholder = "Descrição da Prova"
     }
     

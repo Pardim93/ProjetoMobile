@@ -51,12 +51,6 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
         self.tableView.tableHeaderView = header
     }
     
-    func configTabbarHidingCells(){
-        let footer = UIView(frame: CGRectMake(0, 0, 1, 50))
-        footer.backgroundColor = UIColor.clearColor()
-        self.tableView.tableFooterView = footer
-    }
-    
     func configGestureRecognizer(){
         self.longTapGesture = UILongPressGestureRecognizer(target: self, action: "changeEditing")
     }
