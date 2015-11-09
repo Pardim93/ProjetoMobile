@@ -49,7 +49,7 @@ class AvaliacaoQuestaoTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cellQuestao", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel?.text = arrayAlternativas[indexPath.row] as! String
+        cell.textLabel?.text = arrayAlternativas[indexPath.row] as? String
         cell.selectionStyle = UITableViewCellSelectionStyle.None
 
         // Configure the cell...

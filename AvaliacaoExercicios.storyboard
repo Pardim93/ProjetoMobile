@@ -163,10 +163,10 @@
                                 <exclude reference="LZV-h3-JgD"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="3jI-Vb-MYK"/>
                                 <exclude reference="2tM-En-alu"/>
                                 <exclude reference="p3q-Ty-6Fy"/>
                                 <exclude reference="txr-hb-i2z"/>
-                                <exclude reference="3jI-Vb-MYK"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -174,10 +174,10 @@
                                 <include reference="LZV-h3-JgD"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="3jI-Vb-MYK"/>
                                 <include reference="2tM-En-alu"/>
                                 <include reference="p3q-Ty-6Fy"/>
                                 <include reference="txr-hb-i2z"/>
-                                <include reference="3jI-Vb-MYK"/>
                             </mask>
                         </variation>
                     </view>
@@ -214,9 +214,10 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="dtM-Kf-Mye">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dtM-Kf-Mye" id="bXD-P2-DlR">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -301,7 +302,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="243" id="7ZQ-MC-lDM" customClass="NewsTableViewCell" customModule="DesignTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="86" width="600" height="243"/>
+                                <rect key="frame" x="0.0" y="22" width="600" height="243"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7ZQ-MC-lDM" id="MdE-N5-YCB">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="242.5"/>

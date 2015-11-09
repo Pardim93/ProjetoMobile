@@ -132,8 +132,11 @@ class MenuController: UITableViewController {
     
             if(segue.identifier == "sw_front"){
     
-                var myView = QuestaoDetalheViewController()
-                myView.questao = self.getQuestaoDat
+                let myView = QuestaoDetalheViewController()
+                myView.questao = self.questaoSelecionada
+                myView.flag = true
+                
+            
     
             }
     
