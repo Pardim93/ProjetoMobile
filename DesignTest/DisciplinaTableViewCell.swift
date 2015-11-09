@@ -10,19 +10,47 @@ import UIKit
 
 class DisciplinaTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource{
     
+    let parseManager = ParseManager.singleton
     @IBOutlet weak var disciplinaPicker: UIPickerView!
-    let disciplinas = ["Matemática", "Inglês", "Geografia", "História", "Português", "Biologia", "Física"]
+    var disciplinas: [PFObject] = []
 
     override func awakeFromNib() {
         super.awakeFromNib()
         self.disciplinaPicker.delegate = self
         self.disciplinaPicker.dataSource = self
-        self.configPickerView()
+        parseManager.getDisciplinas { (result, error) -> () in
+            if(error == nil){
+                self.disciplinas = result
+                self.disciplinaPicker.reloadAllComponents()
+                self.configPickerView()
+                return
+            }
+            else{
+                
+            }
+        }
+        return
+//        self.configPickerView()
     }
     
 //    MARK: Config
     func configPickerView(){
         disciplinaPicker.selectRow(disciplinas.count/2, inComponent: 0, animated: false)
+    }
+    
+//    MARK: Get
+    func getDisciplinas(){
+        parseManager.getDisciplinas { (result, error) -> () in
+            if(error == nil){
+                self.disciplinas = result
+                self.configPickerView()
+                return
+            }
+            else{
+                
+            }
+        }
+        return
     }
 
 //    MARK: PickerView
@@ -35,7 +63,8 @@ class DisciplinaTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVi
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return disciplinas[row]
+        let nomeDisc = disciplinas[row].objectForKey("Nome") as! String
+        return nomeDisc
     }
 
 //    MARK: CheckConteudo
@@ -44,7 +73,7 @@ class DisciplinaTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVi
     }
     
 //    MARK: Retorno
-    func getDisciplina() -> String{
+    func getDisciplina() -> PFObject{
         let row = self.disciplinaPicker.selectedRowInComponent(0)
         
         return disciplinas[row]

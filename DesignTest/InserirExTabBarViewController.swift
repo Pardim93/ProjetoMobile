@@ -166,7 +166,7 @@ class InserirExTabBarViewController: UITabBarController {
         }
     }
     
-    func getTituloView() -> (titulo: String, disciplina: String, tags: [String]){
+    func getTituloView() -> (titulo: String, disciplina: PFObject, tags: [String]){
         let view = self.viewControllers![0] as! InserirTituloTableViewController
         
         let tituloCell = view.arrayCell.objectAtIndex(0) as! TituloTableViewCell

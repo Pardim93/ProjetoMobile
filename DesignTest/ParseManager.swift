@@ -15,25 +15,41 @@ class ParseManager: NSObject {
     static let singleton = ParseManager()
     
 //    MARK: DISCIPLINA GET
-    func getDisciplinasAsString(){
+    func getDisciplinas(completionHandler:([PFObject], NSError?)->()){
         let query = PFQuery(className: "Disciplina")
         query.addAscendingOrder("Area")
-        guard let result = query.findObjects() else{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var erro: NSError?
+            guard let result = query.findObjects() else{
+                let userInfo:[NSObject : AnyObject] = [
+                    NSLocalizedDescriptionKey : NSLocalizedString("Erro na rede. Verifique sua conexão.", comment: ""),
+                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Erro ao buscar disciplina.", comment: ""),
+                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Verifique sua conexão e tente novamente.", comment: "")
+                ]
+                
+                erro = NSError(domain: "ParseManager", code: 7, userInfo: userInfo)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler([], erro)
+                })
+                return
+            }
+            
+            var disciplinas: [PFObject] = []
+            
+            for item in result{
+                guard let disciplina = item as? PFObject else{
+                    return
+                }
+                
+                disciplinas.append(disciplina)
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                completionHandler(disciplinas, erro)
+            })
             return
-        }
-        var disciplinas: [String] = []
-        
-        for item in result{
-            guard let disciplina = item as? PFObject else{
-                return
-            }
-            
-            guard let disciplinaString = disciplina.objectForKey("Nome") as? String else{
-                return
-            }
-            
-            disciplinas.append(disciplinaString)
-        }
+        })
     }
     
 //    MARK: Login/Logout
@@ -107,7 +123,7 @@ class ParseManager: NSObject {
     }
     
 //    MARK: PROVAS INSERIR
-    func inserirProva(titulo: String, image: UIImage?, descricao: String, questoes: [PFObject], tags: [String], completionHander: (NSErrorPointer) -> ()){
+    func inserirProva(titulo: String, image: UIImage?, descricao: String, questoes: [PFObject], tags: [String], completionHandler: (NSErrorPointer) -> ()){
         let prova = PFObject(className: "Prova")
         prova.setObject(titulo, forKey: "Titulo")
         prova.setObject(descricao, forKey: "Descricao")
@@ -121,12 +137,57 @@ class ParseManager: NSObject {
         let relationQuestoes = prova.relationForKey("Questoes")
         var disciplinas: [PFObject] = []
         
+        //Adiciona relação para questões
         for questao in questoes{
             relationQuestoes.addObject(questao)
             
-            let disciplina = questao.objectForKey("Disciplina")
+            let disciplina = questao.objectForKey("Disciplina") as! PFObject
+            let newDisciplina = disciplina.objectForKey("Nome") as! String
             
+            //Procura para ver se a disciplina já está adicionada na relação
+            var find = false
+            for disc in disciplinas{
+                let oldDisciplina = disc.objectForKey("Nome") as! String
+                if(oldDisciplina == newDisciplina){
+                    find = true
+                    break
+                }
+            }
+            
+            if(!find){
+                disciplinas.append(disciplina)
+            }
         }
+        
+        //Adiciona relação para disciplinas
+        for disc in disciplinas{
+            relationDisciplinas.addObject(disc)
+        }
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var erro: NSError?
+            
+            if(prova.save()){
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    completionHandler(&erro)
+                })
+                
+                return
+            }
+            else{
+                let userInfo:[NSObject : AnyObject] = [
+                    NSLocalizedDescriptionKey : NSLocalizedString("Erro ao salvar. Tente novamente.", comment: ""),
+                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Ocorreu um erro ao salvar.", comment: ""),
+                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente.", comment: "")
+                ]
+                erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(&erro)
+                })
+                return
+            }
+        })
     }
     
 //    MARK: QUESTÃO AVALIAR
@@ -140,8 +201,6 @@ class ParseManager: NSObject {
         
         questao?.setObject(num, forKey: "Dislikes")
         questao?.saveInBackground()
-        
-        
     }
     
     func likeQuestao(questao:PFObject, idQuestao:String){
@@ -269,7 +328,7 @@ class ParseManager: NSObject {
     }
     
 //    MARK: QUESTÃO INSERIR
-    func insertQuestao(titulo: String, disciplina: String, tags: [String], enunciado: String, img: UIImage, alternativas: [String], completionHandler: (ParseManager, NSError?) -> ()){
+    func insertQuestao(titulo: String, disciplina: PFObject, tags: [String], enunciado: String, img: UIImage, alternativas: [String], completionHandler: (ParseManager, NSError?) -> ()){
         
         let questao = PFObject(className: "Questao")
         questao.setObject(PFUser.currentUser()!, forKey: "Dono")
@@ -284,7 +343,7 @@ class ParseManager: NSObject {
             tagsLowerCase.append(newTag)
         }
         
-        tagsLowerCase.append(disciplina.simpleString())
+        questao.setObject(disciplina, forKey: "Disciplina")
         
         questao.setObject(tagsLowerCase, forKey: "Tags")
         
