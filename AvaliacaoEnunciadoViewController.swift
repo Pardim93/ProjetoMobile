@@ -11,14 +11,25 @@ import UIKit
 class AvaliacaoEnunciadoViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var txtEnunciado: UITextView!
+
     @IBOutlet weak var imgExercicio: UIImageView!
+    @IBOutlet weak var txtEnunciado: UITextView!
     private var timer = NSTimer()
     private var auxData = AuxiliarData.singleton
+    private var parseManager = ParseManager.singleton
     var questao = NSObject()
     
-    
+    @IBAction func thumbsUp(sender: AnyObject) {
+        parseManager.likeQuestao(self.auxData.objectId)
+    }
+ 
+    @IBAction func thumbsDown(sender: AnyObject) {
+        parseManager.dislikeQuestao(self.auxData.objectId)
 
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,6 +40,11 @@ class AvaliacaoEnunciadoViewController: UIViewController {
             
         }
         // Do any additional setup after loading the view.
+    }
+    
+    func loadDefault(){
+        
+        
     }
     
     func configView(){

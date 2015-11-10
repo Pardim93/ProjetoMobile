@@ -233,37 +233,7 @@ class ParseManager: NSObject {
         })
     }
     
-//    MARK: QUESTÃO AVALIAR
-    func dislikeQuestao(questao: PFObject, idQuestao:String){
-        let  queryQuestao = PFQuery(className: "Questao")
-        queryQuestao.includeKey("Disciplina")
-        queryQuestao.includeKey("Autor")
-        queryQuestao.whereKey("objectId", equalTo: idQuestao)
-        
-        let questao  = queryQuestao.getFirstObject()
-        var num = questao?.objectForKey("Dislikes") as! Int
-        num++
-        
-        questao?.setObject(num, forKey: "Dislikes")
-        questao?.saveInBackground()
-    }
-    
-    func likeQuestao(questao:PFObject, idQuestao:String){
-        
-        let  queryQuestao = PFQuery(className: "Questao")
-        queryQuestao.includeKey("Disciplina")
-        queryQuestao.includeKey("Autor")
-        queryQuestao.whereKey("objectId", equalTo: idQuestao)
-        
-        let questao  = queryQuestao.getFirstObject()
-        var num = questao?.objectForKey("Likes") as! Int
-        num++
-        
-        questao?.setObject(num, forKey: "Likes")
-        questao?.saveInBackground()
-    }
-    
-//    MARK: QUESTÃO GET
+  //    MARK: QUESTÃO GET
     func getLeastRatedQuestions() -> NSArray{
         let query = PFQuery(className: "Questao")
         query.includeKey("Disciplina")

@@ -58,45 +58,57 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fae-HZ-i8e">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enunciado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnR-Xa-tro">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="160" y="24" width="80" height="21"/>
-                                        </variation>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4tC-IA-oNy">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SgV-Kb-zQC">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="41" y="315" width="331" height="278"/>
+                                            <rect key="frame" x="36" y="226" width="312" height="228"/>
                                         </variation>
                                     </textView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture64" translatesAutoresizingMaskIntoConstraints="NO" id="w06-h0-wcK">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F0E-ho-gmY">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="59" y="85" width="283" height="192"/>
+                                            <rect key="frame" x="36" y="28" width="312" height="190"/>
                                         </variation>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iha-f7-JuA">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" title="Button" image="thumbsUp1"/>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="36" y="462" width="87" height="76"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="thumbsUp:" destination="kXa-vc-1Vi" eventType="touchUpInside" id="4P0-AX-H4B"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvH-Hx-CsF">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" title="Button" image="thumbsDown96"/>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="264" y="462" width="84" height="76"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="thumbsDown:" destination="kXa-vc-1Vi" eventType="touchUpInside" id="PK7-dr-hid"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <variation key="default">
                                     <mask key="subviews">
-                                        <exclude reference="fnR-Xa-tro"/>
-                                        <exclude reference="4tC-IA-oNy"/>
-                                        <exclude reference="w06-h0-wcK"/>
+                                        <exclude reference="SgV-Kb-zQC"/>
+                                        <exclude reference="F0E-ho-gmY"/>
+                                        <exclude reference="Iha-f7-JuA"/>
+                                        <exclude reference="fvH-Hx-CsF"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="64" width="400" height="687"/>
+                                    <rect key="frame" x="0.0" y="51" width="400" height="990"/>
                                     <mask key="subviews">
-                                        <include reference="fnR-Xa-tro"/>
-                                        <include reference="4tC-IA-oNy"/>
-                                        <include reference="w06-h0-wcK"/>
+                                        <include reference="SgV-Kb-zQC"/>
+                                        <include reference="F0E-ho-gmY"/>
+                                        <include reference="Iha-f7-JuA"/>
+                                        <include reference="fvH-Hx-CsF"/>
                                     </mask>
                                 </variation>
                             </scrollView>
@@ -116,9 +128,9 @@
                     <tabBarItem key="tabBarItem" title="Item" id="ZIY-Lf-ADX"/>
                     <navigationItem key="navigationItem" id="jT8-Fs-5KM"/>
                     <connections>
-                        <outlet property="imgExercicio" destination="w06-h0-wcK" id="coh-cv-uwX"/>
-                        <outlet property="scrollView" destination="Fae-HZ-i8e" id="zdk-V7-jH3"/>
-                        <outlet property="txtEnunciado" destination="4tC-IA-oNy" id="7QM-vC-shn"/>
+                        <outlet property="imgExercicio" destination="F0E-ho-gmY" id="JXG-n7-em7"/>
+                        <outlet property="scrollView" destination="Fae-HZ-i8e" id="13T-Vw-6Xs"/>
+                        <outlet property="txtEnunciado" destination="SgV-Kb-zQC" id="svt-er-MmP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TfW-ny-flG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -326,7 +338,8 @@
     </scenes>
     <resources>
         <image name="menu" width="22" height="22"/>
-        <image name="picture64" width="512" height="512"/>
+        <image name="thumbsDown96" width="512" height="512"/>
+        <image name="thumbsUp1" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="635-VZ-jzi"/>

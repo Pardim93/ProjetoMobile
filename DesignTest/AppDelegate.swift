@@ -18,9 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        
+        
         //Parse
         Parse.setApplicationId("cnmKI9SvIi10G7n7p74npxdBrHQQFT2Qcw8yMDhH", clientKey: "gasYEiYZAKeCoyyIBxC9IwDHspTxs1mwjTkrFFih")
-        
+        parseManager.zerar()
    
 //        self.beginEx()
 //        self.beginProvas()

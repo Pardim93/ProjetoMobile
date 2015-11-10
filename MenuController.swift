@@ -16,15 +16,12 @@ import UIKit
 class MenuController: UITableViewController {
 
     
-    
     private var questaoSelecionada = NSObject()
     private var parseManager = ParseManager()
     private var myArray = NSArray()
     private var auxData = AuxiliarData.singleton
     
-    
-   
-        
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getQuestoes()
@@ -36,10 +33,14 @@ class MenuController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
@@ -47,7 +48,11 @@ class MenuController: UITableViewController {
         self.auxData.questao = self.questaoSelecionada
         self.auxData.flag = true
         
-        
+        let questaoTemp = self.myArray.objectAtIndex(indexPath.row) as! PFObject
+        self.auxData.objectId = questaoTemp.objectId!
+        print("-------------------")
+        print(questaoTemp.objectId)
+        print("-------------------") 
         self.performSegueWithIdentifier("sw_front", sender: self)
         
         
@@ -72,7 +77,7 @@ class MenuController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
         
-        cell.textLabel!.text =     self.myArray.objectAtIndex(indexPath.row).objectForKey("Enunciado") as? String
+        cell.textLabel!.text =  self.myArray.objectAtIndex(indexPath.row).objectForKey("Enunciado") as? String
         // Configure the cell...
         
         
@@ -81,6 +86,7 @@ class MenuController: UITableViewController {
     
     func getQuestoes(){
         self.myArray = (parseManager.getLeastRatedQuestions())
+        self.auxData.questao = self.myArray.objectAtIndex(0) as AnyObject as! NSObject
     }
     
     

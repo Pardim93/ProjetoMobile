@@ -45,18 +45,22 @@ class AvaliacaoTabBarController: UITabBarController {
     }
     
     func getImageData(){
-        let userImageFile = self.auxData.questao.valueForKey("Imagem") as! PFFile
-        
-        userImageFile.getDataInBackgroundWithBlock {
-            (imageData: NSData?, error: NSError?) -> Void in
-            if error == nil {
-                if let img = imageData {
-                    self.auxData.imagem = UIImage(data:img)!
-                    self.auxData.imgIsReady = true
+        if self.auxData.questao.valueForKey("Imagem") != nil{
+            let userImageFile = self.auxData.questao.valueForKey("Imagem") as! PFFile
+            
+            userImageFile.getDataInBackgroundWithBlock {
+                (imageData: NSData?, error: NSError?) -> Void in
+                if error == nil {
+                    if let img = imageData {
+                        self.auxData.imagem = UIImage(data:img)!
+                        self.auxData.imgIsReady = true
+                    }
                 }
             }
+
         }
     }
+        
     
     
     

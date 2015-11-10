@@ -16,7 +16,7 @@ class AuxiliarData: NSObject {
     var n = 0
     var imagem = UIImage()
     var imgIsReady = false
-    
+    var  objectId = String()
     
     func returnImg()->UIImage{
         return self.imagem
