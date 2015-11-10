@@ -34,6 +34,7 @@ class AvaliacaoQuestaoTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
     func setArrayAlternativas(array:NSMutableArray){
         
         self.arrayAlternativas = array

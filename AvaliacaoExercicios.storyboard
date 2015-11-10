@@ -55,97 +55,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4tC-IA-oNy">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fae-HZ-i8e">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w06-h0-wcK">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="192" id="i9p-Kr-0Qv"/>
-                                </constraints>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enunciado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnR-Xa-tro">
+                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="160" y="24" width="80" height="21"/>
+                                        </variation>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4tC-IA-oNy">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="41" y="315" width="331" height="278"/>
+                                        </variation>
+                                    </textView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture64" translatesAutoresizingMaskIntoConstraints="NO" id="w06-h0-wcK">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="59" y="85" width="283" height="192"/>
+                                        </variation>
+                                    </imageView>
+                                </subviews>
                                 <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="i9p-Kr-0Qv"/>
+                                    <mask key="subviews">
+                                        <exclude reference="fnR-Xa-tro"/>
+                                        <exclude reference="4tC-IA-oNy"/>
+                                        <exclude reference="w06-h0-wcK"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="i9p-Kr-0Qv"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="400" height="687"/>
+                                    <mask key="subviews">
+                                        <include reference="fnR-Xa-tro"/>
+                                        <include reference="4tC-IA-oNy"/>
+                                        <include reference="w06-h0-wcK"/>
                                     </mask>
                                 </variation>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enunciado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnR-Xa-tro">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="FAF-5W-Icy"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="FAF-5W-Icy"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="FAF-5W-Icy"/>
-                                    </mask>
-                                </variation>
-                            </label>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="w06-h0-wcK" firstAttribute="top" secondItem="fnR-Xa-tro" secondAttribute="bottom" constant="69" id="5CF-w0-oVO"/>
-                            <constraint firstItem="4tC-IA-oNy" firstAttribute="centerX" secondItem="fnR-Xa-tro" secondAttribute="centerX" id="8YQ-S7-fGO"/>
-                            <constraint firstItem="w06-h0-wcK" firstAttribute="leading" secondItem="AKE-th-MPB" secondAttribute="leadingMargin" constant="35" id="K6o-o2-aW2"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="w06-h0-wcK" secondAttribute="trailing" constant="42" id="Vsa-bP-L7o"/>
-                            <constraint firstItem="w06-h0-wcK" firstAttribute="leading" secondItem="4tC-IA-oNy" secondAttribute="leading" id="XAD-an-BGn"/>
-                            <constraint firstItem="fnR-Xa-tro" firstAttribute="centerX" secondItem="AKE-th-MPB" secondAttribute="centerX" id="YEZ-VY-FIY"/>
-                            <constraint firstItem="4tC-IA-oNy" firstAttribute="top" secondItem="w06-h0-wcK" secondAttribute="bottom" constant="68" id="Yj6-hV-Tt8"/>
-                            <constraint firstItem="fnR-Xa-tro" firstAttribute="top" secondItem="k4N-C1-WWV" secondAttribute="bottom" constant="30" id="cKE-Jr-wke"/>
-                            <constraint firstItem="wSa-wc-M3J" firstAttribute="top" secondItem="4tC-IA-oNy" secondAttribute="bottom" constant="105" id="ncn-OV-8Ru">
-                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
-                            </constraint>
-                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="4tC-IA-oNy"/>
-                                <exclude reference="w06-h0-wcK"/>
-                                <exclude reference="fnR-Xa-tro"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="YEZ-VY-FIY"/>
-                                <exclude reference="cKE-Jr-wke"/>
-                                <exclude reference="5CF-w0-oVO"/>
-                                <exclude reference="K6o-o2-aW2"/>
-                                <exclude reference="Vsa-bP-L7o"/>
-                                <exclude reference="XAD-an-BGn"/>
-                                <exclude reference="8YQ-S7-fGO"/>
-                                <exclude reference="Yj6-hV-Tt8"/>
-                                <exclude reference="ncn-OV-8Ru"/>
+                                <exclude reference="Fae-HZ-i8e"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="4tC-IA-oNy"/>
-                                <include reference="w06-h0-wcK"/>
-                                <include reference="fnR-Xa-tro"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="YEZ-VY-FIY"/>
-                                <include reference="cKE-Jr-wke"/>
-                                <include reference="5CF-w0-oVO"/>
-                                <include reference="K6o-o2-aW2"/>
-                                <include reference="Vsa-bP-L7o"/>
-                                <include reference="XAD-an-BGn"/>
-                                <include reference="8YQ-S7-fGO"/>
-                                <include reference="Yj6-hV-Tt8"/>
-                                <include reference="ncn-OV-8Ru"/>
+                                <include reference="Fae-HZ-i8e"/>
                             </mask>
                         </variation>
                     </view>
@@ -153,6 +117,7 @@
                     <navigationItem key="navigationItem" id="jT8-Fs-5KM"/>
                     <connections>
                         <outlet property="imgExercicio" destination="w06-h0-wcK" id="coh-cv-uwX"/>
+                        <outlet property="scrollView" destination="Fae-HZ-i8e" id="zdk-V7-jH3"/>
                         <outlet property="txtEnunciado" destination="4tC-IA-oNy" id="7QM-vC-shn"/>
                     </connections>
                 </viewController>
@@ -311,13 +276,15 @@
             <objects>
                 <tableViewController id="MHW-RQ-jfz" customClass="AvaliacaoQuestaoTableViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dfb-KT-dce">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellDetalhe" rowHeight="130" id="HBi-hj-s6P">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HBi-hj-s6P" id="bBd-Is-i4H">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="129.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -359,6 +326,7 @@
     </scenes>
     <resources>
         <image name="menu" width="22" height="22"/>
+        <image name="picture64" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="635-VZ-jzi"/>

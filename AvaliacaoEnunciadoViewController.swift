@@ -10,6 +10,7 @@ import UIKit
 
 class AvaliacaoEnunciadoViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var txtEnunciado: UITextView!
     @IBOutlet weak var imgExercicio: UIImageView!
     private var timer = NSTimer()
