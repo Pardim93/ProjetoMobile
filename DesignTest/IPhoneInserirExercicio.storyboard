@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1502" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8GB-E4-3h6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8GB-E4-3h6">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -364,7 +365,7 @@
                                             <include reference="Rhs-fy-svs"/>
                                             <include reference="bNr-SQ-IdV"/>
                                             <include reference="1uv-Vc-nyw"/>
-                                            <include reference="eW7-uw-HKr"/>
+                                            <exclude reference="eW7-uw-HKr"/>
                                             <include reference="pO2-Oo-g2h"/>
                                             <include reference="rcE-Lj-13b"/>
                                             <exclude reference="tWS-zn-X63"/>

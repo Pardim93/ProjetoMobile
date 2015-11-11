@@ -8,29 +8,23 @@
 
 import UIKit
 
+protocol ViewStatusDelegate{
+    func callDisableView()
+    func callEnableView()
+}
+
 class DisciplinaTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource{
     
-    let parseManager = ParseManager.singleton
     @IBOutlet weak var disciplinaPicker: UIPickerView!
+    
+    var viewStatusDelegate: ViewStatusDelegate?
     var disciplinas: [PFObject] = []
-
+    let parseManager = ParseManager.singleton
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.disciplinaPicker.delegate = self
         self.disciplinaPicker.dataSource = self
-        parseManager.getDisciplinas { (result, error) -> () in
-            if(error == nil){
-                self.disciplinas = result
-                self.disciplinaPicker.reloadAllComponents()
-                self.configPickerView()
-                return
-            }
-            else{
-                
-            }
-        }
-        return
-//        self.configPickerView()
     }
     
 //    MARK: Config
@@ -40,14 +34,18 @@ class DisciplinaTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVi
     
 //    MARK: Get
     func getDisciplinas(){
+        self.viewStatusDelegate?.callDisableView()
+        
         parseManager.getDisciplinas { (result, error) -> () in
+            self.viewStatusDelegate?.callEnableView()
             if(error == nil){
                 self.disciplinas = result
+                self.disciplinaPicker.reloadAllComponents()
                 self.configPickerView()
                 return
             }
             else{
-                
+                return
             }
         }
         return

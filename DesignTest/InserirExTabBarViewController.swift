@@ -31,6 +31,9 @@ class InserirExTabBarViewController: UITabBarController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.configActivityView()
+        
+        let tituloView = self.viewControllers![0] as? InserirTituloTableViewController
+        tituloView?.configDisciplinas()
     }
     
     func configBackButton(){
@@ -225,17 +228,6 @@ class InserirExTabBarViewController: UITabBarController {
         
         self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
     }
-    
-//    MARK: View
-//    func enableView(){
-//        self.view.userInteractionEnabled = true
-//        self.activityView.stopAnimating()
-//    }
-//    
-//    func disabeView(){
-//        self.view.userInteractionEnabled = false
-//        self.activityView.startAnimating()
-//    }
     
     func cancelViewsEditing(){
         for viewController in self.viewControllers!{

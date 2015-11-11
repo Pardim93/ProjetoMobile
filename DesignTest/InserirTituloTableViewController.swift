@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InserirTituloTableViewController: UITableViewController{
+class InserirTituloTableViewController: UITableViewController, ViewStatusDelegate{
     
     var arrayCell = NSMutableArray()
     
@@ -44,24 +44,36 @@ class InserirTituloTableViewController: UITableViewController{
         self.tableView.tableFooterView = footer
     }
     
+    func configDisciplinas(){
+        let cell = arrayCell.objectAtIndex(1) as! DisciplinaTableViewCell
+        cell.getDisciplinas()
+    }
+    
 //    MARK: TableView
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
-        
         let row = indexPath.row
         
         if (row == 0){
-            cell = tableView.dequeueReusableCellWithIdentifier("tituloCell", forIndexPath: indexPath) as! TituloTableViewCell
-        } else{
-            if (row == 1){
-                cell = tableView.dequeueReusableCellWithIdentifier("disciplinaCell", forIndexPath: indexPath) as! DisciplinaTableViewCell
-            } else{
-                cell = tableView.dequeueReusableCellWithIdentifier("palavrasChaveCell", forIndexPath: indexPath) as! PalavrasChaveTableViewCell
-            }
+            let cell = tableView.dequeueReusableCellWithIdentifier("tituloCell", forIndexPath: indexPath) as! TituloTableViewCell
+            arrayCell.addObject(cell)
+            return cell
         }
         
-        arrayCell.addObject(cell)
-        return cell
+        if (row == 1){
+            let cell = tableView.dequeueReusableCellWithIdentifier("disciplinaCell", forIndexPath: indexPath) as! DisciplinaTableViewCell
+            cell.viewStatusDelegate = self
+            
+            arrayCell.addObject(cell)
+            return cell
+        }
+        
+        if(row == 2){
+            let cell = tableView.dequeueReusableCellWithIdentifier("palavrasChaveCell", forIndexPath: indexPath) as! PalavrasChaveTableViewCell
+            arrayCell.addObject(cell)
+            return cell
+        }
+        
+        return UITableViewCell()
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -83,6 +95,10 @@ class InserirTituloTableViewController: UITableViewController{
                 return 140
             }
         }
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.view.endEditing(true)
     }
     
 //    MARK: CheckConteudo
@@ -110,8 +126,14 @@ class InserirTituloTableViewController: UITableViewController{
         return disciplinaCell.disciplinaValida()
     }
     
-//    MARK: Other
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.view.endEditing(true)
+//    MARK:Delegate
+    func callDisableView() {
+        let tabBar = self.tabBarController as! InserirExTabBarViewController
+        tabBar.disabeView()
+    }
+    
+    func callEnableView() {
+        let tabBar = self.tabBarController as! InserirExTabBarViewController
+        tabBar.enableView()
     }
 }

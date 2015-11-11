@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        self.beginProvas()
 //        self.beginProva()
 //        self.beginFinishRegistro()
-//        self.verifyLogin()
-        self.beginAvaliacao()
+        self.verifyLogin()
+//        self.beginAvaliacao()
         
 //        self.beginInserir()
         
