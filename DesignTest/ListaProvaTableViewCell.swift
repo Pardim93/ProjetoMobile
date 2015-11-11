@@ -16,6 +16,7 @@ class ListaProvaTableViewCell: UITableViewCell {
     @IBOutlet weak var numQuestoesLabel: UILabel!
     
     var prova: PFObject?
+    let colors:[UIColor] = [UIColor.newLightBlueColor(), UIColor.newBlueColor()]
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +30,11 @@ class ListaProvaTableViewCell: UITableViewCell {
     }
     
 //    MARK: Set
+    func setColor(row: Int){
+        let colorPick = row%2
+        self.tituloLabel.backgroundColor = self.colors[colorPick]
+    }
+    
     func setNewProva(novaProva: PFObject){
         self.prova = novaProva
         

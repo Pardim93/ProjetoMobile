@@ -150,8 +150,7 @@ class InserirProvaTabBarViewController: UITabBarController {
         self.disabeView()
         parseManager.inserirProva(titulo, image: img, descricao: descricao, questoes: questoes, tags: tags) { (erro) -> () in
             self.enableView()
-            if(erro != nil){
-                self.enableView()
+            if(erro == nil){
                 self.notificateSave()
                 return
             }

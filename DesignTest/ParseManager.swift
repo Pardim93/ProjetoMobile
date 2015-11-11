@@ -193,9 +193,8 @@ class ParseManager: NSObject {
     
     func getProvasByKeyword(keyword: String, completionHandler:(NSArray?, NSError?) -> ()){
         let query = PFQuery(className: "Prova")
-        query.whereKey("Titulo", containsString: keyword)
-        query.whereKey("Tags", containsString: keyword.simpleString())
-        query.includeKey("Disciplinas")
+//        query.whereKey("Titulo", containsString: keyword)
+        query.whereKey("Tags", containedIn: [keyword.simpleString(), keyword])
         query.includeKey("Autor")
         query.limit = 100
         query.orderByDescending("Popularidade")
@@ -232,6 +231,7 @@ class ParseManager: NSObject {
     func inserirProva(titulo: String, image: UIImage?, descricao: String, questoes: [PFObject], var tags: [String], completionHandler: (NSError?) -> ()){
         let prova = PFObject(className: "Prova")
         
+        //Verifica se o usuário está logado
         guard let user = PFUser.currentUser() else{
             let erro = self.getError(305)
             completionHandler(erro)
@@ -253,15 +253,11 @@ class ParseManager: NSObject {
         //Set popularidade
         prova.setObject(10, forKey: "Popularidade")
         
-//        if(image != nil){
-//            prova.setObject(image!, forKey: "imagem")
-//        }
-        
         let relationDisciplinas = prova.relationForKey("Disciplinas")
         let relationQuestoes = prova.relationForKey("Questoes")
         var disciplinas: [PFObject] = []
         
-        //Adiciona relação para questões
+        //Adiciona relação entre prova e questões
         for questao in questoes{
             //Para cada questao no array de questoes
             relationQuestoes.addObject(questao)
@@ -269,9 +265,10 @@ class ParseManager: NSObject {
             let disciplina = questao.objectForKey("Disciplina") as! PFObject
             let newDisciplina = disciplina.objectForKey("Nome") as! String
             
-            //Procura para ver se a disciplina já está adicionada na relação
+            
             var find = false
             
+            //Procura para ver se a disciplina já está relação entre prova e disciplinas
             for disc in disciplinas{
                 //Para cada disciplina no array de disciplinas
                 let oldDisciplina = disc.objectForKey("Nome") as! String
@@ -312,6 +309,28 @@ class ParseManager: NSObject {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             var erro: NSError?
             
+            //Set imagem
+            if(image != nil){
+                let newImageFile = PFFile(data: UIImageJPEGRepresentation(image!, 0.7)!)
+                
+                do{
+                    try newImageFile?.save()
+                    prova.setObject(newImageFile!, forKey: "Imagem")
+                } catch{
+                    let userInfo:[NSObject : AnyObject] = [
+                        NSLocalizedDescriptionKey : NSLocalizedString("Erro ao salvar. Tente novamente.", comment: ""),
+                        NSLocalizedFailureReasonErrorKey : NSLocalizedString("Ocorreu um erro ao salvar.", comment: ""),
+                        NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente.", comment: "")
+                    ]
+                    erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        completionHandler(erro)
+                    })
+                }
+            }
+            
+            //Salva prova
             do{
                 try prova.save()
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
@@ -539,7 +558,7 @@ class ParseManager: NSObject {
     }
     
 //    MARK: QUESTÃO INSERIR
-    func insertQuestao(titulo: String, disciplina: PFObject, tags: [String], enunciado: String, img: UIImage, alternativas: [String], completionHandler: (ParseManager, NSError?) -> ()){
+    func insertQuestao(titulo: String, disciplina: PFObject, tags: [String], enunciado: String, img: UIImage?, alternativas: [String], completionHandler: (NSError?) -> ()){
         
         let questao = PFObject(className: "Questao")
         questao.setObject(PFUser.currentUser()!, forKey: "Dono")
@@ -558,11 +577,6 @@ class ParseManager: NSObject {
         
         questao.setObject(tagsLowerCase, forKey: "Tags")
         
-        //        let patterImage = UIImage(named: "Login4")
-        //        if (img != patterImage){
-        //            questao.setObject(img, forKey: "Imagem")
-        //        }
-        
         questao.setObject(alternativas[0], forKey: "AlternativaA")
         questao.setObject(alternativas[1], forKey: "AlternativaB")
         questao.setObject(alternativas[2], forKey: "AlternativaC")
@@ -571,10 +585,32 @@ class ParseManager: NSObject {
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             var erro: NSError?
+            
+            //Set imagem
+            if(img != nil){
+                let newImageFile = PFFile(data: UIImageJPEGRepresentation(img!, 0.7)!)
+                
+                do{
+                    try newImageFile?.save()
+                    questao.setObject(newImageFile!, forKey: "imagem")
+                } catch{
+                    let userInfo:[NSObject : AnyObject] = [
+                        NSLocalizedDescriptionKey : NSLocalizedString("Erro ao salvar. Tente novamente.", comment: ""),
+                        NSLocalizedFailureReasonErrorKey : NSLocalizedString("Ocorreu um erro ao salvar.", comment: ""),
+                        NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente.", comment: "")
+                    ]
+                    erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        completionHandler(erro)
+                    })
+                }
+            }
+            
             do{
                 try questao.save()
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
-                    completionHandler(self, erro)
+                    completionHandler(erro)
                 })
                 
                 return
@@ -582,7 +618,7 @@ class ParseManager: NSObject {
                 erro = NSError(domain: "ParseManager", code: 1, userInfo: nil)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionHandler(self, erro)
+                    completionHandler(erro)
                 })
                 return
             }
