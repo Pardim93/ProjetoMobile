@@ -84,6 +84,9 @@
 		521293351BE2AC720093D905 /* AvaliacaoQuestaoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521293321BE2AC720093D905 /* AvaliacaoQuestaoTableViewController.swift */; };
 		521293361BE2AC720093D905 /* PerguntasAvaliacaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521293331BE2AC720093D905 /* PerguntasAvaliacaoViewController.swift */; };
 		521293381BE2ACB70093D905 /* IPhoneExercicios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 521293371BE2ACB70093D905 /* IPhoneExercicios.storyboard */; };
+		5240D0071BF3A3C600D56CFD /* AuxiliarQuestoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5240D0041BF3A3C600D56CFD /* AuxiliarQuestoes.swift */; };
+		5240D0081BF3A3C600D56CFD /* ListaQuestoesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5240D0051BF3A3C600D56CFD /* ListaQuestoesViewController.swift */; };
+		5240D0091BF3A3C600D56CFD /* QuestaoMenuControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5240D0061BF3A3C600D56CFD /* QuestaoMenuControllerTableViewController.swift */; };
 		5243FBD91BD2F74800462071 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5243FBD71BD2F74800462071 /* PopUpViewController.swift */; };
 		5243FBDC1BD2FE6A00462071 /* PopUpViewController_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5243FBDB1BD2FE6A00462071 /* PopUpViewController_iPhone6.xib */; };
 		52499F551BB5B0BE004B5E21 /* QuestoesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52499F541BB5B0BE004B5E21 /* QuestoesManager.swift */; };
@@ -203,6 +206,9 @@
 		521293321BE2AC720093D905 /* AvaliacaoQuestaoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliacaoQuestaoTableViewController.swift; sourceTree = "<group>"; };
 		521293331BE2AC720093D905 /* PerguntasAvaliacaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerguntasAvaliacaoViewController.swift; sourceTree = "<group>"; };
 		521293371BE2ACB70093D905 /* IPhoneExercicios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = IPhoneExercicios.storyboard; path = ../IPhoneExercicios.storyboard; sourceTree = "<group>"; };
+		5240D0041BF3A3C600D56CFD /* AuxiliarQuestoes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuxiliarQuestoes.swift; sourceTree = "<group>"; };
+		5240D0051BF3A3C600D56CFD /* ListaQuestoesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaQuestoesViewController.swift; sourceTree = "<group>"; };
+		5240D0061BF3A3C600D56CFD /* QuestaoMenuControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestaoMenuControllerTableViewController.swift; sourceTree = "<group>"; };
 		5243FBD71BD2F74800462071 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		5243FBDB1BD2FE6A00462071 /* PopUpViewController_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController_iPhone6.xib; sourceTree = "<group>"; };
 		52499F541BB5B0BE004B5E21 /* QuestoesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestoesManager.swift; sourceTree = "<group>"; };
@@ -517,6 +523,16 @@
 			name = Avaliacao;
 			sourceTree = "<group>";
 		};
+		5240D00A1BF3A3E000D56CFD /* SWRevealClasses */ = {
+			isa = PBXGroup;
+			children = (
+				5240D0041BF3A3C600D56CFD /* AuxiliarQuestoes.swift */,
+				5240D0051BF3A3C600D56CFD /* ListaQuestoesViewController.swift */,
+				5240D0061BF3A3C600D56CFD /* QuestaoMenuControllerTableViewController.swift */,
+			);
+			name = SWRevealClasses;
+			sourceTree = "<group>";
+		};
 		524E43DB1BA2186F00BBB2E0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -539,6 +555,7 @@
 		52A8484E1BB06D0E000ECCE9 /* Exercicios */ = {
 			isa = PBXGroup;
 			children = (
+				5240D00A1BF3A3E000D56CFD /* SWRevealClasses */,
 				521293411BE2AE190093D905 /* Avaliacao */,
 				52514CFB1BD30757006289B2 /* PopUp */,
 				52EC8EB61BC7019B002DCF52 /* ResultadoInfoViewController.swift */,
@@ -815,6 +832,7 @@
 				2488995E1BA750AC000CCA21 /* ExerciciosViewController.swift in Sources */,
 				521293361BE2AC720093D905 /* PerguntasAvaliacaoViewController.swift in Sources */,
 				52DF78A91B790EE30047A107 /* DesignTest.xcdatamodeld in Sources */,
+				5240D0071BF3A3C600D56CFD /* AuxiliarQuestoes.swift in Sources */,
 				2422E4C91B96268D00ACEE90 /* CustomTextField.swift in Sources */,
 				52AB5E8C1BF121D500A4FE5D /* AvaliacaoEnunciadoViewController.swift in Sources */,
 				244BB5161BC4376A001BD0ED /* FacebookManager.swift in Sources */,
@@ -844,6 +862,7 @@
 				527763C61BB30E4B003B037D /* NavigationControllerAlternativas.swift in Sources */,
 				2406630F1BD17C6C007032F3 /* Colors.swift in Sources */,
 				240A00ED1BEA74DB00ADDE24 /* InserirQuestoesProvaManager.swift in Sources */,
+				5240D0091BF3A3C600D56CFD /* QuestaoMenuControllerTableViewController.swift in Sources */,
 				248899651BA757FA000CCA21 /* CoreDataManager.swift in Sources */,
 				52EC8EB71BC7019B002DCF52 /* ResultadoInfoViewController.swift in Sources */,
 				24093D481BBC5D540099823C /* CustomActivityView.swift in Sources */,
@@ -862,6 +881,7 @@
 				246CBC791B879812002E6A6E /* MainViewController.swift in Sources */,
 				2424D07F1BB09486002290C3 /* RecuperarSenhaViewController.swift in Sources */,
 				245095ED1BD7EEBF00E5E468 /* Pais.swift in Sources */,
+				5240D0081BF3A3C600D56CFD /* ListaQuestoesViewController.swift in Sources */,
 				24A20C8E1B8D034B00DC8482 /* ExercicioViewController.swift in Sources */,
 				524E43DA1BA2185C00BBB2E0 /* CollectionViewCell.swift in Sources */,
 				52AB5E861BF1040E00A4FE5D /* AuxiliarData.swift in Sources */,
