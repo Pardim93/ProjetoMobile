@@ -9,12 +9,11 @@
 import UIKit
 
 class ErrorManager: NSObject {
-    static func getErrorForClass(className: String, errorCode: Int) -> NSError{
+    static func getErrorForCode(errorCode: Int) -> NSError?{
         var erro: NSError?
         
-        switch className{
-        case "ParseManager":
-            erro = getParseManagerError()
+        switch errorCode{
+        case 1:
             break
             
         default:
@@ -22,10 +21,5 @@ class ErrorManager: NSObject {
         }
         
         return erro!
-    }
-    
-    static func getParseManagerError() -> NSError?{
-        var erro: NSError?
-        return erro
     }
 }

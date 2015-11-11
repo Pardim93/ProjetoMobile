@@ -104,7 +104,7 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
             return
         }
         
-        if((!self.lookForLetter(text)) && (!self.lookForNumber(text))){
+        if(!text.hasAlphanumeric()){
             self.tableView.reloadData()
             return
         }
@@ -123,18 +123,6 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
             
             self.tableView.reloadData()
         }
-    }
-    
-    func lookForLetter(newPassword: NSString) -> Bool{
-        let rangeOfLeters = newPassword.rangeOfCharacterFromSet(NSCharacterSet.letterCharacterSet())
-        
-        return (rangeOfLeters.length > 0)
-    }
-    
-    func lookForNumber(newPassword: NSString) -> Bool{
-        let rangeOfNumbers = newPassword.rangeOfCharacterFromSet(NSCharacterSet.decimalDigitCharacterSet())
-        
-        return (rangeOfNumbers.length > 0)
     }
     
 //    MARK: TableView

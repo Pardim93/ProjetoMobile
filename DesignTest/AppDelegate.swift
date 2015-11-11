@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Parse
         Parse.setApplicationId("cnmKI9SvIi10G7n7p74npxdBrHQQFT2Qcw8yMDhH", clientKey: "gasYEiYZAKeCoyyIBxC9IwDHspTxs1mwjTkrFFih")
-        parseManager.zerar()
+//        parseManager.zerar()
    
 //        self.beginEx()
 //        self.beginProvas()

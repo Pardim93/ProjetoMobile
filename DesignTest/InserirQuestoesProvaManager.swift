@@ -24,19 +24,35 @@ class InserirQuestoesProvaManager: NSObject {
                 return
             }
             
-            guard let newData = newImage.getData() else{
+            do{
+                let newData = try newImage.getData()
+                img = UIImage(data: newData)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(img)
+                })
+                return
+            } catch{
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completionHandler(img)
                 })
                 return
             }
             
-            img = UIImage(data: newData)
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                completionHandler(img)
-            })
-            return
+//            guard let newData = newImage.getData() else{
+//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                    completionHandler(img)
+//                })
+//                
+//                return
+//            }
+//            
+//            img = UIImage(data: newData)
+//            
+//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                completionHandler(img)
+//            })
+//            return
         })
     }
     

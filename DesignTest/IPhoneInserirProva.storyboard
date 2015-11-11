@@ -75,7 +75,7 @@
                                                     <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textField>
                                             </subviews>
                                             <animations/>
@@ -362,17 +362,17 @@
                                 <exclude reference="B6Q-oX-Rgr"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="2cW-6V-G4B"/>
-                                <exclude reference="RoT-Pn-xoL"/>
-                                <exclude reference="t6Z-aD-V6c"/>
+                                <exclude reference="vzo-45-93M"/>
                                 <exclude reference="Bng-9p-jnf"/>
                                 <exclude reference="PFb-Ae-7PI"/>
                                 <exclude reference="nb8-F9-pQJ"/>
                                 <exclude reference="p0M-8W-Q5j"/>
+                                <exclude reference="2cW-6V-G4B"/>
+                                <exclude reference="RoT-Pn-xoL"/>
+                                <exclude reference="t6Z-aD-V6c"/>
                                 <exclude reference="6SI-oo-OYp"/>
                                 <exclude reference="N56-Mo-hfZ"/>
                                 <exclude reference="ikz-lE-aJX"/>
-                                <exclude reference="vzo-45-93M"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -382,17 +382,17 @@
                                 <include reference="B6Q-oX-Rgr"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="2cW-6V-G4B"/>
-                                <include reference="RoT-Pn-xoL"/>
-                                <include reference="t6Z-aD-V6c"/>
+                                <include reference="vzo-45-93M"/>
                                 <include reference="Bng-9p-jnf"/>
                                 <exclude reference="PFb-Ae-7PI"/>
                                 <include reference="nb8-F9-pQJ"/>
                                 <include reference="p0M-8W-Q5j"/>
+                                <include reference="2cW-6V-G4B"/>
+                                <include reference="RoT-Pn-xoL"/>
+                                <include reference="t6Z-aD-V6c"/>
                                 <include reference="6SI-oo-OYp"/>
                                 <include reference="N56-Mo-hfZ"/>
                                 <include reference="ikz-lE-aJX"/>
-                                <include reference="vzo-45-93M"/>
                             </mask>
                         </variation>
                     </view>

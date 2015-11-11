@@ -61,7 +61,7 @@ class InserirDescricaoProvaTableViewController: UITableViewController {
         let arrayTag = auxText.componentsSeparatedByString(",")
         
         for palavraChave in arrayTag{
-            auxArray.append(palavraChave)
+            auxArray.append(palavraChave.simpleString())
         }
         
         return auxArray

@@ -20,7 +20,22 @@ class ParseManager: NSObject {
         query.addAscendingOrder("Area")
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             var erro: NSError?
-            guard let result = query.findObjects() else{
+            
+            do{
+                let result = try query.findObjects()
+                
+                var disciplinas: [PFObject] = []
+                
+                for item in result{
+                    disciplinas.append(item)
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(disciplinas, erro)
+                })
+                return
+                
+            } catch{
                 let userInfo:[NSObject : AnyObject] = [
                     NSLocalizedDescriptionKey : NSLocalizedString("Erro na rede. Verifique sua conexão.", comment: ""),
                     NSLocalizedFailureReasonErrorKey : NSLocalizedString("Erro ao buscar disciplina.", comment: ""),
@@ -33,31 +48,52 @@ class ParseManager: NSObject {
                     completionHandler([], erro)
                 })
                 return
+
             }
             
-            var disciplinas: [PFObject] = []
+//            guard let result = query.findObjects() else{
+//                let userInfo:[NSObject : AnyObject] = [
+//                    NSLocalizedDescriptionKey : NSLocalizedString("Erro na rede. Verifique sua conexão.", comment: ""),
+//                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Erro ao buscar disciplina.", comment: ""),
+//                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Verifique sua conexão e tente novamente.", comment: "")
+//                ]
+//                
+//                erro = NSError(domain: "ParseManager", code: 7, userInfo: userInfo)
+//                
+//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                    completionHandler([], erro)
+//                })
+//                return
+//            }
             
-            for item in result{
-                guard let disciplina = item as? PFObject else{
-                    return
-                }
-                
-                disciplinas.append(disciplina)
-            }
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                completionHandler(disciplinas, erro)
-            })
-            return
+//            var disciplinas: [PFObject] = []
+//            
+//            for item in result{
+//                guard let disciplina = item as? PFObject else{
+//                    return
+//                }
+//                
+//                disciplinas.append(disciplina)
+//            }
+//            
+//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                completionHandler(disciplinas, erro)
+//            })
+//            return
         })
     }
     
     func getDisciplinaByNameSync(name: String) -> [PFObject]{
         let query = PFQuery(className: "Disciplina")
         
-        let array = query.findObjects()
+        var array: [PFObject]!
         
-        return array as! [PFObject]
+        do{
+            array = try query.findObjects()
+            return array
+        } catch{
+            return array
+        }
     }
     
     func getDisciplinaByNameAsync(name: String, completionHandler:([PFObject], NSError?)->()){
@@ -66,9 +102,14 @@ class ParseManager: NSObject {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             var erro: NSError?
             
-            let array = query.findObjects(&erro)
-            
-            if(erro != nil){
+            do{
+                let array = try query.findObjects()
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    let result = array
+                    completionHandler(result, erro)
+                })
+                return
+            } catch{
                 let userInfo:[NSObject : AnyObject] = [
                     NSLocalizedDescriptionKey : NSLocalizedString("Erro na rede. Verifique sua conexão.", comment: ""),
                     NSLocalizedFailureReasonErrorKey : NSLocalizedString("Erro ao buscar disciplina.", comment: ""),
@@ -82,13 +123,28 @@ class ParseManager: NSObject {
                 })
                 return
             }
-            else{
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    let result = array as! [PFObject]
-                    completionHandler(result, erro)
-                })
-                return
-            }
+//            
+//            if(erro != nil){
+//                let userInfo:[NSObject : AnyObject] = [
+//                    NSLocalizedDescriptionKey : NSLocalizedString("Erro na rede. Verifique sua conexão.", comment: ""),
+//                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Erro ao buscar disciplina.", comment: ""),
+//                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Verifique sua conexão e tente novamente.", comment: "")
+//                ]
+//                
+//                erro = NSError(domain: "ParseManager", code: 8, userInfo: userInfo)
+//                
+//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                    completionHandler([], erro)
+//                })
+//                return
+//            }
+//            else{
+//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                    let result = array as! [PFObject]
+//                    completionHandler(result, erro)
+//                })
+//                return
+//            }
         })
     }
     
@@ -98,12 +154,23 @@ class ParseManager: NSObject {
     }
     
     func doLogin (email: String, senha: String) -> Bool{
-        PFUser.logInWithUsername(email.lowercaseString, password: senha)
-        guard let _ = PFUser.currentUser() else{
+        do{
+            try PFUser.logInWithUsername(email.lowercaseString, password: senha)
+            guard let _ = PFUser.currentUser() else{
+                return false
+            }
+            
+            return true
+        } catch{
             return false
         }
-        
-        return true
+//        
+//        PFUser.logInWithUsername(email.lowercaseString, password: senha)
+//        guard let _ = PFUser.currentUser() else{
+//            return false
+//        }
+//        
+//        return true
     }
     
     func doLogout() -> Bool{
@@ -120,16 +187,13 @@ class ParseManager: NSObject {
     func retrievePassword(email: String, completionHandler:(ParseManager, NSError?)->()){
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             var erro: NSError?
-            
-            let resetted = PFUser.requestPasswordResetForEmail(email)
-            
-            if(resetted){
+            do{
+                try PFUser.requestPasswordResetForEmail(email)
                 //Senha recuperada com sucesso
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     completionHandler(self, erro)
                 })
-            }
-            else{
+            }catch{
                 //Falha ao recuperar senha
                 let userInfo:[NSObject : AnyObject] = [
                     NSLocalizedDescriptionKey : NSLocalizedString("Verifique se seu email está funcionando e sua conexão funcionando.", comment: ""),
@@ -144,16 +208,34 @@ class ParseManager: NSObject {
                 })
                 return
             }
-        })
-    }
-    
+    })
+}
+
 //    MARK: PROVAS GET
-    func getProvas() -> (populares: NSArray, recentes: NSArray){
-        let first = ["Maratona ENEM","Resumão FUVEST","Rumo ao ITA","Mack Provas"]
+    func getProvasPopulares(completionHandler:(NSArray?, NSError?) -> ()){
+        let query = PFQuery(className: "Prova")
+        query.orderByDescending("Popularidade")
+        query.includeKey("Autor")
+        query.limit = 100
         
-        let second = ["Novos Testes", "Tendência ENEM", "Vai Cair", "Questões do ITA"]
-        
-        return (first, second)
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var erro: NSError?
+            
+            do{
+                let result = try query.findObjects()
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    completionHandler(result, erro)
+                })
+                
+                return
+            } catch{
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    completionHandler(nil, erro)
+                })
+                
+                return
+            }
+        })
     }
     
     func getAllProvas() ->NSArray{
@@ -161,16 +243,84 @@ class ParseManager: NSObject {
         query.includeKey("Disciplinas")
         query.includeKey("Questoes")
         query.includeKey("Autor")
-        let questoes = query.findObjects() as AnyObject! as! NSArray
-        return questoes
+        
+        do{
+            let questoes = try query.findObjects()
+            return questoes
+        } catch{
+            return NSArray()
+        }
+    }
+    
+    func getProvasByKeyword(keyword: String, completionHandler:(NSArray?, NSError?) -> ()){
+        let query = PFQuery(className: "Prova")
+        query.whereKey("Titulo", containsString: keyword)
+        query.whereKey("Tags", containsString: keyword.simpleString())
+        query.includeKey("Disciplinas")
+        query.includeKey("Autor")
+        query.limit = 100
+        query.orderByDescending("Popularidade")
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var erro: NSError?
+            
+            do{
+                let result = try query.findObjects()
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    completionHandler(result, erro)
+                })
+                
+                return
+            } catch{
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    completionHandler(nil, erro)
+                })
+                
+                return
+            }
+//            
+//            let result = query.findObjects(&erro)
+//            if(erro == nil){
+//                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+//                    completionHandler(result, erro)
+//                })
+//                
+//                return
+//            }
+//            else{
+//                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+//                    completionHandler(nil, erro)
+//                })
+//                
+//                return
+//            }
+        })
     }
     
 //    MARK: PROVAS INSERIR
-    func inserirProva(titulo: String, image: UIImage?, descricao: String, questoes: [PFObject], tags: [String], completionHandler: (NSErrorPointer) -> ()){
+    func inserirProva(titulo: String, image: UIImage?, descricao: String, questoes: [PFObject], var tags: [String], completionHandler: (NSError?) -> ()){
         let prova = PFObject(className: "Prova")
+        
+        guard let user = PFUser.currentUser() else{
+            let erro = self.getError(305)
+            completionHandler(erro)
+            return
+        }
+        
+        //Set autor
+        prova.setObject(user, forKey: "Autor")
+        
+        //Set titulo
         prova.setObject(titulo, forKey: "Titulo")
+        
+        //Set descricao
         prova.setObject(descricao, forKey: "Descricao")
-        prova.setObject(tags, forKey: "Tags")
+        
+        //Set numQuestões
+        prova.setObject(questoes.count, forKey: "NumQuestoes")
+        
+        //Set popularidade
+        prova.setObject(10, forKey: "Popularidade")
         
 //        if(image != nil){
 //            prova.setObject(image!, forKey: "imagem")
@@ -182,6 +332,7 @@ class ParseManager: NSObject {
         
         //Adiciona relação para questões
         for questao in questoes{
+            //Para cada questao no array de questoes
             relationQuestoes.addObject(questao)
             
             let disciplina = questao.objectForKey("Disciplina") as! PFObject
@@ -189,18 +340,38 @@ class ParseManager: NSObject {
             
             //Procura para ver se a disciplina já está adicionada na relação
             var find = false
+            
             for disc in disciplinas{
+                //Para cada disciplina no array de disciplinas
                 let oldDisciplina = disc.objectForKey("Nome") as! String
                 if(oldDisciplina == newDisciplina){
+                    //Se a disciplina já está no array
                     find = true
                     break
                 }
             }
             
             if(!find){
+                //Se a disciplina não está no array
                 disciplinas.append(disciplina)
+                
+                for tag in tags{
+                    //Para cada tag no array de tags
+                    if(tag == newDisciplina){
+                        //Se a disciplina já está no array de tags
+                        find = true
+                    }
+                }
+                
+                if(!find){
+                    //Se a disciplina não está no array de tags
+                    tags.append(newDisciplina.simpleString())
+                }
             }
         }
+        
+        //Set tags
+        prova.setObject(tags, forKey: "Tags")
         
         //Adiciona relação para disciplinas
         for disc in disciplinas{
@@ -210,14 +381,14 @@ class ParseManager: NSObject {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             var erro: NSError?
             
-            if(prova.save()){
+            do{
+                try prova.save()
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
-                    completionHandler(&erro)
+                    completionHandler(erro)
                 })
                 
                 return
-            }
-            else{
+            } catch{
                 let userInfo:[NSObject : AnyObject] = [
                     NSLocalizedDescriptionKey : NSLocalizedString("Erro ao salvar. Tente novamente.", comment: ""),
                     NSLocalizedFailureReasonErrorKey : NSLocalizedString("Ocorreu um erro ao salvar.", comment: ""),
@@ -226,22 +397,85 @@ class ParseManager: NSObject {
                 erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionHandler(&erro)
+                    completionHandler(erro)
                 })
                 return
             }
+            
+//            if(prova.save()){
+//                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+//                    completionHandler(erro)
+//                })
+//                
+//                return
+//            }
+//            else{
+//                let userInfo:[NSObject : AnyObject] = [
+//                    NSLocalizedDescriptionKey : NSLocalizedString("Erro ao salvar. Tente novamente.", comment: ""),
+//                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Ocorreu um erro ao salvar.", comment: ""),
+//                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente.", comment: "")
+//                ]
+//                erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
+//                
+//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                    completionHandler(erro)
+//                })
+//                return
+//            }
         })
     }
     
-  //    MARK: QUESTÃO GET
+//    MARK: QUESTÃO AVALIAR
+    func dislikeQuestao(questao: PFObject, idQuestao:String){
+        let  queryQuestao = PFQuery(className: "Questao")
+        queryQuestao.includeKey("Disciplina")
+        queryQuestao.includeKey("Autor")
+        queryQuestao.whereKey("objectId", equalTo: idQuestao)
+        
+        do{
+            let questao = try queryQuestao.getFirstObject()
+            var num = questao.objectForKey("Dislikes") as! Int
+            num++
+            questao.setObject(num, forKey: "Dislikes")
+            questao.saveInBackground()
+        } catch{
+            return
+        }
+    }
+    
+    func likeQuestao(questao:PFObject, idQuestao:String){
+        
+        let  queryQuestao = PFQuery(className: "Questao")
+        queryQuestao.includeKey("Disciplina")
+        queryQuestao.includeKey("Autor")
+        queryQuestao.whereKey("objectId", equalTo: idQuestao)
+        
+        do{
+            let questao = try queryQuestao.getFirstObject()
+            var num = questao.objectForKey("Likes") as! Int
+            num++
+            questao.setObject(num, forKey: "Likes")
+            questao.saveInBackground()
+        } catch{
+            return
+        }
+    }
+    
+//    MARK: QUESTÃO GET
     func getLeastRatedQuestions() -> NSArray{
         let query = PFQuery(className: "Questao")
         query.includeKey("Disciplina")
         query.includeKey("Autor")
         query.limit = 10
         
-        let array = query.findObjects()
-        return array!
+        var array: [PFObject]!
+        
+        do{
+            array = try query.findObjects()
+            return array
+        } catch{
+            return array
+        }
     }
     
     func getQuestoesByKeyword(keyword: String, completionHandler: (ParseManager, NSArray, NSError?) -> ()){
@@ -253,7 +487,16 @@ class ParseManager: NSObject {
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             var erro: NSError?
-            guard let result = query.findObjects(&erro) else{
+            
+            do{
+                let result = try query.findObjects()
+                
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    completionHandler(self, result, erro)
+                })
+                
+                return
+            } catch{
                 //Não encontrou resultados
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     let auxArray = NSArray()
@@ -262,32 +505,37 @@ class ParseManager: NSObject {
                 
                 return
             }
-            
-            dispatch_async(dispatch_get_main_queue(), {() -> Void in
-                completionHandler(self, result, erro)
-            })
-            
-            return
         })
     }
     
     func getQuestoesQuant(quantidade: Int){
         
-        let object = PFQuery(className:"Questao" ).getFirstObject()
-        print(object?.objectForKey("idNumber"))
+//        do{
+//            let object = try PFQuery(className: "Questao").getFirstObject()
+//        } catch{
+//            
+//        }
+        
+//        let object = PFQuery(className:"Questao" ).getFirstObject()
+//        print(object?.objectForKey("idNumber"))
     }
     
     func getQuestoesPredefinidas(){
         let userQuery = PFUser.query()
         userQuery!.whereKey("objectId", equalTo: "n8wTIH5ZAo")
-        let arrayUser = userQuery?.findObjects()
         
-        let user = arrayUser?.last as! PFUser
-        
-        let query = PFQuery(className: "Questao")
-        query.includeKey("Disciplina")
-        query.includeKey("Autor")
-        query.whereKey("Dono", equalTo: user)
+        do{
+            let arrayUser = try userQuery!.findObjects()
+            
+            let user = arrayUser.last as! PFUser
+            
+            let query = PFQuery(className: "Questao")
+            query.includeKey("Disciplina")
+            query.includeKey("Autor")
+            query.whereKey("Dono", equalTo: user)
+        } catch{
+            
+        }
     }
     
     func getQuestoes(disciplina: String, index: Int)-> NSArray{
@@ -295,9 +543,15 @@ class ParseManager: NSObject {
         query.includeKey("Disciplina")
         query.includeKey("Autor")
         
-        let array = query.findObjects()
+        var array: [PFObject]!
         
-        return array!
+        do{
+            array = try query.findObjects()
+            
+            return array
+        } catch{
+            return array
+        }
     }
     
     //    func getQuestaoEnemByDisciplina(disciplina: String, repetidas: NSArray) -> (alternativas: NSArray, enunciado: String, titulo: String, imagem: UIImage?){
@@ -311,15 +565,23 @@ class ParseManager: NSObject {
         
         query.whereKey("objectId", notContainedIn: repetidas)
         
-        query.findObjects()
-        
-        let arrayRetorno = query.findObjects()
-        guard let questao = arrayRetorno?.last as? PFObject else{
+//        query.findObjects()
+        do{
+            let arrayRetorno = try query.findObjects()
+            guard let questao = arrayRetorno.last else{
+                return nil
+            }
+            
+            return questao
+        } catch{
             return nil
         }
-        print(questao.objectForKey("Enunciado") as! String)
-        
-        return questao
+//        guard let questao = arrayRetorno?.last as? PFObject else{
+//            return nil
+//        }
+//        print(questao.objectForKey("Enunciado") as! String)
+//        
+//        return questao
         
         //        let enunciado = questao.objectForKey("Enunciado") as! String
         //        let titulo = questao.objectForKey("Descricao") as! String
@@ -342,16 +604,20 @@ class ParseManager: NSObject {
         query.includeKey("Disciplina")
         query.includeKey("Autor")
         query.whereKey("Disciplina", equalTo: disciplina)
-        let arrayQuery = query.findObjects() as NSArray!
         
-        
-        let query1 = PFQuery(className: "Simulado")
-        query1.whereKey("Tag", equalTo: tag)
-        let arrayQuery2 = query1.findObjects()
-        
-        let arrayMu = NSMutableArray(array: arrayQuery)
-        arrayMu.addObjectsFromArray(arrayQuery2!)
-        return arrayMu
+        do{
+            let arrayQuery = try query.findObjects()
+            
+            let query1 = PFQuery(className: "Simulado")
+            query1.whereKey("Tag", equalTo: tag)
+            let arrayQuery2 = try query1.findObjects()
+            
+            let arrayMu = NSMutableArray(array: arrayQuery)
+            arrayMu.addObjectsFromArray(arrayQuery2)
+            return arrayMu
+        } catch{
+            return NSMutableArray()
+        }
     }
     
 //    MARK: QUESTÃO INSERIR
@@ -387,15 +653,14 @@ class ParseManager: NSObject {
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             var erro: NSError?
-            
-            if(questao.save()){
+            do{
+                try questao.save()
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     completionHandler(self, erro)
                 })
                 
                 return
-            }
-            else{
+            } catch{
                 erro = NSError(domain: "ParseManager", code: 1, userInfo: nil)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -419,7 +684,17 @@ class ParseManager: NSObject {
         newUser.setObject(true, forKey: "HasPassword")
         newUser.setObject(false, forKey: "FacebookLinked")
         
-        newUser.signUp()
+        do{
+            try newUser.signUp()
+            
+            guard let _ = PFUser.currentUser() else{
+                return false
+            }
+            
+            return true
+        } catch{
+            return false
+        }
 //        newUser.signUpInBackgroundWithBlock { (success, error) -> Void in
 //            if(success){
 //                return true
@@ -427,12 +702,6 @@ class ParseManager: NSObject {
 //                
 //            }
 //        }
-        
-        guard let _ = PFUser.currentUser() else{
-            return false
-        }
-        
-        return true
     }
     
     func registerUserDef(newPais: String, newOcupacao: String) -> Bool{
@@ -443,7 +712,12 @@ class ParseManager: NSObject {
         newUser.setObject(newPais, forKey: "pais")
         newUser.setObject(newOcupacao, forKey: "ocupacao")
         
-        return newUser.save()
+        do{
+            try newUser.save()
+            return true
+        } catch{
+            return false
+        }
     }
     
     func registerUserFacebook(email: String, name: String) -> Bool{
@@ -458,25 +732,37 @@ class ParseManager: NSObject {
         newUser.setObject("Aluno", forKey: "ocupacao")
         newUser.setObject(true, forKey: "FacebookLinked")
         newUser.setObject(false, forKey: "HasPassword")
-        newUser.save()
-        
-        newUser.signUp()
-        
-        guard let _ = PFUser.currentUser() else{
+        do{
+            try newUser.save()
+            try newUser.signUp()
+            
+            return true
+        } catch{
             return false
         }
-        
-        return true
+//        
+//        newUser.signUp()
+//        
+//        guard let _ = PFUser.currentUser() else{
+//            return false
+//        }
+//        
+//        return true
     }
     
 //    MARK: USER GET
     func getUserById(userId: String) -> PFUser{
         let userQuery = PFUser.query()
         userQuery!.whereKey("objectId", equalTo: userId)
-        let arrayUser = userQuery?.findObjects()
-        let user = arrayUser?.last as! PFUser
         
-        return user
+        do{
+            let arrayUser = try userQuery?.findObjects()
+            let user = arrayUser?.last as! PFUser
+        
+            return user
+        } catch{
+            return PFUser()
+        }
     }
     
 //    MARK: USER UPDATE
@@ -527,9 +813,16 @@ class ParseManager: NSObject {
             user.setObject(pais, forKey: "pais")
             user.setObject(ocupacao, forKey: "ocupacao")
             
-            user.save(&erro)
-            
-            if(erro != nil){
+            do{
+                try user.save()
+                
+                //Salvo com sucesso
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(self, erro)
+                })
+                
+                return
+            } catch{
                 //Ocorreu um erro ao salvar
                 let userInfo:[NSObject : AnyObject] = [
                     NSLocalizedDescriptionKey : NSLocalizedString("Ocorreu um erro. Tente novamente.", comment: ""),
@@ -544,13 +837,6 @@ class ParseManager: NSObject {
                 
                 return
             }
-            
-            //Salvo com sucesso
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                completionHandler(self, erro)
-            })
-            
-            return
         })
     }
     
@@ -560,29 +846,43 @@ class ParseManager: NSObject {
         var erro = NSErrorPointer.init()
         user.setObject(name, forKey: "Nome")
         user.username = name
-        user.save(erro)
         
-        if(erro != NSErrorPointer.init()){
+        do{
+            try user.save()
+            return true
+        } catch{
             return false
         }
-        
-        return true
+//        
+//        if(erro != NSErrorPointer.init()){
+//            return false
+//        }
+//        
+//        return true
     }
     
 //    MARK: Validar
     func checkNickname(newName: String) -> Bool{
         let query = PFUser.query()
         query?.whereKey("username", equalTo: newName.lowercaseString)
-        let object = query?.getFirstObject()
         
-        return (object == nil)
+        do{
+            let object = try query?.getFirstObject()
+            return object == nil
+        } catch{
+            return true
+        }
     }
     
     func checkEmail(newEmail: String) -> Bool{
         let query = PFUser.query()
         query?.whereKey("email", equalTo: newEmail.lowercaseString)
-        let object = query?.getFirstObject()
         
-        return (object == nil)
+        do{
+            let object = try query?.getFirstObject()
+            return (object == nil)
+        } catch{
+            return true
+        }
     }
 }

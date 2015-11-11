@@ -26,6 +26,8 @@
 		24175F9E1BB5EB7E0064C048 /* PalavrasChaveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24175F9D1BB5EB7E0064C048 /* PalavrasChaveTableViewCell.swift */; };
 		2422E4C91B96268D00ACEE90 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2422E4C81B96268D00ACEE90 /* CustomTextField.swift */; };
 		2424D07F1BB09486002290C3 /* RecuperarSenhaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2424D07E1BB09486002290C3 /* RecuperarSenhaViewController.swift */; };
+		2425D8561BF24B2D002F184E /* ListaProvaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2425D8541BF24B2D002F184E /* ListaProvaTableViewCell.swift */; };
+		2425D8571BF24B2D002F184E /* ListaProvaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2425D8551BF24B2D002F184E /* ListaProvaTableViewCell.xib */; };
 		242C9B1D1BE3E4FF004AD703 /* VerQuestaoTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C9B1C1BE3E4FF004AD703 /* VerQuestaoTabBarViewController.swift */; };
 		242C9B1F1BE3E7AA004AD703 /* VerAlternativasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C9B1E1BE3E7AA004AD703 /* VerAlternativasTableViewController.swift */; };
 		242C9B211BE3EAE2004AD703 /* VerQuestaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242C9B201BE3EAE2004AD703 /* VerQuestaoViewController.swift */; };
@@ -143,6 +145,8 @@
 		24175F9D1BB5EB7E0064C048 /* PalavrasChaveTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalavrasChaveTableViewCell.swift; sourceTree = "<group>"; };
 		2422E4C81B96268D00ACEE90 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		2424D07E1BB09486002290C3 /* RecuperarSenhaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecuperarSenhaViewController.swift; sourceTree = "<group>"; };
+		2425D8541BF24B2D002F184E /* ListaProvaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaProvaTableViewCell.swift; sourceTree = "<group>"; };
+		2425D8551BF24B2D002F184E /* ListaProvaTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListaProvaTableViewCell.xib; sourceTree = "<group>"; };
 		242C9B1C1BE3E4FF004AD703 /* VerQuestaoTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerQuestaoTabBarViewController.swift; sourceTree = "<group>"; };
 		242C9B1E1BE3E7AA004AD703 /* VerAlternativasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerAlternativasTableViewController.swift; sourceTree = "<group>"; };
 		242C9B201BE3EAE2004AD703 /* VerQuestaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerQuestaoViewController.swift; sourceTree = "<group>"; };
@@ -301,6 +305,15 @@
 			name = TituloCells;
 			sourceTree = "<group>";
 		};
+		2425D8531BF24B09002F184E /* ListaProvasCell */ = {
+			isa = PBXGroup;
+			children = (
+				2425D8541BF24B2D002F184E /* ListaProvaTableViewCell.swift */,
+				2425D8551BF24B2D002F184E /* ListaProvaTableViewCell.xib */,
+			);
+			name = ListaProvasCell;
+			sourceTree = "<group>";
+		};
 		242C9B1B1BE3E4D6004AD703 /* Visualizar Questão */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,7 +344,6 @@
 				246CBC781B879812002E6A6E /* MainViewController.swift */,
 				246CBC7C1B87B6B7002E6A6E /* RegistrosViewController.swift */,
 				2488995B1BA74624000CCA21 /* AmigosViewController.swift */,
-				246F29BA1BA0B703007C9F73 /* ProvasViewController.swift */,
 				24B39FF91B8F9A3500401C21 /* Login */,
 				524E43DB1BA2186F00BBB2E0 /* Main */,
 				248899581BA73B13000CCA21 /* Provas */,
@@ -348,6 +360,8 @@
 		248899581BA73B13000CCA21 /* Provas */ = {
 			isa = PBXGroup;
 			children = (
+				2425D8531BF24B09002F184E /* ListaProvasCell */,
+				246F29BA1BA0B703007C9F73 /* ProvasViewController.swift */,
 				246CBC7A1B87A34F002E6A6E /* NovaProvaViewController.swift */,
 				248899591BA73B33000CCA21 /* ProvasCollectionViewCell.swift */,
 			);
@@ -633,6 +647,7 @@
 				52DF789D1B790EE30047A107 /* Frameworks */,
 				52DF789E1B790EE30047A107 /* Resources */,
 				145D85ACEB807964E42B668C /* Copy Pods Resources */,
+				50FCC0ADFF8FA6E16F413EB5 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -716,6 +731,7 @@
 				2405E32D1B7E54320091FAFC /* IPad.storyboard in Resources */,
 				249322A21BA33DA3005579DD /* IPhonePerfil.storyboard in Resources */,
 				52DF78AE1B790EE30047A107 /* Main.storyboard in Resources */,
+				2425D8571BF24B2D002F184E /* ListaProvaTableViewCell.xib in Resources */,
 				52DF78B31B790EE30047A107 /* LaunchScreen.xib in Resources */,
 				24EE26F21BC2ED2800E0AB6A /* IPhoneRegistros.storyboard in Resources */,
 				246F29BD1BA0B9A6007C9F73 /* IPhoneLogin.storyboard in Resources */,
@@ -768,6 +784,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		50FCC0ADFF8FA6E16F413EB5 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DesignTest/Pods-DesignTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -817,6 +848,7 @@
 				52EC8EB71BC7019B002DCF52 /* ResultadoInfoViewController.swift in Sources */,
 				24093D481BBC5D540099823C /* CustomActivityView.swift in Sources */,
 				2483237C1B8F806500D7FC14 /* ParseManager.swift in Sources */,
+				2425D8561BF24B2D002F184E /* ListaProvaTableViewCell.swift in Sources */,
 				24CA65871BBF0992002CBCCD /* Enums.swift in Sources */,
 				242C9B1F1BE3E7AA004AD703 /* VerAlternativasTableViewController.swift in Sources */,
 				52AB5E8A1BF11C1C00A4FE5D /* AvaliarAlternativasTableViewController.swift in Sources */,
@@ -990,16 +1022,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = NO;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/FINALPROJECT/TestDesign/Pods/ParseFacebookUtilsV4",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = DesignTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/FINALPROJECT/TestDesign/Pods/ParseFacebookUtilsV4",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Bepid.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DesignTest/DesignTest-Bridging-Header.h";
@@ -1014,16 +1040,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = NO;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/FINALPROJECT/TestDesign/Pods/ParseFacebookUtilsV4",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = DesignTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/FINALPROJECT/TestDesign/Pods/ParseFacebookUtilsV4",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Bepid.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DesignTest/DesignTest-Bridging-Header.h";

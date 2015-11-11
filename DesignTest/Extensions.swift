@@ -58,12 +58,17 @@ extension String{
         return self.lowercaseString.stringByFoldingWithOptions(.DiacriticInsensitiveSearch, locale: NSLocale.currentLocale())
     }
     
-//Verificar se existem letrar na String
+//Verificar se existem letras na String
     func hasLetter() -> Bool{
         return self.rangeOfCharacterFromSet(NSCharacterSet.letterCharacterSet()) != nil
     }
     
-//Verificar se existem letrar na String
+//    Verificar se existem números na String
+    func hasNumber() -> Bool{
+        return self.rangeOfCharacterFromSet(NSCharacterSet.decimalDigitCharacterSet()) != nil
+    }
+    
+//Verificar se existem letras ou números na String
     func hasAlphanumeric() -> Bool{
         return self.rangeOfCharacterFromSet(NSCharacterSet.alphanumericCharacterSet()) != nil
     }
@@ -71,7 +76,7 @@ extension String{
 
 //MARK: NSObject
 extension NSObject{
-    static func getError(errorCode: Int) -> NSError{
-        return ErrorManager.getErrorForClass(NSStringFromClass(self), errorCode: errorCode)
+    func getError(errorCode: Int) -> NSError?{
+        return ErrorManager.getErrorForCode(errorCode)
     }
 }

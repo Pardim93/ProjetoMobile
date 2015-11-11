@@ -20,11 +20,11 @@ class AvaliacaoEnunciadoViewController: UIViewController {
     var questao = NSObject()
     
     @IBAction func thumbsUp(sender: AnyObject) {
-        parseManager.likeQuestao(self.auxData.objectId)
+//        parseManager.likeQuestao(self.auxData.objectId)
     }
  
     @IBAction func thumbsDown(sender: AnyObject) {
-        parseManager.dislikeQuestao(self.auxData.objectId)
+//        parseManager.dislikeQuestao(self.auxData.objectId)
 
     }
     
