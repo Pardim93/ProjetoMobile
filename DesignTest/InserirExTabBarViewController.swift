@@ -31,6 +31,9 @@ class InserirExTabBarViewController: UITabBarController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.configActivityView()
+        
+        let tituloView = self.viewControllers![0] as? InserirTituloTableViewController
+        tituloView?.configDisciplinas()
     }
     
     func configBackButton(){
@@ -141,20 +144,14 @@ class InserirExTabBarViewController: UITabBarController {
         let tituloView = self.getTituloView()
         let enunciadoView = self.getEnunciadoView()
         let alternativaView = self.getAlternativaView()
-        
-        guard let img = enunciadoView.img else{
-            self.enableView()
-            self.navigationController!.showAlert("Ocorreu um erro. Tente novamente.")
-            return
-        }
-        
+        let img = enunciadoView.img
         let titulo = tituloView.titulo
         let disciplina = tituloView.disciplina
         let tags = tituloView.tags
         let enunciado = enunciadoView.enunciado
         let alternativas = alternativaView
         
-        parseManager.insertQuestao(titulo, disciplina: disciplina, tags: tags, enunciado: enunciado, img: img, alternativas: alternativas) {(parseManager, error) -> () in
+        parseManager.insertQuestao(titulo, disciplina: disciplina, tags: tags, enunciado: enunciado, img: img, alternativas: alternativas) {(error) -> () in
             self.enableView()
             
             if(error != nil){
@@ -187,7 +184,7 @@ class InserirExTabBarViewController: UITabBarController {
         let imagemCell = view.arrayCell.objectAtIndex(1) as! ImagemTableViewCell
         
         let enunciado = enunciadoCell.textView.text
-        let img = imagemCell.imagem.image
+        let img = imagemCell.getImage()
         
         return (enunciado, img)
     }
@@ -225,17 +222,6 @@ class InserirExTabBarViewController: UITabBarController {
         
         self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
     }
-    
-//    MARK: View
-//    func enableView(){
-//        self.view.userInteractionEnabled = true
-//        self.activityView.stopAnimating()
-//    }
-//    
-//    func disabeView(){
-//        self.view.userInteractionEnabled = false
-//        self.activityView.startAnimating()
-//    }
     
     func cancelViewsEditing(){
         for viewController in self.viewControllers!{

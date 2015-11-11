@@ -34,7 +34,6 @@ class ParseManager: NSObject {
                     completionHandler(disciplinas, erro)
                 })
                 return
-                
             } catch{
                 let userInfo:[NSObject : AnyObject] = [
                     NSLocalizedDescriptionKey : NSLocalizedString("Erro na rede. Verifique sua conexão.", comment: ""),
@@ -48,38 +47,7 @@ class ParseManager: NSObject {
                     completionHandler([], erro)
                 })
                 return
-
             }
-            
-//            guard let result = query.findObjects() else{
-//                let userInfo:[NSObject : AnyObject] = [
-//                    NSLocalizedDescriptionKey : NSLocalizedString("Erro na rede. Verifique sua conexão.", comment: ""),
-//                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Erro ao buscar disciplina.", comment: ""),
-//                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Verifique sua conexão e tente novamente.", comment: "")
-//                ]
-//                
-//                erro = NSError(domain: "ParseManager", code: 7, userInfo: userInfo)
-//                
-//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                    completionHandler([], erro)
-//                })
-//                return
-//            }
-            
-//            var disciplinas: [PFObject] = []
-//            
-//            for item in result{
-//                guard let disciplina = item as? PFObject else{
-//                    return
-//                }
-//                
-//                disciplinas.append(disciplina)
-//            }
-//            
-//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                completionHandler(disciplinas, erro)
-//            })
-//            return
         })
     }
     
@@ -123,28 +91,6 @@ class ParseManager: NSObject {
                 })
                 return
             }
-//            
-//            if(erro != nil){
-//                let userInfo:[NSObject : AnyObject] = [
-//                    NSLocalizedDescriptionKey : NSLocalizedString("Erro na rede. Verifique sua conexão.", comment: ""),
-//                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Erro ao buscar disciplina.", comment: ""),
-//                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Verifique sua conexão e tente novamente.", comment: "")
-//                ]
-//                
-//                erro = NSError(domain: "ParseManager", code: 8, userInfo: userInfo)
-//                
-//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                    completionHandler([], erro)
-//                })
-//                return
-//            }
-//            else{
-//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                    let result = array as! [PFObject]
-//                    completionHandler(result, erro)
-//                })
-//                return
-//            }
         })
     }
     
@@ -156,31 +102,16 @@ class ParseManager: NSObject {
     func doLogin (email: String, senha: String) -> Bool{
         do{
             try PFUser.logInWithUsername(email.lowercaseString, password: senha)
-            guard let _ = PFUser.currentUser() else{
-                return false
-            }
-            
-            return true
+            return (PFUser.currentUser() != nil)
         } catch{
             return false
         }
-//        
-//        PFUser.logInWithUsername(email.lowercaseString, password: senha)
-//        guard let _ = PFUser.currentUser() else{
-//            return false
-//        }
-//        
-//        return true
     }
     
     func doLogout() -> Bool{
         PFUser.logOut()
         
-        guard let _ = PFUser.currentUser() else{
-            return true
-        }
-        
-        return false
+        return (PFUser.currentUser() == nil)
     }
     
 //  MARK: Password Recover
@@ -229,6 +160,14 @@ class ParseManager: NSObject {
                 
                 return
             } catch{
+                let userInfo:[NSObject : AnyObject] = [
+                    NSLocalizedDescriptionKey : NSLocalizedString("Verifique se sua conexão funcionando.", comment: ""),
+                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Email não utilizado ou conexão não funcionando.", comment: ""),
+                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Digite um novo email e/ou tente novamente.", comment: "")
+                ]
+                
+                erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
+                
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     completionHandler(nil, erro)
                 })
@@ -254,9 +193,8 @@ class ParseManager: NSObject {
     
     func getProvasByKeyword(keyword: String, completionHandler:(NSArray?, NSError?) -> ()){
         let query = PFQuery(className: "Prova")
-        query.whereKey("Titulo", containsString: keyword)
-        query.whereKey("Tags", containsString: keyword.simpleString())
-        query.includeKey("Disciplinas")
+//        query.whereKey("Titulo", containsString: keyword)
+        query.whereKey("Tags", containedIn: [keyword.simpleString(), keyword])
         query.includeKey("Autor")
         query.limit = 100
         query.orderByDescending("Popularidade")
@@ -272,28 +210,20 @@ class ParseManager: NSObject {
                 
                 return
             } catch{
+                let userInfo:[NSObject : AnyObject] = [
+                    NSLocalizedDescriptionKey : NSLocalizedString("Verifique se sua conexão funcionando.", comment: ""),
+                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Email não utilizado ou conexão não funcionando.", comment: ""),
+                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Digite um novo email e/ou tente novamente.", comment: "")
+                ]
+                
+                erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
+                
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     completionHandler(nil, erro)
                 })
                 
                 return
             }
-//            
-//            let result = query.findObjects(&erro)
-//            if(erro == nil){
-//                dispatch_async(dispatch_get_main_queue(), {() -> Void in
-//                    completionHandler(result, erro)
-//                })
-//                
-//                return
-//            }
-//            else{
-//                dispatch_async(dispatch_get_main_queue(), {() -> Void in
-//                    completionHandler(nil, erro)
-//                })
-//                
-//                return
-//            }
         })
     }
     
@@ -301,6 +231,7 @@ class ParseManager: NSObject {
     func inserirProva(titulo: String, image: UIImage?, descricao: String, questoes: [PFObject], var tags: [String], completionHandler: (NSError?) -> ()){
         let prova = PFObject(className: "Prova")
         
+        //Verifica se o usuário está logado
         guard let user = PFUser.currentUser() else{
             let erro = self.getError(305)
             completionHandler(erro)
@@ -322,15 +253,11 @@ class ParseManager: NSObject {
         //Set popularidade
         prova.setObject(10, forKey: "Popularidade")
         
-//        if(image != nil){
-//            prova.setObject(image!, forKey: "imagem")
-//        }
-        
         let relationDisciplinas = prova.relationForKey("Disciplinas")
         let relationQuestoes = prova.relationForKey("Questoes")
         var disciplinas: [PFObject] = []
         
-        //Adiciona relação para questões
+        //Adiciona relação entre prova e questões
         for questao in questoes{
             //Para cada questao no array de questoes
             relationQuestoes.addObject(questao)
@@ -338,9 +265,10 @@ class ParseManager: NSObject {
             let disciplina = questao.objectForKey("Disciplina") as! PFObject
             let newDisciplina = disciplina.objectForKey("Nome") as! String
             
-            //Procura para ver se a disciplina já está adicionada na relação
+            
             var find = false
             
+            //Procura para ver se a disciplina já está relação entre prova e disciplinas
             for disc in disciplinas{
                 //Para cada disciplina no array de disciplinas
                 let oldDisciplina = disc.objectForKey("Nome") as! String
@@ -381,6 +309,28 @@ class ParseManager: NSObject {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             var erro: NSError?
             
+            //Set imagem
+            if(image != nil){
+                let newImageFile = PFFile(data: UIImageJPEGRepresentation(image!, 0.7)!)
+                
+                do{
+                    try newImageFile?.save()
+                    prova.setObject(newImageFile!, forKey: "Imagem")
+                } catch{
+                    let userInfo:[NSObject : AnyObject] = [
+                        NSLocalizedDescriptionKey : NSLocalizedString("Erro ao salvar. Tente novamente.", comment: ""),
+                        NSLocalizedFailureReasonErrorKey : NSLocalizedString("Ocorreu um erro ao salvar.", comment: ""),
+                        NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente.", comment: "")
+                    ]
+                    erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        completionHandler(erro)
+                    })
+                }
+            }
+            
+            //Salva prova
             do{
                 try prova.save()
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
@@ -401,27 +351,6 @@ class ParseManager: NSObject {
                 })
                 return
             }
-            
-//            if(prova.save()){
-//                dispatch_async(dispatch_get_main_queue(), {() -> Void in
-//                    completionHandler(erro)
-//                })
-//                
-//                return
-//            }
-//            else{
-//                let userInfo:[NSObject : AnyObject] = [
-//                    NSLocalizedDescriptionKey : NSLocalizedString("Erro ao salvar. Tente novamente.", comment: ""),
-//                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Ocorreu um erro ao salvar.", comment: ""),
-//                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente.", comment: "")
-//                ]
-//                erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
-//                
-//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                    completionHandler(erro)
-//                })
-//                return
-//            }
         })
     }
     
@@ -468,7 +397,7 @@ class ParseManager: NSObject {
         query.includeKey("Autor")
         query.limit = 10
         
-        var array: [PFObject]!
+        var array: [PFObject] = []
         
         do{
             array = try query.findObjects()
@@ -498,6 +427,14 @@ class ParseManager: NSObject {
                 return
             } catch{
                 //Não encontrou resultados
+                let userInfo:[NSObject : AnyObject] = [
+                    NSLocalizedDescriptionKey : NSLocalizedString("Verifique se seu email está funcionando e sua conexão funcionando.", comment: ""),
+                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Email não utilizado ou conexão não funcionando.", comment: ""),
+                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Digite um novo email e/ou tente novamente.", comment: "")
+                ]
+                
+                erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
+                
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     let auxArray = NSArray()
                     completionHandler(self, auxArray, erro)
@@ -543,7 +480,7 @@ class ParseManager: NSObject {
         query.includeKey("Disciplina")
         query.includeKey("Autor")
         
-        var array: [PFObject]!
+        var array: [PFObject] = []
         
         do{
             array = try query.findObjects()
@@ -621,7 +558,7 @@ class ParseManager: NSObject {
     }
     
 //    MARK: QUESTÃO INSERIR
-    func insertQuestao(titulo: String, disciplina: PFObject, tags: [String], enunciado: String, img: UIImage, alternativas: [String], completionHandler: (ParseManager, NSError?) -> ()){
+    func insertQuestao(titulo: String, disciplina: PFObject, tags: [String], enunciado: String, img: UIImage?, alternativas: [String], completionHandler: (NSError?) -> ()){
         
         let questao = PFObject(className: "Questao")
         questao.setObject(PFUser.currentUser()!, forKey: "Dono")
@@ -640,11 +577,6 @@ class ParseManager: NSObject {
         
         questao.setObject(tagsLowerCase, forKey: "Tags")
         
-        //        let patterImage = UIImage(named: "Login4")
-        //        if (img != patterImage){
-        //            questao.setObject(img, forKey: "Imagem")
-        //        }
-        
         questao.setObject(alternativas[0], forKey: "AlternativaA")
         questao.setObject(alternativas[1], forKey: "AlternativaB")
         questao.setObject(alternativas[2], forKey: "AlternativaC")
@@ -653,10 +585,32 @@ class ParseManager: NSObject {
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             var erro: NSError?
+            
+            //Set imagem
+            if(img != nil){
+                let newImageFile = PFFile(data: UIImageJPEGRepresentation(img!, 0.7)!)
+                
+                do{
+                    try newImageFile?.save()
+                    questao.setObject(newImageFile!, forKey: "imagem")
+                } catch{
+                    let userInfo:[NSObject : AnyObject] = [
+                        NSLocalizedDescriptionKey : NSLocalizedString("Erro ao salvar. Tente novamente.", comment: ""),
+                        NSLocalizedFailureReasonErrorKey : NSLocalizedString("Ocorreu um erro ao salvar.", comment: ""),
+                        NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente.", comment: "")
+                    ]
+                    erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        completionHandler(erro)
+                    })
+                }
+            }
+            
             do{
                 try questao.save()
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
-                    completionHandler(self, erro)
+                    completionHandler(erro)
                 })
                 
                 return
@@ -664,7 +618,7 @@ class ParseManager: NSObject {
                 erro = NSError(domain: "ParseManager", code: 1, userInfo: nil)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionHandler(self, erro)
+                    completionHandler(erro)
                 })
                 return
             }
@@ -687,21 +641,10 @@ class ParseManager: NSObject {
         do{
             try newUser.signUp()
             
-            guard let _ = PFUser.currentUser() else{
-                return false
-            }
-            
-            return true
+            return (PFUser.currentUser() != nil)
         } catch{
             return false
         }
-//        newUser.signUpInBackgroundWithBlock { (success, error) -> Void in
-//            if(success){
-//                return true
-//            } else{
-//                
-//            }
-//        }
     }
     
     func registerUserDef(newPais: String, newOcupacao: String) -> Bool{
@@ -740,14 +683,6 @@ class ParseManager: NSObject {
         } catch{
             return false
         }
-//        
-//        newUser.signUp()
-//        
-//        guard let _ = PFUser.currentUser() else{
-//            return false
-//        }
-//        
-//        return true
     }
     
 //    MARK: USER GET
@@ -843,7 +778,6 @@ class ParseManager: NSObject {
     
     
     func setNameForUser(name: String, user: PFUser) -> Bool{
-        var erro = NSErrorPointer.init()
         user.setObject(name, forKey: "Nome")
         user.username = name
         
@@ -853,12 +787,6 @@ class ParseManager: NSObject {
         } catch{
             return false
         }
-//        
-//        if(erro != NSErrorPointer.init()){
-//            return false
-//        }
-//        
-//        return true
     }
     
 //    MARK: Validar

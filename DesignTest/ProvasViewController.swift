@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProvasViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProvasViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -60,9 +60,11 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
             if(error == nil){
                 if(result != nil){
                     self.filtered = result!
+                    self.tableView.separatorStyle = .None
                 }
                 else{
                     self.filtered = NSArray()
+                    self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
                     self.tableView.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
                 }
                 
@@ -76,6 +78,8 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     
     func configSearchBar(){
         self.hideBar()
+        
+        self.searchBar.delegate = self
     }
     
 //    MARK: SearchBar
@@ -123,7 +127,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.disabeView()
         
-        parseManager.getQuestoesByKeyword(text) {(parseManager, result, error) -> () in
+        parseManager.getProvasByKeyword(text) {(result, error) -> () in
             self.enableView()
             
             if(error != nil){
@@ -131,7 +135,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
                 return
             }
             
-            self.filtered = result
+            self.filtered = result!
             
             self.tableView.reloadData()
         }
@@ -150,6 +154,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier("newCell", forIndexPath: indexPath) as! ListaProvaTableViewCell
         
         cell.setNewProva(filtered.objectAtIndex(indexPath.row) as! PFObject)
+        cell.setColor(indexPath.row)
         
         return cell
     }

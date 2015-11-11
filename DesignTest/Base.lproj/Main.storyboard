@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -354,79 +355,6 @@
                                             <segue destination="21k-6d-6Gg" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="JXn-Qv-8MQ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="hog-gJ-3hn">
-                                        <rect key="frame" x="0.0" y="260" width="600" height="65"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hog-gJ-3hn" id="TcM-AO-fsM">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="64.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amigos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sk-Mb-SBE">
-                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User Group-100" translatesAutoresizingMaskIntoConstraints="NO" id="dTF-If-max">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <animations/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="32" id="oCz-4n-HQp"/>
-                                                        <constraint firstAttribute="height" constant="32" id="zCg-rr-b8W"/>
-                                                    </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="oCz-4n-HQp"/>
-                                                            <exclude reference="zCg-rr-b8W"/>
-                                                        </mask>
-                                                    </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
-                                                        <mask key="constraints">
-                                                            <include reference="oCz-4n-HQp"/>
-                                                            <include reference="zCg-rr-b8W"/>
-                                                        </mask>
-                                                    </variation>
-                                                </imageView>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="2sk-Mb-SBE" secondAttribute="centerY" id="2LV-2m-sIq"/>
-                                                <constraint firstItem="dTF-If-max" firstAttribute="leading" secondItem="TcM-AO-fsM" secondAttribute="leadingMargin" constant="15" id="G0j-9K-09R"/>
-                                                <constraint firstItem="2sk-Mb-SBE" firstAttribute="leading" secondItem="TcM-AO-fsM" secondAttribute="leadingMargin" constant="70" id="r86-zV-bn8"/>
-                                                <constraint firstAttribute="centerY" secondItem="dTF-If-max" secondAttribute="centerY" id="vDB-Mv-mT3"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="subviews">
-                                                    <exclude reference="2sk-Mb-SBE"/>
-                                                    <exclude reference="dTF-If-max"/>
-                                                </mask>
-                                                <mask key="constraints">
-                                                    <exclude reference="2LV-2m-sIq"/>
-                                                    <exclude reference="r86-zV-bn8"/>
-                                                    <exclude reference="G0j-9K-09R"/>
-                                                    <exclude reference="vDB-Mv-mT3"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="heightClass=regular-widthClass=compact">
-                                                <mask key="subviews">
-                                                    <include reference="2sk-Mb-SBE"/>
-                                                    <include reference="dTF-If-max"/>
-                                                </mask>
-                                                <mask key="constraints">
-                                                    <include reference="2LV-2m-sIq"/>
-                                                    <include reference="r86-zV-bn8"/>
-                                                    <include reference="G0j-9K-09R"/>
-                                                    <include reference="vDB-Mv-mT3"/>
-                                                </mask>
-                                            </variation>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="bIn-rf-SUL" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="BFH-xD-bY8"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="pRQ-yZ-be7">
                                         <rect key="frame" x="0.0" y="325" width="600" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -515,14 +443,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Qt-iQ-xGG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-123" y="165.75"/>
-        </scene>
-        <!--IPhoneAmigos-->
-        <scene sceneID="5Co-DU-BMK">
-            <objects>
-                <viewControllerPlaceholder storyboardName="IPhoneAmigos" id="bIn-rf-SUL" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jCQ-kK-5Zr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="785.25" y="104.25"/>
         </scene>
         <!--IPhoneAjustes-->
         <scene sceneID="sYy-Lw-9x1">
@@ -891,11 +811,10 @@
         <image name="List Filled-100" width="100" height="100"/>
         <image name="School Filled-100-Whte" width="100" height="100"/>
         <image name="Support-100-White" width="100" height="100"/>
-        <image name="User Group-100" width="100" height="100"/>
         <image name="menu" width="22" height="22"/>
         <image name="student3" width="530" height="356"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tcE-i7-qbf"/>
+        <segue reference="qh4-mK-IBS"/>
     </inferredMetricsTieBreakers>
 </document>

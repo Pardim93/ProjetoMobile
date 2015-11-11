@@ -63,6 +63,15 @@ class ImagemTableViewCell: UITableViewCell{
     override func setHighlighted(highlighted: Bool, animated: Bool) {
     }
     
+//    MARK: Get
+    func getImage() -> UIImage?{
+        if(self.imagem.image == UIImage(named: "picture64")){
+            return nil
+        }
+        
+        return self.imagem.image
+    }
+    
 //    MARK: DeleteImagem
     func deleteImagem(){
         self.imagem.layer.borderWidth = 0

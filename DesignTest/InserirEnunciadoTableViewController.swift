@@ -96,6 +96,10 @@ class InserirEnunciadoTableViewController: UITableViewController, QuestaoImagemD
         return 350
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.view.endEditing(true)
+    }
+    
 //    MARK: ImagemDelegate
     func showActionSheet() {
         let actionSheet = UIAlertController(title: "Vestibulandos", message: "", preferredStyle: .ActionSheet)
@@ -172,10 +176,5 @@ class InserirEnunciadoTableViewController: UITableViewController, QuestaoImagemD
         deleteAlert.addAction(UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil))
         
         self.navigationController?.presentViewController(deleteAlert, animated: true, completion: nil)
-    }
-    
-//    MARK: Other
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.view.endEditing(true)
     }
 }
