@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1502" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DPo-mn-N4F">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1502" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HBk-Nw-sov">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -124,7 +124,8 @@
                                         <exclude reference="tiR-iZ-phK"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="736"/>
                                     <mask key="subviews">
                                         <include reference="ahq-Uh-DrQ"/>
                                         <include reference="Fv0-L8-JnL"/>
@@ -187,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xO6-k5-bow" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2457" y="1584.75"/>
+            <point key="canvasLocation" x="7525.5" y="959.25"/>
         </scene>
         <!--Storyboard Reference-->
         <scene sceneID="JXt-Xc-Rdx">
@@ -380,7 +381,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RY6-rr-1kJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2386.5" y="2311.5"/>
+            <point key="canvasLocation" x="2401.5" y="1851.75"/>
         </scene>
         <!--Enunciado-->
         <scene sceneID="dsF-av-Krw">
@@ -542,7 +543,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJ7-le-pdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3396" y="2747.25"/>
+            <point key="canvasLocation" x="3244.5" y="2741.25"/>
         </scene>
         <!--JK-->
         <scene sceneID="sbt-2F-yfW">
@@ -571,7 +572,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cWT-ZB-YtG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4140" y="2541.75"/>
+            <point key="canvasLocation" x="3996" y="2741.25"/>
         </scene>
         <!--Main-->
         <scene sceneID="OF3-IX-BCo">
@@ -982,7 +983,6 @@
                     <connections>
                         <outlet property="backBtn" destination="BbI-1V-bAg" id="drm-vV-g6y"/>
                         <outlet property="nextBtn" destination="hRL-Lv-GTf" id="aVb-qQ-ZVv"/>
-                        <segue destination="gJA-ct-VGN" kind="relationship" relationship="viewControllers" id="rWs-Js-YKQ"/>
                         <segue destination="qH6-TH-Bi4" kind="relationship" relationship="viewControllers" id="BQP-4V-oQ6"/>
                         <segue destination="4Mg-If-wlA" kind="show" identifier="goToFinal" id="tEc-t9-onm"/>
                     </connections>
@@ -1283,17 +1283,17 @@
                     </view>
                     <connections>
                         <segue destination="Ffp-4H-PYv" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="mJN-3O-sXE"/>
-                        <segue destination="cJS-Oo-gOJ" kind="custom" customClass="SWRevealViewControllerSegueSetController" id="wLZ-5r-upb"/>
+                        <segue destination="cJS-Oo-gOJ" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="XwL-zA-EiB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nI3-jH-ras" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5274" y="1349.25"/>
+            <point key="canvasLocation" x="4500" y="980.25"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Questao Menu Controller Table View Controller-->
         <scene sceneID="Eoj-D6-EAr">
             <objects>
-                <tableViewController id="Ffp-4H-PYv" sceneMemberID="viewController">
+                <tableViewController id="Ffp-4H-PYv" customClass="QuestaoMenuControllerTableViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ld5-an-Qum">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1307,7 +1307,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="cJS-Oo-gOJ" kind="custom" customClass="SWRevealViewControllerSegueSetController" id="60U-xP-Jae"/>
+                                    <segue destination="cJS-Oo-gOJ" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSeguePushController" id="nuM-XK-V4I"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1319,31 +1319,91 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b8H-Pg-TLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6199.5" y="1284"/>
+            <point key="canvasLocation" x="5461.5" y="1170"/>
         </scene>
         <!--Item-->
         <scene sceneID="gES-y4-FyQ">
             <objects>
-                <viewController id="MP7-QE-75N" sceneMemberID="viewController">
+                <viewController id="MP7-QE-75N" customClass="QuestaoViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VaU-Lj-LrO"/>
                         <viewControllerLayoutGuide type="bottom" id="NIE-M5-2Q0"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0Ni-GW-URM">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="huE-pf-Yi8"/>
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="8sr-I2-a90">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture64" translatesAutoresizingMaskIntoConstraints="NO" id="5Gj-Vz-A4k">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="34" y="81" width="332" height="217"/>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYY-yu-JuB">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button" image="thumbsDown96"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="293" y="538" width="91" height="82"/>
+                                </variation>
+                                <connections>
+                                    <action selector="thumbsDown:" destination="MP7-QE-75N" eventType="touchUpInside" id="pTq-ta-Xj4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ge-7E-6DG">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button" image="thumbsUp1"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="32" y="538" width="91" height="82"/>
+                                </variation>
+                                <connections>
+                                    <action selector="thumbsUp:" destination="MP7-QE-75N" eventType="touchUpInside" id="RMQ-1G-4FJ"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2oK-b1-J1V">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="306" width="368" height="198"/>
+                                </variation>
+                            </textView>
+                        </subviews>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="5Gj-Vz-A4k"/>
+                                <exclude reference="iYY-yu-JuB"/>
+                                <exclude reference="5ge-7E-6DG"/>
+                                <exclude reference="2oK-b1-J1V"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
+                            <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                            <mask key="subviews">
+                                <include reference="5Gj-Vz-A4k"/>
+                                <include reference="iYY-yu-JuB"/>
+                                <include reference="5ge-7E-6DG"/>
+                                <include reference="2oK-b1-J1V"/>
+                            </mask>
+                        </variation>
+                    </scrollView>
+                    <tabBarItem key="tabBarItem" title="Item" id="l5o-YD-h0H"/>
+                    <connections>
+                        <outlet property="imgExercicio" destination="5Gj-Vz-A4k" id="naQ-bC-qwh"/>
+                        <outlet property="scrollView" destination="8sr-I2-a90" id="RIT-fc-Cf4"/>
+                        <outlet property="txtEnunciado" destination="2oK-b1-J1V" id="Or9-62-Sa0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjV-Kg-fBC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7594.5" y="696"/>
+            <point key="canvasLocation" x="7399.5" y="138"/>
         </scene>
         <!--Item-->
         <scene sceneID="7LD-KI-iqJ">
             <objects>
-                <tableViewController id="e7L-Lw-Gcp" sceneMemberID="viewController">
+                <tableViewController id="e7L-Lw-Gcp" customClass="AltenativasTableViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Z4E-3m-byI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1367,7 +1427,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KMK-vm-5SG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7677" y="1013.25"/>
+            <point key="canvasLocation" x="6384" y="1329"/>
         </scene>
         <!--Avaliacao Questao Tab Bar Controller-->
         <scene sceneID="f0Y-SU-K1Q">
@@ -1401,37 +1461,43 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BN5-VZ-DmY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5467.5" y="624.75"/>
+            <point key="canvasLocation" x="5461.5" y="414.75"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Questao Controller-->
         <scene sceneID="SUw-nm-sjq">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="5da-vm-lsp" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="5da-vm-lsp" customClass="TabBarQuestaoController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="pOP-OT-qIx"/>
+                    <navigationItem key="navigationItem" id="pOP-OT-qIx">
+                        <barButtonItem key="leftBarButtonItem" title="Questões" id="ODx-eN-QUz">
+                            <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="DaV-a8-Ztx">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="e7L-Lw-Gcp" kind="relationship" relationship="viewControllers" id="DW1-lu-kPm"/>
-                        <segue destination="MP7-QE-75N" kind="relationship" relationship="viewControllers" id="Hlx-oh-2KK"/>
+                        <outlet property="menuButton" destination="ODx-eN-QUz" id="oVG-aT-jkN"/>
+                        <segue destination="MP7-QE-75N" kind="relationship" relationship="viewControllers" id="SA1-Qg-A5Q"/>
+                        <segue destination="e7L-Lw-Gcp" kind="relationship" relationship="viewControllers" id="eKP-mU-4ox"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ztm-2b-4an" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6339" y="630.75"/>
+            <point key="canvasLocation" x="6331.5" y="402.75"/>
         </scene>
     </scenes>
     <resources>
         <image name="Add Image-100" width="100" height="100"/>
         <image name="Ask Question Filled-32" width="32" height="32"/>
         <image name="List-32" width="32" height="32"/>
+        <image name="picture64" width="512" height="512"/>
         <image name="thumbsDown96" width="512" height="512"/>
         <image name="thumbsUp1" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="60U-xP-Jae"/>
+        <segue reference="nuM-XK-V4I"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
 </document>
