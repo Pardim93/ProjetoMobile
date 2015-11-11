@@ -1,7 +1,140 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ctR-S7-z9f">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Custom Navigation View Controller-->
+        <scene sceneID="LKX-73-K6t">
+            <objects>
+                <navigationController id="ctR-S7-z9f" customClass="CustomNavigationViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gtb-EX-3OL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="SNK-T0-GUt">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="LV5-Kd-O32" kind="relationship" relationship="rootViewController" id="FeK-R2-QTC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lm7-0P-cDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="556.5" y="213"/>
+        </scene>
+        <!--Exercicios-->
+        <scene sceneID="cP3-Jk-f1M">
+            <objects>
+                <viewController title="Exercicios" id="LV5-Kd-O32" customClass="ListaExerciciosViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7qW-hk-YbS"/>
+                        <viewControllerLayoutGuide type="bottom" id="19v-i2-9fy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0b9-hu-9jI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Kep-f3-UJi">
+                                <rect key="frame" x="-61" y="-14" width="123" height="29"/>
+                                <animations/>
+                                <segments>
+                                    <segment title="Populares"/>
+                                    <segment title="Recentes"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeSection:" destination="LV5-Kd-O32" eventType="valueChanged" id="0kN-fj-TUy"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VOa-WV-bIq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="3pa-wB-sZR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VOa-WV-bIq" firstAttribute="leading" secondItem="0b9-hu-9jI" secondAttribute="leadingMargin" constant="-20" id="1aF-C6-EJU"/>
+                            <constraint firstItem="Kep-f3-UJi" firstAttribute="top" secondItem="7qW-hk-YbS" secondAttribute="bottom" constant="15" id="IUs-bQ-Hxa"/>
+                            <constraint firstItem="VOa-WV-bIq" firstAttribute="top" secondItem="Kep-f3-UJi" secondAttribute="bottom" constant="30" id="JUs-4L-JDh"/>
+                            <constraint firstItem="3pa-wB-sZR" firstAttribute="top" secondItem="7qW-hk-YbS" secondAttribute="bottom" id="Ksv-PM-vRI"/>
+                            <constraint firstItem="Kep-f3-UJi" firstAttribute="top" secondItem="3pa-wB-sZR" secondAttribute="bottom" constant="15" id="LCM-7z-QPs"/>
+                            <constraint firstItem="VOa-WV-bIq" firstAttribute="bottom" secondItem="19v-i2-9fy" secondAttribute="top" id="QZn-A0-Pdk"/>
+                            <constraint firstItem="3pa-wB-sZR" firstAttribute="leading" secondItem="0b9-hu-9jI" secondAttribute="leadingMargin" constant="-20" id="VmY-qZ-znS"/>
+                            <constraint firstItem="Kep-f3-UJi" firstAttribute="centerX" secondItem="0b9-hu-9jI" secondAttribute="centerX" id="WSv-wf-ek3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3pa-wB-sZR" secondAttribute="trailing" constant="-20" id="r1g-Qb-Tg3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VOa-WV-bIq" secondAttribute="trailing" constant="-20" id="x04-wb-WAn"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Kep-f3-UJi"/>
+                                <exclude reference="VOa-WV-bIq"/>
+                                <exclude reference="3pa-wB-sZR"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Ksv-PM-vRI"/>
+                                <exclude reference="VmY-qZ-znS"/>
+                                <exclude reference="r1g-Qb-Tg3"/>
+                                <exclude reference="LCM-7z-QPs"/>
+                                <exclude reference="WSv-wf-ek3"/>
+                                <exclude reference="IUs-bQ-Hxa"/>
+                                <exclude reference="x04-wb-WAn"/>
+                                <exclude reference="QZn-A0-Pdk"/>
+                                <exclude reference="JUs-4L-JDh"/>
+                                <exclude reference="1aF-C6-EJU"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Kep-f3-UJi"/>
+                                <include reference="VOa-WV-bIq"/>
+                                <include reference="3pa-wB-sZR"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Ksv-PM-vRI"/>
+                                <include reference="VmY-qZ-znS"/>
+                                <include reference="r1g-Qb-Tg3"/>
+                                <include reference="LCM-7z-QPs"/>
+                                <include reference="WSv-wf-ek3"/>
+                                <exclude reference="IUs-bQ-Hxa"/>
+                                <include reference="x04-wb-WAn"/>
+                                <include reference="QZn-A0-Pdk"/>
+                                <include reference="JUs-4L-JDh"/>
+                                <include reference="1aF-C6-EJU"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Exercicios" id="lYf-Yn-DIP">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="9UO-nY-OY2"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="gPb-1Y-Bbk">
+                            <connections>
+                                <action selector="searchButton:" destination="LV5-Kd-O32" id="nej-ea-JdX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="3pa-wB-sZR" id="oYF-eW-C5e"/>
+                        <outlet property="segControl" destination="Kep-f3-UJi" id="6AB-bN-mcZ"/>
+                        <outlet property="tableView" destination="VOa-WV-bIq" id="0No-d4-VgK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bvZ-Op-Wk2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1431" y="216.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="menu" width="22" height="22"/>
+    </resources>
 </document>

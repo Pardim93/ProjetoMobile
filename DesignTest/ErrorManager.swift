@@ -22,4 +22,24 @@ class ErrorManager: NSObject {
         
         return erro!
     }
+    
+    static func getErrorForErrorType(type: ErrorType) -> NSError?{
+        return nil
+//        switch type{
+//        }
+    }
+}
+
+enum ParseError: ErrorType {
+    case NoConnection
+    case InternalError
+    case UnknownError
+}
+
+enum LoginManagerError: ErrorType{
+    
+}
+
+enum RegisterManagerError: ErrorType{
+    
 }

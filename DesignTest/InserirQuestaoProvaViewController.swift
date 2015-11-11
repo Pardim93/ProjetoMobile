@@ -111,7 +111,7 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
         
         self.disabeView()
         
-        parseManager.getQuestoesByKeyword(text) {(parseManager, result, error) -> () in
+        parseManager.getQuestoesByKeyword(text) {(result, error) -> () in
             self.enableView()
             
             if(error != nil){

@@ -407,7 +407,43 @@ class ParseManager: NSObject {
         }
     }
     
-    func getQuestoesByKeyword(keyword: String, completionHandler: (ParseManager, NSArray, NSError?) -> ()){
+    func getQuestoesPopulares(completionHandler: (NSArray, NSError?) -> ()){
+        let query = PFQuery(className: "Questao")
+        query.includeKey("Disciplina")
+        query.includeKey("Autor")
+        query.orderByDescending("TimesUsed")
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var erro: NSError?
+            
+            do{
+                let result = try query.findObjects()
+                
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    completionHandler(result, erro)
+                })
+                
+                return
+            } catch{
+                //Não encontrou resultados
+                let userInfo:[NSObject : AnyObject] = [
+                    NSLocalizedDescriptionKey : NSLocalizedString("Verifique se seu email está funcionando e sua conexão funcionando.", comment: ""),
+                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Email não utilizado ou conexão não funcionando.", comment: ""),
+                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Digite um novo email e/ou tente novamente.", comment: "")
+                ]
+                
+                erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
+                
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    completionHandler(NSArray(), erro)
+                })
+                
+                return
+            }
+        })
+    }
+    
+    func getQuestoesByKeyword(keyword: String, completionHandler: (NSArray, NSError?) -> ()){
         let query = PFQuery(className: "Questao")
         query.includeKey("Disciplina")
         query.includeKey("Autor")
@@ -421,7 +457,7 @@ class ParseManager: NSObject {
                 let result = try query.findObjects()
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
-                    completionHandler(self, result, erro)
+                    completionHandler(result, erro)
                 })
                 
                 return
@@ -437,7 +473,7 @@ class ParseManager: NSObject {
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     let auxArray = NSArray()
-                    completionHandler(self, auxArray, erro)
+                    completionHandler(auxArray, erro)
                 })
                 
                 return
