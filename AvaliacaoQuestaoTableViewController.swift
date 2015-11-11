@@ -14,7 +14,7 @@ class AvaliacaoQuestaoTableViewController: UITableViewController {
     
     private var arrayAlternativas = NSMutableArray()
     var questao = NSObject()
-    var auxData = AuxiliarData.singleton
+    var auxData = AuxiliarQuestoes.singleton
     override func viewDidLoad() {
         super.viewDidLoad()
 

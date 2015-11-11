@@ -10,52 +10,90 @@ import UIKit
 
 class QuestaoMenuControllerTableViewController: UITableViewController {
 
+    private var questaoSelecionada = NSObject()
+    private var parseManager = ParseManager()
+    private var myArray = NSArray()
+    private var auxData = AuxiliarQuestoes.singleton
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.getQuestoes()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        
+        self.questaoSelecionada = self.myArray.objectAtIndex(indexPath.row) as! NSObject
+        self.auxData.questao = self.questaoSelecionada
+        self.auxData.flag = true
+        
+        let questaoTemp = self.myArray.objectAtIndex(indexPath.row) as! PFObject
+        self.auxData.objectId = questaoTemp.objectId!
+        self.performSegueWithIdentifier("sw_front", sender: self)
+        
+        
+        
+    }
+    
+    
+    
+    
     // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.myArray.count
+        
     }
-
-    /*
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        return 1
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
+        
+          let cell = tableView.dequeueReusableCellWithIdentifier("questaoCell", forIndexPath: indexPath) as UITableViewCell
+        
+        if indexPath.row == 0{
+            cell.textLabel?.text = "Sair"
+        }else{
+      
+        
+        cell.textLabel!.text =  self.myArray.objectAtIndex(indexPath.row).objectForKey("Enunciado") as? String
+        }
         // Configure the cell...
-
+        
+        
         return cell
     }
-    */
-
-    /*
+    
+    func getQuestoes(){
+        self.myArray = (parseManager.getLeastRatedQuestions())
+        self.auxData.questao = self.myArray.objectAtIndex(0) as AnyObject as! NSObject
+    }
+    
+    
+    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
+        // Return NO if you do not want the specified item to be editable.
         return true
     }
-    */
-
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
@@ -63,33 +101,43 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
-
+    
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    
     }
     */
-
+    
     /*
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    // Return NO if you do not want the item to be re-orderable.
+    return true
     }
     */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        //
+        //            if(segue.identifier == "sw_front"){
+        ////                print(self.questaoSelecionada.valueForKey("Enunciado"))
+        //
+        //                let myView = QuestaoDetalheViewController()
+        //                myView.strEnunciado = "aaaaaaalol"
+        //                myView.questao = self.questaoSelecionada
+        //                myView.flag = true
+        //
+        //
+        //
+        //
+        //
+        //            }
+        
     }
-    */
 
 }

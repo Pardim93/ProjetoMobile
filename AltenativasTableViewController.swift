@@ -1,5 +1,5 @@
 //
-//  ListaQuestoesViewController.swift
+//  AltenativasTableViewController.swift
 //  DesignTest
 //
 //  Created by Wellington Pardim Ferreira on 11/11/15.
@@ -8,20 +8,20 @@
 
 import UIKit
 
-class ListaQuestoesViewController: UITableViewController {
+class AltenativasTableViewController: UITableViewController {
+    
+    
+    private var arrayAlternativas = NSMutableArray()
+    var questao = NSObject()
+    var auxData = AuxiliarQuestoes.singleton
 
-    
-    private var questaoSelecionada = NSObject()
-    private var parseManager = ParseManager()
-    private var myArray = NSArray()
-    private var auxQuestoes = AuxiliarQuestoes.singleton
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.getQuestoesTemp()
         
-
-        
+        if(self.auxData.flag){
+            self.getAlternativas(self.questao)
+            self.questao = self.auxData.questao
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -39,33 +39,38 @@ class ListaQuestoesViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return arrayAlternativas.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.myArray.count
+        return 1
     }
+
+    
+    func getAlternativas(obj:NSObject){
+        
+        
+        for index in 65...69{
+            let letra = String(UnicodeScalar(index))
+            print(questao.valueForKey("Alternativa\(letra)"))
+            
+            arrayAlternativas.addObject(questao.valueForKey("Alternativa\(letra)")!)
+        }
+        
+    }
+
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("questaoCell", forIndexPath: indexPath)
-        
-        cell.textLabel!.text = self.myArray.objectAtIndex(indexPath.row).objectForKey("Enunciado") as? String
+
         // Configure the cell...
+        cell.textLabel!.text =  self.arrayAlternativas.objectAtIndex(indexPath.row).objectForKey("Enunciado") as? String
+
 
         return cell
     }
-    
-    override  func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        self.questaoSelecionada = self.myArray.objectAtIndex(indexPath.row) as! NSObject
-        self.auxQuestoes.questao = self.questaoSelecionada
-        self.auxQuestoes.flag = true
-        
-        let questaoTemp = self.myArray.objectAtIndex(indexPath.row) as! PFObject
-        self.auxQuestoes.objectId = questaoTemp.objectId!
-        self.performSegueWithIdentifier("sw_front", sender: self)    }
-
+  
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -110,13 +115,5 @@ class ListaQuestoesViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    func getQuestoesTemp(){
-        
-        self.myArray = parseManager.getLeastRatedQuestions()
-        self.auxQuestoes.questao = self.myArray.objectAtIndex(0) as! NSObject
-        
-    }
-    
 
 }

@@ -9,10 +9,6 @@
 
 import UIKit
 
-
-
-
-
 class  MenuController: UITableViewController {
 
     
@@ -25,7 +21,6 @@ class  MenuController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getQuestoes()
-        print(self.myArray.count)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -42,7 +37,7 @@ class  MenuController: UITableViewController {
     }
     
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         
         self.questaoSelecionada = self.myArray.objectAtIndex(indexPath.row) as! NSObject
         self.auxData.questao = self.questaoSelecionada
@@ -50,12 +45,8 @@ class  MenuController: UITableViewController {
         
         let questaoTemp = self.myArray.objectAtIndex(indexPath.row) as! PFObject
         self.auxData.objectId = questaoTemp.objectId!
-        print("-------------------")
-        print(questaoTemp.objectId)
-        print("-------------------") 
         self.performSegueWithIdentifier("sw_front", sender: self)
-        
-        
+ 
         
     }
     
@@ -78,9 +69,7 @@ class  MenuController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
         
         cell.textLabel!.text =  self.myArray.objectAtIndex(indexPath.row).objectForKey("Enunciado") as? String
-        // Configure the cell...
-        
-        
+
         return cell
     }
     
