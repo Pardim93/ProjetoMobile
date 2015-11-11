@@ -77,7 +77,10 @@ extension String{
 //MARK: NSObject
 extension NSObject{
     func getError(errorType: ErrorType) -> NSError?{
-//        return ErrorManager.getErrorForCode(errorCode)
         return ErrorManager.getErrorForErrorType(errorType)
+    }
+    
+    func getErrorForCode(errorCode: Int) -> NSError?{
+        return ErrorManager.getErrorForCode(errorCode)
     }
 }

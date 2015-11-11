@@ -14,6 +14,7 @@ class ErrorManager: NSObject {
         
         switch errorCode{
         case 1:
+//            erro = ParseError.NoConnection
             break
             
         default:
@@ -34,6 +35,7 @@ enum ParseError: ErrorType {
     case NoConnection
     case InternalError
     case UnknownError
+    case UnloggedUser
 }
 
 enum LoginManagerError: ErrorType{

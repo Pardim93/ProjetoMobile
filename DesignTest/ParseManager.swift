@@ -34,14 +34,9 @@ class ParseManager: NSObject {
                     completionHandler(disciplinas, erro)
                 })
                 return
-            } catch{
-                let userInfo:[NSObject : AnyObject] = [
-                    NSLocalizedDescriptionKey : NSLocalizedString("Erro na rede. Verifique sua conexão.", comment: ""),
-                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Erro ao buscar disciplina.", comment: ""),
-                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Verifique sua conexão e tente novamente.", comment: "")
-                ]
-                
-                erro = NSError(domain: "ParseManager", code: 7, userInfo: userInfo)
+            } catch let externalError as NSError{
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completionHandler([], erro)
@@ -233,7 +228,7 @@ class ParseManager: NSObject {
         
         //Verifica se o usuário está logado
         guard let user = PFUser.currentUser() else{
-            let erro = self.getError(305)
+            let erro = self.getError(ParseError.UnloggedUser)
             completionHandler(erro)
             return
         }
