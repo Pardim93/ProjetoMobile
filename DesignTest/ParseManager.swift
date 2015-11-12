@@ -149,6 +149,40 @@ class ParseManager: NSObject {
         })
     }
     
+//    MARK: IMAGEM GET
+    func getImgForQuestao(questao: PFObject, completionHandler: (UIImage?, NSError?) -> ()){
+        
+        var img: UIImage?
+        var erro: NSError?
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            
+            guard let newImage = questao.objectForKey("Imagem") as? PFFile else{
+                erro = self.getError(ParseError.InvalidObject)
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(img, erro)
+                })
+                return
+            }
+            
+            do{
+                let newData = try newImage.getData()
+                img = UIImage(data: newData)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(img, erro)
+                })
+                return
+            } catch{
+                erro = self.getError(ParseError.NoConnection)
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(img, erro)
+                })
+                return
+            }
+        })
+    }
+    
 //    MARK: Login/Logout
     func autoLogin() -> Bool{
         return (PFUser.currentUser() != nil)
@@ -513,7 +547,7 @@ class ParseManager: NSObject {
         }
     }
     
-    func getQuestoesPopulares(completionHandler: (NSArray, NSError?) -> ()){
+    func getQuestoesPopulares(completionHandler: ([PFObject], NSError?) -> ()){
         let query = PFQuery(className: "Questao")
         query.includeKey("Disciplina")
         query.includeKey("Autor")
@@ -541,7 +575,7 @@ class ParseManager: NSObject {
                 erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
-                    completionHandler(NSArray(), erro)
+                    completionHandler([], erro)
                 })
                 
                 return
@@ -549,7 +583,7 @@ class ParseManager: NSObject {
         })
     }
     
-    func getQuestoesByKeyword(keyword: String, completionHandler: (NSArray, NSError?) -> ()){
+    func getQuestoesByKeyword(keyword: String, completionHandler: ([PFObject], NSError?) -> ()){
         let query = PFQuery(className: "Questao")
         query.includeKey("Disciplina")
         query.includeKey("Autor")
@@ -578,8 +612,7 @@ class ParseManager: NSObject {
                 erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
-                    let auxArray = NSArray()
-                    completionHandler(auxArray, erro)
+                    completionHandler([], erro)
                 })
                 
                 return

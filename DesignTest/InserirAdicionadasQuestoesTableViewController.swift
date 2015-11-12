@@ -12,13 +12,12 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
     
     var questoes: [PFObject] = []
     let inserirQuestoesManager = InserirQuestoesProvaManager.singleton
-//    var longTapGesture: UILongPressGestureRecognizer?
+    let parseManager = ParseManager.singleton
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.configSegmentedHidingCells()
-//        self.configGestureRecognizer( )
         self.configToolbar()
     }
     
@@ -185,9 +184,15 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
     func prepareGoToQuestao(questao: PFObject){
         self.disabeView()
         
-        self.inserirQuestoesManager.getImg(questao){(newImg) -> () in
+        parseManager.getImgForQuestao(questao) { (newImg, error) -> () in
             self.enableView()
-            self.goToQuestao(questao, img: newImg)
+            
+            if(error == nil){
+                self.goToQuestao(questao, img: newImg)
+            }
+            else{
+                self.navigationController?.showAlert("Ocorreu um erro, tente novamente.")
+            }
         }
     }
     

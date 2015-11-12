@@ -13,22 +13,18 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
 
-    var searchActive: Bool = false
-    var filtered = NSArray()
+    var filtered: [PFObject] = []
     let parseManager = ParseManager.singleton
-//    let activityView = CustomActivityView()
     let inserirQuestoesManager = InserirQuestoesProvaManager.singleton
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        self.moveViewsToAdjustSegmented()
+        self.configSearchBar()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.configSearchBar()
         self.configTableView()
         
         let tabBar = self.tabBarController as! InserirProvaTabBarViewController
@@ -57,34 +53,10 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
     }
     
 //    MARK: SearchBar
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        searchActive = true
-    }
-    
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        searchActive = false
-    }
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        searchActive = false
-    }
-    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.view.endEditing(true)
         self.doSearch()
     }
-    
-//    func searchBar(searchBar: UISearchBar, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-//        var newText = self.searchBar.text! as NSString
-//        newText = newText.stringByReplacingCharactersInRange(range, withString: text)
-//        let newTextString = newText as String
-//        
-//        if(!newTextString.hasAlphanumeric()){
-//            self.cleanBusca()
-//        }
-//        
-//        return true
-//    }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if(!searchText.hasAlphanumeric()){
@@ -94,7 +66,7 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
     
 //    MARK: Search
     func cleanBusca(){
-        self.filtered = NSArray()
+        self.filtered = []
         self.tableView.reloadData()
     }
     
@@ -129,9 +101,7 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("newCell", forIndexPath: indexPath) as! InserirQuestaoTableViewCell
         
-        guard let newQuestao = filtered.objectAtIndex(indexPath.row) as? PFObject else{
-            return cell
-        }
+        let newQuestao = filtered[indexPath.row]
         
         cell.delegate = self
         cell.descricaoTextView.customDelegate = self
@@ -159,9 +129,7 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
         self.view.endEditing(true)
         self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
         
-        guard let newQuestao = filtered.objectAtIndex(indexPath.row) as? PFObject else{
-            return
-        }
+        let newQuestao = filtered[indexPath.row]
         
         self.prepareGoToQuestao(newQuestao)
     }
@@ -177,9 +145,7 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
         self.tableView.selectRowAtIndexPath(NSIndexPath(forRow: cellRow, inSection: 1), animated: false, scrollPosition: UITableViewScrollPosition.None)
         self.tableView.deselectRowAtIndexPath(NSIndexPath(forRow: cellRow, inSection: 1), animated: false)
         
-        guard let newQuestao = filtered.objectAtIndex(cellRow) as? PFObject else{
-            return
-        }
+        let newQuestao = filtered[cellRow]
         
         self.prepareGoToQuestao(newQuestao)
     }
@@ -196,9 +162,15 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
     func prepareGoToQuestao(questao: PFObject){
         self.disabeView()
         
-        self.inserirQuestoesManager.getImg(questao){(newImg) -> () in
+        parseManager.getImgForQuestao(questao) { (newImg, error) -> () in
             self.enableView()
-            self.goToQuestao(questao, img: newImg)
+            
+            if(error == nil){
+                self.goToQuestao(questao, img: newImg)
+            }
+            else{
+                self.navigationController?.showAlert("Ocorreu um erro, tente novamente.")
+            }
         }
     }
     

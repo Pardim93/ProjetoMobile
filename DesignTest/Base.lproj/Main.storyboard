@@ -460,10 +460,10 @@
             </objects>
             <point key="canvasLocation" x="809.25" y="-81"/>
         </scene>
-        <!--IPhoneListaProvas-->
+        <!--IPhoneListaExercicios-->
         <scene sceneID="Zeb-09-DgR">
             <objects>
-                <viewControllerPlaceholder storyboardName="IPhoneListaProvas" id="6Be-WU-Fiv" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="IPhoneListaExercicios" id="6Be-WU-Fiv" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dbj-Dc-iWc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="795.75" y="-27"/>

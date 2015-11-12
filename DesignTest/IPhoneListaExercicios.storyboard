@@ -26,7 +26,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lm7-0P-cDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="556.5" y="213"/>
+            <point key="canvasLocation" x="556.5" y="216.75"/>
         </scene>
         <!--Exercicios-->
         <scene sceneID="cP3-Jk-f1M">
@@ -124,7 +124,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="menuButton" destination="9UO-nY-OY2" id="U6L-xe-Pbd"/>
                         <outlet property="searchBar" destination="3pa-wB-sZR" id="oYF-eW-C5e"/>
+                        <outlet property="searchButton" destination="gPb-1Y-Bbk" id="h3Q-dv-3jU"/>
                         <outlet property="segControl" destination="Kep-f3-UJi" id="6AB-bN-mcZ"/>
                         <outlet property="tableView" destination="VOa-WV-bIq" id="0No-d4-VgK"/>
                     </connections>

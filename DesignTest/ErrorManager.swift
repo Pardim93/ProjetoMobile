@@ -32,8 +32,9 @@ class ErrorManager: NSObject {
 }
 
 enum ParseError: ErrorType {
-    case NoConnection
     case InternalError
+    case InvalidObject
+    case NoConnection
     case UnknownError
     case UnloggedUser
 }

@@ -45,7 +45,6 @@ class InserirQuestaoTableViewCell: UITableViewCell{
     }
     
     func configAddButton(){
-//        self.adicionarButton.layer.cornerRadius = 5
         self.adicionarButton.layer.borderWidth = 0.5
         self.adicionarButton.layer.borderColor = UIColor.clearColor().CGColor
     }
@@ -78,10 +77,6 @@ class InserirQuestaoTableViewCell: UITableViewCell{
         self.disciplinaLabel.layer.cornerRadius = 15
         self.disciplinaLabel.clipsToBounds = true
         self.disciplinaLabel.layer.borderWidth = 0.3
-        
-//        let underlineAttribute = [NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue]
-//        let underlineAttributedString = NSAttributedString(string: discString, attributes: underlineAttribute)
-//        disciplinaLabel.attributedText = underlineAttributedString
         
         self.disciplinaLabel.font = UIFont(name: "Avenir Book", size: 15)
     }

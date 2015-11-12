@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, ResolverQuestaoDelegate, CustomTextViewDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchButton: UIBarButtonItem!
@@ -16,7 +16,7 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segControl: UISegmentedControl!
     
-    var filtered = NSArray()
+    var filtered: [PFObject] = []
     let parseManager = ParseManager.singleton
     
     override func viewDidLoad() {
@@ -24,20 +24,20 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
 
         self.configureSideBar()
         self.configSearchBar()
+        self.configTableView()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.configTableView()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.configActivityView()
-        self.configExercicios()
+        self.configExerciciosPopulares()
     }
 
-    //    MARK: Config
+//    MARK: Config
     func configureSideBar(){
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
@@ -50,7 +50,12 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        self.tableView.registerNib(UINib(nibName: "ListaProvaTableViewCell", bundle: nil), forCellReuseIdentifier: "newCell")
+        self.tableView.registerNib(UINib(nibName: "ListaExTableViewCell", bundle: nil), forCellReuseIdentifier: "newCell")
+    }
+    
+    func configEmptyTableView(){
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        self.tableView.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
     }
     
     func configSearchBar(){
@@ -59,19 +64,15 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
         self.searchBar.delegate = self
     }
     
-    func configExercicios(){
+    func configExerciciosPopulares(){
         self.disabeView()
         
         parseManager.getQuestoesPopulares { (result, error) -> () in
             self.enableView()
             if(error == nil){
                 self.filtered = result
-                if(self.filtered.count > 0){
-                    self.tableView.separatorStyle = .None
-                }
-                else{
-                    self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
-                    self.tableView.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
+                if(!(self.filtered.count > 0)){
+                    self.configEmptyTableView()
                 }
                 
                 self.tableView.reloadData()
@@ -110,7 +111,7 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
     
 //    MARK: Search
     func cleanBusca(){
-        self.filtered = NSArray()
+        self.filtered = []
         self.tableView.reloadData()
     }
     
@@ -135,7 +136,7 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
                 return
             }
             
-            self.filtered = result
+            self.filtered = []
             
             self.tableView.reloadData()
         }
@@ -143,7 +144,15 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
     
 //    MARK: TableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("newCell", forIndexPath: indexPath) as! ListaExTableViewCell
+        
+        let newQuestao = filtered[indexPath.row]
+        
+        cell.delegate = self
+        cell.descricaoTextView.customDelegate = self
+        
+        cell.setInfo(newQuestao, newRow: indexPath.row)
+        
         return cell
     }
     
@@ -160,7 +169,27 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.view.endEditing(true)
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let newQuestao = self.filtered[indexPath.row]
+        
+        self.prepareGoToQuestao(newQuestao)
+    }
+    
+//    MARK: Delegate
+    func resolverQuestao(questao: PFObject) {
+    }
+    
+    func finishEdit(cellRow: Int) {
+        self.view.endEditing(true)
+        
+        self.tableView.selectRowAtIndexPath(NSIndexPath(forRow: cellRow, inSection: 1), animated: false, scrollPosition: UITableViewScrollPosition.None)
+        self.tableView.deselectRowAtIndexPath(NSIndexPath(forRow: cellRow, inSection: 1), animated: false)
+        
+        let newQuestao = filtered[cellRow]
+        
+        self.prepareGoToQuestao(newQuestao)
     }
     
     //    MARK: Button Action
@@ -179,8 +208,34 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
         })
     }
     
-    //    MARK: View
+//    MARK: View
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+//    MARK: Navigation
+    func prepareGoToQuestao(questao: PFObject){
+        self.disabeView()
+        
+        parseManager.getImgForQuestao(questao) { (newImg, error) -> () in
+            self.enableView()
+            
+            if(error == nil){
+                self.goToQuestao(questao, img: newImg)
+            }
+            else{
+                self.navigationController?.showAlert("Ocorreu um erro, tente novamente.")
+            }
+        }
+    }
+    
+    func goToQuestao(questao: PFObject, img: UIImage?){
+        
+        let inserirProvaStoryBoard = UIStoryboard(name: "IPhoneInserirProva", bundle: nil)
+        let newTabBar = inserirProvaStoryBoard.instantiateViewControllerWithIdentifier("verExTabBar") as! VerQuestaoTabBarViewController
+        newTabBar.questao = questao
+        newTabBar.img = img
+        
+        self.navigationController?.pushViewController(newTabBar, animated: true)
     }
 }
