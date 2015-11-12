@@ -116,7 +116,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Provas" id="ksW-hf-X7H">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="MCm-cv-B0c"/>
+                        <barButtonItem key="leftBarButtonItem" image="More Filled-22" id="MCm-cv-B0c"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="iaZ-dJ-S2g">
                             <connections>
                                 <action selector="searchButton:" destination="7Dm-Ic-arh" id="nc3-GS-ZPK"/>
@@ -136,6 +136,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="menu" width="22" height="22"/>
+        <image name="More Filled-22" width="22" height="22"/>
     </resources>
 </document>

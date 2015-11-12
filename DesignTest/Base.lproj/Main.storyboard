@@ -40,7 +40,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="1GV-SB-sa3">
-                            <rect key="frame" x="0.0" y="390" width="600" height="568"/>
+                            <rect key="frame" x="0.0" y="325" width="600" height="568"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
                         </view>
@@ -356,7 +356,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="pRQ-yZ-be7">
-                                        <rect key="frame" x="0.0" y="325" width="600" height="65"/>
+                                        <rect key="frame" x="0.0" y="260" width="600" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pRQ-yZ-be7" id="w5l-3J-L6p">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="64.5"/>
@@ -793,7 +793,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="uaP-ED-cGY">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="n7Z-qW-Xe4"/>
+                        <barButtonItem key="leftBarButtonItem" image="More Filled-22" id="n7Z-qW-Xe4"/>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Sl2-wv-suN" id="3Qg-PH-awg"/>
@@ -809,9 +809,9 @@
         <image name="Bullish-100-Gray" width="100" height="100"/>
         <image name="Home Filled-100-White" width="100" height="100"/>
         <image name="List Filled-100" width="100" height="100"/>
+        <image name="More Filled-22" width="22" height="22"/>
         <image name="School Filled-100-Whte" width="100" height="100"/>
         <image name="Support-100-White" width="100" height="100"/>
-        <image name="menu" width="22" height="22"/>
         <image name="student3" width="530" height="356"/>
     </resources>
     <inferredMetricsTieBreakers>

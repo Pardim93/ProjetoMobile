@@ -86,13 +86,13 @@
                                 <exclude reference="Ksv-PM-vRI"/>
                                 <exclude reference="VmY-qZ-znS"/>
                                 <exclude reference="r1g-Qb-Tg3"/>
+                                <exclude reference="IUs-bQ-Hxa"/>
                                 <exclude reference="LCM-7z-QPs"/>
                                 <exclude reference="WSv-wf-ek3"/>
-                                <exclude reference="IUs-bQ-Hxa"/>
-                                <exclude reference="x04-wb-WAn"/>
-                                <exclude reference="QZn-A0-Pdk"/>
-                                <exclude reference="JUs-4L-JDh"/>
                                 <exclude reference="1aF-C6-EJU"/>
+                                <exclude reference="JUs-4L-JDh"/>
+                                <exclude reference="QZn-A0-Pdk"/>
+                                <exclude reference="x04-wb-WAn"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -105,18 +105,18 @@
                                 <include reference="Ksv-PM-vRI"/>
                                 <include reference="VmY-qZ-znS"/>
                                 <include reference="r1g-Qb-Tg3"/>
+                                <exclude reference="IUs-bQ-Hxa"/>
                                 <include reference="LCM-7z-QPs"/>
                                 <include reference="WSv-wf-ek3"/>
-                                <exclude reference="IUs-bQ-Hxa"/>
-                                <include reference="x04-wb-WAn"/>
-                                <include reference="QZn-A0-Pdk"/>
-                                <include reference="JUs-4L-JDh"/>
                                 <include reference="1aF-C6-EJU"/>
+                                <include reference="JUs-4L-JDh"/>
+                                <include reference="QZn-A0-Pdk"/>
+                                <include reference="x04-wb-WAn"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Exercicios" id="lYf-Yn-DIP">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="9UO-nY-OY2"/>
+                        <barButtonItem key="leftBarButtonItem" image="More Filled-22" id="9UO-nY-OY2"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="gPb-1Y-Bbk">
                             <connections>
                                 <action selector="searchButton:" destination="LV5-Kd-O32" id="nej-ea-JdX"/>
@@ -135,6 +135,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="menu" width="22" height="22"/>
+        <image name="More Filled-22" width="22" height="22"/>
     </resources>
 </document>

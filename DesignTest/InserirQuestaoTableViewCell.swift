@@ -9,7 +9,7 @@
 import UIKit
 
 protocol TratarQuestaoDelegate{
-    func tratarQuestao(questao: PFObject, willAdd: Bool)
+    func tratarQuestao(questao: PFObject, buttonStatus: InserirQuestaoProvaButtonStatus)
 }
 
 class InserirQuestaoTableViewCell: UITableViewCell{
@@ -20,7 +20,8 @@ class InserirQuestaoTableViewCell: UITableViewCell{
     
     var questao: PFObject?
     var delegate: TratarQuestaoDelegate?
-    var willAdd = true
+    var buttonStatus: InserirQuestaoProvaButtonStatus = .Adicionar
+//    var willAdd = true
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,14 +38,14 @@ class InserirQuestaoTableViewCell: UITableViewCell{
     
 //    Config
     func configTextView(){
-        self.descricaoTextView.layer.borderWidth = 0.3
+//        self.descricaoTextView.layer.borderWidth = 0.3
         self.descricaoTextView.layer.cornerRadius = 5
         self.descricaoTextView.font = UIFont(name: "Avenir Book", size: 15)
         self.descricaoTextView.userInteractionEnabled = true
     }
     
     func configAddButton(){
-        self.adicionarButton.layer.cornerRadius = 5
+//        self.adicionarButton.layer.cornerRadius = 5
         self.adicionarButton.layer.borderWidth = 0.5
         self.adicionarButton.layer.borderColor = UIColor.clearColor().CGColor
     }
@@ -72,33 +73,64 @@ class InserirQuestaoTableViewCell: UITableViewCell{
         let disciplina = questao!.objectForKey("Disciplina") as! PFObject
         let discString = disciplina.objectForKey("Nome") as! String
         
-        let underlineAttribute = [NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue]
-        let underlineAttributedString = NSAttributedString(string: discString, attributes: underlineAttribute)
-        disciplinaLabel.attributedText = underlineAttributedString
+        self.disciplinaLabel.text = discString
+        self.disciplinaLabel.backgroundColor = UIColor.newPearlColor()
+        self.disciplinaLabel.layer.cornerRadius = 15
+        self.disciplinaLabel.clipsToBounds = true
+        self.disciplinaLabel.layer.borderWidth = 0.3
+        
+//        let underlineAttribute = [NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue]
+//        let underlineAttributedString = NSAttributedString(string: discString, attributes: underlineAttribute)
+//        disciplinaLabel.attributedText = underlineAttributedString
         
         self.disciplinaLabel.font = UIFont(name: "Avenir Book", size: 15)
     }
     
-    func setButtonStatus(willAdicionar: Bool){
-        self.willAdd = willAdicionar
+    func setButtonStatus(newButtonStatus: InserirQuestaoProvaButtonStatus){
+        self.buttonStatus = newButtonStatus
         
-        if(self.willAdd){
+        switch self.buttonStatus{
+        case .Adicionar:
             self.adicionarButton.setTitle("Adicionar", forState: UIControlState.Normal)
             self.adicionarButton.backgroundColor = UIColor.colorWithHexString("007AFF", alph: 1.0)
             self.adicionarButton.rippleBackgroundColor = UIColor.colorWithHexString("007AFF", alph: 0.5)
             self.adicionarButton.rippleColor = UIColor.colorWithHexString("0F3B5F", alph: 1.0)
-        }
-        else{
+            break
+            
+        case .Remover:
             self.adicionarButton.setTitle("Remover", forState: UIControlState.Normal)
             self.adicionarButton.backgroundColor = UIColor.colorWithHexString("C51419", alph: 1.0)
             self.adicionarButton.rippleBackgroundColor = UIColor.colorWithHexString("C51419", alph: 0.5)
             self.adicionarButton.rippleColor = UIColor.colorWithHexString("791619", alph: 1.0)
+            break
+            
+        case .Editar:
+            self.adicionarButton.setTitle("Editar", forState: UIControlState.Normal)
+            self.adicionarButton.backgroundColor = UIColor.colorWithHexString("00D126", alph: 1.0)
+            self.adicionarButton.rippleBackgroundColor = UIColor.colorWithHexString("00D126", alph: 0.5)
+            self.adicionarButton.rippleColor = UIColor.colorWithHexString("007D17", alph: 1.0)
+            break
         }
     }
     
 //    MARK: Button
     @IBAction func usarQuestao(sender: AnyObject) {
-        self.delegate?.tratarQuestao(self.questao!, willAdd: self.willAdd)
-        self.setButtonStatus(!willAdd)
+        self.delegate?.tratarQuestao(self.questao!, buttonStatus: self.buttonStatus)
+        
+        if(buttonStatus == InserirQuestaoProvaButtonStatus.Adicionar){
+            self.setButtonStatus(InserirQuestaoProvaButtonStatus.Remover)
+            return
+        }
+        
+        if(buttonStatus == InserirQuestaoProvaButtonStatus.Remover){
+            self.setButtonStatus(InserirQuestaoProvaButtonStatus.Adicionar)
+            return
+        }
     }
+}
+
+enum InserirQuestaoProvaButtonStatus{
+    case Adicionar
+    case Remover
+    case Editar
 }

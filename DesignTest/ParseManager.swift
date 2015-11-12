@@ -46,6 +46,66 @@ class ParseManager: NSObject {
         })
     }
     
+    func getDisciplinasByArrayProvas(provas: [PFObject], completionHandler: ([String], NSError?) -> ()){
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var discArray: [String] = []
+            var erro: NSError?
+            
+            for prova in provas{
+                let discRelation = prova.objectForKey("Disciplinas") as! PFRelation
+                let query = discRelation.query()
+                
+                do{
+                    let result = try query?.findObjects()
+                    
+                    var newText = ""
+                    for disc in result!{
+                        let disciplina = disc
+                        let discString = disciplina.objectForKey("Nome")
+                        newText += "\(discString!) - "
+                    }
+                    
+                    newText = String(newText.characters.dropLast())
+                    newText = String(newText.characters.dropLast())
+                    
+                    discArray.append(newText)
+                } catch{
+                    erro = NSError(domain: "ParseManager", code: 35, userInfo: nil)
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        completionHandler([], erro)
+                    })
+                    return
+                }
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                completionHandler(discArray, erro)
+            })
+            return
+        })
+    }
+    
+    func getDisciplinasByRelation(relation: PFRelation){
+        let query = relation.query()
+        
+        do{
+            let result = try query?.findObjects()
+            
+            var newText = ""
+            for disc in result!{
+                let disciplina = disc
+                let discString = disciplina.objectForKey("Nome")
+                newText += "\(discString!) - "
+            }
+            
+            newText = String(newText.characters.dropLast())
+            newText = String(newText.characters.dropLast())
+        } catch{
+            return
+        }
+    }
+    
     func getDisciplinaByNameSync(name: String) -> [PFObject]{
         let query = PFQuery(className: "Disciplina")
         
@@ -138,7 +198,7 @@ class ParseManager: NSObject {
 }
 
 //    MARK: PROVAS GET
-    func getProvasPopulares(completionHandler:(NSArray?, NSError?) -> ()){
+    func getProvasPopulares(completionHandler:([PFObject], NSError?) -> ()){
         let query = PFQuery(className: "Prova")
         query.orderByDescending("Popularidade")
         query.includeKey("Autor")
@@ -164,7 +224,41 @@ class ParseManager: NSObject {
                 erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
-                    completionHandler(nil, erro)
+                    completionHandler([], erro)
+                })
+                
+                return
+            }
+        })
+    }
+    
+    func getProvasRecentes(completionHandler: ([PFObject], NSError?) -> ()){
+        let query = PFQuery(className: "Prova")
+        query.orderByDescending("createdAt")
+        query.includeKey("Autor")
+        query.limit = 100
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var erro: NSError?
+            
+            do{
+                let result = try query.findObjects()
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    completionHandler(result, erro)
+                })
+                
+                return
+            } catch{
+                let userInfo:[NSObject : AnyObject] = [
+                    NSLocalizedDescriptionKey : NSLocalizedString("Verifique se sua conexão funcionando.", comment: ""),
+                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Email não utilizado ou conexão não funcionando.", comment: ""),
+                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Digite um novo email e/ou tente novamente.", comment: "")
+                ]
+                
+                erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
+                
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    completionHandler([], erro)
                 })
                 
                 return
@@ -186,7 +280,7 @@ class ParseManager: NSObject {
         }
     }
     
-    func getProvasByKeyword(keyword: String, completionHandler:(NSArray?, NSError?) -> ()){
+    func getProvasByKeyword(keyword: String, completionHandler:([PFObject], NSError?) -> ()){
         let query = PFQuery(className: "Prova")
 //        query.whereKey("Titulo", containsString: keyword)
         query.whereKey("Tags", containedIn: [keyword.simpleString(), keyword])
@@ -214,7 +308,7 @@ class ParseManager: NSObject {
                 erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
-                    completionHandler(nil, erro)
+                    completionHandler([], erro)
                 })
                 
                 return
@@ -248,61 +342,78 @@ class ParseManager: NSObject {
         //Set popularidade
         prova.setObject(10, forKey: "Popularidade")
         
-        let relationDisciplinas = prova.relationForKey("Disciplinas")
-        let relationQuestoes = prova.relationForKey("Questoes")
-        var disciplinas: [PFObject] = []
-        
-        //Adiciona relação entre prova e questões
-        for questao in questoes{
-            //Para cada questao no array de questoes
-            relationQuestoes.addObject(questao)
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var erro: NSError?
             
-            let disciplina = questao.objectForKey("Disciplina") as! PFObject
-            let newDisciplina = disciplina.objectForKey("Nome") as! String
+            let relationDisciplinas = prova.relationForKey("Disciplinas")
+            let relationQuestoes = prova.relationForKey("Questoes")
+            var disciplinas: [PFObject] = []
             
-            
-            var find = false
-            
-            //Procura para ver se a disciplina já está relação entre prova e disciplinas
-            for disc in disciplinas{
-                //Para cada disciplina no array de disciplinas
-                let oldDisciplina = disc.objectForKey("Nome") as! String
-                if(oldDisciplina == newDisciplina){
-                    //Se a disciplina já está no array
-                    find = true
-                    break
-                }
-            }
-            
-            if(!find){
-                //Se a disciplina não está no array
-                disciplinas.append(disciplina)
+            //Adiciona relação entre prova e questões
+            for questao in questoes{
+                //Para cada questao no array de questoes
                 
-                for tag in tags{
-                    //Para cada tag no array de tags
-                    if(tag == newDisciplina){
-                        //Se a disciplina já está no array de tags
+                questao.incrementKey("TimesUsed")
+                
+                do{
+                    try questao.save()
+                } catch{
+                    let userInfo:[NSObject : AnyObject] = [
+                        NSLocalizedDescriptionKey : NSLocalizedString("Erro ao salvar. Tente novamente.", comment: ""),
+                        NSLocalizedFailureReasonErrorKey : NSLocalizedString("Ocorreu um erro ao salvar.", comment: ""),
+                        NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente.", comment: "")
+                    ]
+                    erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        completionHandler(erro)
+                    })
+                }
+                
+                relationQuestoes.addObject(questao)
+                
+                let disciplina = questao.objectForKey("Disciplina") as! PFObject
+                let nomeDisciplina = disciplina.objectForKey("Nome") as! String
+                
+                var find = false
+                
+                //Procura para ver se a disciplina já está relação entre prova e disciplinas
+                for disc in disciplinas{
+                    //Para cada disciplina no array de disciplinas
+                    let oldDisciplina = disc.objectForKey("Nome") as! String
+                    if(oldDisciplina == nomeDisciplina){
+                        //Se a disciplina já está no array
                         find = true
+                        break
                     }
                 }
                 
                 if(!find){
-                    //Se a disciplina não está no array de tags
-                    tags.append(newDisciplina.simpleString())
+                    //Se a disciplina não está no array
+                    disciplinas.append(disciplina)
+                    
+                    for tag in tags{
+                        //Para cada tag no array de tags
+                        if(tag == nomeDisciplina){
+                            //Se a disciplina já está no array de tags
+                            find = true
+                        }
+                    }
+                    
+                    if(!find){
+                        //Se a disciplina não está no array de tags
+                        tags.append(nomeDisciplina.simpleString())
+                    }
                 }
             }
-        }
-        
-        //Set tags
-        prova.setObject(tags, forKey: "Tags")
-        
-        //Adiciona relação para disciplinas
-        for disc in disciplinas{
-            relationDisciplinas.addObject(disc)
-        }
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-            var erro: NSError?
+            
+            //Set tags
+            prova.setObject(tags, forKey: "Tags")
+            
+            //Adiciona relação para disciplinas
+            for disc in disciplinas{
+                relationDisciplinas.addObject(disc)
+            }
             
             //Set imagem
             if(image != nil){
@@ -596,6 +707,9 @@ class ParseManager: NSObject {
         questao.setObject(titulo, forKey: "Descricao")
         questao.setObject(disciplina, forKey: "Disciplina")
         questao.setObject(enunciado, forKey: "Enunciado")
+        questao.setObject(0, forKey: "TimesUsed")
+        questao.setObject(0, forKey: "Likes")
+        questao.setObject(0, forKey: "Dislikes")
         
         var tagsLowerCase: [String] = []
         

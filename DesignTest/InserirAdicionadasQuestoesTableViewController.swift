@@ -8,22 +8,27 @@
 
 import UIKit
 
-class InserirAdicionadasQuestoesTableViewController: UITableViewController, CustomTextViewDelegate {
+class InserirAdicionadasQuestoesTableViewController: UITableViewController, CustomTextViewDelegate, TratarQuestaoDelegate {
     
     var questoes: [PFObject] = []
     let inserirQuestoesManager = InserirQuestoesProvaManager.singleton
-    var longTapGesture: UILongPressGestureRecognizer?
+//    var longTapGesture: UILongPressGestureRecognizer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.configSegmentedHidingCells()
-        self.configGestureRecognizer()
+//        self.configGestureRecognizer( )
         self.configToolbar()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+ 
+        if(self.editing){
+            self.configToolBar()
+        }
+        
         self.configTableView()
         self.updateQuestoes()
     }
@@ -40,7 +45,7 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
         
         self.tableView.registerNib(UINib(nibName: "InserirQuestaoTableViewCell", bundle: nil), forCellReuseIdentifier: "newCell")
         
-        self.tableView.addGestureRecognizer(longTapGesture!)
+//        self.tableView.addGestureRecognizer(longTapGesture!)
         
         self.view.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
     }
@@ -51,8 +56,13 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
         self.tableView.tableHeaderView = header
     }
     
-    func configGestureRecognizer(){
-        self.longTapGesture = UILongPressGestureRecognizer(target: self, action: "changeEditing")
+    func configToolBar(){
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        let finishButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "finishEditing")
+        
+        self.navigationController?.setToolbarHidden(false, animated: true)
+        
+        self.navigationController?.toolbar.setItems([flexibleSpace, finishButton], animated: false)
     }
     
     func configToolbar(){
@@ -68,20 +78,18 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
     
 //    MARK: Selectors
     func changeEditing(){
-        self.tableView.removeGestureRecognizer(longTapGesture!)
+//        self.tableView.removeGestureRecognizer(longTapGesture!)
         self.setEditing(true, animated: true)
         
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-        let finishButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "finishEditing")
+        self.tableView.reloadData()
         
-        self.navigationController?.setToolbarHidden(false, animated: true)
-        
-        self.navigationController?.toolbar.setItems([flexibleSpace, finishButton], animated: false)
+        self.configToolBar()
     }
     
     func finishEditing(){
-        self.tableView.addGestureRecognizer(longTapGesture!)
+//        self.tableView.addGestureRecognizer(longTapGesture!)
         self.tableView.setEditing(false, animated: true)
+        self.tableView.reloadData()
         self.navigationController?.setToolbarHidden(true, animated: true)
     }
     
@@ -117,9 +125,16 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
         cell.descricaoTextView.customDelegate = self
         cell.setInfo(newQuestao, newRow: indexPath.row)
         
-        cell.setButtonStatus(false)
-        cell.adicionarButton.enabled = false
-        cell.adicionarButton.hidden = true
+        if(self.tableView.editing){
+            cell.adicionarButton.enabled = false
+            cell.adicionarButton.hidden = true
+        }
+        else{
+            cell.delegate = self
+            cell.adicionarButton.enabled = true
+            cell.adicionarButton.hidden = false
+            cell.setButtonStatus(InserirQuestaoProvaButtonStatus.Editar)
+        }
         
         return cell
     }
@@ -150,6 +165,11 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     }
     
+//    MARK: Delegate
+    func tratarQuestao(questao: PFObject, buttonStatus: InserirQuestaoProvaButtonStatus) {
+        self.changeEditing()
+    }
+    
 //    MARK: Check
     func checkQuestoes() -> Bool{
         return (self.questoes.count >= 5 && self.questoes.count <= 90)
@@ -178,5 +198,10 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
         newTabBar.img = img
         
         self.navigationController?.pushViewController(newTabBar, animated: true)
+    }
+    
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController?.setToolbarHidden(true, animated: true)
     }
 }

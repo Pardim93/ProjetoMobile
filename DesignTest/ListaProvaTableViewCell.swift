@@ -35,11 +35,10 @@ class ListaProvaTableViewCell: UITableViewCell {
         self.tituloLabel.backgroundColor = self.colors[colorPick]
     }
     
-    func setNewProva(novaProva: PFObject){
+    func setNewProva(novaProva: PFObject, disciplinas: String){
         self.prova = novaProva
         
         let newTitulo = novaProva.objectForKey("Titulo") as! String
-        let disciplinas = novaProva.objectForKey("Disciplinas") as! PFRelation
         let numQuestoes = novaProva.objectForKey("NumQuestoes") as! Int
         
         self.setTitulo(newTitulo)
@@ -51,32 +50,10 @@ class ListaProvaTableViewCell: UITableViewCell {
         self.tituloLabel.text = novoTitulo
     }
     
-    func setDisciplinas(disciplinas: PFRelation){
-        let query = disciplinas.query()
-        
-        do{
-            let result = try query?.findObjects()
-            
-            var newText = ""
-            for disc in result!{
-                let disciplina = disc
-                let discString = disciplina.objectForKey("Nome")
-                newText += "\(discString!) - "
-            }
-            
-            newText = String(newText.characters.dropLast())
-            newText = String(newText.characters.dropLast())
-            
-            self.disciplinasTextView.text = newText
-            self.disciplinasTextView.font = UIFont(name: "Avenir Book", size: 16)
-            self.disciplinasTextView.textColor = UIColor.newLightBlueColor()
-        } catch{
-            return
-        }
-        
-//        guard let result = query?.findObjects() else{
-//            return
-//        }
+    func setDisciplinas(newText: String){
+        self.disciplinasTextView.text = newText
+        self.disciplinasTextView.font = UIFont(name: "Avenir Book", size: 16)
+        self.disciplinasTextView.textColor = UIColor.newLightBlueColor()
     }
     
     func setNumQuestoes(num: Int){

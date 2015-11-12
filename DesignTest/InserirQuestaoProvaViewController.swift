@@ -138,8 +138,11 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
         
         cell.setInfo(newQuestao, newRow: indexPath.row)
         
-        let willRemove = inserirQuestoesManager.questaoExiste(newQuestao)
-        cell.setButtonStatus(!willRemove)
+        if(inserirQuestoesManager.questaoExiste(newQuestao)){
+            cell.setButtonStatus(InserirQuestaoProvaButtonStatus.Remover)
+        } else{
+            cell.setButtonStatus(InserirQuestaoProvaButtonStatus.Adicionar)
+        }
         
         return cell
     }
@@ -181,8 +184,8 @@ class InserirQuestaoProvaViewController: UIViewController, UITableViewDataSource
         self.prepareGoToQuestao(newQuestao)
     }
     
-    func tratarQuestao(questao: PFObject, willAdd: Bool) {
-        if(willAdd){
+    func tratarQuestao(questao: PFObject, buttonStatus: InserirQuestaoProvaButtonStatus) {
+        if(buttonStatus == InserirQuestaoProvaButtonStatus.Adicionar){
             inserirQuestoesManager.adicionadas.append(questao)
         } else{
             inserirQuestoesManager.removeQuestao(questao)
