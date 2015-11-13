@@ -589,7 +589,13 @@
             <objects>
                 <tabBarController storyboardIdentifier="verExTabBar" title="Questão" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mhy-HJ-gaw" customClass="VerQuestaoTabBarViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Pergunta" id="EUT-GA-Y8m"/>
+                    <navigationItem key="navigationItem" title="Pergunta" id="EUT-GA-Y8m">
+                        <barButtonItem key="rightBarButtonItem" image="More Filled-22" id="zrq-u6-tsm">
+                            <connections>
+                                <action selector="moreButtonAction:" destination="Mhy-HJ-gaw" id="0Ww-Z3-1sU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="UXa-Jc-MCp">
                         <autoresizingMask key="autoresizingMask"/>
@@ -755,10 +761,10 @@
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="QNZ-s9-27s">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="180"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="190"/>
                                     </constraint>
                                     <constraint firstAttribute="width" constant="250" id="dAJ-MA-76x">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="180"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="190"/>
                                     </constraint>
                                 </constraints>
                                 <variation key="default">
@@ -804,14 +810,16 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="15"/>
                             </constraint>
                             <constraint firstItem="Jm3-zb-J8A" firstAttribute="leading" secondItem="9yE-FH-eBM" secondAttribute="leadingMargin" constant="15" id="LzB-Oz-RVB">
-                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="5"/>
                             </constraint>
                             <constraint firstItem="FvG-Ul-p6X" firstAttribute="top" secondItem="8zv-WJ-6Ev" secondAttribute="bottom" constant="20" id="R8K-1Q-5gH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Jm3-zb-J8A" secondAttribute="trailing" constant="15" id="Tj5-yh-RFL">
-                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="5"/>
                             </constraint>
                             <constraint firstItem="FvG-Ul-p6X" firstAttribute="centerX" secondItem="9yE-FH-eBM" secondAttribute="centerX" id="fgV-Y8-85C"/>
-                            <constraint firstItem="Jm3-zb-J8A" firstAttribute="top" secondItem="FvG-Ul-p6X" secondAttribute="bottom" constant="35" id="oiS-M2-laJ"/>
+                            <constraint firstItem="Jm3-zb-J8A" firstAttribute="top" secondItem="FvG-Ul-p6X" secondAttribute="bottom" constant="35" id="oiS-M2-laJ">
+                                <variation key="heightClass=regular-widthClass=compact" constant="25"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -851,12 +859,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hdx-Cc-4XL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="660" y="1930"/>
+            <point key="canvasLocation" x="795" y="1929.75"/>
         </scene>
     </scenes>
     <resources>
         <image name="Ask Question Filled-32" width="32" height="32"/>
         <image name="List-32" width="32" height="32"/>
+        <image name="More Filled-22" width="22" height="22"/>
         <image name="picture64" width="512" height="512"/>
     </resources>
 </document>

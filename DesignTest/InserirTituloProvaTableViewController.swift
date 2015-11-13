@@ -128,14 +128,14 @@ class InserirTituloProvaTableViewController: UITableViewController, UIGestureRec
 //    MARK: Action Sheet
     func showActionSheet() {
         let actionSheet = UIAlertController(title: "Vestibulandos", message: "", preferredStyle: .ActionSheet)
-        actionSheet.addAction(self.getCameraAction())
-        actionSheet.addAction(self.getGaleryAction())
-        actionSheet.addAction(self.getCancelAction())
+        actionSheet.addAction(self.createCameraAction())
+        actionSheet.addAction(self.createGaleryAction())
+        actionSheet.addAction(self.createCancelAction())
         
         self.navigationController?.presentViewController(actionSheet, animated: true, completion: nil)
     }
     
-    func getCameraAction() -> UIAlertAction{
+    func createCameraAction() -> UIAlertAction{
         let cameraAction = UIAlertAction(title: "Câmera", style: .Default) { (action) in
             let picker = UIImagePickerController()
             picker.delegate = self
@@ -147,7 +147,7 @@ class InserirTituloProvaTableViewController: UITableViewController, UIGestureRec
         return cameraAction
     }
     
-    func getGaleryAction() -> UIAlertAction{
+    func createGaleryAction() -> UIAlertAction{
         let galeryAction = UIAlertAction(title: "Fotos", style: .Default) { (action) in
             let picker = UIImagePickerController()
             picker.delegate = self
@@ -159,7 +159,7 @@ class InserirTituloProvaTableViewController: UITableViewController, UIGestureRec
         return galeryAction
     }
     
-    func getCancelAction() -> UIAlertAction{
+    func createCancelAction() -> UIAlertAction{
         let cancelAction = UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil)
         return cancelAction
     }

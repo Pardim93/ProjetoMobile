@@ -23,13 +23,7 @@ class LoginManager: NSObject {
                 })
             }
             else{
-                //Falha ao Logar
-                let userInfo:[NSObject : AnyObject] = [
-                    NSLocalizedDescriptionKey : NSLocalizedString("Email ou senha incorretos.", comment: ""),
-                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Email ou senha digitados não são válidos.", comment: ""),
-                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Digite seus dados novamente.", comment: "")
-                ]
-                erro = NSError(domain: "LoginManager", code: 1, userInfo: userInfo)
+                erro = self.getError(LoginManagerError.IncorrectData)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completionHandler(self, erro)

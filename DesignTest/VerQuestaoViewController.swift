@@ -71,19 +71,30 @@ class VerQuestaoViewController: UIViewController, UIScrollViewDelegate {
         button.tag = 1
         button.addTarget(self, action: "buttonPopUp:", forControlEvents: .TouchDown)
         
-        button.frame = CGRectMake(140, 140, 30, 30)
+        button.frame = CGRectMake(150, 150, 30, 30)
         
         self.imgExercicio.addSubview(button)
     }
     
     func configTextView(){
-        self.txtExercicio.text = self.questao!.objectForKey("Enunciado") as! String
-        self.txtExercicio.font = UIFont(name: "Avenir Book", size: 16)
+//        self.txtExercicio.text = self.questao!.objectForKey("Enunciado") as! String
+//        self.txtExercicio.font = UIFont(name: "Avenir Book", size: 16)
         
-        self.txtExercicio.layer.borderColor = UIColor.blueColor().colorWithAlphaComponent(0.5).CGColor
-        self.txtExercicio.layer.borderWidth = 0.5
-        self.txtExercicio.layer.cornerRadius = 6
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.headIndent = 15
+        paragraphStyle.firstLineHeadIndent = 15
+        paragraphStyle.tailIndent = -15
+        
+        let txt = self.questao!.objectForKey("Enunciado") as! String
+        let attrsDictionary:[String : AnyObject]? = [
+            NSFontAttributeName : UIFont(name: "Avenir Book", size: 16)!, NSParagraphStyleAttributeName: paragraphStyle]
+        self.txtExercicio.attributedText = NSAttributedString(string: txt, attributes: attrsDictionary)
+        
+        self.txtExercicio.backgroundColor = UIColor.colorWithHexString("EBEFFF", alph: 0.5)
+        self.txtExercicio.layer.cornerRadius = 10
         self.txtExercicio.clipsToBounds = true
+        
+        self.txtExercicio.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
     }
     
 //    MARK: Lupa

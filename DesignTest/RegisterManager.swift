@@ -22,14 +22,7 @@ class RegisterManager: NSObject {
             let isEmail = self.checkEmail(email)
             if(!isEmail){
                 //Email inválido
-                
-                let userInfo:[NSObject : AnyObject] = [
-                    NSLocalizedDescriptionKey : NSLocalizedString("Email inválido.", comment: ""),
-                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("O email digitado não é válido.", comment: ""),
-                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Digite um novo email.", comment: "")
-                ]
-                
-                erro = NSError(domain: "RegisterManager", code: 1, userInfo: userInfo)
+                erro = self.getError(RegisterManagerError.InvalidEmail)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completionHandler(self, erro)
@@ -41,13 +34,7 @@ class RegisterManager: NSObject {
             let isSenha = self.checkPassword(senha)
             if(!isSenha){
                 //Senha inválida
-                
-                let userInfo:[NSObject : AnyObject] = [
-                    NSLocalizedDescriptionKey : NSLocalizedString("A senha deve ter 6 ou mais digitos, com ao menos 1 letra e 1 número.", comment: ""),
-                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("A senha digitada não é válida.", comment: ""),
-                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Digite uma nova senha.", comment: "")
-                ]
-                erro = NSError(domain: "RegisterManager", code: 2, userInfo: userInfo)
+                erro = self.getError(RegisterManagerError.InvalidPassword)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completionHandler(self, erro)
@@ -59,12 +46,7 @@ class RegisterManager: NSObject {
             let validEmail = self.parseManager.checkNickname(email)
             if (!validEmail){
                 //Email já registrado
-                let userInfo:[NSObject : AnyObject] = [
-                    NSLocalizedDescriptionKey : NSLocalizedString("Email já registrado.", comment: ""),
-                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("O email digitado já está registrado.", comment: ""),
-                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Digite um novo email.", comment: "")
-                ]
-                erro = NSError(domain: "RegisterManager", code: 3, userInfo: userInfo)
+                erro = self.getError(RegisterManagerError.RegisteredEmail)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completionHandler(self, erro)
