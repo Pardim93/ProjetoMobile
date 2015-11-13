@@ -18,7 +18,6 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
         super.viewDidLoad()
 
         self.configSegmentedHidingCells()
-        self.configToolbar()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -62,12 +61,6 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
         self.navigationController?.setToolbarHidden(false, animated: true)
         
         self.navigationController?.toolbar.setItems([flexibleSpace, finishButton], animated: false)
-    }
-    
-    func configToolbar(){
-        let finishButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "finishEditing")
-        
-        self.navigationController?.toolbar.setItems([finishButton], animated: false)
     }
     
 //    MARK: Get

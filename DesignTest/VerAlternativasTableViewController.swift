@@ -54,13 +54,12 @@ class VerAlternativasTableViewController: UITableViewController {
 //    MARK: TableView
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("exercicioCell") as! PerguntasTableViewCell
-        cell.textViewResposta.text = arrayAlternativas[indexPath.row] as? String
-        cell.textViewResposta.font = UIFont(name: "Avenir Book", size: 16)
-        cell.textViewResposta.layer.borderWidth = 0.5
-        cell.textViewResposta.userInteractionEnabled = true
-        cell.textViewResposta.scrollEnabled = true
+        let newResposta = arrayAlternativas[indexPath.row] as? String
+        cell.setRespostaText(newResposta!)
         
         cell.labelResposta.text = (String( UnicodeScalar ( 65 + indexPath.row)))
+//        let letter = LetraAlternativa(rawValue: indexPath.row)
+//        cell.altLabel.text = "\(letter!)"
 
         return cell
     }

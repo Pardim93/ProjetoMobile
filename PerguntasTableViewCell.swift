@@ -20,42 +20,50 @@ class PerguntasTableViewCell: UITableViewCell {
         super.awakeFromNib()
         if labelLetra != nil{
             
-            self.drawBorders()
-            self.frame.size.height = 160
-            self.contentView.layer.borderColor = UIColor.blackColor().CGColor
-            self.contentView.layer.borderWidth = 20.0
-            
-
-            self.textViewResposta.editable = false
-            self.textViewResposta.font = UIFont (name: "Avenir book", size: 15)
-            self.selectionStyle = .Default
+//            self.drawBorders() 
+//            self.frame.size.height = 160
+//            self.contentView.layer.borderColor = UIColor.blackColor().CGColor
+//            self.contentView.layer.borderWidth = 20.0
+            self.configRespostaView()
+//            self.selectionStyle = .Default
             self.labelLetra.font = UIFont (name: "Avenir book", size: 18)
             self.labelResposta.font = UIFont (name: "Avenir book", size: 18)
-            
         }
+        
+        self.configRespostaView()
     }
     
-    func drawBorders(){
-        let border = CALayer()
+//    MARK: Config
+    func  configRespostaView(){
+        self.textViewResposta.editable = false
+        self.textViewResposta.userInteractionEnabled = true
+        self.textViewResposta.scrollEnabled = true
         
-        let width = CGFloat(2.0)
-        border.borderColor = UIColor.darkGrayColor().CGColor
-        border.frame = CGRect(x: 10, y:10, width:  90, height: 90)
-        
-        border.borderWidth = width
-        self.contentView.layer.addSublayer(border)
-        self.contentView.layer.masksToBounds = true
-        
-        
-        self.contentView.layer.borderColor = UIColor.redColor().CGColor
-        self.contentView.layer.borderWidth = 5
-        self.contentView.layer.cornerRadius = 8.0
-        self.contentView.layer.masksToBounds = true
-        
+        self.textViewResposta.backgroundColor = UIColor.colorWithHexString("EBEFFF", alph: 0.5)
+        self.textViewResposta.layer.cornerRadius = 10
+        self.textViewResposta.clipsToBounds = true
     }
+    
+//    func drawBorders(){
+//        let border = CALayer()
+//        
+//        let width = CGFloat(2.0)
+//        border.borderColor = UIColor.darkGrayColor().CGColor
+//        border.frame = CGRect(x: 10, y:10, width:  90, height: 90)
+//        
+//        border.borderWidth = width
+//        self.contentView.layer.addSublayer(border)
+//        self.contentView.layer.masksToBounds = true
+//        
+//        
+////        self.contentView.layer.borderColor = UIColor.redColor().CGColor
+////        self.contentView.layer.borderWidth = 5
+////        self.contentView.layer.cornerRadius = 8.0
+////        self.contentView.layer.masksToBounds = true
+//        
+//    }
     
     func configImage(){
-        
         self.imageView?.bounds.origin.x = 30
         self.imageView?.bounds.origin.y = 10
         self.imgCell.bounds.size = CGSize(width: 20, height:2)
@@ -77,8 +85,10 @@ class PerguntasTableViewCell: UITableViewCell {
         
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
-        //        super.setSelected(selected, animated: animated)
+//    MARK: SET
+    func setRespostaText(newText: String){
+        self.textViewResposta.text = newText
+        self.textViewResposta.font = UIFont(name: "Avenir Book", size: 16)
     }
 }
 
