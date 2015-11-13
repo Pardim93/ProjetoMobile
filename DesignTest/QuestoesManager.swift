@@ -12,7 +12,7 @@ class QuestoesManager: NSObject {
     
     var parseManager = ParseManager.singleton
     static let  singleton = QuestoesManager()
-    private var questaoAuxiliar = PFObject()
+
     
     var questaoCarregada = false
     var disciplinas = NSArray()
@@ -24,7 +24,7 @@ class QuestoesManager: NSObject {
     var contRespostas = 0
     var questoes = NSMutableArray()
     var acabou = false
-    
+    var arrayRespostas = [String]()
     private var firstScene = true
     var imgIsReady = false
     var predefinido: Bool = false
@@ -52,7 +52,11 @@ class QuestoesManager: NSObject {
         return self.questaoCarregada
     }
     
-    
+    func tamanhoDasQuestoes(tamanho:Int){
+ 
+        self.arrayRespostas = [String](count:tamanho, repeatedValue: "Sem resposta")
+
+    }
     
     
     func adicionaResposta(resposta: NSString, index:Int){
@@ -103,6 +107,11 @@ class QuestoesManager: NSObject {
             
            
         }
+    }
+    
+    
+    func addRepostaNoIndex(resposta:String, index:Int){
+        self.arrayRespostas[index] = resposta
     }
     
     
@@ -200,7 +209,6 @@ class QuestoesManager: NSObject {
     
     
 
-    
     func zerar(){
         self.disciplinas = NSArray()
         self.questoes = NSMutableArray()

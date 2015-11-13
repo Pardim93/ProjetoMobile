@@ -24,11 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("cnmKI9SvIi10G7n7p74npxdBrHQQFT2Qcw8yMDhH", clientKey: "gasYEiYZAKeCoyyIBxC9IwDHspTxs1mwjTkrFFih")
 //        parseManager.zerar()
    
-//        self.beginEx()
+      self.beginEx()
 //        self.beginProvas()
 //        self.beginProva()
 //        self.beginFinishRegistro()
-        self.verifyLogin()
+//        self.verifyLogin()
 //        self.beginAvaliacao()
         
 //        self.beginInserir()

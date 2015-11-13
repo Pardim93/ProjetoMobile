@@ -11,6 +11,7 @@ import UIKit
 class AvaliacaoQuestaoTabBarController: UITabBarController {
 
     var questaoObg = PFObject(className: "Questao")
+    var auxData = AuxiliarQuestoes.singleton
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configViewController()
@@ -28,7 +29,7 @@ class AvaliacaoQuestaoTabBarController: UITabBarController {
     func configViewController(){
         let viewControlller = self.viewControllers![0] as! PerguntasAvaliacaoViewController
         viewControlller.strForTextView  = questaoObg.objectForKey("Enunciado") as! String
-        
+        self.getImageData()
         
     }
     
@@ -43,6 +44,24 @@ class AvaliacaoQuestaoTabBarController: UITabBarController {
             myTableView.setArrayAlternativas(arrayAlternativas)
         }
         
+    }
+    
+    
+    func getImageData(){
+        if self.auxData.questao.valueForKey("Imagem") != nil{
+            let userImageFile = self.auxData.questao.valueForKey("Imagem") as! PFFile
+            
+            userImageFile.getDataInBackgroundWithBlock {
+                (imageData: NSData?, error: NSError?) -> Void in
+                if error == nil {
+                    if let img = imageData {
+                        self.auxData.imagem = UIImage(data:img)!
+                        self.auxData.imgIsReady = true
+                    }
+                }
+            }
+            
+        }
     }
     
 

@@ -16,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="PMG-PX-HjN"/>
                     </layoutGuides>
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="oNM-4q-MRa">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxL-Y1-95q">
@@ -124,8 +124,7 @@
                                         <exclude reference="tiR-iZ-phK"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="736"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="ahq-Uh-DrQ"/>
                                         <include reference="Fv0-L8-JnL"/>
@@ -188,7 +187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xO6-k5-bow" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7525.5" y="959.25"/>
+            <point key="canvasLocation" x="7439" y="1246"/>
         </scene>
         <!--Storyboard Reference-->
         <scene sceneID="JXt-Xc-Rdx">
@@ -1330,7 +1329,7 @@
                         <viewControllerLayoutGuide type="bottom" id="NIE-M5-2Q0"/>
                     </layoutGuides>
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="8sr-I2-a90">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture64" translatesAutoresizingMaskIntoConstraints="NO" id="5Gj-Vz-A4k">
@@ -1339,16 +1338,6 @@
                                     <rect key="frame" x="34" y="81" width="332" height="217"/>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYY-yu-JuB">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Button" image="thumbsDown96"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="293" y="538" width="91" height="82"/>
-                                </variation>
-                                <connections>
-                                    <action selector="thumbsDown:" destination="MP7-QE-75N" eventType="touchUpInside" id="pTq-ta-Xj4"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ge-7E-6DG">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Button" image="thumbsUp1"/>
@@ -1370,22 +1359,32 @@
                                     <rect key="frame" x="16" y="306" width="368" height="198"/>
                                 </variation>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYY-yu-JuB">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button" image="thumbsDown96"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="293" y="538" width="91" height="82"/>
+                                </variation>
+                                <connections>
+                                    <action selector="thumbsDown:" destination="MP7-QE-75N" eventType="touchUpInside" id="pTq-ta-Xj4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="5Gj-Vz-A4k"/>
-                                <exclude reference="iYY-yu-JuB"/>
                                 <exclude reference="5ge-7E-6DG"/>
                                 <exclude reference="2oK-b1-J1V"/>
+                                <exclude reference="iYY-yu-JuB"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
                             <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
                             <mask key="subviews">
                                 <include reference="5Gj-Vz-A4k"/>
-                                <include reference="iYY-yu-JuB"/>
                                 <include reference="5ge-7E-6DG"/>
                                 <include reference="2oK-b1-J1V"/>
+                                <include reference="iYY-yu-JuB"/>
                             </mask>
                         </variation>
                     </scrollView>
@@ -1398,18 +1397,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjV-Kg-fBC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7399.5" y="138"/>
+            <point key="canvasLocation" x="7389" y="402"/>
         </scene>
         <!--Item-->
         <scene sceneID="7LD-KI-iqJ">
             <objects>
-                <tableViewController id="e7L-Lw-Gcp" customClass="AltenativasTableViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController wantsFullScreenLayout="YES" automaticallyAdjustsScrollViewInsets="NO" id="e7L-Lw-Gcp" customClass="AltenativasTableViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Z4E-3m-byI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Ryh-eO-Yaw">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Ryh-eO-Yaw">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ryh-eO-Yaw" id="d1p-eF-OIz">
@@ -1423,11 +1422,12 @@
                             <outlet property="delegate" destination="e7L-Lw-Gcp" id="hAe-0L-Exo"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Item" id="U7D-6Y-YO1"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KMK-vm-5SG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6384" y="1329"/>
+            <point key="canvasLocation" x="6331" y="1562"/>
         </scene>
         <!--Avaliacao Questao Tab Bar Controller-->
         <scene sceneID="f0Y-SU-K1Q">
@@ -1461,7 +1461,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BN5-VZ-DmY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5461.5" y="414.75"/>
+            <point key="canvasLocation" x="5473" y="256"/>
         </scene>
         <!--Tab Bar Questao Controller-->
         <scene sceneID="SUw-nm-sjq">
@@ -1485,7 +1485,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ztm-2b-4an" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6331.5" y="402.75"/>
+            <point key="canvasLocation" x="6561" y="378"/>
         </scene>
     </scenes>
     <resources>

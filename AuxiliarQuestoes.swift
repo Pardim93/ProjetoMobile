@@ -18,6 +18,8 @@ class AuxiliarQuestoes: NSObject {
     var imagem = UIImage()
     var imgIsReady = false
     var  objectId = String()
+    var questaoSelecionada = String()
+    var indexQuestaoSelecionada = Int()
     
     func returnImg()->UIImage{
         return self.imagem

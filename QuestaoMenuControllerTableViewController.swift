@@ -9,9 +9,10 @@
 import UIKit
 
 class QuestaoMenuControllerTableViewController: UITableViewController {
-
+    
     private var questaoSelecionada = NSObject()
-    private var parseManager = ParseManager()
+    private var parseManager = ParseManager.singleton
+    private var questoesManager = QuestoesManager.singleton
     private var myArray = NSArray()
     private var auxData = AuxiliarQuestoes.singleton
     
@@ -40,22 +41,19 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         self.questaoSelecionada = self.myArray.objectAtIndex(indexPath.row) as! NSObject
         self.auxData.questao = self.questaoSelecionada
         self.auxData.flag = true
-        
         let questaoTemp = self.myArray.objectAtIndex(indexPath.row) as! PFObject
         self.auxData.objectId = questaoTemp.objectId!
-        self.performSegueWithIdentifier("sw_front", sender: self)
-        
-        
-        
+        self.auxData.indexQuestaoSelecionada = indexPath.row
+//        self.performSegueWithIdentifier("sw_front", sender: self)
+  
+        //já há uma segue configurada no storybard
     }
     
-    
-    
-    
+
     // MARK: - Table view data source
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.myArray.count
+        return self.myArray.count 
         
     }
     
@@ -66,15 +64,15 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-          let cell = tableView.dequeueReusableCellWithIdentifier("questaoCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("questaoCell", forIndexPath: indexPath) as UITableViewCell
         
-        if indexPath.row == 0{
-            cell.textLabel?.text = "Sair"
-        }else{
-      
-        
-        cell.textLabel!.text =  self.myArray.objectAtIndex(indexPath.row).objectForKey("Enunciado") as? String
-        }
+//        if indexPath.row == 0{
+//            cell.textLabel?.text = "Sair"
+//        }else{
+//            
+            
+            cell.textLabel!.text =  self.myArray.objectAtIndex(indexPath.row ).objectForKey("Enunciado") as? String
+//        }
         // Configure the cell...
         
         
@@ -84,6 +82,7 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     func getQuestoes(){
         self.myArray = (parseManager.getLeastRatedQuestions())
         self.auxData.questao = self.myArray.objectAtIndex(0) as AnyObject as! NSObject
+        questoesManager.tamanhoDasQuestoes(self.myArray.count)
     }
     
     
@@ -139,5 +138,5 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         //            }
         
     }
-
+    
 }

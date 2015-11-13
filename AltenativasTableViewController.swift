@@ -9,18 +9,27 @@
 import UIKit
 
 class AltenativasTableViewController: UITableViewController {
+    //singleton vai ter um nsquestion para a questao temp selecionada
+    //a questao tmp, ira ser armazenada em uma array do singleton questoes
+    //o usuario ira escolher outra questao
+    //prova acabar quando usuario resolve finalizar a prova
+    //compara as resposta do usuario na hora
     
     
     private var arrayAlternativas = NSMutableArray()
     var questao = NSObject()
     var auxData = AuxiliarQuestoes.singleton
+    var questoesManager = QuestoesManager.singleton
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.contentInset = UIEdgeInsetsMake(100, 0, 0, 0);
         if(self.auxData.flag){
             self.getAlternativas(self.questao)
             self.questao = self.auxData.questao
+
+            
         }
 
         // Uncomment the following line to preserve selection between presentations
@@ -34,17 +43,28 @@ class AltenativasTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidDisappear(animated: Bool) {
+        
+        questoesManager.addRepostaNoIndex(self.auxData.questaoSelecionada, index:self.auxData.indexQuestaoSelecionada)
+        
+          
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return arrayAlternativas.count
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 100
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return arrayAlternativas.count
     }
 
     
@@ -53,24 +73,23 @@ class AltenativasTableViewController: UITableViewController {
         
         for index in 65...69{
             let letra = String(UnicodeScalar(index))
-            print(questao.valueForKey("Alternativa\(letra)"))
-            
             arrayAlternativas.addObject(questao.valueForKey("Alternativa\(letra)")!)
+            
         }
         
     }
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("questaoCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
 
         // Configure the cell...
-        cell.textLabel!.text =  self.arrayAlternativas.objectAtIndex(indexPath.row).objectForKey("Enunciado") as? String
-
-
+        cell.textLabel!.text =  self.arrayAlternativas[indexPath.row] as? String
         return cell
     }
   
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -96,7 +115,14 @@ class AltenativasTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
 
     }
+        
+        
     */
+        
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.auxData.questaoSelecionada = self.arrayAlternativas[indexPath.row] as! String
+
+    }
 
     /*
     // Override to support conditional rearranging of the table view.

@@ -20,6 +20,8 @@ class TabBarQuestaoController: UITabBarController {
             self.sendInfoToView1()
             self.sendInfoToView2()
             
+        }else{
+            print("Aqui")
         }
         
 
@@ -33,10 +35,7 @@ class TabBarQuestaoController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
-    
-    
+        
     func sendInfoToView1(){
         
         let view =  self.viewControllers?.first as! QuestaoViewController
@@ -49,10 +48,11 @@ class TabBarQuestaoController: UITabBarController {
     func sendInfoToView2(){
         
         let view =  self.viewControllers?.last as! AltenativasTableViewController
-        
         view.questao = self.auxQuestoes.questao
         
     }
+    
+    
     
     func getImageData(){
         if self.auxQuestoes.questao.valueForKey("Imagem") != nil{
@@ -67,7 +67,6 @@ class TabBarQuestaoController: UITabBarController {
                     }
                 }
             }
-            
         }
     }
     

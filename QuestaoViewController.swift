@@ -16,12 +16,14 @@ class QuestaoViewController: UIViewController {
     @IBOutlet weak var imgExercicio: UIImageView!
     @IBOutlet weak var txtEnunciado: UITextView!
     private var timer = NSTimer()
-    private var auxData = AuxiliarData.singleton
+    private var auxData = AuxiliarQuestoes.singleton
     private var parseManager = ParseManager.singleton
     var questao = NSObject()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Entrou")
+
         self.view.backgroundColor = UIColor.whiteColor()
         
         self.checkFlag()
@@ -36,11 +38,17 @@ class QuestaoViewController: UIViewController {
     }
     
     @IBAction func thumbsUp(sender: AnyObject) {
+        
+  
     }
     //checa se é a primeira vez que a view carrega
     
     @IBAction func thumbsDown(sender: AnyObject) {
+    
+    
     }
+    
+    
     func checkFlag(){
         
         if(self.auxData.flag){
@@ -50,6 +58,13 @@ class QuestaoViewController: UIViewController {
 
     }
     
+    func loadImage(){
+        if(self.auxData.imgIsReady){
+            self.imgExercicio.image = auxData.returnImg()
+            self.auxData.imgIsReady = false
+            timer.invalidate()
+        }
+    }
     
     func configView(){
         self.questao = self.auxData.questao

@@ -27,11 +27,7 @@ class AvaliacaoEnunciadoViewController: UIViewController {
 //        parseManager.dislikeQuestao(self.auxData.objectId)
 
     }
-    
-   
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,9 +40,8 @@ class AvaliacaoEnunciadoViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func loadDefault(){
-        
-        
+   override func  `self`() -> Self {
+        return self
     }
     
     func configView(){
@@ -59,7 +54,6 @@ class AvaliacaoEnunciadoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     
     func loadImage(){
         if(self.auxData.imgIsReady){
