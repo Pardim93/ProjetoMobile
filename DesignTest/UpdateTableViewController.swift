@@ -18,7 +18,7 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
     
     let parseManager = ParseManager.singleton
     let coreDataManager = CoreDataManager.singleton
-//    let activityView = CustomActivityView()
+    var backItem: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,11 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
         self.view.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.configBackButton()
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.configActivityView()
@@ -36,6 +41,14 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
     func configSaveButton(){
         let buttonSave = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "saveDados")
         self.navigationItem.rightBarButtonItem = buttonSave
+    }
+    
+    func configBackButton(){
+        backItem = self.navigationItem.leftBarButtonItem
+        
+        let backButton = UIBarButtonItem(image: UIImage(named: "Back-44"), style: .Plain, target: self, action: "notificateConfirmation")
+        backButton.action = "notificateConfirmation"
+        self.navigationItem.leftBarButtonItem = backButton
     }
     
     func configureCells(){
@@ -227,12 +240,13 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
     
     func checkDadosChanged(email: String, pais: String, ocupacao: String) -> (changed: Bool, error: NSError?){
         guard let user = PFUser.currentUser() else{
-            let userInfo:[NSObject : AnyObject] = [
-                NSLocalizedDescriptionKey : NSLocalizedString("Ocorreu um erro. Tente novamente.", comment: ""),
-                NSLocalizedFailureReasonErrorKey : NSLocalizedString("O usuário local não pode ser encontrado.", comment: ""),
-                NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente, relogue.", comment: "")
-            ]
-            let erro = NSError(domain: "UpdateTableViewController", code: 1, userInfo: userInfo)
+            let erro = self.getError(ParseError.UnloggedUser)
+//            let userInfo:[NSObject : AnyObject] = [
+//                NSLocalizedDescriptionKey : NSLocalizedString("Ocorreu um erro. Tente novamente.", comment: ""),
+//                NSLocalizedFailureReasonErrorKey : NSLocalizedString("O usuário local não pode ser encontrado.", comment: ""),
+//                NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente, relogue.", comment: "")
+//            ]
+//            let erro = NSError(domain: "UpdateTableViewController", code: 1, userInfo: userInfo)
             return (false, erro)
         }
         
@@ -272,6 +286,21 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
         alertController.addAction(UIAlertAction(title: "Fechar", style: .Default) { (action) in
             self.navigationController?.popViewControllerAnimated(true)
             })
+        
+        self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func notificateConfirmation(){
+        let alertController = UIAlertController(title: "Simulandos", message: "Você deseja salvar antes de sair?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Ok", style: .Default) { (action) in
+            self.saveDados()
+        })
+        alertController.addAction(UIAlertAction(title: "Não", style: .Default) { (action)
+            in
+            self.navigationItem.leftBarButtonItem = self.backItem
+            self.navigationController?.popViewControllerAnimated(true)
+        })
         
         self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
     }
