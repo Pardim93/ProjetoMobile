@@ -15,6 +15,7 @@ class ErrorManager: NSObject {
         "InternalError" : "Os servidores estão ocupados. Tente novamente mais tarde.",
         "InvalidObject" : "Ocorreu um erro. Por favor, tente novamente mais tarde.",
         "NoConnection" : "Por favor, verifique sua conexão com a internet.",
+        "RegisteredEmail" : "O email já está sendo utilizado por outro usuário.",
         "UnknownError" : "Ocorreu um erro. Por favor, tente novamente mais tarde.",
         "UnloggedUsed" : "Ocorreu um erro. Por favor, tente novamente mais tarde",
         
@@ -23,8 +24,7 @@ class ErrorManager: NSObject {
         
         //RegisterManager
         "InvalidEmail" : "Email inválido.",
-        "InvalidPassword" : "A senha deve ter 6 ou mais dígitos, com ao menos uma letra e um número.",
-        "RegisteredEmail" : "O email já está sendo utilizado por outro usuário."
+        "InvalidPassword" : "A senha deve ter 6 ou mais dígitos, com ao menos uma letra e um número."
     ]
     
     //Razão da falha
@@ -33,6 +33,7 @@ class ErrorManager: NSObject {
         "InternalError" : "Os servidores estão ocupados. Tente novamente mais tarde.",
         "InvalidObject" : "Ocorreu um erro. Por favor, tente novamente mais tarde.",
         "NoConnection" : "Por favor, verifique sua conexão com a internet.",
+        "RegisteredEmail" : "O email digitado já está sendo usado.",
         "UnknownError" : "Ocorreu um erro. Por favor, tente novamente mais tarde.",
         "UnloggedUsed" : "Ocorreu um erro. Por favor, tente novamente mais tarde",
         
@@ -41,8 +42,7 @@ class ErrorManager: NSObject {
         
         //RegisterManager
         "InvalidEmail" : "O email digitado não existe.",
-        "InvalidPassword" : "A senha digitada não é válida.",
-        "RegisteredEmail" : "O email digitado já está sendo usado."
+        "InvalidPassword" : "A senha digitada não é válida."
     ]
     
     //Sugestão de recuperação
@@ -51,6 +51,7 @@ class ErrorManager: NSObject {
         "InternalError" : "Os servidores estão ocupados. Tente novamente mais tarde.",
         "InvalidObject" : "Ocorreu um erro. Por favor, tente novamente mais tarde.",
         "NoConnection" : "Por favor, verifique sua conexão com a internet.",
+        "RegisteredEmail" : "Digite um novo email",
         "UnknownError" : "Ocorreu um erro. Por favor, tente novamente mais tarde.",
         "UnloggedUsed" : "Ocorreu um erro. Por favor, tente novamente mais tarde",
         
@@ -59,8 +60,7 @@ class ErrorManager: NSObject {
         
         //RegisterManager
         "InvalidEmail" : "Digite um novo email.",
-        "InvalidPassword" : "Digite uma nova senha",
-        "RegisteredEmail" : "Digite um novo email"
+        "InvalidPassword" : "Digite uma nova senha"
     ]
     
     //Código do erro
@@ -69,16 +69,16 @@ class ErrorManager: NSObject {
         "InternalError" : 200,
         "InvalidObject" : 201,
         "NoConnection" : 202,
-        "UnknownError" : 203,
-        "UnloggedUsed" : 204,
+        "RegisteredEmail" : 203,
+        "UnknownError" : 204,
+        "UnloggedUsed" : 205,
         
         //LoginManager
         "IncorrectData" : 300,
         
         //RegisterManager
         "InvalidEmail" : 400,
-        "InvalidPassword" : 401,
-        "RegisteredEmail" : 402
+        "InvalidPassword" : 401
     ]
     
     static func getErrorForCode(errorCode: Int) -> NSError?{
@@ -102,12 +102,14 @@ class ErrorManager: NSObject {
     }
     
     static func getErrorForErrorType(type: ErrorType) -> NSError?{
+        let typeString = "\(type)"
+        
         var erro: NSError?
         let domain: String = "ErrorManager"
-        let code: Int = codeDictionary["\(type)"]!
-        let description: String = descriptionDictionary["\(type)"]!
-        let failureReason: String = failueReasonDictionary["\(type)"]!
-        let recoverySuggestion: String = recoverySuggestionDictionary["\(type)"]!
+        let code: Int = codeDictionary[typeString]!
+        let description: String = descriptionDictionary[typeString]!
+        let failureReason: String = failueReasonDictionary[typeString]!
+        let recoverySuggestion: String = recoverySuggestionDictionary[typeString]!
         
         let userInfo: [NSObject : String] = [
             NSLocalizedDescriptionKey : NSLocalizedString(description, comment: ""),
@@ -131,6 +133,9 @@ enum ParseError: ErrorType {
     //Erro de conexão
     case NoConnection
     
+    //Email já utilizado
+    case RegisteredEmail
+    
     //Erro desconhecido
     case UnknownError
     
@@ -152,9 +157,6 @@ enum RegisterManagerError: ErrorType{
     
     //Senha inválida
     case InvalidPassword
-    
-    //Email já utilizado
-    case RegisteredEmail
     
     //Erro desconhecido
     case UnknownError

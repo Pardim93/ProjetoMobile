@@ -35,6 +35,7 @@ class ParseManager: NSObject {
                 })
                 return
             } catch let externalError as NSError{
+                //Expected: -1, 1, 100
                 let errorCode = externalError.code
                 erro = self.getErrorForCode(errorCode)
                 
@@ -69,8 +70,10 @@ class ParseManager: NSObject {
                     newText = String(newText.characters.dropLast())
                     
                     discArray.append(newText)
-                } catch{
-                    erro = NSError(domain: "ParseManager", code: 35, userInfo: nil)
+                } catch let externalError as NSError{
+                    //Expected: -1, 1, 100
+                    let errorCode = externalError.code
+                    erro = self.getErrorForCode(errorCode)
                     
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         completionHandler([], erro)
@@ -86,39 +89,6 @@ class ParseManager: NSObject {
         })
     }
     
-    func getDisciplinasByRelation(relation: PFRelation){
-        let query = relation.query()
-        
-        do{
-            let result = try query?.findObjects()
-            
-            var newText = ""
-            for disc in result!{
-                let disciplina = disc
-                let discString = disciplina.objectForKey("Nome")
-                newText += "\(discString!) - "
-            }
-            
-            newText = String(newText.characters.dropLast())
-            newText = String(newText.characters.dropLast())
-        } catch{
-            return
-        }
-    }
-    
-    func getDisciplinaByNameSync(name: String) -> [PFObject]{
-        let query = PFQuery(className: "Disciplina")
-        
-        var array: [PFObject]!
-        
-        do{
-            array = try query.findObjects()
-            return array
-        } catch{
-            return array
-        }
-    }
-    
     func getDisciplinaByNameAsync(name: String, completionHandler:([PFObject], NSError?)->()){
         let query = PFQuery(className: "Disciplina")
         
@@ -132,14 +102,10 @@ class ParseManager: NSObject {
                     completionHandler(result, erro)
                 })
                 return
-            } catch{
-                let userInfo:[NSObject : AnyObject] = [
-                    NSLocalizedDescriptionKey : NSLocalizedString("Erro na rede. Verifique sua conexão.", comment: ""),
-                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Erro ao buscar disciplina.", comment: ""),
-                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Verifique sua conexão e tente novamente.", comment: "")
-                ]
-                
-                erro = NSError(domain: "ParseManager", code: 8, userInfo: userInfo)
+            } catch let externalError as NSError{
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completionHandler([], erro)
@@ -173,8 +139,11 @@ class ParseManager: NSObject {
                     completionHandler(img, erro)
                 })
                 return
-            } catch{
-                erro = self.getError(ParseError.NoConnection)
+            } catch let externalError as NSError{
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
+                
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completionHandler(img, erro)
                 })
@@ -204,27 +173,23 @@ class ParseManager: NSObject {
     }
     
 //  MARK: Password Recover
-    func retrievePassword(email: String, completionHandler:(ParseManager, NSError?)->()){
+    func retrievePassword(email: String, completionHandler:(NSError?)->()){
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             var erro: NSError?
             do{
                 try PFUser.requestPasswordResetForEmail(email)
                 //Senha recuperada com sucesso
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
-                    completionHandler(self, erro)
+                    completionHandler(erro)
                 })
-            }catch{
+            }catch let externalError as NSError{
                 //Falha ao recuperar senha
-                let userInfo:[NSObject : AnyObject] = [
-                    NSLocalizedDescriptionKey : NSLocalizedString("Verifique se seu email está funcionando e sua conexão funcionando.", comment: ""),
-                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Email não utilizado ou conexão não funcionando.", comment: ""),
-                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Digite um novo email e/ou tente novamente.", comment: "")
-                ]
-                
-                erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionHandler(self, erro)
+                    completionHandler(erro)
                 })
                 return
             }
@@ -248,19 +213,15 @@ class ParseManager: NSObject {
                 })
                 
                 return
-            } catch{
-                let userInfo:[NSObject : AnyObject] = [
-                    NSLocalizedDescriptionKey : NSLocalizedString("Verifique se sua conexão funcionando.", comment: ""),
-                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Email não utilizado ou conexão não funcionando.", comment: ""),
-                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Digite um novo email e/ou tente novamente.", comment: "")
-                ]
+            } catch let externalError as NSError{
+                //Falha ao buscar provas populares
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
                 
-                erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
-                
-                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completionHandler([], erro)
                 })
-                
                 return
             }
         })
@@ -282,19 +243,15 @@ class ParseManager: NSObject {
                 })
                 
                 return
-            } catch{
-                let userInfo:[NSObject : AnyObject] = [
-                    NSLocalizedDescriptionKey : NSLocalizedString("Verifique se sua conexão funcionando.", comment: ""),
-                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Email não utilizado ou conexão não funcionando.", comment: ""),
-                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Digite um novo email e/ou tente novamente.", comment: "")
-                ]
+            } catch let externalError as NSError{
+                //Falha ao buscar provas recentes
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
                 
-                erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
-                
-                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completionHandler([], erro)
                 })
-                
                 return
             }
         })
@@ -332,19 +289,15 @@ class ParseManager: NSObject {
                 })
                 
                 return
-            } catch{
-                let userInfo:[NSObject : AnyObject] = [
-                    NSLocalizedDescriptionKey : NSLocalizedString("Verifique se sua conexão funcionando.", comment: ""),
-                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Email não utilizado ou conexão não funcionando.", comment: ""),
-                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Digite um novo email e/ou tente novamente.", comment: "")
-                ]
+            } catch let externalError as NSError{
+                //Falha ao buscar provas
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
                 
-                erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
-                
-                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completionHandler([], erro)
                 })
-                
                 return
             }
         })
@@ -391,17 +344,16 @@ class ParseManager: NSObject {
                 
                 do{
                     try questao.save()
-                } catch{
-                    let userInfo:[NSObject : AnyObject] = [
-                        NSLocalizedDescriptionKey : NSLocalizedString("Erro ao salvar. Tente novamente.", comment: ""),
-                        NSLocalizedFailureReasonErrorKey : NSLocalizedString("Ocorreu um erro ao salvar.", comment: ""),
-                        NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente.", comment: "")
-                    ]
-                    erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
+                } catch let externalError as NSError{
+                    //Falha ao salvar a questão
+                    //Expected: -1, 1, 100
+                    let errorCode = externalError.code
+                    erro = self.getErrorForCode(errorCode)
                     
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         completionHandler(erro)
                     })
+                    return
                 }
                 
                 relationQuestoes.addObject(questao)
@@ -456,17 +408,16 @@ class ParseManager: NSObject {
                 do{
                     try newImageFile?.save()
                     prova.setObject(newImageFile!, forKey: "Imagem")
-                } catch{
-                    let userInfo:[NSObject : AnyObject] = [
-                        NSLocalizedDescriptionKey : NSLocalizedString("Erro ao salvar. Tente novamente.", comment: ""),
-                        NSLocalizedFailureReasonErrorKey : NSLocalizedString("Ocorreu um erro ao salvar.", comment: ""),
-                        NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente.", comment: "")
-                    ]
-                    erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
+                } catch let externalError as NSError{
+                    //Falha ao buscar provas
+                    //Expected: -1, 1, 100
+                    let errorCode = externalError.code
+                    erro = self.getErrorForCode(errorCode)
                     
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         completionHandler(erro)
                     })
+                    return
                 }
             }
             
@@ -478,13 +429,11 @@ class ParseManager: NSObject {
                 })
                 
                 return
-            } catch{
-                let userInfo:[NSObject : AnyObject] = [
-                    NSLocalizedDescriptionKey : NSLocalizedString("Erro ao salvar. Tente novamente.", comment: ""),
-                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Ocorreu um erro ao salvar.", comment: ""),
-                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente.", comment: "")
-                ]
-                erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
+            } catch let externalError as NSError{
+                //Falha ao salvar a prova
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completionHandler(erro)
@@ -564,20 +513,15 @@ class ParseManager: NSObject {
                 })
                 
                 return
-            } catch{
-                //Não encontrou resultados
-                let userInfo:[NSObject : AnyObject] = [
-                    NSLocalizedDescriptionKey : NSLocalizedString("Verifique se seu email está funcionando e sua conexão funcionando.", comment: ""),
-                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Email não utilizado ou conexão não funcionando.", comment: ""),
-                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Digite um novo email e/ou tente novamente.", comment: "")
-                ]
+            } catch let externalError as NSError{
+                //Falha ao buscar as questões
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
                 
-                erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
-                
-                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completionHandler([], erro)
                 })
-                
                 return
             }
         })
@@ -601,20 +545,15 @@ class ParseManager: NSObject {
                 })
                 
                 return
-            } catch{
-                //Não encontrou resultados
-                let userInfo:[NSObject : AnyObject] = [
-                    NSLocalizedDescriptionKey : NSLocalizedString("Verifique se seu email está funcionando e sua conexão funcionando.", comment: ""),
-                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Email não utilizado ou conexão não funcionando.", comment: ""),
-                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Digite um novo email e/ou tente novamente.", comment: "")
-                ]
+            } catch let externalError as NSError{
+                //Falha ao buscar as questões
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
                 
-                erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
-                
-                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completionHandler([], erro)
                 })
-                
                 return
             }
         })
@@ -771,17 +710,16 @@ class ParseManager: NSObject {
                 do{
                     try newImageFile?.save()
                     questao.setObject(newImageFile!, forKey: "imagem")
-                } catch{
-                    let userInfo:[NSObject : AnyObject] = [
-                        NSLocalizedDescriptionKey : NSLocalizedString("Erro ao salvar. Tente novamente.", comment: ""),
-                        NSLocalizedFailureReasonErrorKey : NSLocalizedString("Ocorreu um erro ao salvar.", comment: ""),
-                        NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente.", comment: "")
-                    ]
-                    erro = NSError(domain: "ParseManager", code: 6, userInfo: userInfo)
+                } catch let externalError as NSError{
+                    //Falha ao salvar a imagem
+                    //Expected: -1, 1, 100
+                    let errorCode = externalError.code
+                    erro = self.getErrorForCode(errorCode)
                     
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         completionHandler(erro)
                     })
+                    return
                 }
             }
             
@@ -792,8 +730,11 @@ class ParseManager: NSObject {
                 })
                 
                 return
-            } catch{
-                erro = NSError(domain: "ParseManager", code: 1, userInfo: nil)
+            } catch let externalError as NSError{
+                //Falha ao salvar a questão
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completionHandler(erro)
@@ -879,22 +820,17 @@ class ParseManager: NSObject {
     }
     
 //    MARK: USER UPDATE
-    func updateUser(email: String, pais: String, ocupacao: String, completionHandler:(ParseManager, NSError?)->()){
+    func updateUser(email: String, pais: String, ocupacao: String, completionHandler:(NSError?)->()){
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             var erro: NSError?
             
             //Garante que o usuário está logado
             guard let user = PFUser.currentUser() else{
                 //Usuário não logado
-                let userInfo:[NSObject : AnyObject] = [
-                    NSLocalizedDescriptionKey : NSLocalizedString("Ocorreu um erro. Tente novamente", comment: ""),
-                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Usuário retornou nulo.", comment: ""),
-                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente.", comment: "")
-                ]
-                erro = NSError(domain: "ParseManager", code: 3, userInfo: userInfo)
+                erro = self.getError(ParseError.UnloggedUser)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionHandler(self, erro)
+                    completionHandler(erro)
                 })
                 
                 return
@@ -907,15 +843,10 @@ class ParseManager: NSObject {
                 
                 if(!emailValid){
                     //O email já está sendo usado por outro usuário
-                    let userInfo:[NSObject : AnyObject] = [
-                        NSLocalizedDescriptionKey : NSLocalizedString("Já existe um usuário cadastrado com esse email.", comment: ""),
-                        NSLocalizedFailureReasonErrorKey : NSLocalizedString("Email já usado.", comment: ""),
-                        NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Digite um novo email.", comment: "")
-                    ]
-                    erro = NSError(domain: "ParseManager", code: 4, userInfo: userInfo)
+                    erro = self.getError(ParseError.RegisteredEmail)
                     
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        completionHandler(self, erro)
+                        completionHandler(erro)
                     })
                     
                     return
@@ -931,29 +862,23 @@ class ParseManager: NSObject {
                 
                 //Salvo com sucesso
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionHandler(self, erro)
+                    completionHandler(erro)
                 })
                 
                 return
-            } catch{
-                //Ocorreu um erro ao salvar
-                let userInfo:[NSObject : AnyObject] = [
-                    NSLocalizedDescriptionKey : NSLocalizedString("Ocorreu um erro. Tente novamente.", comment: ""),
-                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Ocorreu um erro ao salvar.", comment: ""),
-                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente, verifique sua conexão.", comment: "")
-                ]
-                erro = NSError(domain: "ParseManager", code: 5, userInfo: userInfo)
+            } catch let externalError as NSError{
+                //Falha ao salvar a questão
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionHandler(self, erro)
+                    completionHandler(erro)
                 })
-                
                 return
             }
         })
     }
-    
-    
     
     func setNameForUser(name: String, user: PFUser) -> Bool{
         user.setObject(name, forKey: "Nome")

@@ -73,7 +73,7 @@ class RecuperarSenhaViewController: UIViewController {
         
         self.disabeView()
         
-        parseManager.retrievePassword(email) {(parseManager, error) -> () in
+        parseManager.retrievePassword(email) {(error) -> () in
             self.enableView()
             
             if(error != nil){

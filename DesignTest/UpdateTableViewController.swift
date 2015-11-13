@@ -146,7 +146,7 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
             return
         }
         
-        parseManager.retrievePassword(email) { (parseManager, error) -> () in
+        parseManager.retrievePassword(email) { (error) -> () in
             self.enableView()
             
             if(error != nil){
@@ -155,7 +155,7 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
                 return
             }
             
-            if(parseManager.doLogout()){
+            if(self.parseManager.doLogout()){
                 self.goToHome()
             }
             else{
@@ -197,7 +197,7 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
             return
         }
         
-        parseManager.updateUser(email, pais: pais, ocupacao: ocupacao) { (parseManager, error) -> () in
+        parseManager.updateUser(email, pais: pais, ocupacao: ocupacao) { (error) -> () in
             self.enableView()
             
             if(error != nil){

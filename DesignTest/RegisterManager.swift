@@ -46,7 +46,7 @@ class RegisterManager: NSObject {
             let validEmail = self.parseManager.checkNickname(email)
             if (!validEmail){
                 //Email já registrado
-                erro = self.getError(RegisterManagerError.RegisteredEmail)
+                erro = self.getError(ParseError.RegisteredEmail)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completionHandler(self, erro)
