@@ -308,7 +308,6 @@
 			children = (
 				240DB1D71BE149CA00654178 /* InserirQuestaoTableViewCell.swift */,
 				240DB1D81BE149CA00654178 /* InserirQuestaoTableViewCell.xib */,
-				24B4CCBA1BE294E700DBDDDD /* CellTextView.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -388,8 +387,9 @@
 				24E088951BA1ED100025E2E6 /* Prova */,
 				52A8484E1BB06D0E000ECCE9 /* Exercicios */,
 				244C2FC41BB1BF67008E3BE1 /* Inserir Exercicio */,
+				242C9B1B1BE3E4D6004AD703 /* Visualizar Questão */,
 				24BF93BB1BD8178C0085DBD8 /* Inserir Prova */,
-				249322A01BA33D64005579DD /* Pessoas */,
+				249322A01BA33D64005579DD /* Perfil */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -415,18 +415,19 @@
 			name = "Core Data";
 			sourceTree = "<group>";
 		};
-		249322A01BA33D64005579DD /* Pessoas */ = {
+		249322A01BA33D64005579DD /* Perfil */ = {
 			isa = PBXGroup;
 			children = (
 				249322A31BA33DD3005579DD /* PerfilTableViewController.swift */,
 			);
-			name = Pessoas;
+			name = Perfil;
 			sourceTree = "<group>";
 		};
 		249322A91BA362D4005579DD /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				240248D71BD950400016C94A /* Externo */,
+				24B4CCBA1BE294E700DBDDDD /* CellTextView.swift */,
 				244C2FC71BB1C9A2008E3BE1 /* InserirTextView.swift */,
 				52499F541BB5B0BE004B5E21 /* QuestoesManager.swift */,
 				247BFA221BF12CF900451EEA /* ErrorManager.swift */,
@@ -469,7 +470,6 @@
 		24BF93BB1BD8178C0085DBD8 /* Inserir Prova */ = {
 			isa = PBXGroup;
 			children = (
-				242C9B1B1BE3E4D6004AD703 /* Visualizar Questão */,
 				240DB1D61BE149AB00654178 /* Cell */,
 				24BF93BC1BD817A70085DBD8 /* InserirProvaTabBarViewController.swift */,
 				24BF93BE1BD819B40085DBD8 /* InserirTituloProvaTableViewController.swift */,

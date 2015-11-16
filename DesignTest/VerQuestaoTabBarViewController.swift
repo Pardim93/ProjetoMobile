@@ -12,11 +12,18 @@ class VerQuestaoTabBarViewController: UITabBarController {
     
     var questao: PFObject?
     var img: UIImage?
+    
+    let parseManager = ParseManager.singleton
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.loadQuestao()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.configActivityView()
     }
     
 //    MARK: Load
@@ -35,7 +42,19 @@ class VerQuestaoTabBarViewController: UITabBarController {
     }
     
     func denunciarQuestao(){
+        self.disabeView()
+        parseManager.criarDenunciaQuestao(self.questao!) { (erro) -> () in
+            self.enableView()
+            guard let erroNotNil = erro else{
+                self.navigationController?.showAlert("Exercício denunciado. Agradecemos sua contribuição.")
+                return
+            }
+            
+            self.navigationController?.showAlert(erroNotNil.localizedDescription)
+            return
+        }
         
+        return
     }
     
     func finishEditing(){

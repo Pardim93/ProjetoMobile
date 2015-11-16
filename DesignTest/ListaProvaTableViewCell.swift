@@ -11,7 +11,7 @@ import UIKit
 class ListaProvaTableViewCell: UITableViewCell {
     
     @IBOutlet weak var tituloLabel: UILabel!
-    @IBOutlet weak var disciplinasTextView: UITextView!
+    @IBOutlet weak var disciplinasTextView: CellTextView!
     @IBOutlet weak var imagemView: UIImageView!
     @IBOutlet weak var numQuestoesLabel: UILabel!
     

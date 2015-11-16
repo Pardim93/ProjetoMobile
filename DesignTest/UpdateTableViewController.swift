@@ -15,6 +15,7 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
     @IBOutlet weak var ocupacaoLabel: UILabel!
     @IBOutlet weak var senhaAtualTextField: UITextField!
     @IBOutlet weak var trocarSenhaLabel: UILabel!
+    @IBOutlet weak var switchShowEmail: UISwitch!
     
     let parseManager = ParseManager.singleton
     let coreDataManager = CoreDataManager.singleton
@@ -55,6 +56,7 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
         self.emailTextField.text = self.configureEmail()
         self.paisLabel.text = self.configurePais()
         self.ocupacaoLabel.text = self.configureOcupacao()
+        self.switchShowEmail.on = self.configureSwitch()
         
         self.configureSenhaObjects()
     }
@@ -102,6 +104,14 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
         }
         
         return ("Não cadastrada", "Clique aqui para adicionar uma senha")
+    }
+    
+    func configureSwitch() -> Bool{
+        guard let isOn = PFUser.currentUser()?.objectForKey("showEmail") as? Bool else{
+            return false
+        }
+        
+        return isOn
     }
     
 //    MARK: Setter
@@ -182,7 +192,9 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
                 return
         }
         
-        let dadosChecked = self.checkDadosChanged(email, pais: pais, ocupacao: ocupacao)
+        let showEmail = self.switchShowEmail.on
+        
+        let dadosChecked = self.checkDadosChanged(email, pais: pais, ocupacao: ocupacao, showEmail: showEmail)
         
         if(dadosChecked.error != nil){
             self.enableView()
@@ -197,7 +209,7 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
             return
         }
         
-        parseManager.updateUser(email, pais: pais, ocupacao: ocupacao) { (error) -> () in
+        parseManager.updateUser(email, pais: pais, ocupacao: ocupacao, showEmail: showEmail) { (error) -> () in
             self.enableView()
             
             if(error != nil){
@@ -238,32 +250,22 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
         return false
     }
     
-    func checkDadosChanged(email: String, pais: String, ocupacao: String) -> (changed: Bool, error: NSError?){
+    func checkDadosChanged(email: String, pais: String, ocupacao: String, showEmail: Bool) -> (changed: Bool, error: NSError?){
         guard let user = PFUser.currentUser() else{
             let erro = self.getError(ParseError.UnloggedUser)
-//            let userInfo:[NSObject : AnyObject] = [
-//                NSLocalizedDescriptionKey : NSLocalizedString("Ocorreu um erro. Tente novamente.", comment: ""),
-//                NSLocalizedFailureReasonErrorKey : NSLocalizedString("O usuário local não pode ser encontrado.", comment: ""),
-//                NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente, relogue.", comment: "")
-//            ]
-//            let erro = NSError(domain: "UpdateTableViewController", code: 1, userInfo: userInfo)
             return (false, erro)
         }
         
         guard
             let oldEmail = user.objectForKey("email") as? String,
             let oldPais = user.objectForKey("pais") as? String,
-            let oldOcupacao = user.objectForKey("ocupacao") as? String else{
-                let userInfo:[NSObject : AnyObject] = [
-                    NSLocalizedDescriptionKey : NSLocalizedString("Ocorreu um erro. Tente novamente.", comment: ""),
-                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Algum dado não pode ser encontrado no usuário local.", comment: ""),
-                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente, relogue.", comment: "")
-                ]
-                let erro = NSError(domain: "UpdateTableViewController", code: 2, userInfo: userInfo)
+            let oldOcupacao = user.objectForKey("ocupacao") as? String,
+            let oldShowEmail = user.objectForKey("showEmail") as? Bool else{
+                let erro = self.getError(ParseError.UnknownError)
                 return (false, erro)
         }
         
-        let dadosChanged = ((oldEmail != email) || (oldPais != pais) || (oldOcupacao != ocupacao))
+        let dadosChanged = ((oldEmail != email) || (oldPais != pais) || (oldOcupacao != ocupacao || oldShowEmail != showEmail))
         
         return (dadosChanged, nil)
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProvasViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class ProvasViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, CustomTextViewDelegate{
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -34,7 +34,10 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.configActivityView()
-        self.configureProvasPopulares()
+        
+        if(self.filtered.count <= 0){
+            self.configureProvasPopulares()
+        }
     }
     
 //    MARK: Config
@@ -157,14 +160,14 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
         self.searchBar.alpha = 0
         self.searchBar.transform.ty = -15
         self.segControl.transform.ty = -15
-        self.tableView.transform.ty = -15
+//        self.tableView.transform.ty = -15
     }
     
     func showBar(){
         self.searchBar.alpha = 1
         self.searchBar.transform.ty = 0
         self.segControl.transform.ty = 0
-        self.tableView.transform.ty = 0
+//        self.tableView.transform.ty = 0
     }
     
 //    MARK: Search
@@ -212,6 +215,8 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("newCell", forIndexPath: indexPath) as! ListaProvaTableViewCell
         
+        cell.disciplinasTextView.customDelegate = self
+        cell.disciplinasTextView.cellRow = indexPath.row
         cell.setNewProva(filtered[indexPath.row], disciplinas: self.disciplinas[indexPath.row])
         cell.setColor(indexPath.row)
         
@@ -224,6 +229,24 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let prova = filtered[indexPath.row]
+        let discs = disciplinas[indexPath.row]
+        
+        self.goToProva(prova, discs: discs)
+    }
+    
+//    MARK: Delegate
+    func finishEdit(cellRow: Int) {
+        self.view.endEditing(true)
+        
+        self.tableView.selectRowAtIndexPath(NSIndexPath(forRow: cellRow, inSection: 1), animated: false, scrollPosition: UITableViewScrollPosition.None)
+        self.tableView.deselectRowAtIndexPath(NSIndexPath(forRow: cellRow, inSection: 1), animated: false)
+        
+        let newProva = filtered[cellRow]
+        let discs = disciplinas[cellRow]
+        
+        self.goToProva(newProva, discs: discs)
     }
     
 //    MARK: Button Action
@@ -255,5 +278,15 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
 //    MARK: View
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+//    MARK: Navigation
+    func goToProva(prova: PFObject, discs: String){
+        let newStoryboard = UIStoryboard(name: "IPhoneProva", bundle: nil)
+        let newView = newStoryboard.instantiateInitialViewController() as! ProvaTableViewController
+        
+        newView.setNewProva(prova, discs: discs)
+        
+        self.navigationController?.pushViewController(newView, animated: true)
     }
 }
