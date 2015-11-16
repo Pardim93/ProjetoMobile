@@ -32,13 +32,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="240.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Autor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JvH-Zs-23N">
-                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ov5-H9-w1W">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <animations/>
@@ -65,6 +58,27 @@
                                                         <action selector="goToProfile:" destination="5UP-Ov-4kL" eventType="touchUpInside" id="51p-tK-S8t"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Autor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hed-UN-eQC">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clique para ver mais" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l83-1V-gKd">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JvH-Zs-23N">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <animations/>
                                             <constraints>
@@ -73,30 +87,49 @@
                                                     <variation key="heightClass=regular-widthClass=compact" constant="40"/>
                                                 </constraint>
                                                 <constraint firstAttribute="centerX" secondItem="JvH-Zs-23N" secondAttribute="centerX" id="JIl-EZ-leH"/>
+                                                <constraint firstItem="hed-UN-eQC" firstAttribute="centerX" secondItem="fnj-vY-zN4" secondAttribute="centerX" id="RmS-9C-rwH"/>
                                                 <constraint firstItem="ov5-H9-w1W" firstAttribute="top" secondItem="JvH-Zs-23N" secondAttribute="bottom" constant="20" id="SsN-Sp-ugr"/>
+                                                <constraint firstItem="l83-1V-gKd" firstAttribute="top" secondItem="ov5-H9-w1W" secondAttribute="bottom" constant="5" id="a5H-zF-NSD"/>
+                                                <constraint firstItem="hed-UN-eQC" firstAttribute="top" secondItem="fnj-vY-zN4" secondAttribute="topMargin" constant="10" id="aGf-hG-Hgq"/>
+                                                <constraint firstItem="JvH-Zs-23N" firstAttribute="top" secondItem="hed-UN-eQC" secondAttribute="bottom" constant="10" id="o3n-6T-iiG"/>
+                                                <constraint firstItem="l83-1V-gKd" firstAttribute="centerX" secondItem="fnj-vY-zN4" secondAttribute="centerX" id="x5k-Ut-2N0"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
-                                                    <exclude reference="JvH-Zs-23N"/>
                                                     <exclude reference="ov5-H9-w1W"/>
+                                                    <exclude reference="hed-UN-eQC"/>
+                                                    <exclude reference="l83-1V-gKd"/>
+                                                    <exclude reference="JvH-Zs-23N"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="FBv-Gg-KNs"/>
-                                                    <exclude reference="JIl-EZ-leH"/>
                                                     <exclude reference="1YD-uR-ZRV"/>
                                                     <exclude reference="SsN-Sp-ugr"/>
+                                                    <exclude reference="RmS-9C-rwH"/>
+                                                    <exclude reference="aGf-hG-Hgq"/>
+                                                    <exclude reference="FBv-Gg-KNs"/>
+                                                    <exclude reference="JIl-EZ-leH"/>
+                                                    <exclude reference="o3n-6T-iiG"/>
+                                                    <exclude reference="a5H-zF-NSD"/>
+                                                    <exclude reference="x5k-Ut-2N0"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="subviews">
-                                                    <include reference="JvH-Zs-23N"/>
                                                     <include reference="ov5-H9-w1W"/>
+                                                    <include reference="hed-UN-eQC"/>
+                                                    <include reference="l83-1V-gKd"/>
+                                                    <include reference="JvH-Zs-23N"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="FBv-Gg-KNs"/>
-                                                    <include reference="JIl-EZ-leH"/>
                                                     <include reference="1YD-uR-ZRV"/>
                                                     <include reference="SsN-Sp-ugr"/>
+                                                    <include reference="RmS-9C-rwH"/>
+                                                    <include reference="aGf-hG-Hgq"/>
+                                                    <exclude reference="FBv-Gg-KNs"/>
+                                                    <include reference="JIl-EZ-leH"/>
+                                                    <include reference="o3n-6T-iiG"/>
+                                                    <include reference="a5H-zF-NSD"/>
+                                                    <include reference="x5k-Ut-2N0"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>

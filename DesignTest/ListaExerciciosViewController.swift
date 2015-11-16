@@ -25,6 +25,8 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
         self.configureSideBar()
         self.configSearchBar()
         self.configTableView()
+        
+        self.view.backgroundColor = UIColor.whiteColor()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -34,7 +36,10 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.configActivityView()
-        self.configExerciciosPopulares()
+        
+        if(self.filtered.count <= 0){
+            self.configExerciciosPopulares()
+        }
     }
 
 //    MARK: Config
@@ -99,14 +104,14 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
         self.searchBar.alpha = 0
         self.searchBar.transform.ty = -15
         self.segControl.transform.ty = -15
-        self.tableView.transform.ty = -15
+//        self.tableView.transform.ty = -15
     }
     
     func showBar(){
         self.searchBar.alpha = 1
         self.searchBar.transform.ty = 0
         self.segControl.transform.ty = 0
-        self.tableView.transform.ty = 0
+//        self.tableView.transform.ty = 0
     }
     
 //    MARK: Search
@@ -192,6 +197,8 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
         self.prepareGoToQuestao(newQuestao)
     }
     
+    
+    
     //    MARK: Button Action
     @IBAction func changeSection(sender: AnyObject) {
         self.tableView.reloadData()
@@ -217,16 +224,18 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
     func prepareGoToQuestao(questao: PFObject){
         self.disabeView()
         
-        parseManager.getImgForQuestao(questao) { (newImg, error) -> () in
+        parseManager.getImgForQuestao(questao) { (newImg, erro) -> () in
             self.enableView()
-            
-            if(error == nil){
+            guard let erroNotNil = erro else{
                 self.goToQuestao(questao, img: newImg)
+                return
             }
-            else{
-                self.navigationController?.showAlert("Ocorreu um erro, tente novamente.")
-            }
+            
+            self.navigationController?.showAlert(erroNotNil.localizedDescription)
+            return
         }
+        
+        return
     }
     
     func goToQuestao(questao: PFObject, img: UIImage?){

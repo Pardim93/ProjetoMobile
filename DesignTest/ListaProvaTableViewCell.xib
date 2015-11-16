@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1502" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -23,7 +23,7 @@
                             <constraint firstAttribute="height" constant="80" id="qsL-TN-KVo"/>
                         </constraints>
                     </imageView>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Matemática, química, biologia, história" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd9-Kh-xX6">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Matemática, química, biologia, história" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd9-Kh-xX6" customClass="CellTextView" customModule="DesignTest" customModuleProvider="target">
                         <rect key="frame" x="13" y="35" width="189" height="69"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -49,51 +49,17 @@
                 <animations/>
                 <constraints>
                     <constraint firstItem="4wF-ag-mQJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="2d3-Ze-cY3"/>
-                    <constraint firstItem="Xd9-Kh-xX6" firstAttribute="top" secondItem="4wF-ag-mQJ" secondAttribute="bottom" constant="20" id="2u6-Hx-ceg"/>
                     <constraint firstAttribute="trailingMargin" secondItem="4wF-ag-mQJ" secondAttribute="trailing" constant="-8" id="69Q-RV-icy"/>
-                    <constraint firstItem="4wF-ag-mQJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="77d-8q-D4m"/>
                     <constraint firstItem="jfK-uQ-dIb" firstAttribute="top" secondItem="Xd9-Kh-xX6" secondAttribute="bottom" constant="5" id="E2z-gu-fz8"/>
                     <constraint firstItem="Xd9-Kh-xX6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="EYV-2w-eJo"/>
                     <constraint firstItem="4wF-ag-mQJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="EyI-h6-CEa"/>
-                    <constraint firstItem="jfK-uQ-dIb" firstAttribute="top" secondItem="Xd9-Kh-xX6" secondAttribute="bottom" constant="8" id="KZ0-4Y-tV9"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Xd9-Kh-xX6" secondAttribute="bottom" constant="3" id="LLC-69-bvN"/>
                     <constraint firstItem="Xd9-Kh-xX6" firstAttribute="top" secondItem="4wF-ag-mQJ" secondAttribute="bottom" constant="10" id="M54-DR-6gI"/>
-                    <constraint firstItem="lLR-oo-fBq" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="NbL-zs-ILq"/>
-                    <constraint firstItem="lLR-oo-fBq" firstAttribute="bottom" secondItem="Xd9-Kh-xX6" secondAttribute="bottom" id="PNY-gK-rEZ"/>
                     <constraint firstItem="lLR-oo-fBq" firstAttribute="leading" secondItem="Xd9-Kh-xX6" secondAttribute="trailing" constant="20" id="RZ4-B7-UUD"/>
                     <constraint firstItem="jfK-uQ-dIb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="VSm-EM-YTz"/>
-                    <constraint firstItem="Xd9-Kh-xX6" firstAttribute="trailing" secondItem="4wF-ag-mQJ" secondAttribute="trailing" id="VkO-7f-Giy"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="4wF-ag-mQJ" secondAttribute="trailing" constant="-8" id="WgV-1R-Wes"/>
                     <constraint firstAttribute="bottomMargin" secondItem="jfK-uQ-dIb" secondAttribute="bottom" constant="5" id="Zev-Df-flu"/>
                     <constraint firstAttribute="trailingMargin" secondItem="lLR-oo-fBq" secondAttribute="trailing" constant="10" id="a82-E5-L8a"/>
-                    <constraint firstItem="jfK-uQ-dIb" firstAttribute="leading" secondItem="Xd9-Kh-xX6" secondAttribute="leading" id="d4Z-Qw-n2p"/>
-                    <constraint firstItem="Xd9-Kh-xX6" firstAttribute="leading" secondItem="4wF-ag-mQJ" secondAttribute="leading" id="ilE-np-vTM"/>
-                    <constraint firstItem="lLR-oo-fBq" firstAttribute="top" secondItem="Xd9-Kh-xX6" secondAttribute="top" id="nFC-jg-blG"/>
-                    <constraint firstItem="Xd9-Kh-xX6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="nWY-OM-EEj"/>
-                    <constraint firstItem="lLR-oo-fBq" firstAttribute="leading" secondItem="Xd9-Kh-xX6" secondAttribute="trailing" constant="40" id="r1D-GE-Gor"/>
-                    <constraint firstItem="lLR-oo-fBq" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-10" id="t8H-ln-dx1"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Xd9-Kh-xX6" secondAttribute="bottom" id="tnI-4O-1Nm"/>
                     <constraint firstAttribute="bottomMargin" secondItem="lLR-oo-fBq" secondAttribute="bottom" constant="3" id="wYC-WB-mj8"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="77d-8q-D4m"/>
-                        <exclude reference="WgV-1R-Wes"/>
-                        <exclude reference="2u6-Hx-ceg"/>
-                        <exclude reference="LLC-69-bvN"/>
-                        <exclude reference="VkO-7f-Giy"/>
-                        <exclude reference="ilE-np-vTM"/>
-                        <exclude reference="nWY-OM-EEj"/>
-                        <exclude reference="tnI-4O-1Nm"/>
-                        <exclude reference="KZ0-4Y-tV9"/>
-                        <exclude reference="d4Z-Qw-n2p"/>
-                        <exclude reference="NbL-zs-ILq"/>
-                        <exclude reference="PNY-gK-rEZ"/>
-                        <exclude reference="nFC-jg-blG"/>
-                        <exclude reference="r1D-GE-Gor"/>
-                        <exclude reference="t8H-ln-dx1"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <animations/>
             <connections>

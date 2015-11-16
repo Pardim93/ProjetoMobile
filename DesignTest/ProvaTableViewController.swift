@@ -109,13 +109,13 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
     
  
     func switchSelected(row: Int){
-//        switch(row){
-//        case 2:
-//            self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0))?.frame.size.height = 80
-//            break
-//        default:
-//            break
-//        }
+        switch(row){
+        case 0:
+            self.goToProfile(self)
+            break
+        default:
+            break
+        }
     }
     
 //    MARK: Button
@@ -125,8 +125,11 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
     
     @IBAction func goToProfile(sender: AnyObject) {
         let newStoryboard = UIStoryboard(name: "IPhonePerfil", bundle: nil)
-        let newNav = newStoryboard.instantiateInitialViewController() as? UINavigationController
-        let newView = newNav?.viewControllers[0]
+        let newView = newStoryboard.instantiateInitialViewController() as? PerfilTableViewController
+        
+        let user = PFUser.currentUser()
+        newView?.user = user
+        
         self.navigationController?.pushViewController(newView!, animated: true)
     }
     

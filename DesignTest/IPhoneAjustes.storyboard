@@ -953,6 +953,61 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KU3-c7-W55">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KU3-c7-W55" id="dIY-6s-laA">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mostrar Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kma-2f-v6I">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="33" y="13" width="100" height="20"/>
+                                                    </variation>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ddt-UQ-5Am">
+                                                    <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                                    <animations/>
+                                                </switch>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="Kma-2f-v6I" firstAttribute="leading" secondItem="dIY-6s-laA" secondAttribute="leadingMargin" constant="25" id="0zD-al-Eh5"/>
+                                                <constraint firstItem="Ddt-UQ-5Am" firstAttribute="centerY" secondItem="dIY-6s-laA" secondAttribute="centerY" id="TB6-s2-uFr"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Ddt-UQ-5Am" secondAttribute="trailing" constant="25" id="b4r-uz-qmn"/>
+                                                <constraint firstItem="Kma-2f-v6I" firstAttribute="centerY" secondItem="dIY-6s-laA" secondAttribute="centerY" id="brk-cb-4M8"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="Kma-2f-v6I"/>
+                                                    <exclude reference="Ddt-UQ-5Am"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="0zD-al-Eh5"/>
+                                                    <exclude reference="brk-cb-4M8"/>
+                                                    <exclude reference="TB6-s2-uFr"/>
+                                                    <exclude reference="b4r-uz-qmn"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="Kma-2f-v6I"/>
+                                                    <include reference="Ddt-UQ-5Am"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="0zD-al-Eh5"/>
+                                                    <include reference="brk-cb-4M8"/>
+                                                    <include reference="TB6-s2-uFr"/>
+                                                    <include reference="b4r-uz-qmn"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="gYt-oc-ygf">
                                         <rect key="frame" x="0.0" y="164" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -1255,6 +1310,7 @@
                         <outlet property="ocupacaoLabel" destination="4sO-LA-q80" id="ujx-RZ-ZsB"/>
                         <outlet property="paisLabel" destination="PEf-8c-vJn" id="jhR-0R-0SC"/>
                         <outlet property="senhaAtualTextField" destination="qZB-TM-zBO" id="cNP-ny-Ivx"/>
+                        <outlet property="switchShowEmail" destination="Ddt-UQ-5Am" id="4Ce-1b-Bd0"/>
                         <outlet property="trocarSenhaLabel" destination="72y-QN-dqY" id="C4H-HZ-Hni"/>
                     </connections>
                 </tableViewController>
