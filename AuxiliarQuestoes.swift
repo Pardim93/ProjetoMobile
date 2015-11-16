@@ -14,16 +14,34 @@ class AuxiliarQuestoes: NSObject {
     static let  singleton = AuxiliarQuestoes()
     var questao = NSObject()
     var flag = Bool()
-    var n = 0
     var imagem = UIImage()
     var imgIsReady = false
     var  objectId = String()
     var questaoSelecionada = String()
     var indexQuestaoSelecionada = Int()
+    var questoesCorretas = NSArray()
+    var questoesUsuario = NSArray()
+
     
     func returnImg()->UIImage{
         return self.imagem
     }
+    
+    
+    func getArrayRespostas(arrayRespostas: NSArray){
+        
+        self.questoesCorretas = arrayRespostas
+        
+    }
+    
+    func getArrayRespostasUsuario(arrayRespostas: NSArray){
+        
+        self.questoesUsuario = arrayRespostas
+        
+    }
+    
+    
+    
     
     
 

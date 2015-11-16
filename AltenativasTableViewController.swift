@@ -19,6 +19,7 @@ class AltenativasTableViewController: UITableViewController {
     private var arrayAlternativas = NSMutableArray()
     var questao = NSObject()
     var auxData = AuxiliarQuestoes.singleton
+    var outraArray = NSMutableArray()
     var questoesManager = QuestoesManager.singleton
 
     
@@ -28,6 +29,7 @@ class AltenativasTableViewController: UITableViewController {
         if(self.auxData.flag){
             self.getAlternativas(self.questao)
             self.questao = self.auxData.questao
+            self.carregaQuestao()
 
             
         }
@@ -45,9 +47,6 @@ class AltenativasTableViewController: UITableViewController {
     }
     
     override func viewDidDisappear(animated: Bool) {
-        
-        questoesManager.addRepostaNoIndex(self.auxData.questaoSelecionada, index:self.auxData.indexQuestaoSelecionada)
-        
           
     }
 
@@ -73,7 +72,7 @@ class AltenativasTableViewController: UITableViewController {
         
         for index in 65...69{
             let letra = String(UnicodeScalar(index))
-            arrayAlternativas.addObject(questao.valueForKey("Alternativa\(letra)")!)
+            outraArray.addObject(questao.valueForKey("Alternativa\(letra)")!)
             
         }
         
@@ -118,9 +117,32 @@ class AltenativasTableViewController: UITableViewController {
         
         
     */
+    
+    
+    func carregaQuestao(){
         
+//        self.arrayAlternativas = [1, 2, 3, 4, 5]
+        
+        
+                while(arrayAlternativas.count < 5){
+                    let  rndNum = Int(arc4random_uniform(5))
+//                    let letra = String(UnicodeScalar(65 + rndNum))
+        
+                    if(!arrayAlternativas.containsObject((self.outraArray[rndNum]))){
+                        arrayAlternativas.addObject((self.outraArray[rndNum]))
+                    }
+                    
+                }
+            }
+    
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.auxData.questaoSelecionada = self.arrayAlternativas[indexPath.row] as! String
+        questoesManager.addRepostaNoIndex(self.auxData.questaoSelecionada, index:self.auxData.indexQuestaoSelecionada)
+        print("Resposta do usuario \(self.auxData.questaoSelecionada)")
+        print("Index da questaoe escolhida \(self.auxData.indexQuestaoSelecionada)")
+        let cell = self.tableView.cellForRowAtIndexPath(indexPath)
+        
 
     }
 

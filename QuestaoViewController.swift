@@ -18,7 +18,9 @@ class QuestaoViewController: UIViewController {
     private var timer = NSTimer()
     private var auxData = AuxiliarQuestoes.singleton
     private var parseManager = ParseManager.singleton
+    private var questoesManager = QuestoesManager.singleton
     var questao = NSObject()
+ 
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,14 +74,22 @@ class QuestaoViewController: UIViewController {
     }
 
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier == "goToRespostas"){
+     
+//           let view =  ResultadoProvaViewController()
+            self.auxData.questoesUsuario = questoesManager.arrayRespostas
+            
+       
+        }
+        
+
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

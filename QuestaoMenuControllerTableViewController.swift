@@ -17,6 +17,7 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     private var auxData = AuxiliarQuestoes.singleton
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getQuestoes()
@@ -83,8 +84,22 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         self.myArray = (parseManager.getLeastRatedQuestions())
         self.auxData.questao = self.myArray.objectAtIndex(0) as AnyObject as! NSObject
         questoesManager.tamanhoDasQuestoes(self.myArray.count)
+        self.respostasQuestoes(self.myArray)
+       
     }
     
+    
+    func respostasQuestoes(enunciados: NSArray){
+        
+        var arrayRepostas = NSMutableArray()
+        
+        for x in self.myArray{
+            arrayRepostas.addObject(x)
+//            print(x.valueForKey("AlternativaA"))
+        }
+        
+        self.auxData.getArrayRespostas(arrayRepostas)
+    }
     
     
     // Override to support conditional editing of the table view.
@@ -94,14 +109,15 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     }
     
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
+//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == .Delete {
+//            // Delete the row from the data source
+//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//        } else if editingStyle == .Insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }
+//    }
+    
     
     
     /*
@@ -119,7 +135,7 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     }
     */
     
-    
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //

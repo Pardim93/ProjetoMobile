@@ -30,7 +30,7 @@ class PerguntasTableViewCell: UITableViewCell {
             self.labelResposta.font = UIFont (name: "Avenir book", size: 18)
         }
         
-        self.configRespostaView()
+//        self.configRespostaView()
     }
     
 //    MARK: Config

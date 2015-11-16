@@ -328,7 +328,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jZH-wp-eVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-649.5" y="-3186"/>
+            <point key="canvasLocation" x="-895.5" y="-3195"/>
         </scene>
         <!--Avaliacao Tab Bar Controller-->
         <scene sceneID="tJF-0Y-ytr">
@@ -351,7 +351,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D1D-V7-Afe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2187" y="-3676.5"/>
+            <point key="canvasLocation" x="-1971" y="-3777"/>
         </scene>
     </scenes>
     <resources>

@@ -17,11 +17,10 @@ class TabBarQuestaoController: UITabBarController {
         self.configSideBar()
         
         if(auxQuestoes.flag){
+            //Carrega info de uma questao somente se o usuario tenha escolhido uma questao 
+            
             self.sendInfoToView1()
             self.sendInfoToView2()
-            
-        }else{
-            print("Aqui")
         }
         
 

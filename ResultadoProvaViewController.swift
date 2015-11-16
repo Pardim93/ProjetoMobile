@@ -10,8 +10,7 @@ import UIKit
 
 class ResultadoProvaViewController: UITableViewController  {
     
-    
-    
+    var auxQuestoes = AuxiliarQuestoes.singleton
     var singleton = QuestoesManager.singleton
     
     override func viewDidLoad() {
@@ -46,7 +45,7 @@ class ResultadoProvaViewController: UITableViewController  {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return singleton.respostasUsuario.count;
+        return auxQuestoes.questoesUsuario.count
     }
     
     
@@ -55,6 +54,24 @@ class ResultadoProvaViewController: UITableViewController  {
     }
     
     
+    
+//    func carregaQuestao(){
+//
+//        var arrayAlternativas = NSMutableArray()
+//       
+//        
+//        
+//        while(arrayAlternativas.count < 5){
+//            let  rndNum = Int(arc4random_uniform(5))
+//            let letra = String(UnicodeScalar(65 + rndNum))
+//            
+//            if(!arrayAlternativas.containsObject((self.auxQuestoes.questoesUsuario.objectForKey("Alternativa\(letra)"))!)){
+//                arrayAlternativas.addObject((questao?.objectForKey("Alternativa\(letra)"))!)
+//            }
+//            
+//        }
+//    }
+//    
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -75,8 +92,8 @@ class ResultadoProvaViewController: UITableViewController  {
 
      
         
-        let respostaCerta = (singleton.questoes[(indexPath.row)].objectForKey("AlternativaA") as? String)
-        let respostaUsuario = singleton.respostasUsuario[indexPath.row] as! String
+        let respostaCerta = (auxQuestoes.questoesCorretas[(indexPath.row)].objectForKey("AlternativaA") as? String)
+        let respostaUsuario = auxQuestoes.questoesUsuario[indexPath.row] as! String
         cell.configImage()
 
         if(respostaCerta! == respostaUsuario){
@@ -94,10 +111,10 @@ class ResultadoProvaViewController: UITableViewController  {
             
             let upcoming = segue.destinationViewController as? ResultadoInfoViewController
             let indexPath = self.tableView.indexPathForSelectedRow
-            let respostaUsuario = singleton.respostasUsuario[(indexPath?.row)!] as! String
+            let respostaUsuario = auxQuestoes.questoesUsuario[(indexPath?.row)!] as! String
 
-            upcoming!.strResposta  = (singleton.questoes[(indexPath?.row)!].objectForKey("AlternativaA") as? String)!
-            upcoming!.strEnunciado = (singleton.questoes[(indexPath?.row)!].objectForKey("Enunciado") as? String)!
+            upcoming!.strResposta  = (auxQuestoes.questoesCorretas[(indexPath?.row)!].objectForKey("AlternativaA") as? String)!
+            upcoming!.strEnunciado = (auxQuestoes.questoesCorretas[(indexPath?.row)!].objectForKey("Enunciado") as? String)!
             upcoming?.strUserResposta = respostaUsuario
             
             

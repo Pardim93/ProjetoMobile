@@ -21,6 +21,8 @@ class QuestoesManager: NSObject {
     var totalQuestoes = 0
     var totalDisc = 0
     var respostasUsuario = NSMutableArray()
+    var indexQuestaoSelecionada = Int()
+
     var contRespostas = 0
     var questoes = NSMutableArray()
     var acabou = false
@@ -29,6 +31,7 @@ class QuestoesManager: NSObject {
     var imgIsReady = false
     var predefinido: Bool = false
     var contQuestao = 0
+    var indexQuestao = Int()
     private var imagem = UIImage()
     
     //    override init() {
@@ -112,6 +115,12 @@ class QuestoesManager: NSObject {
     
     func addRepostaNoIndex(resposta:String, index:Int){
         self.arrayRespostas[index] = resposta
+        
+        
+        for x in 0...self.arrayRespostas.count - 1{
+            print("Index: \(x)")
+            print("Resposta: \(self.arrayRespostas[x])")
+        }
     }
     
     
@@ -141,6 +150,7 @@ class QuestoesManager: NSObject {
             acabou = true
             return
         }
+       
         questoes.addObject(questao)
         
         
