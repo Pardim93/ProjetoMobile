@@ -34,7 +34,10 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.configActivityView()
-        self.configureProvasPopulares()
+        
+        if(self.filtered.count <= 0){
+            self.configureProvasPopulares()
+        }
     }
     
 //    MARK: Config
@@ -224,6 +227,11 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let prova = filtered[indexPath.row]
+        let discs = disciplinas[indexPath.row]
+        
+        self.goToProva(prova, discs: discs)
     }
     
 //    MARK: Button Action
@@ -255,5 +263,15 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
 //    MARK: View
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+//    MARK: Navigation
+    func goToProva(prova: PFObject, discs: String){
+        let newStoryboard = UIStoryboard(name: "IPhoneProva", bundle: nil)
+        let newView = newStoryboard.instantiateInitialViewController() as! ProvaTableViewController
+        
+        newView.setNewProva(prova, discs: discs)
+        
+        self.navigationController?.pushViewController(newView, animated: true)
     }
 }

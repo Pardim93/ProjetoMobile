@@ -11,6 +11,13 @@ import UIKit
 class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
     
     @IBOutlet weak var profileButton: UIButton!
+    @IBOutlet weak var numQuestoes: UILabel!
+    @IBOutlet weak var disciplinas: UILabel!
+    @IBOutlet weak var userName: UILabel!
+    
+    var prova: PFObject!
+    var discs: String!
+    let parseManager = ParseManager.singleton
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +25,27 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         self.configureTableView()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.configProva()
+    }
+    
     override func viewDidAppear(animated: Bool) {
+        self.navigationController?.setToolbarHidden(true, animated: false)
         self.configStars()
+        self.configActivityView()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController?.setToolbarHidden(true, animated: false)
+    }
+    
+//    MARK: Config
+    func configProva(){
+        self.configAutor()
+        self.configNumQuestoes()
+        self.configDisciplinas()
     }
     
     func configureTableView(){
@@ -51,8 +77,28 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         starRating.frame = CGRectMake(175, 0, 150, 50)
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        self.navigationController?.setToolbarHidden(true, animated: false)
+    func configAutor(){
+        guard let user = prova.objectForKey("Autor") as? PFObject else{
+            self.userName.text = ""
+            return
+        }
+        let nome = user.objectForKey("Nome") as! String
+        self.userName.text = nome
+    }
+    
+    func configNumQuestoes(){
+        let numberOfQuestoes = prova.objectForKey("NumQuestoes") as! Int
+        self.numQuestoes.text = "\(numberOfQuestoes)"
+    }
+    
+    func configDisciplinas(){
+        self.disciplinas.text = self.discs
+    }
+    
+//    MARK: Set
+    func setNewProva(prova: PFObject, discs: String){
+        self.prova = prova
+        self.discs = discs
     }
     
 //    MARK: TableView
@@ -72,9 +118,9 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
 //        }
     }
     
+//    MARK: Button
     @IBAction func willEdit(sender: AnyObject) {
-        let isHidden = !(self.navigationController?.toolbar.hidden)!
-        self.navigationController?.setToolbarHidden(isHidden, animated: true)
+        self.showActionSheet()
     }
     
     @IBAction func goToProfile(sender: AnyObject) {
@@ -82,5 +128,44 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         let newNav = newStoryboard.instantiateInitialViewController() as? UINavigationController
         let newView = newNav?.viewControllers[0]
         self.navigationController?.pushViewController(newView!, animated: true)
+    }
+    
+//    MARK: Action Sheet
+    func showActionSheet() {
+        let actionSheet = UIAlertController(title: "Vestibulandos", message: "", preferredStyle: .ActionSheet)
+        actionSheet.addAction(self.createDenunciarAction())
+        actionSheet.addAction(self.createCancelAction())
+        
+        self.navigationController?.presentViewController(actionSheet, animated: true, completion: nil)
+    }
+    
+    func createDenunciarAction() -> UIAlertAction{
+        let denunciarAction = UIAlertAction(title: "Denunciar", style: .Default) { (action) in
+            self.denunciarProva()
+        }
+        
+        return denunciarAction
+    }
+    
+    func createCancelAction() -> UIAlertAction{
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil)
+        return cancelAction
+    }
+    
+//    MARK: Funcoes
+    func denunciarProva(){
+        self.disabeView()
+        parseManager.criarDenunciaProva(self.prova) { (erro) -> () in
+            self.enableView()
+            guard let erroNotNil = erro else{
+                self.navigationController?.showAlert("Prova denunciada. Agradecemos sua contribuição.")
+                return
+            }
+            
+            self.navigationController?.showAlert(erroNotNil.localizedDescription)
+            return
+        }
+        
+        return
     }
 }

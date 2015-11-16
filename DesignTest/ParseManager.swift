@@ -14,6 +14,59 @@ class ParseManager: NSObject {
     
     static let singleton = ParseManager()
     
+//    MARK: DISCIPLINA INSERIR
+    func criarDenunciaProva(prova: PFObject, completionHandler: (NSError?) -> ()){
+        var erro: NSError?
+        
+        guard let user = PFUser.currentUser() else{
+            erro = self.getError(ParseError.UnloggedUser)
+            
+            completionHandler(erro)
+            return
+        }
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            
+            let relation = prova.relationForKey("Denuncias")
+            let newDenuncia = PFObject(className: "DenunciaProva")
+            newDenuncia.setObject(user, forKey: "Autor")
+            newDenuncia.setObject(prova, forKey: "Prova")
+            
+            do{
+                try newDenuncia.save()
+            } catch let externalError as NSError{
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(erro)
+                })
+                return
+            }
+            
+            relation.addObject(newDenuncia)
+            
+            do{
+                try prova.save()
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(erro)
+                })
+                return
+            } catch let externalError as NSError{
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(erro)
+                })
+                return
+            }
+        })
+    }
+    
 //    MARK: DISCIPLINA GET
     func getDisciplinas(completionHandler:([PFObject], NSError?)->()){
         let query = PFQuery(className: "Disciplina")
@@ -259,7 +312,6 @@ class ParseManager: NSObject {
     
     func getAllProvas() ->NSArray{
         let query = PFQuery(className: "Prova")
-        query.includeKey("Disciplinas")
         query.includeKey("Questoes")
         query.includeKey("Autor")
         
