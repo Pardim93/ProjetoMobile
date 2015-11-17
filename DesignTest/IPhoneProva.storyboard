@@ -10,10 +10,9 @@
         <!--Prova-->
         <scene sceneID="3Wb-nb-Tyd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KgI-nv-346" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="5UP-Ov-4kL" customClass="ProvaTableViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cx0-zB-Q6K">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,7 +61,7 @@
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clique para ver mais" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l83-1V-gKd">
@@ -102,13 +101,13 @@
                                                     <exclude reference="JvH-Zs-23N"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="FBv-Gg-KNs"/>
+                                                    <exclude reference="JIl-EZ-leH"/>
+                                                    <exclude reference="o3n-6T-iiG"/>
                                                     <exclude reference="1YD-uR-ZRV"/>
                                                     <exclude reference="SsN-Sp-ugr"/>
                                                     <exclude reference="RmS-9C-rwH"/>
                                                     <exclude reference="aGf-hG-Hgq"/>
-                                                    <exclude reference="FBv-Gg-KNs"/>
-                                                    <exclude reference="JIl-EZ-leH"/>
-                                                    <exclude reference="o3n-6T-iiG"/>
                                                     <exclude reference="a5H-zF-NSD"/>
                                                     <exclude reference="x5k-Ut-2N0"/>
                                                 </mask>
@@ -121,13 +120,13 @@
                                                     <include reference="JvH-Zs-23N"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="FBv-Gg-KNs"/>
+                                                    <include reference="JIl-EZ-leH"/>
+                                                    <include reference="o3n-6T-iiG"/>
                                                     <include reference="1YD-uR-ZRV"/>
                                                     <include reference="SsN-Sp-ugr"/>
                                                     <include reference="RmS-9C-rwH"/>
                                                     <include reference="aGf-hG-Hgq"/>
-                                                    <exclude reference="FBv-Gg-KNs"/>
-                                                    <include reference="JIl-EZ-leH"/>
-                                                    <include reference="o3n-6T-iiG"/>
                                                     <include reference="a5H-zF-NSD"/>
                                                     <include reference="x5k-Ut-2N0"/>
                                                 </mask>
@@ -376,14 +375,14 @@
                         <outlet property="userName" destination="JvH-Zs-23N" id="EVO-ju-waX"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KgI-nv-346" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="558" y="447"/>
         </scene>
         <!--Custom Navigation View Controller-->
         <scene sceneID="77P-kI-rnB">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MHI-Vp-Bhb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController id="GwZ-jb-K9D" customClass="CustomNavigationViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="VizualizarProvaNavigationController" id="GwZ-jb-K9D" customClass="CustomNavigationViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="h3l-1h-hfB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -394,6 +393,7 @@
                         <segue destination="5UP-Ov-4kL" kind="relationship" relationship="rootViewController" id="JP7-eB-dtF"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MHI-Vp-Bhb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-210" y="447"/>
         </scene>

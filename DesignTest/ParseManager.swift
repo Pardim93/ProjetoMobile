@@ -682,11 +682,42 @@ class ParseManager: NSObject {
         })
     }
     
+    func getQuestoesRecentes(completionHandler: ([PFObject], NSError?) -> ()){
+        let query = PFQuery(className: "Questao")
+        query.includeKey("Disciplina")
+        query.includeKey("Autor")
+        query.orderByDescending("createdAt")
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var erro: NSError?
+            
+            do{
+                let result = try query.findObjects()
+                
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    completionHandler(result, erro)
+                })
+                
+                return
+            } catch let externalError as NSError{
+                //Falha ao buscar as questões
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler([], erro)
+                })
+                return
+            }
+        })
+    }
+    
     func getQuestoesByKeyword(keyword: String, completionHandler: ([PFObject], NSError?) -> ()){
         let query = PFQuery(className: "Questao")
         query.includeKey("Disciplina")
         query.includeKey("Autor")
-        query.whereKey("Tags", containedIn: [keyword.simpleString()])
+        query.whereKey("Tags", containedIn: [keyword.simpleString(), keyword])
         query.orderByDescending("TimesUsed")
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in

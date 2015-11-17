@@ -17,6 +17,8 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     
     let parseManager = ParseManager.singleton
     var filtered: [PFObject] = []
+    var populares: [PFObject] = []
+    var recentes: [PFObject] = []
     var disciplinas: [String] = []
 
     override func viewDidLoad() {
@@ -61,13 +63,30 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
     }
     
+    func configCancelButton(){
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "searchButton:")
+        self.navigationItem.rightBarButtonItem = cancelButton
+    }
+    
+    func configSearchButton(){
+        let searchButton = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "searchButton:")
+        self.navigationItem.rightBarButtonItem = searchButton
+    }
+    
 //    MARK: ConfigProvas
     func configureProvasPopulares(){
+        if(self.populares.count > 0){
+            self.filtered = self.populares
+            self.tableView.reloadData()
+            return
+        }
+        
         self.disabeView()
         
         parseManager.getProvasPopulares { (result, error) -> () in
             if(error == nil){
                 self.filtered = result
+                self.populares = result
                 if(result.count > 0){
                     self.tableView.separatorStyle = .None
                     self.configureDisciplinas()
@@ -91,11 +110,18 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func configureProvasRecentes(){
+        if(self.recentes.count > 0){
+            self.filtered = self.recentes
+            self.tableView.reloadData()
+            return
+        }
+        
         self.disabeView()
         
         parseManager.getProvasRecentes { (result, error) -> () in
             if(error == nil){
                 self.filtered = result
+                self.recentes = result
                 if(result.count > 0){
                     self.tableView.separatorStyle = .None
                     self.configureDisciplinas()
@@ -160,14 +186,12 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
         self.searchBar.alpha = 0
         self.searchBar.transform.ty = -15
         self.segControl.transform.ty = -15
-//        self.tableView.transform.ty = -15
     }
     
     func showBar(){
         self.searchBar.alpha = 1
         self.searchBar.transform.ty = 0
         self.segControl.transform.ty = 0
-//        self.tableView.transform.ty = 0
     }
     
 //    MARK: Search
@@ -265,14 +289,17 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     @IBAction func searchButton(sender: AnyObject) {
-        UIView.animateWithDuration(0.2, animations: {
-            if(self.searchBar.alpha == 0){
+        if(self.searchBar.alpha == 0){
+            UIView.animateWithDuration(0.2, animations: {
                 self.showBar()
-            } else{
+            })
+            self.configCancelButton()
+        } else{
+            UIView.animateWithDuration(0.2, animations: {
                 self.hideBar()
-                self.view.endEditing(true)
-            }
-        })
+            })
+            self.configSearchButton()
+        }
     }
     
 //    MARK: View

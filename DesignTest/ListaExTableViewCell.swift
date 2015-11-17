@@ -8,23 +8,21 @@
 
 import UIKit
 
-protocol ResolverQuestaoDelegate{
-    func resolverQuestao(questao: PFObject)
-}
-
-class ListaExTableViewCell: UITableViewCell {
+class ListaExTableViewCell: UITableViewCell, EDStarRatingProtocol {
     
     @IBOutlet weak var descricaoTextView: CellTextView!
     @IBOutlet weak var disciplinaLabel: UILabel!
-    @IBOutlet weak var resolverButton: ZFRippleButton!
+    @IBOutlet weak var starRating: EDStarRating! = EDStarRating()
     
     var questao: PFObject?
-    var delegate: ResolverQuestaoDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        self.configAddButton()
+    }
+    
+    override func willMoveToWindow(newWindow: UIWindow?) {
+        super.willMoveToSuperview(newWindow)
+//        self.configStars()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -38,11 +36,22 @@ class ListaExTableViewCell: UITableViewCell {
         self.descricaoTextView.layer.cornerRadius = 5
         self.descricaoTextView.font = UIFont(name: "Avenir Book", size: 15)
         self.descricaoTextView.userInteractionEnabled = true
+        self.descricaoTextView.backgroundColor = UIColor.colorWithHexString("EBEFFF", alph: 0.5)
     }
     
-    func configAddButton(){
-        self.resolverButton.layer.borderWidth = 0.5
-        self.resolverButton.layer.borderColor = UIColor.clearColor().CGColor
+    func configStars(){
+//        self.starRating = EDStarRating()
+        starRating.delegate = self;
+        starRating.backgroundColor = UIColor.clearColor()
+        starRating.starImage = UIImage(named: "Star-20")
+        starRating.starHighlightedImage = UIImage(named: "Star Filled-20")
+        starRating.maxRating = 5
+        starRating.horizontalMargin = 12;
+        starRating.editable = false
+        starRating.displayMode = UInt(EDStarRatingDisplayFull)
+        starRating.rating = 2.5;
+        
+//        starRating.frame = CGRectMake(175, 0, 150, 50)
     }
     
 //    MARK: Set
@@ -50,6 +59,8 @@ class ListaExTableViewCell: UITableViewCell {
         self.questao = newQuestao
         self.setDescricao()
         self.setDisciplina()
+        
+        self.configStars()
         
         self.descricaoTextView.cellRow = newRow
     }
@@ -69,15 +80,28 @@ class ListaExTableViewCell: UITableViewCell {
         let discString = disciplina.objectForKey("Nome") as! String
         
         self.disciplinaLabel.text = discString
-        self.disciplinaLabel.backgroundColor = UIColor.newPearlColor()
+//        self.disciplinaLabel.backgroundColor = UIColor.newPearlColor()
         self.disciplinaLabel.layer.cornerRadius = 15
         self.disciplinaLabel.clipsToBounds = true
         self.disciplinaLabel.layer.borderWidth = 0.3
         
         self.disciplinaLabel.font = UIFont(name: "Avenir Book", size: 15)
-    }
-    
-    @IBAction func resolverButtonTouched(sender: AnyObject) {
-        self.delegate?.resolverQuestao(self.questao!)
+        
+        if(discString == "Matemática"){
+            self.disciplinaLabel.textColor = UIColor.redColor()
+            return
+        }
+        
+        if(discString == "Gramática"){
+            self.disciplinaLabel.textColor = UIColor.blueColor()
+            return
+        }
+        
+        if(discString == "Inglês"){
+            self.disciplinaLabel.textColor = UIColor.greenColor()
+            return
+        }
+        
+        self.disciplinaLabel.textColor = UIColor.brownColor()
     }
 }
