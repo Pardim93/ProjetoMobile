@@ -45,7 +45,7 @@ extension UIViewController{
 extension UINavigationController{
 //Mostrar alertas na view
     func showAlert(mensagem: String){
-        let alertController = UIAlertController(title: "Simulandos", message: mensagem, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Vestibulandos", message: mensagem, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Fechar", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
     }

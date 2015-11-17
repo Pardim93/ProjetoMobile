@@ -21,6 +21,7 @@
 		240DB1DA1BE149CA00654178 /* InserirQuestaoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 240DB1D81BE149CA00654178 /* InserirQuestaoTableViewCell.xib */; };
 		2412954F1B8515F2006B93C0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2412954E1B8515F2006B93C0 /* HomeViewController.swift */; };
 		2415AF711BE125CB009BBC7A /* InserirAdicionadasQuestoesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2415AF701BE125CB009BBC7A /* InserirAdicionadasQuestoesTableViewController.swift */; };
+		2415FFF41BFBB25E00EAA29F /* SobreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2415FFF31BFBB25E00EAA29F /* SobreViewController.swift */; };
 		24175F9A1BB5EB640064C048 /* TituloTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24175F991BB5EB640064C048 /* TituloTableViewCell.swift */; };
 		24175F9C1BB5EB700064C048 /* DisciplinaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24175F9B1BB5EB700064C048 /* DisciplinaTableViewCell.swift */; };
 		24175F9E1BB5EB7E0064C048 /* PalavrasChaveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24175F9D1BB5EB7E0064C048 /* PalavrasChaveTableViewCell.swift */; };
@@ -149,6 +150,7 @@
 		240DB1D81BE149CA00654178 /* InserirQuestaoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InserirQuestaoTableViewCell.xib; sourceTree = "<group>"; };
 		2412954E1B8515F2006B93C0 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2415AF701BE125CB009BBC7A /* InserirAdicionadasQuestoesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InserirAdicionadasQuestoesTableViewController.swift; sourceTree = "<group>"; };
+		2415FFF31BFBB25E00EAA29F /* SobreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SobreViewController.swift; sourceTree = "<group>"; };
 		24175F991BB5EB640064C048 /* TituloTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TituloTableViewCell.swift; sourceTree = "<group>"; };
 		24175F9B1BB5EB700064C048 /* DisciplinaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisciplinaTableViewCell.swift; sourceTree = "<group>"; };
 		24175F9D1BB5EB7E0064C048 /* PalavrasChaveTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalavrasChaveTableViewCell.swift; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 				24A20FA21B97695500FD2A30 /* UpdateTableViewController.swift */,
 				245095EE1BD7F1E700E5E468 /* TrocarInfoTableViewController.swift */,
 				245095F01BD7F56500E5E468 /* AjustesTableViewCell.swift */,
+				2415FFF31BFBB25E00EAA29F /* SobreViewController.swift */,
 			);
 			name = Ajustes;
 			sourceTree = "<group>";
@@ -882,6 +885,7 @@
 				5243FBD91BD2F74800462071 /* PopUpViewController.swift in Sources */,
 				249322A41BA33DD3005579DD /* PerfilTableViewController.swift in Sources */,
 				242D253D1BB5D786007450C2 /* InserirTituloTableViewController.swift in Sources */,
+				2415FFF41BFBB25E00EAA29F /* SobreViewController.swift in Sources */,
 				521293341BE2AC720093D905 /* AvaliacaoQuestaoTabBarController.swift in Sources */,
 				24A20FA31B97695500FD2A30 /* UpdateTableViewController.swift in Sources */,
 				246CBC771B878B84002E6A6E /* RegistroViewController.swift in Sources */,

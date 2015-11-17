@@ -11,16 +11,11 @@
         <scene sceneID="3Wb-nb-Tyd">
             <objects>
                 <tableViewController id="5UP-Ov-4kL" customClass="ProvaTableViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cx0-zB-Q6K">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="7" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cx0-zB-Q6K">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <imageView key="tableFooterView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="KoX-ca-fmH">
-                            <rect key="frame" x="0.0" y="525" width="600" height="128"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <animations/>
-                        </imageView>
                         <sections>
                             <tableViewSection id="F9C-M5-Ijk">
                                 <cells>
@@ -260,7 +255,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tempo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tad-62-8TL">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Criada em" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tad-62-8TL">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="16"/>
@@ -318,12 +313,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOs-f6-z5k">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nota" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOs-f6-z5k">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="38" y="17" width="43" height="22"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <animations/>
@@ -352,6 +350,65 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="KqS-Kk-bxF">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KqS-Kk-bxF" id="MT5-Y1-ey2">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xh3-ql-J7h" customClass="ZFRippleButton" customModule="DesignTest" customModuleProvider="target">
+                                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="25"/>
+                                                    <state key="normal" title="Começar">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="rippleBackgroundColor">
+                                                            <color key="value" red="0.0" green="0.4784313738" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
+                                                            <color key="value" red="0.058823529630000003" green="0.23137255009999999" blue="0.37254902719999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="rippleOverBounds" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="shadowRippleEnable" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="trackTouchLocation" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="Xh3-ql-J7h" firstAttribute="leading" secondItem="MT5-Y1-ey2" secondAttribute="leadingMargin" constant="-8" id="EYN-Xx-R7r"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Xh3-ql-J7h" secondAttribute="trailing" constant="-8" id="bMg-eb-Ofg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Xh3-ql-J7h" secondAttribute="bottom" constant="-8" id="hGD-0J-mnp"/>
+                                                <constraint firstItem="Xh3-ql-J7h" firstAttribute="top" secondItem="MT5-Y1-ey2" secondAttribute="topMargin" constant="-8" id="tJa-9R-ZYD"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="Xh3-ql-J7h"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="EYN-Xx-R7r"/>
+                                                    <exclude reference="bMg-eb-Ofg"/>
+                                                    <exclude reference="hGD-0J-mnp"/>
+                                                    <exclude reference="tJa-9R-ZYD"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="Xh3-ql-J7h"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="EYN-Xx-R7r"/>
+                                                    <include reference="bMg-eb-Ofg"/>
+                                                    <include reference="hGD-0J-mnp"/>
+                                                    <include reference="tJa-9R-ZYD"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -369,6 +426,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="createdAt" destination="Nth-rA-3xj" id="046-CL-gxY"/>
                         <outlet property="disciplinas" destination="aha-dF-OD1" id="BrT-vR-iEt"/>
                         <outlet property="numQuestoes" destination="lnm-hn-u22" id="fDO-Oh-L6u"/>
                         <outlet property="profileButton" destination="ov5-H9-w1W" id="mAv-MT-GpR"/>

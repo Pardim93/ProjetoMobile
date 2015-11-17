@@ -62,7 +62,7 @@ class AjustesTableViewController: UITableViewController, UIGestureRecognizerDele
     }
     
     func configureEmail() -> String{
-        guard let emailText: String = PFUser.currentUser()?.email else{
+        guard let emailText = PFUser.currentUser()?.email else{
             return "Não cadastrado"
         }
         
@@ -159,7 +159,7 @@ class AjustesTableViewController: UITableViewController, UIGestureRecognizerDele
     
 //MARK: Alert
     func showConfirmAlert(){
-        let alertController = UIAlertController(title: "Simulandos", message: "Você deseja mesmo sair?", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Vestibulandos", message: "Você deseja mesmo sair?", preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "Ok", style: .Default) { (action) in
             self.doLogout()

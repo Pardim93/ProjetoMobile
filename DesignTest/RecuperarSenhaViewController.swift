@@ -124,7 +124,7 @@ class RecuperarSenhaViewController: UIViewController {
 //    MARK: Alert
     
     func showConfirmAlert(){
-        let alertController = UIAlertController(title: "Simulandos", message: "Senha resetada com sucesso! Por favor, verifique seu email.", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Vestibulandos", message: "Senha resetada com sucesso! Por favor, verifique seu email.", preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "Ok", style: .Default) { (action) in
             self.goToLogin()

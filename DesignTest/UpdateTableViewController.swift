@@ -272,7 +272,7 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
     
 //    MARK: Alert
     func showConfirmAlert(){
-        let alertController = UIAlertController(title: "Simulandos", message: "Você deseja mesmo resetar sua senha? Você será deslogado até que confirme a senha nova no seu email.", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Vestibulandos", message: "Você deseja mesmo resetar sua senha? Você será deslogado até que confirme a senha nova no seu email.", preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "Ok", style: .Default) { (action) in
             self.recoverPassword()
@@ -283,7 +283,7 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
     }
     
     func showConfirmSaveAlert(){
-        let alertController = UIAlertController(title: "Simulandos", message: "Salvo com sucesso.", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Vestibulandos", message: "Salvo com sucesso.", preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "Fechar", style: .Default) { (action) in
             self.navigationController?.popViewControllerAnimated(true)
@@ -293,7 +293,7 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
     }
     
     func notificateConfirmation(){
-        let alertController = UIAlertController(title: "Simulandos", message: "Você deseja salvar antes de sair?", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Vestibulandos", message: "Você deseja salvar antes de sair?", preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "Ok", style: .Default) { (action) in
             self.saveDados()

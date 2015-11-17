@@ -14,6 +14,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
     @IBOutlet weak var numQuestoes: UILabel!
     @IBOutlet weak var disciplinas: UILabel!
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var createdAt: UILabel!
     
     var prova: PFObject!
     var discs: String!
@@ -46,6 +47,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         self.configAutor()
         self.configNumQuestoes()
         self.configDisciplinas()
+        self.configCreatedAt()
     }
     
     func configureTableView(){
@@ -58,6 +60,14 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
             cell.separatorInset = UIEdgeInsetsZero
             cell.layoutMargins = UIEdgeInsetsZero
         }
+        
+        self.configFooter()
+    }
+    
+    func configFooter(){
+        let footer = UIView(frame: CGRectMake(0, 0, 1, 1))
+        footer.backgroundColor = UIColor.whiteColor()
+        self.tableView.tableFooterView = footer
     }
     
     func configStars(){
@@ -93,6 +103,15 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
     
     func configDisciplinas(){
         self.disciplinas.text = self.discs
+    }
+    
+    func configCreatedAt(){
+        let creationDate = self.prova.createdAt
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.timeZone = NSTimeZone.localTimeZone()
+        
+        self.createdAt.text = formatter.stringFromDate(creationDate!)
     }
     
 //    MARK: Set

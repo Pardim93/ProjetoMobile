@@ -169,7 +169,7 @@ class InserirProvaTabBarViewController: UITabBarController {
     func notificateSave(){
         self.cancelViewsEditing()
         
-        let alertController = UIAlertController(title: "Simulandos", message: "Salvo com sucesso!", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Vestibulandos", message: "Salvo com sucesso!", preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "Ok", style: .Default) { (action) in
             self.navigationItem.leftBarButtonItem = self.backItem
@@ -182,7 +182,7 @@ class InserirProvaTabBarViewController: UITabBarController {
     func notificateConfirmation(){
         self.cancelViewsEditing()
         
-        let alertController = UIAlertController(title: "Simulandos", message: "Você perderá o que foi escrito até agora. Deseja continuar?", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Vestibulandos", message: "Você perderá o que foi escrito até agora. Deseja continuar?", preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "Ok", style: .Default) { (action) in
             self.navigationItem.leftBarButtonItem = self.backItem
