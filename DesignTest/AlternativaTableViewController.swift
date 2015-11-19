@@ -14,20 +14,20 @@ class AlternativaTableViewController: UITableViewController  {
     private var currentCell = PerguntasTableViewCell()
     
     
-//        - (void)tableView:(NSTableView *)tableView sortDescriptorsDidChange:(NSArray *)oldDescriptors
-//    {
-//    [peopleArray sortUsingDescriptors: [tableView sortDescriptors]];
-//    [tableView reloadData];
-//    }
-//    
-
+    //        - (void)tableView:(NSTableView *)tableView sortDescriptorsDidChange:(NSArray *)oldDescriptors
+    //    {
+    //    [peopleArray sortUsingDescriptors: [tableView sortDescriptors]];
+    //    [tableView reloadData];
+    //    }
+    //
     
-
+    
+    
     override  func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false;
         self.carregaQuestao()
-
+        
         
         self.tableView.tableHeaderView = nil
         self.tableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0);
@@ -100,8 +100,8 @@ class AlternativaTableViewController: UITableViewController  {
     }
     
     override func viewDidAppear(animated: Bool) {
-//        [self.tableView setContentOffset:CGPointZero animated:YES];
-
+        //        [self.tableView setContentOffset:CGPointZero animated:YES];
+        
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -120,8 +120,8 @@ class AlternativaTableViewController: UITableViewController  {
         cell.textViewResposta.layer.borderWidth = 0.5
         cell.textViewResposta.layer.cornerRadius = 6
         cell.textViewResposta.clipsToBounds = true
-      
-    
+        
+        
         
         if (arrayCell.count < 5) {
             arrayCell.addObject(cell)
@@ -142,11 +142,11 @@ class AlternativaTableViewController: UITableViewController  {
         
         if(selected != nil){
             for cell in arrayCell {
-            
+                
                 cell.setHighlighted(false, animated: false)
             }
         }
-    
+        
         
         selected = arrayCell.objectAtIndex(indexPath.row) as? PerguntasTableViewCell
         

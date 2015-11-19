@@ -37,24 +37,45 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     }
     
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 120
+    }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         
-        self.questaoSelecionada = self.myArray.objectAtIndex(indexPath.row) as! NSObject
-        self.auxData.questao = self.questaoSelecionada
-        self.auxData.flag = true
-        let questaoTemp = self.myArray.objectAtIndex(indexPath.row) as! PFObject
-        self.auxData.objectId = questaoTemp.objectId!
-        self.auxData.indexQuestaoSelecionada = indexPath.row
-//        self.performSegueWithIdentifier("sw_front", sender: self)
-  
+        
+        if(indexPath.row > 0 ){
+            
+            self.questaoSelecionada = self.myArray.objectAtIndex(indexPath.row - 1) as! NSObject
+            self.auxData.questao = self.questaoSelecionada
+            self.auxData.flag = true
+            let questaoTemp = self.myArray.objectAtIndex(indexPath.row - 1) as! PFObject
+            self.auxData.objectId = questaoTemp.objectId!
+            self.auxData.indexQuestaoSelecionada = indexPath.row
+        }else{
+            
+            var view = self.storyboard?.instantiateViewControllerWithIdentifier("NavResultadoViewController")
+            
+            
+            self.auxData.questoesUsuario = questoesManager.arrayRespostas
+            self.presentViewController(view!, animated: false, completion: nil)
+            
+            
+            
+            //            self.auxData.questoesUsuario = questoesManager.arrayRespostas
+            
+            //            self.presentViewController(view, animated: false, completion: nil)
+            //            self.performSegueWithIdentifier("rrr", sender: self.questaoSelecionada)
+        }
+        //        self.performSegueWithIdentifier("sw_front", sender: self)
+        
         //já há uma segue configurada no storybard
     }
     
-
+    
     // MARK: - Table view data source
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.myArray.count 
+        return self.myArray.count + 1
         
     }
     
@@ -65,15 +86,26 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("questaoCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("questaoCell", forIndexPath: indexPath) as! QuestaoMenuTableViewCell
         
-//        if indexPath.row == 0{
-//            cell.textLabel?.text = "Sair"
-//        }else{
-//            
+        //        if indexPath.row == 0{
+        //            cell.textLabel?.text = "Sair"
+        //        }else{
+        //
+        
+        
+        if(indexPath.row == 0){
             
-            cell.textLabel!.text =  self.myArray.objectAtIndex(indexPath.row ).objectForKey("Enunciado") as? String
-//        }
+            cell.labelQuestao.text =  "Finalizar"
+            
+        }else{
+            cell.labelQuestao!.text =  self.myArray.objectAtIndex(indexPath.row - 1).objectForKey("Enunciado") as? String
+            
+            
+            
+            
+        }
+        //        }
         // Configure the cell...
         
         
@@ -85,7 +117,7 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         self.auxData.questao = self.myArray.objectAtIndex(0) as AnyObject as! NSObject
         questoesManager.tamanhoDasQuestoes(self.myArray.count)
         self.respostasQuestoes(self.myArray)
-       
+        
     }
     
     
@@ -95,7 +127,7 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         
         for x in self.myArray{
             arrayRepostas.addObject(x)
-//            print(x.valueForKey("AlternativaA"))
+            //            print(x.valueForKey("AlternativaA"))
         }
         
         self.auxData.getArrayRespostas(arrayRepostas)
@@ -109,14 +141,14 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     }
     
     // Override to support editing the table view.
-//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        if editingStyle == .Delete {
-//            // Delete the row from the data source
-//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-//        } else if editingStyle == .Insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//        }
-//    }
+    //    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    //        if editingStyle == .Delete {
+    //            // Delete the row from the data source
+    //            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+    //        } else if editingStyle == .Insert {
+    //            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    //        }
+    //    }
     
     
     
@@ -135,23 +167,15 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     }
     */
     
-
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //
-        //            if(segue.identifier == "sw_front"){
-        ////                print(self.questaoSelecionada.valueForKey("Enunciado"))
-        //
-        //                let myView = QuestaoDetalheViewController()
-        //                myView.strEnunciado = "aaaaaaalol"
-        //                myView.questao = self.questaoSelecionada
-        //                myView.flag = true
-        //
-        //
-        //
-        //
-        //
-        //            }
+        
+        if(segue.identifier == "rrr"){
+            self.auxData.questoesUsuario = questoesManager.arrayRespostas
+            
+            
+        }
         
     }
     

@@ -113,6 +113,7 @@
 		52AB5E8A1BF11C1C00A4FE5D /* AvaliarAlternativasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB5E891BF11C1C00A4FE5D /* AvaliarAlternativasTableViewController.swift */; };
 		52AB5E8C1BF121D500A4FE5D /* AvaliacaoEnunciadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB5E8B1BF121D500A4FE5D /* AvaliacaoEnunciadoViewController.swift */; };
 		52BE35CB1BBC55830092042D /* IPhoneListaProvas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52BE35CA1BBC55830092042D /* IPhoneListaProvas.storyboard */; };
+		52CAB39E1BFE2870007A8230 /* QuestaoMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CAB39D1BFE2870007A8230 /* QuestaoMenuTableViewCell.swift */; };
 		52D8C9CC1BF09502007E849E /* QuestaoDetalheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D8C9CB1BF09502007E849E /* QuestaoDetalheViewController.swift */; };
 		52DF78A61B790EE30047A107 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF78A51B790EE30047A107 /* AppDelegate.swift */; };
 		52DF78A91B790EE30047A107 /* DesignTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52DF78A71B790EE30047A107 /* DesignTest.xcdatamodeld */; };
@@ -242,6 +243,7 @@
 		52AB5E891BF11C1C00A4FE5D /* AvaliarAlternativasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliarAlternativasTableViewController.swift; sourceTree = "<group>"; };
 		52AB5E8B1BF121D500A4FE5D /* AvaliacaoEnunciadoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliacaoEnunciadoViewController.swift; sourceTree = "<group>"; };
 		52BE35CA1BBC55830092042D /* IPhoneListaProvas.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneListaProvas.storyboard; sourceTree = "<group>"; };
+		52CAB39D1BFE2870007A8230 /* QuestaoMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestaoMenuTableViewCell.swift; sourceTree = "<group>"; };
 		52D8C9CB1BF09502007E849E /* QuestaoDetalheViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestaoDetalheViewController.swift; sourceTree = "<group>"; };
 		52DF78A01B790EE30047A107 /* DesignTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52DF78A41B790EE30047A107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -611,6 +613,7 @@
 		52DF78971B790EE30047A107 = {
 			isa = PBXGroup;
 			children = (
+				52CAB39D1BFE2870007A8230 /* QuestaoMenuTableViewCell.swift */,
 				52DF78A21B790EE30047A107 /* DesignTest */,
 				52DF78BB1B790EE30047A107 /* DesignTestTests */,
 				52DF78A11B790EE30047A107 /* Products */,
@@ -885,6 +888,7 @@
 				5243FBD91BD2F74800462071 /* PopUpViewController.swift in Sources */,
 				249322A41BA33DD3005579DD /* PerfilTableViewController.swift in Sources */,
 				242D253D1BB5D786007450C2 /* InserirTituloTableViewController.swift in Sources */,
+				52CAB39E1BFE2870007A8230 /* QuestaoMenuTableViewCell.swift in Sources */,
 				2415FFF41BFBB25E00EAA29F /* SobreViewController.swift in Sources */,
 				521293341BE2AC720093D905 /* AvaliacaoQuestaoTabBarController.swift in Sources */,
 				24A20FA31B97695500FD2A30 /* UpdateTableViewController.swift in Sources */,
