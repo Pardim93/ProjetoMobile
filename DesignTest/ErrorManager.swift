@@ -70,15 +70,17 @@ class ErrorManager: NSObject {
         "InvalidObject" : 201,
         "NoConnection" : 202,
         "RegisteredEmail" : 203,
-        "UnknownError" : 204,
-        "UnloggedUsed" : 205,
+        "UnloggedUsed" : 204,
         
         //LoginManager
         "IncorrectData" : 300,
         
         //RegisterManager
         "InvalidEmail" : 400,
-        "InvalidPassword" : 401
+        "InvalidPassword" : 401,
+        
+        //Desconhecido
+        "UnknownError" : -1
     ]
     
     static func getErrorForCode(errorCode: Int) -> NSError?{
@@ -104,8 +106,7 @@ class ErrorManager: NSObject {
     static func getErrorForErrorType(type: ErrorType) -> NSError?{
         let typeString = "\(type)"
         
-        var erro: NSError?
-        let domain: String = "ErrorManager"
+        let domain: String = "Vestibulandos"
         let code: Int = codeDictionary[typeString]!
         let description: String = descriptionDictionary[typeString]!
         let failureReason: String = failueReasonDictionary[typeString]!
@@ -117,9 +118,7 @@ class ErrorManager: NSObject {
             NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString(recoverySuggestion, comment: "")
         ]
         
-        erro = NSError(domain: domain, code: code, userInfo: userInfo)
-        
-        return erro
+        return NSError(domain: domain, code: code, userInfo: userInfo)
     }
 }
 

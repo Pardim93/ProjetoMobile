@@ -23,7 +23,7 @@
                                         <rect key="frame" x="0.0" y="64" width="600" height="241"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QFZ-qG-MTr" id="hif-vM-ij0">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="241"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="240.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eq7-jz-roy">
@@ -97,7 +97,7 @@
                                         <rect key="frame" x="0.0" y="305" width="600" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FmA-cR-5Zq" id="TK3-g9-VwH">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OH0-ra-hXz">
@@ -107,7 +107,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Well@uol.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0A-qm-XkA">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Well@uol.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="e0A-qm-XkA">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
@@ -118,7 +118,10 @@
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="centerY" secondItem="OH0-ra-hXz" secondAttribute="centerY" id="4Lw-QS-IMt"/>
-                                                <constraint firstItem="e0A-qm-XkA" firstAttribute="leading" secondItem="TK3-g9-VwH" secondAttribute="leadingMargin" constant="180" id="Mr4-Cy-BU4"/>
+                                                <constraint firstItem="e0A-qm-XkA" firstAttribute="leading" secondItem="TK3-g9-VwH" secondAttribute="leadingMargin" constant="180" id="Mr4-Cy-BU4">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="150"/>
+                                                </constraint>
+                                                <constraint firstAttribute="trailingMargin" secondItem="e0A-qm-XkA" secondAttribute="trailing" constant="30" id="YrA-9Y-VXW"/>
                                                 <constraint firstItem="OH0-ra-hXz" firstAttribute="leading" secondItem="TK3-g9-VwH" secondAttribute="leadingMargin" constant="30" id="ez6-y2-t8X"/>
                                                 <constraint firstAttribute="centerY" secondItem="e0A-qm-XkA" secondAttribute="centerY" id="zk2-op-58K"/>
                                             </constraints>
@@ -131,6 +134,7 @@
                                                     <exclude reference="4Lw-QS-IMt"/>
                                                     <exclude reference="ez6-y2-t8X"/>
                                                     <exclude reference="Mr4-Cy-BU4"/>
+                                                    <exclude reference="YrA-9Y-VXW"/>
                                                     <exclude reference="zk2-op-58K"/>
                                                 </mask>
                                             </variation>
@@ -143,6 +147,7 @@
                                                     <include reference="4Lw-QS-IMt"/>
                                                     <include reference="ez6-y2-t8X"/>
                                                     <include reference="Mr4-Cy-BU4"/>
+                                                    <include reference="YrA-9Y-VXW"/>
                                                     <include reference="zk2-op-58K"/>
                                                 </mask>
                                             </variation>
@@ -153,7 +158,7 @@
                                         <rect key="frame" x="0.0" y="360" width="600" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p9Z-d4-mh7" id="y5K-Th-SYA">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="País" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNg-b1-X0v">
@@ -175,7 +180,9 @@
                                             <constraints>
                                                 <constraint firstItem="MNg-b1-X0v" firstAttribute="leading" secondItem="y5K-Th-SYA" secondAttribute="leadingMargin" constant="30" id="FlG-gB-PGq"/>
                                                 <constraint firstAttribute="centerY" secondItem="vt5-QG-RLb" secondAttribute="centerY" id="dwO-ir-bno"/>
-                                                <constraint firstItem="vt5-QG-RLb" firstAttribute="leading" secondItem="y5K-Th-SYA" secondAttribute="leadingMargin" constant="180" id="ft3-3P-JoM"/>
+                                                <constraint firstItem="vt5-QG-RLb" firstAttribute="leading" secondItem="y5K-Th-SYA" secondAttribute="leadingMargin" constant="180" id="ft3-3P-JoM">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="150"/>
+                                                </constraint>
                                                 <constraint firstAttribute="centerY" secondItem="MNg-b1-X0v" secondAttribute="centerY" id="k4f-ui-V67"/>
                                             </constraints>
                                             <variation key="default">
@@ -209,7 +216,7 @@
                                         <rect key="frame" x="0.0" y="415" width="600" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yg5-MG-SBP" id="jg5-M9-LEH">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ocupação" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sf4-jN-aPH">
@@ -231,7 +238,9 @@
                                             <constraints>
                                                 <constraint firstAttribute="centerY" secondItem="vId-dA-kci" secondAttribute="centerY" id="6BO-NX-ddq"/>
                                                 <constraint firstAttribute="centerY" secondItem="sf4-jN-aPH" secondAttribute="centerY" id="VwW-Wb-cGV"/>
-                                                <constraint firstItem="vId-dA-kci" firstAttribute="leading" secondItem="jg5-M9-LEH" secondAttribute="leadingMargin" constant="180" id="gL4-EZ-Hqw"/>
+                                                <constraint firstItem="vId-dA-kci" firstAttribute="leading" secondItem="jg5-M9-LEH" secondAttribute="leadingMargin" constant="180" id="gL4-EZ-Hqw">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="150"/>
+                                                </constraint>
                                                 <constraint firstItem="sf4-jN-aPH" firstAttribute="leading" secondItem="jg5-M9-LEH" secondAttribute="leadingMargin" constant="30" id="m8N-Zc-30i"/>
                                             </constraints>
                                             <variation key="default">
@@ -258,6 +267,15 @@
                                                     <include reference="gL4-EZ-Hqw"/>
                                                 </mask>
                                             </variation>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="208-4l-Iah">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="208-4l-Iah" id="eHd-HE-iMU">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
@@ -292,7 +310,7 @@
         <!--Custom Navigation View Controller-->
         <scene sceneID="bCN-gA-I9Z">
             <objects>
-                <navigationController id="Oyi-Yz-tOd" customClass="CustomNavigationViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PerfilCustomNavigationController" id="Oyi-Yz-tOd" customClass="CustomNavigationViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IWY-b3-Hla">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

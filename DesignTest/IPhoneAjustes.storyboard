@@ -466,7 +466,7 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aKR-l7-WRy">
+                                                <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aKR-l7-WRy">
                                                     <rect key="frame" x="-25" y="-15" width="51" height="31"/>
                                                     <animations/>
                                                 </switch>
@@ -830,6 +830,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Ee5-ZR-4A5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ARL-gM-XY8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vestibulandos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMa-eC-evf">
@@ -868,6 +869,7 @@
                                 <exclude reference="7yG-KP-ffy"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="vgr-1n-zij"/>
                                 <exclude reference="bG9-Qe-Umv"/>
                                 <exclude reference="tzw-l8-IhQ"/>
                                 <exclude reference="xwz-oF-Wwf"/>
@@ -875,7 +877,6 @@
                                 <exclude reference="g3N-HO-o8Z"/>
                                 <exclude reference="slk-Bu-Mvi"/>
                                 <exclude reference="wgv-9U-7Ep"/>
-                                <exclude reference="vgr-1n-zij"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -884,6 +885,7 @@
                                 <include reference="7yG-KP-ffy"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="vgr-1n-zij"/>
                                 <exclude reference="bG9-Qe-Umv"/>
                                 <include reference="tzw-l8-IhQ"/>
                                 <include reference="xwz-oF-Wwf"/>
@@ -891,7 +893,6 @@
                                 <include reference="g3N-HO-o8Z"/>
                                 <include reference="slk-Bu-Mvi"/>
                                 <include reference="wgv-9U-7Ep"/>
-                                <include reference="vgr-1n-zij"/>
                             </mask>
                         </variation>
                     </view>

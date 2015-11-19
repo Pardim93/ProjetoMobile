@@ -146,7 +146,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         let newStoryboard = UIStoryboard(name: "IPhonePerfil", bundle: nil)
         let newView = newStoryboard.instantiateInitialViewController() as? PerfilTableViewController
         
-        let user = PFUser.currentUser()
+        let user = self.prova.objectForKey("Autor") as! PFUser
         newView?.user = user
         
         self.navigationController?.pushViewController(newView!, animated: true)

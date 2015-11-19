@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="342" height="160"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="342" height="160"/>
+                <rect key="frame" x="0.0" y="0.0" width="342" height="159.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disciplina" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rN3-qG-gWW">
@@ -26,26 +26,16 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdX-7q-Z1M" customClass="CellTextView" customModule="DesignTest" customModuleProvider="target">
-                        <rect key="frame" x="38" y="18" width="204" height="80"/>
-                        <animations/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="80" id="Srj-ye-mU0"/>
-                        </constraints>
-                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cS-Lm-9WC" customClass="ZFRippleButton" customModule="DesignTest" customModuleProvider="target">
-                        <rect key="frame" x="252" y="0.0" width="90" height="160"/>
+                        <rect key="frame" x="292" y="0.0" width="50" height="160"/>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="90" id="TTK-70-sGW"/>
+                            <constraint firstAttribute="width" constant="50" id="TTK-70-sGW"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                         <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
-                        <state key="normal" title="Adicionar">
+                        <state key="normal">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <userDefinedRuntimeAttributes>
@@ -63,6 +53,16 @@
                             <action selector="usarQuestao:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UM4-o9-3WA"/>
                         </connections>
                     </button>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdX-7q-Z1M" customClass="CellTextView" customModule="DesignTest" customModuleProvider="target">
+                        <rect key="frame" x="38" y="18" width="244" height="80"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="Srj-ye-mU0"/>
+                        </constraints>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                 </subviews>
                 <animations/>
                 <constraints>

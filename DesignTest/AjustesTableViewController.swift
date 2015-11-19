@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class AjustesTableViewController: UITableViewController, UIGestureRecognizerDelegate {
+class AjustesTableViewController: UITableViewController, UIGestureRecognizerDelegate, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
 //    @IBOutlet weak var activityView: UIActivityIndicatorView!
@@ -38,6 +39,7 @@ class AjustesTableViewController: UITableViewController, UIGestureRecognizerDele
         self.configActivityView()
     }
     
+//    MARK: Configure
     func configureTableView(){
         self.tableView.separatorInset = UIEdgeInsetsZero
         self.tableView.layoutMargins = UIEdgeInsetsZero
@@ -148,6 +150,11 @@ class AjustesTableViewController: UITableViewController, UIGestureRecognizerDele
         case "sairCell":
             self.showConfirmAlert()
             break
+            
+        case "feedbackCell":
+            self.showEmailView()
+            break
+            
         default:
             break
         }
@@ -155,6 +162,56 @@ class AjustesTableViewController: UITableViewController, UIGestureRecognizerDele
     
     func tapHandle(){
         self.performSegueWithIdentifier("goToAjustes", sender: self)
+    }
+    
+//    MARK: Email
+    func showEmailView(){
+        if(!MFMailComposeViewController.canSendMail()){
+            self.navigationController?.showAlert("Você não pode mandar emails.")
+            return
+        }
+        
+        let mailView = self.createMail()
+        self.navigationController?.presentViewController(mailView, animated: true, completion: nil)
+    }
+    
+    func createMail() -> MFMailComposeViewController{
+        let mailView = MFMailComposeViewController()
+        mailView.mailComposeDelegate = self
+        mailView.setToRecipients(["suporteVestibulandos@gmail.com"])
+        
+        return mailView
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true) { () -> Void in
+            
+            if(error != nil){
+                self.navigationController?.showAlert("Ocorreu um erro. Tente novamente mais tarde.")
+                return
+            }
+            
+            switch result{
+            case MFMailComposeResultSent:
+                self.navigationController?.showAlert("Feedback enviado com sucesso!")
+                break
+                
+            case MFMailComposeResultSaved:
+                self.navigationController?.showAlert("Feedback salvo. Lembre-se de enviá-lo mais tarde.")
+                break
+                
+            case MFMailComposeResultFailed:
+                self.navigationController?.showAlert("Ocorreu um erro. Tente novamente mais tarde.")
+                break
+                
+            case MFMailComposeResultCancelled:
+                break
+                
+            default:
+                self.navigationController?.showAlert("Ocorreu um erro. Tente novamente mais tarde.")
+                break
+            }
+        }
     }
     
 //MARK: Alert
