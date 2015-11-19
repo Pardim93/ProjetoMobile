@@ -87,7 +87,7 @@
 		521293341BE2AC720093D905 /* AvaliacaoQuestaoTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521293311BE2AC720093D905 /* AvaliacaoQuestaoTabBarController.swift */; };
 		521293351BE2AC720093D905 /* AvaliacaoQuestaoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521293321BE2AC720093D905 /* AvaliacaoQuestaoTableViewController.swift */; };
 		521293361BE2AC720093D905 /* PerguntasAvaliacaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521293331BE2AC720093D905 /* PerguntasAvaliacaoViewController.swift */; };
-		521293381BE2ACB70093D905 /* IPhoneExercicios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 521293371BE2ACB70093D905 /* IPhoneExercicios.storyboard */; };
+		521293381BE2ACB70093D905 /* IPhoneExerciciosOriginal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 521293371BE2ACB70093D905 /* IPhoneExerciciosOriginal.storyboard */; };
 		5240D0071BF3A3C600D56CFD /* AuxiliarQuestoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5240D0041BF3A3C600D56CFD /* AuxiliarQuestoes.swift */; };
 		5240D0081BF3A3C600D56CFD /* ListaQuestoesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5240D0051BF3A3C600D56CFD /* ListaQuestoesViewController.swift */; };
 		5240D0091BF3A3C600D56CFD /* QuestaoMenuControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5240D0061BF3A3C600D56CFD /* QuestaoMenuControllerTableViewController.swift */; };
@@ -114,6 +114,8 @@
 		52AB5E8C1BF121D500A4FE5D /* AvaliacaoEnunciadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB5E8B1BF121D500A4FE5D /* AvaliacaoEnunciadoViewController.swift */; };
 		52BE35CB1BBC55830092042D /* IPhoneListaProvas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52BE35CA1BBC55830092042D /* IPhoneListaProvas.storyboard */; };
 		52CAB39E1BFE2870007A8230 /* QuestaoMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CAB39D1BFE2870007A8230 /* QuestaoMenuTableViewCell.swift */; };
+		52CAB3A01BFE2F8B007A8230 /* NavResultadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CAB39F1BFE2F8B007A8230 /* NavResultadoViewController.swift */; };
+		52CAB3A21BFE31E3007A8230 /* IPhoneExercicios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CAB3A11BFE31E3007A8230 /* IPhoneExercicios.storyboard */; };
 		52D8C9CC1BF09502007E849E /* QuestaoDetalheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D8C9CB1BF09502007E849E /* QuestaoDetalheViewController.swift */; };
 		52DF78A61B790EE30047A107 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF78A51B790EE30047A107 /* AppDelegate.swift */; };
 		52DF78A91B790EE30047A107 /* DesignTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52DF78A71B790EE30047A107 /* DesignTest.xcdatamodeld */; };
@@ -217,7 +219,7 @@
 		521293311BE2AC720093D905 /* AvaliacaoQuestaoTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliacaoQuestaoTabBarController.swift; sourceTree = "<group>"; };
 		521293321BE2AC720093D905 /* AvaliacaoQuestaoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliacaoQuestaoTableViewController.swift; sourceTree = "<group>"; };
 		521293331BE2AC720093D905 /* PerguntasAvaliacaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerguntasAvaliacaoViewController.swift; sourceTree = "<group>"; };
-		521293371BE2ACB70093D905 /* IPhoneExercicios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = IPhoneExercicios.storyboard; path = ../IPhoneExercicios.storyboard; sourceTree = "<group>"; };
+		521293371BE2ACB70093D905 /* IPhoneExerciciosOriginal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = IPhoneExerciciosOriginal.storyboard; path = ../IPhoneExerciciosOriginal.storyboard; sourceTree = "<group>"; };
 		5240D0041BF3A3C600D56CFD /* AuxiliarQuestoes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuxiliarQuestoes.swift; sourceTree = "<group>"; };
 		5240D0051BF3A3C600D56CFD /* ListaQuestoesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaQuestoesViewController.swift; sourceTree = "<group>"; };
 		5240D0061BF3A3C600D56CFD /* QuestaoMenuControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestaoMenuControllerTableViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +246,8 @@
 		52AB5E8B1BF121D500A4FE5D /* AvaliacaoEnunciadoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliacaoEnunciadoViewController.swift; sourceTree = "<group>"; };
 		52BE35CA1BBC55830092042D /* IPhoneListaProvas.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneListaProvas.storyboard; sourceTree = "<group>"; };
 		52CAB39D1BFE2870007A8230 /* QuestaoMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestaoMenuTableViewCell.swift; sourceTree = "<group>"; };
+		52CAB39F1BFE2F8B007A8230 /* NavResultadoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavResultadoViewController.swift; sourceTree = "<group>"; };
+		52CAB3A11BFE31E3007A8230 /* IPhoneExercicios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = IPhoneExercicios.storyboard; path = ../IPhoneExercicios.storyboard; sourceTree = "<group>"; };
 		52D8C9CB1BF09502007E849E /* QuestaoDetalheViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestaoDetalheViewController.swift; sourceTree = "<group>"; };
 		52DF78A01B790EE30047A107 /* DesignTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52DF78A41B790EE30047A107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -515,7 +519,8 @@
 			isa = PBXGroup;
 			children = (
 				24EE26EE1BC2EC7E00E0AB6A /* IPad */,
-				521293371BE2ACB70093D905 /* IPhoneExercicios.storyboard */,
+				521293371BE2ACB70093D905 /* IPhoneExerciciosOriginal.storyboard */,
+				52CAB3A11BFE31E3007A8230 /* IPhoneExercicios.storyboard */,
 				529760071BE3ED1E00DB551D /* AvaliacaoExercicios.storyboard */,
 				529760091BE3F13F00DB551D /* AvaliarPerguntas.storyboard */,
 				52DF78AC1B790EE30047A107 /* Main.storyboard */,
@@ -594,6 +599,8 @@
 		52A8484E1BB06D0E000ECCE9 /* Exercicios */ = {
 			isa = PBXGroup;
 			children = (
+				52CAB39F1BFE2F8B007A8230 /* NavResultadoViewController.swift */,
+				52CAB39D1BFE2870007A8230 /* QuestaoMenuTableViewCell.swift */,
 				5240D00A1BF3A3E000D56CFD /* SWRevealClasses */,
 				521293411BE2AE190093D905 /* Avaliacao */,
 				52514CFB1BD30757006289B2 /* PopUp */,
@@ -613,7 +620,6 @@
 		52DF78971B790EE30047A107 = {
 			isa = PBXGroup;
 			children = (
-				52CAB39D1BFE2870007A8230 /* QuestaoMenuTableViewCell.swift */,
 				52DF78A21B790EE30047A107 /* DesignTest */,
 				52DF78BB1B790EE30047A107 /* DesignTestTests */,
 				52DF78A11B790EE30047A107 /* Products */,
@@ -779,6 +785,7 @@
 				52BE35CB1BBC55830092042D /* IPhoneListaProvas.storyboard in Resources */,
 				52514CFF1BD3078F006289B2 /* PopUpViewController_iPhone6Plus.xib in Resources */,
 				24EE26F71BC2EE3700E0AB6A /* IPhoneAmigos.storyboard in Resources */,
+				52CAB3A21BFE31E3007A8230 /* IPhoneExercicios.storyboard in Resources */,
 				52514CFE1BD3078F006289B2 /* PopUpViewController_iPad.xib in Resources */,
 				2406630D1BD1627D007032F3 /* IPhoneInserirProva.storyboard in Resources */,
 				246F29BF1BA0C90B007C9F73 /* IPhoneProva.storyboard in Resources */,
@@ -798,7 +805,7 @@
 				52DF78B01B790EE30047A107 /* Images.xcassets in Resources */,
 				529760081BE3ED1E00DB551D /* AvaliacaoExercicios.storyboard in Resources */,
 				24EE26F01BC2ECA400E0AB6A /* IPhoneAjustes.storyboard in Resources */,
-				521293381BE2ACB70093D905 /* IPhoneExercicios.storyboard in Resources */,
+				521293381BE2ACB70093D905 /* IPhoneExerciciosOriginal.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -948,6 +955,7 @@
 				248899611BA756A6000CCA21 /* Registro.swift in Sources */,
 				529760131BE3F44900DB551D /* MenuController.swift in Sources */,
 				24C1BCCF1B8B864F00119539 /* AjustesTableViewController.swift in Sources */,
+				52CAB3A01BFE2F8B007A8230 /* NavResultadoViewController.swift in Sources */,
 				2488995A1BA73B33000CCA21 /* ProvasCollectionViewCell.swift in Sources */,
 				246CBC7D1B87B6B7002E6A6E /* RegistrosViewController.swift in Sources */,
 				240A00EF1BEA7EC900ADDE24 /* Extensions.swift in Sources */,

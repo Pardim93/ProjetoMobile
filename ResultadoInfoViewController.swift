@@ -20,15 +20,15 @@ class ResultadoInfoViewController: UIViewController {
     @IBOutlet weak var usrRespostaLabel: UILabel!
     @IBOutlet weak var respostaLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
-        
-
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getInfo()
         self.customLabels()
         self.customTextView()
-     
+        
         updateSizes()
         
     }
@@ -46,12 +46,12 @@ class ResultadoInfoViewController: UIViewController {
     
     
     func customTextView(){
-       
+        
         self.textView.layer.borderColor = UIColor.blueColor().colorWithAlphaComponent(0.5).CGColor
         self.textView.layer.borderWidth = 0.5
         self.textView.layer.cornerRadius = 6
         self.textView.clipsToBounds = true
-
+        
         
     }
     
@@ -69,7 +69,7 @@ class ResultadoInfoViewController: UIViewController {
         
         
     }
-
+    
     
     func updateSizes(){
         
@@ -81,7 +81,4 @@ class ResultadoInfoViewController: UIViewController {
     
     
 }
-
-
-
 

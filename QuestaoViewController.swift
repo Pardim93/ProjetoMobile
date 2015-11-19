@@ -12,6 +12,7 @@ class QuestaoViewController: UIViewController {
     
     
     @IBOutlet var scrollView: UIScrollView!
+    private var popViewController = PopUpViewController()
     
     @IBOutlet weak var imgExercicio: UIImageView!
     @IBOutlet weak var txtEnunciado: UITextView!
@@ -20,20 +21,65 @@ class QuestaoViewController: UIViewController {
     private var parseManager = ParseManager.singleton
     private var questoesManager = QuestoesManager.singleton
     var questao = NSObject()
- 
-
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Entrou")
-
+        
+        self.customImg()
+        self.customTextView()
+        self.createButton()
         self.view.backgroundColor = UIColor.whiteColor()
-        
         self.checkFlag()
-        
-
-        // Do any additional setup after loading the view.
     }
-
+    
+    func createButton(){
+        imgExercicio.userInteractionEnabled = true
+        
+        let button   = UIButton()
+        button.setBackgroundImage(UIImage(named:"LupaZoom"), forState: .Normal )
+        button.tag = 1
+        button.addTarget(self, action: "buttonPopUp:", forControlEvents: .TouchDown)
+        
+        
+        button.frame = CGRectMake(220, 180, 30, 30)
+        
+        self.imgExercicio.addSubview(button)
+        
+        
+        
+    }
+    
+    
+    
+    func buttonPopUp(sender:UIButton!){
+        if (UIDevice.currentDevice().userInterfaceIdiom == .Pad)
+        {
+            self.popViewController = PopUpViewController(nibName: "PopUpViewController_iPad", bundle: nil)
+            self.popViewController.title = "This is a popup view"
+            self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "You just triggered a great popup window", animated: true)
+        } else
+        {
+            if UIScreen.mainScreen().bounds.size.width > 320 {
+                if UIScreen.mainScreen().scale == 3 {
+                    self.popViewController = PopUpViewController(nibName: "PopUpViewController_iPhone6Plus", bundle: nil)
+                    self.popViewController.title = "Imagem do Enunciado"
+                    self.popViewController.showInView(self.view, withImage: imgExercicio.image, withMessage: "Imagem", animated: true)
+                } else {
+                    self.popViewController = PopUpViewController(nibName: "PopUpViewController_iPhone6", bundle: nil)
+                    self.popViewController.title = "Imagem do Enunciado"
+                    self.popViewController.showInView(self.view, withImage:imgExercicio.image, withMessage: "Imagem", animated: true)
+                }
+            } else {
+                self.popViewController = PopUpViewController(nibName: "PopUpViewController", bundle: nil)
+                self.popViewController.title = "Imagem do Enunciado"
+                self.popViewController.showInView(self.view, withImage: imgExercicio.image, withMessage: "Imagem", animated: true)
+            }
+        }
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -41,14 +87,42 @@ class QuestaoViewController: UIViewController {
     
     @IBAction func thumbsUp(sender: AnyObject) {
         
-  
+        
     }
-    //checa se é a primeira vez que a view carrega
     
     @IBAction func thumbsDown(sender: AnyObject) {
-    
-    
+        
+        
     }
+    
+    
+    
+    func customTextView(){
+        
+        self.txtEnunciado.layer.borderColor = UIColor.blueColor().colorWithAlphaComponent(0.5).CGColor
+        self.txtEnunciado.layer.borderWidth = 0.5
+        self.txtEnunciado.layer.cornerRadius = 6
+        self.txtEnunciado.clipsToBounds = true
+        
+        
+    }
+    
+    func customImg(){
+        
+        self.imgExercicio.layer.borderColor = UIColor.blueColor().colorWithAlphaComponent(0.5).CGColor
+        self.imgExercicio.layer.borderWidth = 0.5
+        self.imgExercicio.layer.cornerRadius = 6
+        self.imgExercicio.clipsToBounds = true
+        
+        self.imgExercicio.layer.borderColor = UIColor.blueColor().colorWithAlphaComponent(0.5).CGColor
+        self.imgExercicio.layer.borderWidth = 0.5
+        self.imgExercicio.layer.cornerRadius = 6
+        self.imgExercicio.clipsToBounds = true
+        
+        
+    }
+    
+    
     
     
     func checkFlag(){
@@ -57,7 +131,7 @@ class QuestaoViewController: UIViewController {
             timer = NSTimer.scheduledTimerWithTimeInterval(0.4, target: self, selector: "loadImage", userInfo: nil, repeats: true)
             self.configView()
         }
-
+        
     }
     
     func loadImage(){
@@ -72,24 +146,24 @@ class QuestaoViewController: UIViewController {
         self.questao = self.auxData.questao
         self.txtEnunciado.text = self.questao.valueForKey("Enunciado") as! String
     }
-
-
+    
+    
     // MARK: - Navigation
-
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if(segue.identifier == "goToRespostas"){
-     
-//           let view =  ResultadoProvaViewController()
+            
+            //           let view =  ResultadoProvaViewController()
             self.auxData.questoesUsuario = questoesManager.arrayRespostas
             
-       
+            
         }
         
-
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
     
-
+    
 }

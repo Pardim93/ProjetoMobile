@@ -22,7 +22,7 @@ class ResultadoProvaViewController: UITableViewController  {
     }
     
     func configBackButton(){
-
+        
         self.navigationItem.hidesBackButton = true
         self.navigationItem.leftBarButtonItem = nil
     }
@@ -55,28 +55,28 @@ class ResultadoProvaViewController: UITableViewController  {
     
     
     
-//    func carregaQuestao(){
-//
-//        var arrayAlternativas = NSMutableArray()
-//       
-//        
-//        
-//        while(arrayAlternativas.count < 5){
-//            let  rndNum = Int(arc4random_uniform(5))
-//            let letra = String(UnicodeScalar(65 + rndNum))
-//            
-//            if(!arrayAlternativas.containsObject((self.auxQuestoes.questoesUsuario.objectForKey("Alternativa\(letra)"))!)){
-//                arrayAlternativas.addObject((questao?.objectForKey("Alternativa\(letra)"))!)
-//            }
-//            
-//        }
-//    }
-//    
+    //    func carregaQuestao(){
+    //
+    //        var arrayAlternativas = NSMutableArray()
+    //
+    //
+    //
+    //        while(arrayAlternativas.count < 5){
+    //            let  rndNum = Int(arc4random_uniform(5))
+    //            let letra = String(UnicodeScalar(65 + rndNum))
+    //
+    //            if(!arrayAlternativas.containsObject((self.auxQuestoes.questoesUsuario.objectForKey("Alternativa\(letra)"))!)){
+    //                arrayAlternativas.addObject((questao?.objectForKey("Alternativa\(letra)"))!)
+    //            }
+    //
+    //        }
+    //    }
+    //
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! PerguntasTableViewCell
+        let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! PerguntasTableViewCell
         print(cell.textLabel?.text)
         self.performSegueWithIdentifier("goToInfo", sender: self)
         
@@ -89,19 +89,19 @@ class ResultadoProvaViewController: UITableViewController  {
         cell.textLabel?.text = "Pergunta \(indexPath.row + 1)"
         cell.textLabel?.textAlignment = .Center
         cell.accessoryType = .DisclosureIndicator
-
-     
+        
+        
         
         let respostaCerta = (auxQuestoes.questoesCorretas[(indexPath.row)].objectForKey("AlternativaA") as? String)
         let respostaUsuario = auxQuestoes.questoesUsuario[indexPath.row] as! String
         cell.configImage()
-
+        
         if(respostaCerta! == respostaUsuario){
             cell.imgCell?.image = UIImage(named:"rightAnswerIco")
         }else{
             cell.imgCell?.image = UIImage(named:"wrongAns")
         }
-
+        
         return cell
         
     }
@@ -112,13 +112,13 @@ class ResultadoProvaViewController: UITableViewController  {
             let upcoming = segue.destinationViewController as? ResultadoInfoViewController
             let indexPath = self.tableView.indexPathForSelectedRow
             let respostaUsuario = auxQuestoes.questoesUsuario[(indexPath?.row)!] as! String
-
+            
             upcoming!.strResposta  = (auxQuestoes.questoesCorretas[(indexPath?.row)!].objectForKey("AlternativaA") as? String)!
             upcoming!.strEnunciado = (auxQuestoes.questoesCorretas[(indexPath?.row)!].objectForKey("Enunciado") as? String)!
             upcoming?.strUserResposta = respostaUsuario
             
             
-
+            
             
         }
     }

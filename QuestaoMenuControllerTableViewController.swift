@@ -53,8 +53,8 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
             self.auxData.indexQuestaoSelecionada = indexPath.row
         }else{
             
-            var view = self.storyboard?.instantiateViewControllerWithIdentifier("NavResultadoViewController")
-            
+            let view = self.storyboard?.instantiateViewControllerWithIdentifier("NavResultadoViewController")
+    
             
             self.auxData.questoesUsuario = questoesManager.arrayRespostas
             self.presentViewController(view!, animated: false, completion: nil)
@@ -123,7 +123,7 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     
     func respostasQuestoes(enunciados: NSArray){
         
-        var arrayRepostas = NSMutableArray()
+        let arrayRepostas = NSMutableArray()
         
         for x in self.myArray{
             arrayRepostas.addObject(x)

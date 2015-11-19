@@ -9,7 +9,7 @@
 import UIKit
 
 class TabBarQuestaoController: UITabBarController {
-
+    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     private var auxQuestoes = AuxiliarQuestoes.singleton
     override func viewDidLoad() {
@@ -17,24 +17,24 @@ class TabBarQuestaoController: UITabBarController {
         self.configSideBar()
         
         if(auxQuestoes.flag){
-            //Carrega info de uma questao somente se o usuario tenha escolhido uma questao 
+            //Carrega info de uma questao somente se o usuario tenha escolhido uma questao
             
             self.sendInfoToView1()
             self.sendInfoToView2()
         }
         
-
+        
         // Do any additional setup after loading the view.
     }
     
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-        
+    
     func sendInfoToView1(){
         
         let view =  self.viewControllers?.first as! QuestaoViewController
@@ -81,12 +81,12 @@ class TabBarQuestaoController: UITabBarController {
     
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
