@@ -146,8 +146,6 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
             cell.setButtonStatus(InserirQuestaoProvaButtonStatus.Editar)
         }
         
-        cell.sho
-        
         return cell
     }
     
