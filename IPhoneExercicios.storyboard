@@ -187,7 +187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xO6-k5-bow" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6022.5" y="1074"/>
+            <point key="canvasLocation" x="5896.5" y="1998"/>
         </scene>
         <!--Storyboard Reference-->
         <scene sceneID="JXt-Xc-Rdx">
@@ -195,7 +195,7 @@
                 <viewControllerPlaceholder id="1bE-a9-eH2" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rr6-TC-UxC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2955" y="1391.25"/>
+            <point key="canvasLocation" x="3873" y="1391.25"/>
         </scene>
         <!--Alternativa-->
         <scene sceneID="iUL-ag-nYM">
@@ -647,17 +647,17 @@
         <scene sceneID="clR-QV-seZ">
             <objects>
                 <tableViewController title="Resultado" automaticallyAdjustsScrollViewInsets="NO" id="4Mg-If-wlA" customClass="ResultadoProvaViewController" customModule="DesignTest" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="eP7-DC-mOL">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="28" sectionFooterHeight="28" id="eP7-DC-mOL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="exercicioCell" id="O2S-QJ-ohj" customClass="PerguntasTableViewCell" customModule="DesignTest">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="exercicioCell" rowHeight="56" id="O2S-QJ-ohj" customClass="PerguntasTableViewCell" customModule="DesignTest">
+                                <rect key="frame" x="0.0" y="28" width="600" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O2S-QJ-ohj" id="TUl-ZH-UPl">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="55.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watchkit-intro" translatesAutoresizingMaskIntoConstraints="NO" id="UKR-pH-kkZ">
@@ -724,7 +724,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sz8-Qu-i4p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9696" y="591"/>
+            <point key="canvasLocation" x="10614" y="591"/>
         </scene>
         <!--Resultado-->
         <scene sceneID="zWz-hr-HgA">
@@ -942,7 +942,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hjS-Q0-xBu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10578" y="591"/>
+            <point key="canvasLocation" x="11496" y="591"/>
         </scene>
         <!--Pergunta-->
         <scene sceneID="8wo-Cr-vB0">
@@ -1235,7 +1235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W7m-PV-aAq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3126" y="1088.25"/>
+            <point key="canvasLocation" x="4044" y="1088.25"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="Hf2-bf-Nhx">
@@ -1257,7 +1257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nI3-jH-ras" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4105.5" y="1172.25"/>
+            <point key="canvasLocation" x="5023.5" y="1172.25"/>
         </scene>
         <!--Questao Menu Controller Table View Controller-->
         <scene sceneID="Eoj-D6-EAr">
@@ -1325,7 +1325,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b8H-Pg-TLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5215.5" y="1054.5"/>
+            <point key="canvasLocation" x="6133.5" y="1054.5"/>
         </scene>
         <!--Item-->
         <scene sceneID="gES-y4-FyQ">
@@ -1381,7 +1381,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjV-Kg-fBC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7719" y="1504.5"/>
+            <point key="canvasLocation" x="7161" y="1054.5"/>
         </scene>
         <!--Item-->
         <scene sceneID="7LD-KI-iqJ">
@@ -1411,7 +1411,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KMK-vm-5SG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7701" y="547.5"/>
+            <point key="canvasLocation" x="8619" y="547.5"/>
         </scene>
         <!--Avaliacao Questao Tab Bar Controller-->
         <scene sceneID="f0Y-SU-K1Q">
@@ -1488,7 +1488,22 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wTk-Kv-cZH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8766" y="591"/>
+            <point key="canvasLocation" x="9684" y="591"/>
+        </scene>
+        <!--Starter Nav View Controller-->
+        <scene sceneID="dRx-Rf-BGu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Dh-tt-JOR" customClass="StarterNavViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wc8-e6-L6e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mi1-94-X3r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3003" y="1054.5"/>
         </scene>
     </scenes>
     <resources>

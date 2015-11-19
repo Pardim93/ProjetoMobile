@@ -8,16 +8,23 @@
 
 import UIKit
 
-class CustomNavigationViewController: UINavigationController {
+class CustomNavigationViewController: UINavigationController, UINavigationBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setBarStyle()
         self.setButtonStyle()
         self.setBackButton()
+        self.navigationBar.backItem?.title = "testeeeee"
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        self.title = "yes"
+        
+         self.interactivePopGestureRecognizer!.enabled = false;
+
     }
     
 //    MARK: Estilo
     func setBarStyle(){
+        
         self.navigationBar.barTintColor = UIColor.newLightBlueColor()
         self.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Avenir Book", size: 20)!]

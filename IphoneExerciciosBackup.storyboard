@@ -1564,10 +1564,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="83" id="ApO-zf-frJ" customClass="PerguntasTableViewCell" customModule="DesignTest">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="83"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ApO-zf-frJ" id="Std-LF-gxa">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="82.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aus-Z8-0Zg">
@@ -1608,7 +1608,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w71-9d-Fzl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9696" y="591"/>
+            <point key="canvasLocation" x="10311" y="567"/>
         </scene>
         <!--Resultado-->
         <scene sceneID="KRs-Ju-Xyf">
@@ -1683,8 +1683,7 @@
                                         <exclude reference="0AK-h0-qVB"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="153" y="619" width="97" height="21"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="0AK-h0-qVB"/>
                                     </mask>
@@ -1762,23 +1761,23 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="3Up-gg-6SL"/>
-                                <exclude reference="cXP-Nb-tsl"/>
-                                <exclude reference="4mg-Yp-w5Q"/>
-                                <exclude reference="vpM-5Q-c9D"/>
-                                <exclude reference="tfa-ix-6dV"/>
-                                <exclude reference="SnZ-mp-yHz"/>
-                                <exclude reference="mWz-Qk-uoT"/>
-                                <exclude reference="N2b-Qf-Ki9"/>
-                                <exclude reference="ZnZ-lg-5Ze"/>
                                 <exclude reference="0K7-3T-QjT"/>
                                 <exclude reference="0o5-ie-WQe"/>
+                                <exclude reference="N2b-Qf-Ki9"/>
+                                <exclude reference="ZnZ-lg-5Ze"/>
+                                <exclude reference="4mg-Yp-w5Q"/>
+                                <exclude reference="SnZ-mp-yHz"/>
+                                <exclude reference="mWz-Qk-uoT"/>
+                                <exclude reference="tfa-ix-6dV"/>
+                                <exclude reference="vpM-5Q-c9D"/>
+                                <exclude reference="5JT-CO-kPP"/>
                                 <exclude reference="IlQ-hF-FCA"/>
                                 <exclude reference="UJI-bx-VEE"/>
                                 <exclude reference="z38-cX-vYg"/>
-                                <exclude reference="5JT-CO-kPP"/>
-                                <exclude reference="fvp-sO-bUF"/>
-                                <exclude reference="XBf-fR-PrI"/>
+                                <exclude reference="cXP-Nb-tsl"/>
                                 <exclude reference="HQY-ku-sKU"/>
+                                <exclude reference="XBf-fR-PrI"/>
+                                <exclude reference="fvp-sO-bUF"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1792,23 +1791,23 @@
                             </mask>
                             <mask key="constraints">
                                 <include reference="3Up-gg-6SL"/>
-                                <include reference="cXP-Nb-tsl"/>
-                                <include reference="4mg-Yp-w5Q"/>
-                                <include reference="vpM-5Q-c9D"/>
-                                <include reference="tfa-ix-6dV"/>
-                                <include reference="SnZ-mp-yHz"/>
-                                <include reference="mWz-Qk-uoT"/>
-                                <include reference="N2b-Qf-Ki9"/>
-                                <include reference="ZnZ-lg-5Ze"/>
                                 <include reference="0K7-3T-QjT"/>
                                 <include reference="0o5-ie-WQe"/>
+                                <include reference="N2b-Qf-Ki9"/>
+                                <include reference="ZnZ-lg-5Ze"/>
+                                <include reference="4mg-Yp-w5Q"/>
+                                <include reference="SnZ-mp-yHz"/>
+                                <include reference="mWz-Qk-uoT"/>
+                                <include reference="tfa-ix-6dV"/>
+                                <include reference="vpM-5Q-c9D"/>
+                                <include reference="5JT-CO-kPP"/>
                                 <include reference="IlQ-hF-FCA"/>
                                 <include reference="UJI-bx-VEE"/>
                                 <include reference="z38-cX-vYg"/>
-                                <include reference="5JT-CO-kPP"/>
-                                <include reference="fvp-sO-bUF"/>
-                                <include reference="XBf-fR-PrI"/>
+                                <include reference="cXP-Nb-tsl"/>
                                 <include reference="HQY-ku-sKU"/>
+                                <include reference="XBf-fR-PrI"/>
+                                <include reference="fvp-sO-bUF"/>
                             </mask>
                         </variation>
                     </view>
@@ -1819,7 +1818,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y6n-uU-Igu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10578" y="591"/>
+            <point key="canvasLocation" x="11022" y="567"/>
         </scene>
         <!--Nav Resultado View Controller-->
         <scene sceneID="Jcz-VQ-czY">
@@ -1837,7 +1836,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wsi-sf-hpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8796" y="600"/>
+            <point key="canvasLocation" x="9582" y="567"/>
         </scene>
     </scenes>
     <resources>
