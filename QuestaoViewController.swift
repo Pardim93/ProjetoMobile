@@ -32,6 +32,7 @@ class QuestaoViewController: UIViewController {
         self.createButton()
         self.view.backgroundColor = UIColor.whiteColor()
         self.checkFlag()
+        self.navigationController?.navigationItem.hidesBackButton = true
     }
     
     func createButton(){

@@ -52,7 +52,7 @@
                         </variation>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IGA-a3-51C" customClass="EDStarRating">
-                        <rect key="frame" x="167" y="120" width="150" height="25"/>
+                        <rect key="frame" x="167" y="118" width="150" height="25"/>
                         <animations/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -66,11 +66,17 @@
                     <constraint firstItem="F1Y-ks-zmd" firstAttribute="leading" secondItem="Rik-uH-WNH" secondAttribute="leading" id="35a-32-EaL"/>
                     <constraint firstAttribute="bottomMargin" secondItem="F1Y-ks-zmd" secondAttribute="bottom" constant="5" id="LLX-4A-1OH"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Rik-uH-WNH" secondAttribute="trailing" constant="30" id="MCX-f6-ndn"/>
+                    <constraint firstItem="IGA-a3-51C" firstAttribute="centerY" secondItem="F1Y-ks-zmd" secondAttribute="centerY" id="QGH-Bv-V41"/>
                     <constraint firstItem="IGA-a3-51C" firstAttribute="bottom" secondItem="F1Y-ks-zmd" secondAttribute="bottom" id="RR3-HK-1cK"/>
                     <constraint firstItem="Rik-uH-WNH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="SeJ-7Q-doB"/>
                     <constraint firstItem="Rik-uH-WNH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="30" id="fEa-JR-DFw"/>
                     <constraint firstItem="IGA-a3-51C" firstAttribute="trailing" secondItem="Rik-uH-WNH" secondAttribute="trailing" id="rg9-2e-cGP"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="RR3-HK-1cK"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <animations/>
             <connections>

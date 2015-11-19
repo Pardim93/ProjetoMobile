@@ -16,7 +16,7 @@ class ListaProvaTableViewCell: UITableViewCell {
     @IBOutlet weak var numQuestoesLabel: UILabel!
     
     var prova: PFObject?
-    let colors:[UIColor] = [UIColor.newLightBlueColor(), UIColor.newBlueColor()]
+    let colors:[UIColor] = [UIColor.colorWithHexString("#F7802A", alph: 1.0), UIColor.colorWithHexString("#1F7CFF", alph: 1.0), UIColor.newGreenColor()]
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,7 +31,7 @@ class ListaProvaTableViewCell: UITableViewCell {
     
 //    MARK: Set
     func setColor(row: Int){
-        let colorPick = row%2
+        let colorPick = row%3
         self.tituloLabel.backgroundColor = self.colors[colorPick]
     }
     
@@ -53,6 +53,7 @@ class ListaProvaTableViewCell: UITableViewCell {
     func setDisciplinas(newText: String){
         self.disciplinasTextView.text = newText
         self.disciplinasTextView.font = UIFont(name: "Avenir Book", size: 16)
+        self.disciplinasTextView.scrollEnabled = true
         self.disciplinasTextView.textColor = UIColor.newLightBlueColor()
     }
     

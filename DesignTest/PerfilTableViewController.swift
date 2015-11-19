@@ -47,7 +47,6 @@ class PerfilTableViewController: UITableViewController {
             cell.layoutMargins = UIEdgeInsetsZero
         }
         
-        self.tableView.backgroundColor = UIColor.whiteColor()
         self.configTableViewFooter()
     }
     

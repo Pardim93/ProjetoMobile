@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="342" height="160"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="342" height="160"/>
+                <rect key="frame" x="0.0" y="0.0" width="342" height="159.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disciplina" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rN3-qG-gWW">
@@ -27,8 +27,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdX-7q-Z1M" customClass="CellTextView" customModule="DesignTest" customModuleProvider="target">
-                        <rect key="frame" x="38" y="18" width="204" height="80"/>
+                        <rect key="frame" x="38" y="18" width="244" height="80"/>
                         <animations/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="0.15031144430000001" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="80" id="Srj-ye-mU0"/>
                         </constraints>
@@ -37,15 +38,15 @@
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cS-Lm-9WC" customClass="ZFRippleButton" customModule="DesignTest" customModuleProvider="target">
-                        <rect key="frame" x="252" y="0.0" width="90" height="160"/>
+                        <rect key="frame" x="292" y="0.0" width="50" height="160"/>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="90" id="TTK-70-sGW"/>
+                            <constraint firstAttribute="width" constant="50" id="TTK-70-sGW"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                         <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
-                        <state key="normal" title="Adicionar">
+                        <state key="normal">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <userDefinedRuntimeAttributes>
@@ -63,6 +64,22 @@
                             <action selector="usarQuestao:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UM4-o9-3WA"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eR0-52-bvL">
+                        <rect key="frame" x="297" y="69" width="41" height="24"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fAk-Yv-JHE" customClass="EDStarRating">
+                        <rect key="frame" x="132" y="119" width="150" height="25"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="Uxd-VG-wMj"/>
+                            <constraint firstAttribute="width" constant="150" id="sWa-Qn-86L"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <animations/>
                 <constraints>
@@ -70,6 +87,7 @@
                     <constraint firstItem="7cS-Lm-9WC" firstAttribute="trailing" secondItem="jdX-7q-Z1M" secondAttribute="trailing" id="AgX-yV-12s"/>
                     <constraint firstItem="jdX-7q-Z1M" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="EMU-5G-DeH"/>
                     <constraint firstAttribute="trailingMargin" secondItem="7cS-Lm-9WC" secondAttribute="trailing" constant="-8" id="FCy-yW-5x1"/>
+                    <constraint firstItem="rN3-qG-gWW" firstAttribute="bottom" secondItem="fAk-Yv-JHE" secondAttribute="bottom" id="FhV-kD-fYQ"/>
                     <constraint firstItem="jdX-7q-Z1M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="30" id="G4H-oQ-mBd"/>
                     <constraint firstItem="rN3-qG-gWW" firstAttribute="leading" secondItem="jdX-7q-Z1M" secondAttribute="leading" id="GjH-7M-wGO"/>
                     <constraint firstAttribute="bottomMargin" secondItem="7cS-Lm-9WC" secondAttribute="bottom" constant="-8" id="HNn-LX-gM7"/>
@@ -78,14 +96,19 @@
                     <constraint firstItem="7cS-Lm-9WC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="SK1-Li-M9i"/>
                     <constraint firstItem="7cS-Lm-9WC" firstAttribute="bottom" secondItem="rN3-qG-gWW" secondAttribute="bottom" id="UxP-S1-FMg"/>
                     <constraint firstAttribute="trailingMargin" secondItem="jdX-7q-Z1M" secondAttribute="trailing" constant="30" id="cME-IZ-egt"/>
+                    <constraint firstItem="eR0-52-bvL" firstAttribute="centerY" secondItem="7cS-Lm-9WC" secondAttribute="centerY" id="eO2-F4-kF8"/>
                     <constraint firstAttribute="bottomMargin" secondItem="jdX-7q-Z1M" secondAttribute="bottom" constant="10" id="esl-Nv-EMg"/>
+                    <constraint firstItem="eR0-52-bvL" firstAttribute="centerX" secondItem="7cS-Lm-9WC" secondAttribute="centerX" id="gcJ-dP-jZi"/>
+                    <constraint firstItem="fAk-Yv-JHE" firstAttribute="centerY" secondItem="rN3-qG-gWW" secondAttribute="centerY" id="nef-Xf-wC6"/>
                     <constraint firstItem="7cS-Lm-9WC" firstAttribute="leading" secondItem="jdX-7q-Z1M" secondAttribute="trailing" constant="10" id="rTy-cq-xpb"/>
                     <constraint firstAttribute="bottomMargin" secondItem="rN3-qG-gWW" secondAttribute="bottom" constant="5" id="tDd-yF-2vk"/>
+                    <constraint firstItem="fAk-Yv-JHE" firstAttribute="trailing" secondItem="jdX-7q-Z1M" secondAttribute="trailing" id="tOW-pG-1oN"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
                         <exclude reference="cME-IZ-egt"/>
                         <exclude reference="esl-Nv-EMg"/>
+                        <exclude reference="FhV-kD-fYQ"/>
                         <exclude reference="RHd-uW-zSX"/>
                         <exclude reference="tDd-yF-2vk"/>
                         <exclude reference="2Rb-a2-AeK"/>
@@ -96,9 +119,11 @@
             </tableViewCellContentView>
             <animations/>
             <connections>
+                <outlet property="actionLabel" destination="eR0-52-bvL" id="TRq-6W-NbG"/>
                 <outlet property="adicionarButton" destination="7cS-Lm-9WC" id="kwc-Aq-LWL"/>
                 <outlet property="descricaoTextView" destination="jdX-7q-Z1M" id="NFF-zU-6VK"/>
                 <outlet property="disciplinaLabel" destination="rN3-qG-gWW" id="Y2F-Mc-Jos"/>
+                <outlet property="starRating" destination="fAk-Yv-JHE" id="Pt1-CO-OVB"/>
             </connections>
             <point key="canvasLocation" x="975" y="573"/>
         </tableViewCell>

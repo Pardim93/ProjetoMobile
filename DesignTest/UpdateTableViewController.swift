@@ -39,6 +39,7 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
         self.configActivityView()
     }
     
+//    MARK: Config
     func configSaveButton(){
         let buttonSave = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "saveDados")
         self.navigationItem.rightBarButtonItem = buttonSave
@@ -47,8 +48,8 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
     func configBackButton(){
         backItem = self.navigationItem.leftBarButtonItem
         
-        let backButton = UIBarButtonItem(image: UIImage(named: "Back-44"), style: .Plain, target: self, action: "notificateConfirmation")
-        backButton.action = "notificateConfirmation"
+        let backButton = UIBarButtonItem(image: UIImage(named: "Back-44"), style: .Plain, target: self, action: "tryToGoBack")
+//        backButton.action = "tryToGoBack"
         self.navigationItem.leftBarButtonItem = backButton
     }
     
@@ -114,7 +115,35 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
         return isOn
     }
     
-//    MARK: Setter
+//    MARK: GoBack
+    func tryToGoBack(){
+        guard
+            let email = self.emailTextField.text,
+            let pais = self.paisLabel.text,
+            let ocupacao = self.ocupacaoLabel.text else{
+                self.navigationController?.popViewControllerAnimated(true)
+                return
+        }
+        
+        let showEmail = self.switchShowEmail.on
+        
+        let dadosChecked = self.checkDadosChanged(email, pais: pais, ocupacao: ocupacao, showEmail: showEmail)
+        
+        if(dadosChecked.error != nil){
+            let msg = dadosChecked.error?.localizedDescription
+            self.navigationController!.showAlert(msg!)
+            return
+        }
+        
+        if(dadosChecked.changed){
+            self.notificateConfirmation()
+            return
+        }
+        
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+//    MARK: Delegate
     func setNewValue(changeKey: String, newOpcao: String) {
         switch changeKey{
         case "Pais":
@@ -298,11 +327,11 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
         alertController.addAction(UIAlertAction(title: "Ok", style: .Default) { (action) in
             self.saveDados()
         })
-        alertController.addAction(UIAlertAction(title: "Não", style: .Default) { (action)
+        alertController.addAction(UIAlertAction(title: "Não", style: .Cancel) { (action)
             in
             self.navigationItem.leftBarButtonItem = self.backItem
             self.navigationController?.popViewControllerAnimated(true)
-        })
+            })
         
         self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
     }
