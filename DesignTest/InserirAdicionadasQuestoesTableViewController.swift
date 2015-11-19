@@ -23,7 +23,7 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
  
-        if(self.editing){
+        if(self.tableView.editing){
             self.configToolBar()
         }
         
@@ -49,9 +49,21 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
     }
 
     func configSegmentedHidingCells(){
-        let header = UIView(frame: CGRectMake(0, 0, 1, 42))
+        let header = UIView(frame: CGRectMake(0, 0, 1, 39))
         header.backgroundColor = UIColor.clearColor()
         self.tableView.tableHeaderView = header
+    }
+    
+    func createFooter(){
+        let footer = UIView(frame: CGRectMake(0, 0, 1, 39))
+        footer.backgroundColor = UIColor.clearColor()
+        self.tableView.tableFooterView = footer
+    }
+    
+    func removeFooter(){
+        let footer = UIView(frame: CGRectMake(0, 0, 1, 1))
+        footer.backgroundColor = UIColor.clearColor()
+        self.tableView.tableFooterView = footer
     }
     
     func configToolBar(){
@@ -70,12 +82,12 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
     
 //    MARK: Selectors
     func changeEditing(){
-//        self.tableView.removeGestureRecognizer(longTapGesture!)
         self.setEditing(true, animated: true)
         
         self.tableView.reloadData()
         
         self.configToolBar()
+        self.createFooter()
     }
     
     func finishEditing(){
@@ -83,6 +95,7 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
         self.tableView.setEditing(false, animated: true)
         self.tableView.reloadData()
         self.navigationController?.setToolbarHidden(true, animated: true)
+        self.removeFooter()
     }
     
     func finishEdit(cellRow: Int) {
@@ -120,13 +133,20 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
         if(self.tableView.editing){
             cell.adicionarButton.enabled = false
             cell.adicionarButton.hidden = true
+            
+            cell.starRating.hidden = true
         }
         else{
             cell.delegate = self
             cell.adicionarButton.enabled = true
             cell.adicionarButton.hidden = false
+            
+            cell.starRating.hidden = false
+            
             cell.setButtonStatus(InserirQuestaoProvaButtonStatus.Editar)
         }
+        
+        cell.sho
         
         return cell
     }

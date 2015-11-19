@@ -12,11 +12,14 @@ protocol TratarQuestaoDelegate{
     func tratarQuestao(questao: PFObject, buttonStatus: InserirQuestaoProvaButtonStatus)
 }
 
-class InserirQuestaoTableViewCell: UITableViewCell{
+class InserirQuestaoTableViewCell: UITableViewCell, EDStarRatingProtocol{
     
     @IBOutlet weak var descricaoTextView: CellTextView!
     @IBOutlet weak var disciplinaLabel: UILabel!
     @IBOutlet weak var adicionarButton: ZFRippleButton!
+    @IBOutlet weak var actionLabel: UILabel!
+    @IBOutlet weak var starRating: EDStarRating!
+    
     
     var questao: PFObject?
     var delegate: TratarQuestaoDelegate?
@@ -42,11 +45,29 @@ class InserirQuestaoTableViewCell: UITableViewCell{
         self.descricaoTextView.layer.cornerRadius = 5
         self.descricaoTextView.font = UIFont(name: "Avenir Book", size: 15)
         self.descricaoTextView.userInteractionEnabled = true
+        self.descricaoTextView.backgroundColor = UIColor.colorWithHexString("EBEFFF", alph: 0.5)
     }
     
     func configAddButton(){
         self.adicionarButton.layer.borderWidth = 0.5
         self.adicionarButton.layer.borderColor = UIColor.clearColor().CGColor
+        
+        self.actionLabel.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
+    }
+    
+    func configStars(){
+        //        self.starRating = EDStarRating()
+        starRating.delegate = self;
+        starRating.backgroundColor = UIColor.clearColor()
+        starRating.starImage = UIImage(named: "Star-20")
+        starRating.starHighlightedImage = UIImage(named: "Star Filled-20")
+        starRating.maxRating = 5
+        starRating.horizontalMargin = 12;
+        starRating.editable = false
+        starRating.displayMode = UInt(EDStarRatingDisplayFull)
+        starRating.rating = 2.5;
+        
+        //        starRating.frame = CGRectMake(175, 0, 150, 50)
     }
     
 //    MARK: Set
@@ -54,6 +75,7 @@ class InserirQuestaoTableViewCell: UITableViewCell{
         self.questao = newQuestao
         self.setDescricao()
         self.setDisciplina()
+        self.configStars()
         
         self.descricaoTextView.cellRow = newRow
     }
@@ -86,21 +108,24 @@ class InserirQuestaoTableViewCell: UITableViewCell{
         
         switch self.buttonStatus{
         case .Adicionar:
-            self.adicionarButton.setTitle("Adicionar", forState: UIControlState.Normal)
+//            self.adicionarButton.setTitle("Adicionar", forState: UIControlState.Normal)
+            self.actionLabel.text = "Adicionar"
             self.adicionarButton.backgroundColor = UIColor.colorWithHexString("007AFF", alph: 1.0)
             self.adicionarButton.rippleBackgroundColor = UIColor.colorWithHexString("007AFF", alph: 0.5)
             self.adicionarButton.rippleColor = UIColor.colorWithHexString("0F3B5F", alph: 1.0)
             break
             
         case .Remover:
-            self.adicionarButton.setTitle("Remover", forState: UIControlState.Normal)
+//            self.adicionarButton.setTitle("Remover", forState: UIControlState.Normal)
+            self.actionLabel.text = "Remover"
             self.adicionarButton.backgroundColor = UIColor.colorWithHexString("C51419", alph: 1.0)
             self.adicionarButton.rippleBackgroundColor = UIColor.colorWithHexString("C51419", alph: 0.5)
             self.adicionarButton.rippleColor = UIColor.colorWithHexString("791619", alph: 1.0)
             break
             
         case .Editar:
-            self.adicionarButton.setTitle("Editar", forState: UIControlState.Normal)
+//            self.adicionarButton.setTitle("Editar", forState: UIControlState.Normal)
+            self.actionLabel.text = "Editar"
             self.adicionarButton.backgroundColor = UIColor.colorWithHexString("00D126", alph: 1.0)
             self.adicionarButton.rippleBackgroundColor = UIColor.colorWithHexString("00D126", alph: 0.5)
             self.adicionarButton.rippleColor = UIColor.colorWithHexString("007D17", alph: 1.0)
