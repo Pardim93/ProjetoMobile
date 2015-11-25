@@ -353,6 +353,37 @@ class ParseManager: NSObject {
 }
 
 //    MARK: PROVAS GET
+    func getProvasByAutor(autor: PFUser, completionHandler: ([PFObject], NSError?) -> ()){
+        let query = PFQuery(className: "Prova")
+        query.orderByDescending("Popularidade")
+        query.includeKey("Autor")
+        query.limit = 100
+        query.whereKey("Autor", equalTo: autor)
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var erro: NSError?
+            
+            do{
+                let result = try query.findObjects()
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    completionHandler(result, erro)
+                })
+                
+                return
+            } catch let externalError as NSError{
+                //Falha ao buscar provas populares
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler([], erro)
+                })
+                return
+            }
+        })
+    }
+    
     func getProvasPopulares(completionHandler:([PFObject], NSError?) -> ()){
         let query = PFQuery(className: "Prova")
         query.orderByDescending("Popularidade")
@@ -634,10 +665,39 @@ class ParseManager: NSObject {
         }
     }
     
+//    MARK: QUESTAO DELETE
+    func deleteQuestao(questao: PFObject, completionHandler: (NSError?) -> ()){
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var erro: NSError?
+            
+            do{
+                try questao.delete()
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(erro)
+                })
+                return
+            } catch let externalError as NSError{
+                //Falha ao deletar a questão
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(erro)
+                })
+                return
+            }
+            
+        })
+    }
+    
 //    MARK: QUESTÃO GET
     func getQuestoesByAutor(autor: PFUser, completionHandler: ([PFObject], NSError?) -> ()){
-        let query = PFQuery(className: "Questoes")
+        let query = PFQuery(className: "Questao")
         query.whereKey("Dono", equalTo: autor)
+        query.includeKey("Disciplina")
+        query.includeKey("Autor")
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             var erro: NSError?
@@ -667,6 +727,8 @@ class ParseManager: NSObject {
     func getQuestoesByProva(prova: PFObject, completionHandler: ([PFObject], NSError?) -> ()){
         let relationForQuestoes = prova.relationForKey("Questoes")
         let query = relationForQuestoes.query()
+        query!.includeKey("Disciplina")
+        query!.includeKey("Autor")
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             var erro: NSError?

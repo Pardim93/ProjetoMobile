@@ -1039,7 +1039,7 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KU3-c7-W55">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KU3-c7-W55">
                                         <rect key="frame" x="0.0" y="164" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KU3-c7-W55" id="dIY-6s-laA">
@@ -1339,42 +1339,60 @@
                                         <animations/>
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recuperarSenha" id="uKK-wP-GpX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="recuperarSenha" id="uKK-wP-GpX">
                                         <rect key="frame" x="0.0" y="408" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uKK-wP-GpX" id="IGh-kP-VzL">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clique aqui para resetar sua senha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72y-QN-dqY">
-                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YvL-92-SGM" customClass="ZFRippleButton" customModule="DesignTest" customModuleProvider="target">
+                                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <color key="backgroundColor" red="0.7725490196" green="0.078431372550000003" blue="0.098039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" title="Clique aqui para resetar sua senha">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
+                                                            <color key="value" red="0.47450980390000003" green="0.086274509799999996" blue="0.098039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="rippleBackgroundColor">
+                                                            <color key="value" red="0.7725490196" green="0.078431372550000003" blue="0.098039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="recoverPasswordButton:" destination="MxN-au-L9S" eventType="touchUpInside" id="ae7-CG-Ikw"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstItem="72y-QN-dqY" firstAttribute="centerX" secondItem="IGh-kP-VzL" secondAttribute="centerX" id="5ZB-eu-Kvl"/>
-                                                <constraint firstItem="72y-QN-dqY" firstAttribute="centerY" secondItem="IGh-kP-VzL" secondAttribute="centerY" id="dZc-sR-sxa"/>
+                                                <constraint firstItem="YvL-92-SGM" firstAttribute="top" secondItem="IGh-kP-VzL" secondAttribute="topMargin" constant="-8" id="BWa-aW-Ltu"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="YvL-92-SGM" secondAttribute="trailing" constant="-8" id="HQM-56-GeO"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YvL-92-SGM" secondAttribute="bottom" constant="-8" id="dXx-7K-eql"/>
+                                                <constraint firstItem="YvL-92-SGM" firstAttribute="leading" secondItem="IGh-kP-VzL" secondAttribute="leadingMargin" constant="-8" id="yrp-XF-DzO"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
-                                                    <exclude reference="72y-QN-dqY"/>
+                                                    <exclude reference="YvL-92-SGM"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="5ZB-eu-Kvl"/>
-                                                    <exclude reference="dZc-sR-sxa"/>
+                                                    <exclude reference="BWa-aW-Ltu"/>
+                                                    <exclude reference="HQM-56-GeO"/>
+                                                    <exclude reference="dXx-7K-eql"/>
+                                                    <exclude reference="yrp-XF-DzO"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="subviews">
-                                                    <include reference="72y-QN-dqY"/>
+                                                    <include reference="YvL-92-SGM"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="5ZB-eu-Kvl"/>
-                                                    <include reference="dZc-sR-sxa"/>
+                                                    <include reference="BWa-aW-Ltu"/>
+                                                    <include reference="HQM-56-GeO"/>
+                                                    <include reference="dXx-7K-eql"/>
+                                                    <include reference="yrp-XF-DzO"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -1395,7 +1413,6 @@
                         <outlet property="paisLabel" destination="PEf-8c-vJn" id="jhR-0R-0SC"/>
                         <outlet property="senhaAtualTextField" destination="qZB-TM-zBO" id="cNP-ny-Ivx"/>
                         <outlet property="switchShowEmail" destination="Ddt-UQ-5Am" id="4Ce-1b-Bd0"/>
-                        <outlet property="trocarSenhaLabel" destination="72y-QN-dqY" id="C4H-HZ-Hni"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2NT-5i-qzF" userLabel="First Responder" sceneMemberID="firstResponder"/>

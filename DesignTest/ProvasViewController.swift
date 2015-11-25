@@ -18,6 +18,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     let parseManager = ParseManager.singleton
     var filtered: [PFObject] = []
     var populares: [PFObject] = []
+    var minhas: [PFObject]?
     var recentes: [PFObject] = []
     var disciplinas: [String] = []
 
@@ -60,7 +61,8 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     
     func configEmptyTableView(){
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
-        self.tableView.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
+//        self.tableView.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
+        self.tableView.backgroundColor = UIColor.whiteColor()
     }
     
     func configCancelButton(){
@@ -141,6 +143,43 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
                 self.navigationController?.showAlert("Erro ao buscar")
                 return
             }
+        }
+    }
+    
+    func configMinhasProvas(){
+        guard let _ = self.minhas else{
+            self.disabeView()
+            
+            guard let autor = PFUser.currentUser() else{
+                return
+            }
+            
+            parseManager.getProvasByAutor(autor, completionHandler: { (result, error) -> () in
+                if(error == nil){
+                    self.filtered = result
+                    self.minhas = result
+                    if(result.count > 0){
+                        self.tableView.separatorStyle = .None
+                        self.configureDisciplinas()
+                        return
+                    }
+                    else{
+                        self.enableView()
+                        self.configEmptyTableView()
+                        return
+                    }
+                }
+                else{
+                    self.enableView()
+                    self.filtered = []
+                    self.configEmptyTableView()
+                    self.tableView.reloadData()
+                    self.navigationController?.showAlert("Erro ao buscar")
+                    return
+                }
+            })
+            
+            return
         }
     }
     
@@ -284,6 +323,11 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
         
         if(selected == 1){
             self.configureProvasRecentes()
+            return
+        }
+        
+        if(selected == 2){
+            self.configMinhasProvas()
             return
         }
     }
