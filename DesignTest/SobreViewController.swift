@@ -26,4 +26,9 @@ class SobreViewController: UIViewController {
 //        self.textView.layer.borderWidth = 0.3
 //        self.textView.layer.borderColor = UIColor.blackColor().CGColor
     }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesBegan(touches, withEvent: event)
+        self.view.endEditing(true)
+    }
 }

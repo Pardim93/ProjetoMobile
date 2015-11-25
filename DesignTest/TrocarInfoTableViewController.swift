@@ -33,7 +33,7 @@ class TrocarInfoTableViewController: UITableViewController {
     
 //    MARK: Config
     func selectCellWithOpcao(opcao: String){
-        for index in 0...arrayInfo.count{
+        for index in 0...arrayInfo.count-1{
             if (arrayInfo[index] == opcao){
                 selectedRow = index
                 
@@ -75,6 +75,14 @@ class TrocarInfoTableViewController: UITableViewController {
             cell.createCheck()
         } else{
             cell.removeCheck()
+        }
+        
+        if(indexPath.row % 2 == 0){
+            cell.backgroundColor = UIColor.lightGrayColor()
+            cell.opcaoLabel.textColor = UIColor.whiteColor()
+        } else{
+            cell.backgroundColor = UIColor.whiteColor()
+            cell.opcaoLabel.textColor = UIColor.blackColor()
         }
         
         return cell

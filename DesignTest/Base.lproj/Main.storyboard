@@ -724,7 +724,9 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ttr-EE-HXv" firstAttribute="top" secondItem="pH5-f9-4o9" secondAttribute="bottom" constant="17" id="2rK-Bg-euy"/>
+                            <constraint firstItem="ttr-EE-HXv" firstAttribute="top" secondItem="pH5-f9-4o9" secondAttribute="bottom" constant="17" id="2rK-Bg-euy">
+                                <variation key="heightClass=regular-widthClass=compact" constant="15"/>
+                            </constraint>
                             <constraint firstItem="Sl2-wv-suN" firstAttribute="top" secondItem="Nn9-I4-PR5" secondAttribute="bottom" constant="15" id="5x8-4n-a36"/>
                             <constraint firstItem="C26-q8-lto" firstAttribute="trailing" secondItem="ttr-EE-HXv" secondAttribute="trailing" id="9TY-TO-vXt"/>
                             <constraint firstItem="C26-q8-lto" firstAttribute="leading" secondItem="ttr-EE-HXv" secondAttribute="leading" id="M14-05-MNa"/>
@@ -732,7 +734,9 @@
                             <constraint firstItem="pH5-f9-4o9" firstAttribute="leading" secondItem="RRi-9a-nnJ" secondAttribute="leading" id="QnA-mb-egG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Sl2-wv-suN" secondAttribute="trailing" constant="-16" id="Sz0-Wf-PCx"/>
                             <constraint firstItem="ttr-EE-HXv" firstAttribute="leading" secondItem="pH5-f9-4o9" secondAttribute="leading" id="XfF-4K-Me8"/>
-                            <constraint firstItem="C26-q8-lto" firstAttribute="top" secondItem="ttr-EE-HXv" secondAttribute="bottom" constant="24" id="eG6-iZ-KDt"/>
+                            <constraint firstItem="C26-q8-lto" firstAttribute="top" secondItem="ttr-EE-HXv" secondAttribute="bottom" constant="24" id="eG6-iZ-KDt">
+                                <variation key="heightClass=regular-widthClass=compact" constant="15"/>
+                            </constraint>
                             <constraint firstItem="Sl2-wv-suN" firstAttribute="leading" secondItem="RRi-9a-nnJ" secondAttribute="leadingMargin" constant="-16" id="hFc-1E-Jlz"/>
                             <constraint firstItem="pH5-f9-4o9" firstAttribute="trailing" secondItem="ttr-EE-HXv" secondAttribute="trailing" id="pRb-19-361"/>
                             <constraint firstAttribute="trailing" secondItem="pH5-f9-4o9" secondAttribute="trailing" id="roA-TP-QHX"/>

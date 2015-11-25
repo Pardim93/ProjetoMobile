@@ -386,7 +386,6 @@
 		24857ED51BA0993100DF2938 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				246CBC781B879812002E6A6E /* MainViewController.swift */,
 				246CBC7C1B87B6B7002E6A6E /* RegistrosViewController.swift */,
 				2488995B1BA74624000CCA21 /* AmigosViewController.swift */,
 				24B39FF91B8F9A3500401C21 /* Login */,
@@ -582,6 +581,7 @@
 		524E43DB1BA2186F00BBB2E0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				246CBC781B879812002E6A6E /* MainViewController.swift */,
 				524E43D91BA2185C00BBB2E0 /* CollectionViewCell.swift */,
 			);
 			name = Main;

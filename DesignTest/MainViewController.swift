@@ -14,12 +14,14 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-    let titles = ["Maratona ENEM","Resumão FUVEST","Rumo ao ITA","Mack Provas"]
-    let img = UIImage(named: "student1")
+    let titles = ["Maratona ENEM","Resumão FUVEST","Mack Provas", "#EUQUEROUSP"]
+    var arrayImg: [UIImage] = []
+//    let img = UIImage(named: "student1")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureSideBar()
+        self.configArrayImg()
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -42,6 +44,13 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
+    func configArrayImg(){
+        for index in 0...4{
+            let newImg = UIImage(named: "prova\(index)")
+            arrayImg.append(newImg!)
+        }
+    }
+    
 //    MARK: DisableView
     func disableViewWhileMenuActive(){
         self.view.userInteractionEnabled = false
@@ -60,10 +69,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("mainCell", forIndexPath: indexPath) as! CollectionViewCell
         
-//        cell.frame.size = CGSizeMake(160, 160)
         let curr = indexPath.row % 4 + 1
         cell.labelText.text = titles[curr - 1]
-//        cell.imgView.image = img
+        cell.imgView.image = arrayImg[curr-1]
+//        cell.layer.borderWidth = 0.3
         
         return cell
     }
