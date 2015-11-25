@@ -98,4 +98,9 @@ class NovaProvaViewController: UIViewController, UITextFieldDelegate {
         
         return
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.enableView()
+    }
 }

@@ -25,8 +25,10 @@ class AltenativasTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.sectionHeaderHeight = 0.0;
+        tableView.sectionFooterHeight = 0.0;
+
         self.automaticallyAdjustsScrollViewInsets = false
-        self.tableView.contentInset = UIEdgeInsetsMake(100, 0, 0, 0);
         if(self.auxData.flag){
             self.getAlternativas(self.questao)
             self.questao = self.auxData.questao

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1502" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fh1-3d-7Io">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fh1-3d-7Io">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -195,7 +195,7 @@
                 <viewControllerPlaceholder id="1bE-a9-eH2" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rr6-TC-UxC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3873" y="1391.25"/>
+            <point key="canvasLocation" x="3900" y="1516.5"/>
         </scene>
         <!--Alternativa-->
         <scene sceneID="iUL-ag-nYM">
@@ -646,7 +646,7 @@
         <!--Resultado-->
         <scene sceneID="clR-QV-seZ">
             <objects>
-                <tableViewController title="Resultado" automaticallyAdjustsScrollViewInsets="NO" id="4Mg-If-wlA" customClass="ResultadoProvaViewController" customModule="DesignTest" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ResultadoProvaViewController" title="Resultado" automaticallyAdjustsScrollViewInsets="NO" id="4Mg-If-wlA" customClass="ResultadoProvaViewController" customModule="DesignTest" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="28" sectionFooterHeight="28" id="eP7-DC-mOL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1117,16 +1117,6 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A4o-xX-e3T">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <animations/>
-                                <items>
-                                    <navigationItem title="Nova Prova" id="fPm-Sw-Enh"/>
-                                </items>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
-                                </variation>
-                            </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iP-dL-smc">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
@@ -1170,7 +1160,6 @@
                                 <exclude reference="JTT-yH-N6h"/>
                                 <exclude reference="uDU-Fd-ZJk"/>
                                 <exclude reference="2vA-KK-wV0"/>
-                                <exclude reference="A4o-xX-e3T"/>
                                 <exclude reference="6iP-dL-smc"/>
                             </mask>
                             <mask key="constraints">
@@ -1202,7 +1191,6 @@
                                 <include reference="JTT-yH-N6h"/>
                                 <include reference="uDU-Fd-ZJk"/>
                                 <include reference="2vA-KK-wV0"/>
-                                <include reference="A4o-xX-e3T"/>
                                 <include reference="6iP-dL-smc"/>
                             </mask>
                             <mask key="constraints">
@@ -1230,7 +1218,7 @@
                     <navigationItem key="navigationItem" id="02r-MM-cOd"/>
                     <connections>
                         <outlet property="timeField" destination="2vA-KK-wV0" id="RWg-dM-dbf"/>
-                        <segue destination="HBk-Nw-sov" kind="show" identifier="goToEx" id="Vbm-uA-eXd"/>
+                        <segue destination="HBk-Nw-sov" kind="presentation" identifier="goToEx" id="Vbm-uA-eXd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W7m-PV-aAq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1263,12 +1251,12 @@
         <scene sceneID="Eoj-D6-EAr">
             <objects>
                 <tableViewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ffp-4H-PYv" customClass="QuestaoMenuControllerTableViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ld5-an-Qum">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="10" id="ld5-an-Qum">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="questaoCell" id="O9b-HS-HA2" customClass="QuestaoMenuTableViewCell" customModule="DesignTest" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="questaoCell" rowHeight="40" id="O9b-HS-HA2" customClass="QuestaoMenuTableViewCell" customModule="DesignTest" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O9b-HS-HA2" id="aWT-R5-bpf">
@@ -1280,6 +1268,9 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                <rect key="frame" x="26" y="0.0" width="348" height="36"/>
+                                            </variation>
                                         </label>
                                     </subviews>
                                     <constraints>
@@ -1386,7 +1377,7 @@
         <!--Item-->
         <scene sceneID="7LD-KI-iqJ">
             <objects>
-                <tableViewController wantsFullScreenLayout="YES" automaticallyAdjustsScrollViewInsets="NO" id="e7L-Lw-Gcp" customClass="AltenativasTableViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="e7L-Lw-Gcp" customClass="AltenativasTableViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Z4E-3m-byI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1431,10 +1422,10 @@
             </objects>
             <point key="canvasLocation" x="3244.5" y="1851.75"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Custom Navigation View Controller-->
         <scene sceneID="uQG-xD-0WN">
             <objects>
-                <navigationController id="cJS-Oo-gOJ" sceneMemberID="viewController">
+                <navigationController id="cJS-Oo-gOJ" customClass="CustomNavigationViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DBP-sE-TVC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1453,17 +1444,12 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="5da-vm-lsp" customClass="TabBarQuestaoController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="pOP-OT-qIx">
-                        <barButtonItem key="leftBarButtonItem" title="Questões" id="ODx-eN-QUz">
-                            <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="pOP-OT-qIx"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="DaV-a8-Ztx">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <outlet property="menuButton" destination="ODx-eN-QUz" id="oVG-aT-jkN"/>
                         <segue destination="MP7-QE-75N" kind="relationship" relationship="viewControllers" id="SA1-Qg-A5Q"/>
                         <segue destination="e7L-Lw-Gcp" kind="relationship" relationship="viewControllers" id="eKP-mU-4ox"/>
                     </connections>

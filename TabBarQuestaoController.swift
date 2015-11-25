@@ -10,11 +10,11 @@ import UIKit
 
 class TabBarQuestaoController: UITabBarController {
     
-    @IBOutlet weak var menuButton: UIBarButtonItem!
     private var auxQuestoes = AuxiliarQuestoes.singleton
+    var backItem: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configSideBar()
+//        self.configSideBar()
         
         if(auxQuestoes.flag){
             //Carrega info de uma questao somente se o usuario tenha escolhido uma questao
@@ -26,12 +26,26 @@ class TabBarQuestaoController: UITabBarController {
         
         // Do any additional setup after loading the view.
     }
-    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.createMenuButton()
+    }
     
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+//    MARK: CONFIG 
+    
+    func createMenuButton(){
+        
+        backItem = self.navigationItem.leftBarButtonItem
+        
+        let backButton = UIBarButtonItem(image: UIImage(named: "More Filled-22"), style: .Plain, target: self.revealViewController(), action: "revealToggle:")
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.navigationItem.leftBarButtonItem = backButton
     }
     
     
@@ -71,14 +85,14 @@ class TabBarQuestaoController: UITabBarController {
     
     
     
-    func configSideBar(){
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-    }
-    
+//    func configSideBar(){
+//        if self.revealViewController() != nil {
+//            menuButton.target = self.revealViewController()
+//            menuButton.action = "revealToggle:"
+//            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+//        }
+//    }
+//    
     /*
     // MARK: - Navigation
     

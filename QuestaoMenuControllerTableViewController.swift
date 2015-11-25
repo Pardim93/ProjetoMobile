@@ -21,7 +21,10 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getQuestoes()
-        // Uncomment the following line to preserve selection between presentations
+        
+        tableView.sectionHeaderHeight = 0.0;
+        tableView.sectionFooterHeight = 0.0;
+// Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -38,7 +41,7 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 120
+        return 80
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         
@@ -54,22 +57,14 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         }else{
             
             let view = self.storyboard?.instantiateViewControllerWithIdentifier("NavResultadoViewController")
-    
+            
             
             self.auxData.questoesUsuario = questoesManager.arrayRespostas
             self.presentViewController(view!, animated: false, completion: nil)
             
-            
-            
-            //            self.auxData.questoesUsuario = questoesManager.arrayRespostas
-            
-            //            self.presentViewController(view, animated: false, completion: nil)
-            //            self.performSegueWithIdentifier("rrr", sender: self.questaoSelecionada)
         }
-        //        self.performSegueWithIdentifier("sw_front", sender: self)
-        
-        //já há uma segue configurada no storybard
     }
+    
     
     
     // MARK: - Table view data source
@@ -88,29 +83,22 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("questaoCell", forIndexPath: indexPath) as! QuestaoMenuTableViewCell
         
-        //        if indexPath.row == 0{
-        //            cell.textLabel?.text = "Sair"
-        //        }else{
-        //
-        
         
         if(indexPath.row == 0){
             
             cell.labelQuestao.text =  "Finalizar"
             
         }else{
-            cell.labelQuestao!.text =  self.myArray.objectAtIndex(indexPath.row - 1).objectForKey("Enunciado") as? String
             
-            
-            
+            cell.labelQuestao!.text =  "Questão \(indexPath.row)"
             
         }
-        //        }
-        // Configure the cell...
+        
         
         
         return cell
     }
+    
     
     func getQuestoes(){
         self.myArray = (parseManager.getLeastRatedQuestions())
@@ -120,6 +108,9 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         
     }
     
+   override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
     
     func respostasQuestoes(enunciados: NSArray){
         
@@ -168,15 +159,6 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     */
     
     
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if(segue.identifier == "rrr"){
-            self.auxData.questoesUsuario = questoesManager.arrayRespostas
-            
-            
-        }
-        
-    }
+
     
 }
