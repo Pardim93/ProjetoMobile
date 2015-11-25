@@ -164,6 +164,7 @@ class AjustesTableViewController: UITableViewController, UIGestureRecognizerDele
         self.performSegueWithIdentifier("goToAjustes", sender: self)
     }
     
+    
 //    MARK: Email
     func showEmailView(){
         if(!MFMailComposeViewController.canSendMail()){

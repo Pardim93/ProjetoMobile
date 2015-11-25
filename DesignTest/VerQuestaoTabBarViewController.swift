@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol VisualizarConteudoDelegate{
+    func deleteFromTableView(object: PFObject)
+}
+
 class VerQuestaoTabBarViewController: UITabBarController {
     
     var questao: PFObject?
     var img: UIImage?
+    var visualizarConteudoDelegate: VisualizarConteudoDelegate?
     
     let parseManager = ParseManager.singleton
 
@@ -57,8 +62,41 @@ class VerQuestaoTabBarViewController: UITabBarController {
         return
     }
     
+    func deletarQuestao(){
+        self.disabeView()
+        
+        parseManager.deleteQuestao(self.questao!) { (error) -> () in
+            self.enableView()
+            if(error != nil){
+                self.navigationController?.showAlert("Ocorreu um erro. Por favor, tente novamente")
+                return
+            }
+            
+            self.navigationController?.showAlert("Questão deletada com sucesso!")
+            self.visualizarConteudoDelegate?.deleteFromTableView(self.questao!)
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+    }
+    
     func finishEditing(){
         self.navigationController?.setToolbarHidden(true, animated: true)
+    }
+    
+//    MARK: Check
+    func userIsOwner() -> Bool{
+        guard let userId = PFUser.currentUser()?.objectId else{
+            return false
+        }
+        
+        let autorQuestao = self.questao?.objectForKey("Dono") as! PFUser
+        let autorId = autorQuestao.objectId
+        
+        
+        if(userId == autorId){
+            return true
+        }
+        
+        return false
     }
     
 //    MARK: Action Sheet
@@ -66,6 +104,10 @@ class VerQuestaoTabBarViewController: UITabBarController {
         let actionSheet = UIAlertController(title: "Vestibulandos", message: "", preferredStyle: .ActionSheet)
         actionSheet.addAction(self.createDenunciarAction())
         actionSheet.addAction(self.createCancelAction())
+        
+        if(self.userIsOwner()){
+            actionSheet.addAction(self.createDeleteAction())
+        }
         
         self.navigationController?.presentViewController(actionSheet, animated: true, completion: nil)
     }
@@ -81,5 +123,24 @@ class VerQuestaoTabBarViewController: UITabBarController {
     func createCancelAction() -> UIAlertAction{
         let cancelAction = UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil)
         return cancelAction
+    }
+    
+    func createDeleteAction() -> UIAlertAction{
+        let deleteAction = UIAlertAction(title: "Deletar", style: .Default) { (action) in
+            self.confirmDelete()
+        }
+        return deleteAction
+    }
+    
+//    MARK: Notification
+    func confirmDelete(){
+        let alertController = UIAlertController(title: "Vestibulandos", message: "Tem certeza de que você quer deletar essa questão?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Ok", style: .Default) { (action) in
+            self.deletarQuestao()
+            })
+        alertController.addAction(UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil))
+        
+        self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
     }
 }

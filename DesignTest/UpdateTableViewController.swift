@@ -14,7 +14,6 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
     @IBOutlet weak var paisLabel: UILabel!
     @IBOutlet weak var ocupacaoLabel: UILabel!
     @IBOutlet weak var senhaAtualTextField: UITextField!
-    @IBOutlet weak var trocarSenhaLabel: UILabel!
     @IBOutlet weak var switchShowEmail: UISwitch!
     
     let parseManager = ParseManager.singleton
@@ -66,7 +65,7 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
         let tupleReturn = self.configureSenha()
         
         self.senhaAtualTextField.text = tupleReturn.senha
-        self.trocarSenhaLabel.text = tupleReturn.labelText
+//        self.trocarSenhaLabel.text = tupleReturn.labelText
     }
     
     func configureEmail() -> String{
@@ -169,7 +168,7 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
         
         switch cellId{
         case "recuperarSenha":
-            self.showConfirmAlert()
+//            self.showConfirmAlert()
             break
             
         default:
@@ -178,6 +177,11 @@ class UpdateTableViewController: UITableViewController, TrocarUserInfoDelegate {
     }
     
 //    MARK: RecoverPassword
+    
+    @IBAction func recoverPasswordButton(sender: AnyObject) {
+        self.showConfirmAlert()
+    }
+    
     func recoverPassword(){
         self.disabeView()
         guard let email = emailTextField.text else{

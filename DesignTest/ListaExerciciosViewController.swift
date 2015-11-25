@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CustomTextViewDelegate {
+class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CustomTextViewDelegate, VisualizarConteudoDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchButton: UIBarButtonItem!
@@ -19,7 +19,7 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
     var filtered: [PFObject] = []
     var populares: [PFObject] = []
     var recentes: [PFObject] = []
-    var minhas: [PFObject] = []
+    var minhas: [PFObject]?
     let parseManager = ParseManager.singleton
     
     override func viewDidLoad() {
@@ -63,7 +63,8 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
     
     func configEmptyTableView(){
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
-        self.tableView.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
+//        self.tableView.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
+        self.tableView.backgroundColor = UIColor.whiteColor()
     }
     
     func configSearchBar(){
@@ -125,7 +126,41 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
     }
     
     func configMinhasQuestoes(){
-//        if(self.minhas.count)
+        
+        guard let _ = self.minhas else{
+            self.disabeView()
+            
+            guard let user = PFUser.currentUser() else{
+                return
+            }
+            
+            parseManager.getQuestoesByAutor(user) { (result, error) -> () in
+                self.enableView()
+                if(error == nil){
+                    self.minhas = result
+                    self.filtered = result
+                    if(self.filtered.count <= 0){
+                        self.configEmptyTableView()
+                    }
+                    
+                    self.tableView.reloadData()
+                    return
+                }
+                else{
+                    self.navigationController?.showAlert("Erro ao buscar")
+                    return
+                }
+            }
+            return
+        }
+        
+        if(self.minhas?.count < 0){
+            self.configEmptyTableView()
+        }
+        
+        self.filtered = self.minhas!
+        self.tableView.reloadData()
+        return
     }
     
     func configCancelButton(){
@@ -246,6 +281,47 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
         self.prepareGoToQuestao(newQuestao)
     }
     
+    func deleteFromTableView(object: PFObject) {
+        //Remove do array filtered
+        for index in 0...self.filtered.count{
+            if(self.filtered[index].objectId == object.objectId){
+                filtered.removeAtIndex(index)
+                break
+            }
+        }
+        
+        //Remove do array de populares
+        for index in 0...self.populares.count{
+            if(self.populares[index].objectId == object.objectId){
+                populares.removeAtIndex(index)
+                break
+            }
+        }
+        
+        //Remove do array de recentes
+        for index in 0...self.recentes.count{
+            if(self.recentes[index].objectId == object.objectId){
+                recentes.removeAtIndex(index)
+                break
+            }
+        }
+        
+        //Remove do array de questões do usuário
+        guard let _ = minhas else{
+            self.tableView.reloadData()
+            return
+        }
+        
+        for index in 0...self.minhas!.count{
+            if(self.minhas![index].objectId == object.objectId){
+                minhas!.removeAtIndex(index)
+                break
+            }
+        }
+        
+        self.tableView.reloadData()
+    }
+    
     //    MARK: Button Action
     @IBAction func changeSection(sender: AnyObject) {
         let selected = segControl.selectedSegmentIndex
@@ -257,6 +333,11 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
         
         if(selected == 1){
             self.configQuestoesRecentes()
+            return
+        }
+        
+        if(selected == 2){
+            self.configMinhasQuestoes()
             return
         }
     }
@@ -304,6 +385,7 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
         let newTabBar = inserirProvaStoryBoard.instantiateViewControllerWithIdentifier("verExTabBar") as! VerQuestaoTabBarViewController
         newTabBar.questao = questao
         newTabBar.img = img
+        newTabBar.visualizarConteudoDelegate = self
         
         self.navigationController?.pushViewController(newTabBar, animated: true)
     }
