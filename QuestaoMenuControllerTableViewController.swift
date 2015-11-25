@@ -20,7 +20,7 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.getQuestoes()
+        self.getQuestoes()
         
         tableView.sectionHeaderHeight = 0.0;
         tableView.sectionFooterHeight = 0.0;
@@ -54,7 +54,8 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         }else{
             
             let view = self.storyboard?.instantiateViewControllerWithIdentifier("NavResultadoViewController")
-            
+            print(questoesManager.arrayRespostas.count)
+            print("oia")
             
             self.auxData.questoesUsuario = questoesManager.arrayRespostas
             self.presentViewController(view!, animated: false, completion: nil)
@@ -97,13 +98,15 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     }
     
     
-//    func getQuestoes(){
+    func getQuestoes(){
+        
+        self.respostasQuestoes(self.myArray)
+
 //        self.myArray = (parseManager.getLeastRatedQuestions())
-//        self.auxData.questao = self.myArray.objectAtIndex(0) as AnyObject as! NSObject
+        self.auxData.questao = self.myArray[0] as AnyObject as! NSObject
 //        questoesManager.tamanhoDasQuestoes(self.myArray.count)
-//        self.respostasQuestoes(self.myArray)
-//        
-//    }
+//
+    }
     
    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
@@ -115,7 +118,6 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         
         for x in self.myArray{
             arrayRepostas.addObject(x)
-            //            print(x.valueForKey("AlternativaA"))
         }
         
         self.auxData.getArrayRespostas(arrayRepostas)

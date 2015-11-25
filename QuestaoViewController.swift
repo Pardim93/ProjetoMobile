@@ -14,8 +14,8 @@ class QuestaoViewController: UIViewController {
     @IBOutlet var scrollView: UIScrollView!
     private var popViewController = PopUpViewController()
     
-    @IBOutlet weak var imgExercicio: UIImageView!
     @IBOutlet weak var txtEnunciado: UITextView!
+    @IBOutlet weak var imgExercicio: UIImageView!
     private var timer = NSTimer()
     private var auxData = AuxiliarQuestoes.singleton
     private var parseManager = ParseManager.singleton
@@ -60,8 +60,7 @@ class QuestaoViewController: UIViewController {
             self.popViewController = PopUpViewController(nibName: "PopUpViewController_iPad", bundle: nil)
             self.popViewController.title = "This is a popup view"
             self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "You just triggered a great popup window", animated: true)
-        } else
-        {
+        } else {
             if UIScreen.mainScreen().bounds.size.width > 320 {
                 if UIScreen.mainScreen().scale == 3 {
                     self.popViewController = PopUpViewController(nibName: "PopUpViewController_iPhone6Plus", bundle: nil)

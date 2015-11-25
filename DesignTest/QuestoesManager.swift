@@ -114,6 +114,7 @@ class QuestoesManager: NSObject {
     
     
     func addRepostaNoIndex(resposta:String, index:Int){
+        print("Tamanho da array\(self.arrayRespostas)")
         self.arrayRespostas[index] = resposta
         
         

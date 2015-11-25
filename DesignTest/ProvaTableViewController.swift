@@ -16,6 +16,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var createdAt: UILabel!
     
+    var questoesManager = QuestoesManager.singleton
     var prova: PFObject!
     var discs: String!
     let parseManager = ParseManager.singleton
@@ -215,8 +216,14 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         self.navigationController?.presentViewController(newView, animated: true, completion: nil)
         
         let newMenuView = newView.rearViewController as! QuestaoMenuControllerTableViewController
+//        questoesManager.
+        
+
+        
         
         newMenuView.myArray = questoes
+        questoesManager.tamanhoDasQuestoes(questoes.count)
+
         print(questoes.count)
     }
 }
