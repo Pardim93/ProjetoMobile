@@ -665,7 +665,7 @@ class ParseManager: NSObject {
     }
     
     func getQuestoesByProva(prova: PFObject, completionHandler: ([PFObject], NSError?) -> ()){
-        let relationForQuestoes = prova.relationForKey("Questao")
+        let relationForQuestoes = prova.relationForKey("Questoes")
         let query = relationForQuestoes.query()
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in

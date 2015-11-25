@@ -209,6 +209,14 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
     
 //    MARK: Navigation
     func goToQuestoes(questoes: [PFObject]){
+        let storyboard = UIStoryboard(name: "IPhoneExercicios", bundle: nil)
+        let newView = storyboard.instantiateViewControllerWithIdentifier("QuestaoSWReveal") as! SWRevealViewController
         
+        self.navigationController?.presentViewController(newView, animated: true, completion: nil)
+        
+        let newMenuView = newView.rearViewController as! QuestaoMenuControllerTableViewController
+        
+        newMenuView.myArray = questoes
+        print(questoes.count)
     }
 }

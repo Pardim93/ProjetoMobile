@@ -13,14 +13,14 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     private var questaoSelecionada = NSObject()
     private var parseManager = ParseManager.singleton
     private var questoesManager = QuestoesManager.singleton
-    private var myArray = NSArray()
+    var myArray: [PFObject] = []
     private var auxData = AuxiliarQuestoes.singleton
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.getQuestoes()
+//        self.getQuestoes()
         
         tableView.sectionHeaderHeight = 0.0;
         tableView.sectionFooterHeight = 0.0;
@@ -30,9 +30,6 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -48,10 +45,10 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         
         if(indexPath.row > 0 ){
             
-            self.questaoSelecionada = self.myArray.objectAtIndex(indexPath.row - 1) as! NSObject
+            self.questaoSelecionada = self.myArray[indexPath.row - 1]
             self.auxData.questao = self.questaoSelecionada
             self.auxData.flag = true
-            let questaoTemp = self.myArray.objectAtIndex(indexPath.row - 1) as! PFObject
+            let questaoTemp = self.myArray[indexPath.row - 1]
             self.auxData.objectId = questaoTemp.objectId!
             self.auxData.indexQuestaoSelecionada = indexPath.row
         }else{
@@ -100,13 +97,13 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     }
     
     
-    func getQuestoes(){
-        self.myArray = (parseManager.getLeastRatedQuestions())
-        self.auxData.questao = self.myArray.objectAtIndex(0) as AnyObject as! NSObject
-        questoesManager.tamanhoDasQuestoes(self.myArray.count)
-        self.respostasQuestoes(self.myArray)
-        
-    }
+//    func getQuestoes(){
+//        self.myArray = (parseManager.getLeastRatedQuestions())
+//        self.auxData.questao = self.myArray.objectAtIndex(0) as AnyObject as! NSObject
+//        questoesManager.tamanhoDasQuestoes(self.myArray.count)
+//        self.respostasQuestoes(self.myArray)
+//        
+//    }
     
    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10

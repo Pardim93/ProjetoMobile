@@ -125,7 +125,7 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
     }
     
     func configMinhasQuestoes(){
-        
+//        if(self.minhas.count)
     }
     
     func configCancelButton(){
