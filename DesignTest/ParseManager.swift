@@ -635,6 +635,64 @@ class ParseManager: NSObject {
     }
     
 //    MARK: QUESTÃO GET
+    func getQuestoesByAutor(autor: PFUser, completionHandler: ([PFObject], NSError?) -> ()){
+        let query = PFQuery(className: "Questoes")
+        query.whereKey("Dono", equalTo: autor)
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var erro: NSError?
+            
+            do{
+                let result = try query.findObjects()
+                
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    completionHandler(result, erro)
+                })
+                
+                return
+            } catch let externalError as NSError{
+                //Falha ao buscar as questões
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler([], erro)
+                })
+                return
+            }
+        })
+    }
+    
+    func getQuestoesByProva(prova: PFObject, completionHandler: ([PFObject], NSError?) -> ()){
+        let relationForQuestoes = prova.relationForKey("Questao")
+        let query = relationForQuestoes.query()
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var erro: NSError?
+            
+            do{
+                let result = try query?.findObjects()
+                
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    completionHandler(result!, erro)
+                })
+                
+                return
+            } catch let externalError as NSError{
+                //Falha ao buscar as questões
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler([], erro)
+                })
+                return
+            }
+        })
+    }
+    
     func getLeastRatedQuestions() -> NSArray{
         let query = PFQuery(className: "Questao")
         query.includeKey("Disciplina")

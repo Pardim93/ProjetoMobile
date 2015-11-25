@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1502" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ctR-S7-z9f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ctR-S7-z9f">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -46,6 +46,7 @@
                                 <segments>
                                     <segment title="Populares"/>
                                     <segment title="Recentes"/>
+                                    <segment title="Minhas Questões"/>
                                 </segments>
                                 <connections>
                                     <action selector="changeSection:" destination="LV5-Kd-O32" eventType="valueChanged" id="0kN-fj-TUy"/>
@@ -115,7 +116,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Exercicios" id="lYf-Yn-DIP">
+                    <navigationItem key="navigationItem" title="Questões" id="lYf-Yn-DIP">
                         <barButtonItem key="leftBarButtonItem" image="More Filled-22" id="9UO-nY-OY2"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="gPb-1Y-Bbk">
                             <connections>

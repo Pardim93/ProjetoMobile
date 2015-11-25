@@ -19,6 +19,7 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
     var filtered: [PFObject] = []
     var populares: [PFObject] = []
     var recentes: [PFObject] = []
+    var minhas: [PFObject] = []
     let parseManager = ParseManager.singleton
     
     override func viewDidLoad() {
@@ -40,7 +41,7 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
         self.configActivityView()
         
         if(self.filtered.count <= 0){
-            self.configExerciciosPopulares()
+            self.configQuestoesPopulares()
         }
     }
 
@@ -71,7 +72,7 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
         self.searchBar.delegate = self
     }
     
-    func configExerciciosPopulares(){
+    func configQuestoesPopulares(){
         if(self.populares.count > 0){
             self.filtered = self.populares
             self.tableView.reloadData()
@@ -97,7 +98,7 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
         }
     }
     
-    func configExerciciosRecentes(){
+    func configQuestoesRecentes(){
         if(self.recentes.count > 0){
             self.filtered = self.recentes
             self.tableView.reloadData()
@@ -121,6 +122,10 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
                 self.navigationController?.showAlert("Erro ao buscar")
             }
         }
+    }
+    
+    func configMinhasQuestoes(){
+        
     }
     
     func configCancelButton(){
@@ -246,12 +251,12 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
         let selected = segControl.selectedSegmentIndex
         
         if(selected == 0){
-            self.configExerciciosPopulares()
+            self.configQuestoesPopulares()
             return
         }
         
         if(selected == 1){
-            self.configExerciciosRecentes()
+            self.configQuestoesRecentes()
             return
         }
     }

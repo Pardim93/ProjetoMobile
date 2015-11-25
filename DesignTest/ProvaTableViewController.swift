@@ -152,6 +152,22 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         self.navigationController?.pushViewController(newView!, animated: true)
     }
     
+    @IBAction func beginProva(sender: AnyObject) {
+        self.disabeView()
+        
+        parseManager.getQuestoesByProva(self.prova) { (questoes, erro) -> () in
+            self.enableView()
+            
+            if(erro != nil){
+                self.navigationController?.showAlert((erro?.localizedDescription)!)
+                return
+            }
+            
+            self.goToQuestoes(questoes)
+            return
+        }
+    }
+    
 //    MARK: Action Sheet
     func showActionSheet() {
         let actionSheet = UIAlertController(title: "Vestibulandos", message: "", preferredStyle: .ActionSheet)
@@ -189,5 +205,10 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         }
         
         return
+    }
+    
+//    MARK: Navigation
+    func goToQuestoes(questoes: [PFObject]){
+        
     }
 }
