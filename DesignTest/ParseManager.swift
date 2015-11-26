@@ -273,6 +273,91 @@ class ParseManager: NSObject {
     }
     
 //    MARK: IMAGEM GET
+    func getImgForArrayObject(arrayObject: [PFObject], keyName: String, completionHandler: ([UIImage?], NSError?) -> ()){
+        var arrayImg: [UIImage?] = []
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            
+            for obj in arrayObject{
+                self.getImgForObjectSync(obj, keyName: keyName, completionHandler: { (img, erro) -> () in
+                    if (erro != nil){
+                        //Erro ao buscar uma imagem
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            completionHandler(arrayImg, erro)
+                        })
+                        return
+                    }
+                    
+                    arrayImg.append(img)
+                })
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                completionHandler(arrayImg, nil)
+            })
+            return
+        })
+    }
+    
+    func getImgForObjectSync(object: PFObject, keyName: String, completionHandler: (UIImage?, NSError?) -> ()){
+        var img: UIImage?
+        var erro: NSError?
+        
+        guard let newImage = object.objectForKey(keyName) as? PFFile else{
+            completionHandler(img, erro)
+            return
+        }
+        
+        do{
+            let newData = try newImage.getData()
+            img = UIImage(data: newData)
+            completionHandler(img, erro)
+            
+            return
+        } catch let externalError as NSError{
+            //Expected: -1, 1, 100
+            let errorCode = externalError.code
+            erro = self.getErrorForCode(errorCode)
+            completionHandler(img, erro)
+            
+            return
+        }
+    }
+    
+    func getImgForObject(object: PFObject, keyName: String, completionHandler: (UIImage?, NSError?) -> ()){
+        var img: UIImage?
+        var erro: NSError?
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            
+            guard let newImage = object.objectForKey(keyName) as? PFFile else{
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(img, erro)
+                })
+                return
+            }
+            
+            do{
+                let newData = try newImage.getData()
+                img = UIImage(data: newData)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(img, erro)
+                })
+                return
+            } catch let externalError as NSError{
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(img, erro)
+                })
+                return
+            }
+        })
+    }
+    
     func getImgForQuestao(questao: PFObject, completionHandler: (UIImage?, NSError?) -> ()){
         
         var img: UIImage?
@@ -281,6 +366,40 @@ class ParseManager: NSObject {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             
             guard let newImage = questao.objectForKey("Imagem") as? PFFile else{
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(img, erro)
+                })
+                return
+            }
+            
+            do{
+                let newData = try newImage.getData()
+                img = UIImage(data: newData)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(img, erro)
+                })
+                return
+            } catch let externalError as NSError{
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(img, erro)
+                })
+                return
+            }
+        })
+    }
+    
+    func getImgForProva(prova: PFObject, completionHandler: (UIImage?, NSError?) -> ()){
+        var img: UIImage?
+        var erro: NSError?
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            
+            guard let newImage = prova.objectForKey("Imagem") as? PFFile else{
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completionHandler(img, erro)
                 })
@@ -365,6 +484,37 @@ class ParseManager: NSObject {
             
             do{
                 let result = try query.findObjects()
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    completionHandler(result, erro)
+                })
+                
+                return
+            } catch let externalError as NSError{
+                //Falha ao buscar provas populares
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler([], erro)
+                })
+                return
+            }
+        })
+    }
+    
+    func getProvasByDescending(descendingParameter: String, withLimit limit: Int, completionHandler: ([PFObject], NSError?) -> ()){
+        let query = PFQuery(className: "Prova")
+        query.orderByDescending(descendingParameter)
+        query.limit = limit
+        query.includeKey("Autor")
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var erro: NSError?
+            
+            do{
+                let result = try query.findObjects()
+                print(result.count)
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     completionHandler(result, erro)
                 })

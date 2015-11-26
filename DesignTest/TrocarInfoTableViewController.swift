@@ -77,13 +77,13 @@ class TrocarInfoTableViewController: UITableViewController {
             cell.removeCheck()
         }
         
-        if(indexPath.row % 2 == 0){
-            cell.backgroundColor = UIColor.lightGrayColor()
-            cell.opcaoLabel.textColor = UIColor.whiteColor()
-        } else{
-            cell.backgroundColor = UIColor.whiteColor()
-            cell.opcaoLabel.textColor = UIColor.blackColor()
-        }
+//        if(indexPath.row % 2 == 0){
+//            cell.backgroundColor = UIColor.colorWithHexString("#000000", alph: 0.06)
+//            cell.opcaoLabel.textColor = UIColor.whiteColor()
+//        } else{
+//            cell.backgroundColor = UIColor.whiteColor()
+//            cell.opcaoLabel.textColor = UIColor.blackColor()
+//        }
         
         return cell
     }

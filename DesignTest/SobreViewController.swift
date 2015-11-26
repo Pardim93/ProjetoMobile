@@ -19,7 +19,7 @@ class SobreViewController: UIViewController {
     }
     
     func configTextView(){
-        self.textView.text = "O aplicativo Vestibulandos foi criado no Brasil para auxiliar estudantes que buscam por alternativas em sua rotina de preparação para os exames de admissão das instituições de ensino superior. Com ele é possível criar e resolver provas e questões personalizadas.\n\nAndré Ota\nWellington Pardim"
+        self.textView.text = "O aplicativo Vestibulandos foi criado no Brasil para auxiliar estudantes que buscam por alternativas em sua rotina de preparação para os exames de admissão das instituições de ensino superior. Com ele é possível criar e resolver provas e questões personalizadas.\n\nAndré Ota\nWellington Pardim\n\n\n\nsuporteVestibulandos@gmail.com"
         
 //        self.textView.font = UIFont(name: "Avenir Book", size: 16)
 //        self.textView.layer.cornerRadius = 10
