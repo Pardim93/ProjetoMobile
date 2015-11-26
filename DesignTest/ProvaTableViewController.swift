@@ -216,14 +216,8 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         self.navigationController?.presentViewController(newView, animated: true, completion: nil)
         
         let newMenuView = newView.rearViewController as! QuestaoMenuControllerTableViewController
-//        questoesManager.
-        
-
-        
-        
+    
         newMenuView.myArray = questoes
         questoesManager.tamanhoDasQuestoes(questoes.count)
-
-        print(questoes.count)
     }
 }

@@ -12,7 +12,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButto
     
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var senhaText: UITextField!
-//    @IBOutlet weak var activityView: UIActivityIndicatorView!
     @IBOutlet weak var title1: UILabel!
     @IBOutlet weak var title2: UILabel!
     @IBOutlet weak var logarButton: ZFRippleButton!
@@ -248,17 +247,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButto
         
         self.continueFacebookLogin(novoUsuario)
     }
-    
-//    MARK: ViewStatus
-//    func enableView(){
-//        self.view.userInteractionEnabled = true
-//        self.activityView.stopAnimating()
-//    }
-//    
-//    func disableView(){
-//        self.view.userInteractionEnabled = false
-//        self.activityView.startAnimating()
-//    }
     
 //MARK: Animation
     func startView(){
