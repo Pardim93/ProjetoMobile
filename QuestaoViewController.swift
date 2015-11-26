@@ -100,7 +100,7 @@ class QuestaoViewController: UIViewController {
     func customTextView(){
         
         self.txtEnunciado.layer.borderColor = UIColor.blueColor().colorWithAlphaComponent(0.5).CGColor
-        self.txtEnunciado.layer.borderWidth = 0.5
+//        self.txtEnunciado.layer.borderWidth = 0.5
         self.txtEnunciado.layer.cornerRadius = 6
         self.txtEnunciado.clipsToBounds = true
         
@@ -110,7 +110,7 @@ class QuestaoViewController: UIViewController {
     func customImg(){
         
         self.imgExercicio.layer.borderColor = UIColor.blueColor().colorWithAlphaComponent(0.5).CGColor
-        self.imgExercicio.layer.borderWidth = 0.5
+//        self.imgExercicio.layer.borderWidth = 0.5
         self.imgExercicio.layer.cornerRadius = 6
         self.imgExercicio.clipsToBounds = true
         
