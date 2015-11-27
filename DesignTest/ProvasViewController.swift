@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProvasViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, CustomTextViewDelegate{
+class ProvasViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, CustomTextViewDelegate, VisualizarConteudoDelegate{
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -312,6 +312,69 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
         self.goToProva(newProva, discs: discs)
     }
     
+    func deleteFromTableView(object: PFObject) {
+        //Remove do array filtered
+        
+        if(self.filtered.count > 0){
+        
+            for index in 0...self.filtered.count-1{
+                guard let _ = self.filtered[index].objectId else{
+                    break
+                }
+                
+                if(self.filtered[index].objectId == object.objectId){
+                    filtered.removeAtIndex(index)
+                    break
+                }
+            }
+        }
+        
+        //Remove do array de populares
+        
+        if(self.populares.count > 0){
+            for index in 0...self.populares.count-1{
+                if(self.populares[index].objectId == object.objectId){
+                    populares.removeAtIndex(index)
+                    break
+                }
+            }
+        }
+        
+        //Remove do array de recentes
+        
+        if(self.recentes.count > 0){
+            for index in 0...self.recentes.count-1{
+                if(self.recentes[index].objectId == object.objectId){
+                    recentes.removeAtIndex(index)
+                    break
+                }
+            }
+        }
+        
+        //Remove do array de provas do usuário
+        guard let _ = minhas else{
+            self.tableView.reloadData()
+            return
+        }
+        
+        
+        if(self.minhas!.count > 0){
+            for index in 0...self.minhas!.count-1{
+                
+                guard let _ = self.minhas![index].objectId else{
+                    break
+                }
+                
+                if(self.minhas![index].objectId == object.objectId){
+                    minhas!.removeAtIndex(index)
+                    break
+                }
+            }
+        }
+        
+        self.tableView.reloadData()
+    }
+    
 //    MARK: Button Action
     @IBAction func changeSection(sender: AnyObject) {
         let selected = segControl.selectedSegmentIndex
@@ -355,6 +418,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     func goToProva(prova: PFObject, discs: String){
         let newStoryboard = UIStoryboard(name: "IPhoneProva", bundle: nil)
         let newView = newStoryboard.instantiateInitialViewController() as! ProvaTableViewController
+        newView.visualizarConteudoDelegate = self
         
         newView.setNewProva(prova, discs: discs)
         

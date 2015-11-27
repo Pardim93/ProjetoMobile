@@ -540,11 +540,6 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.4784313738" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="5Yf-aq-AEo">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="60"/>
-                                    </constraint>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="Inserir uma questão">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -560,16 +555,6 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="shadowRippleEnable" value="NO"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="trackTouchLocation" value="YES"/>
                                 </userDefinedRuntimeAttributes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="5Yf-aq-AEo"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="5Yf-aq-AEo"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <segue destination="ARR-ff-YY9" kind="show" id="inI-cB-o1P"/>
                                 </connections>
@@ -599,9 +584,6 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="student3" translatesAutoresizingMaskIntoConstraints="NO" id="0nn-xD-FuV">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <animations/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="9" y="9" width="131" height="131"/>
-                                                    </variation>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="x63-KS-fuR">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -610,9 +592,6 @@
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                                     <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="9" y="112" width="131" height="28"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <animations/>
@@ -686,53 +665,10 @@
                                     </mask>
                                 </variation>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttr-EE-HXv" customClass="ZFRippleButton" customModule="DesignTest" customModuleProvider="target">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.4784313738" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="0HA-qC-kVB">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="60"/>
-                                    </constraint>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                <state key="normal" title="Inserir uma Prova">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="rippleBackgroundColor">
-                                        <color key="value" red="0.0" green="0.4784313738" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
-                                        <color key="value" red="0.058823529630000003" green="0.23137255009999999" blue="0.37254902719999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rippleOverBounds" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadowRippleEnable" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="trackTouchLocation" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="0HA-qC-kVB"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="0HA-qC-kVB"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <segue destination="B0x-1Y-ni6" kind="show" id="bxg-DG-1fH"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C26-q8-lto" customClass="ZFRippleButton" customModule="DesignTest" customModuleProvider="target">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.04651521381578947" green="0.6875" blue="0.44528680098684209" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Q1t-DC-hSA">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="60"/>
-                                    </constraint>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="Estudar uma prova aleatória">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -748,18 +684,31 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="shadowRippleEnable" value="NO"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="trackTouchLocation" value="YES"/>
                                 </userDefinedRuntimeAttributes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Q1t-DC-hSA"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="Q1t-DC-hSA"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <segue destination="VZV-ac-KWp" kind="show" id="o9R-fg-Djy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttr-EE-HXv" customClass="ZFRippleButton" customModule="DesignTest" customModuleProvider="target">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="0.4784313738" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                <state key="normal" title="Inserir uma Prova">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="rippleBackgroundColor">
+                                        <color key="value" red="0.0" green="0.4784313738" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
+                                        <color key="value" red="0.058823529630000003" green="0.23137255009999999" blue="0.37254902719999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rippleOverBounds" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadowRippleEnable" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="trackTouchLocation" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="B0x-1Y-ni6" kind="show" id="bxg-DG-1fH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -774,9 +723,6 @@
                             </constraint>
                             <constraint firstItem="C26-q8-lto" firstAttribute="trailing" secondItem="ttr-EE-HXv" secondAttribute="trailing" id="9TY-TO-vXt"/>
                             <constraint firstItem="C26-q8-lto" firstAttribute="leading" secondItem="ttr-EE-HXv" secondAttribute="leading" id="M14-05-MNa"/>
-                            <constraint firstItem="pH5-f9-4o9" firstAttribute="top" secondItem="Sl2-wv-suN" secondAttribute="bottom" constant="25" id="MAI-dV-NxJ">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                            </constraint>
                             <constraint firstItem="Nn9-I4-PR5" firstAttribute="top" secondItem="6Uc-hK-JT4" secondAttribute="bottom" constant="15" id="NN9-Hy-Es5">
                                 <variation key="heightClass=regular-widthClass=compact" constant="10"/>
                             </constraint>
@@ -790,10 +736,9 @@
                             <constraint firstItem="Sl2-wv-suN" firstAttribute="leading" secondItem="RRi-9a-nnJ" secondAttribute="leadingMargin" constant="-16" id="hFc-1E-Jlz"/>
                             <constraint firstItem="Nn9-I4-PR5" firstAttribute="leading" secondItem="RRi-9a-nnJ" secondAttribute="leadingMargin" constant="-20" id="kOQ-Ng-P1r"/>
                             <constraint firstItem="pH5-f9-4o9" firstAttribute="trailing" secondItem="ttr-EE-HXv" secondAttribute="trailing" id="pRb-19-361"/>
+                            <constraint firstItem="pH5-f9-4o9" firstAttribute="top" secondItem="Sl2-wv-suN" secondAttribute="bottom" constant="10" id="pfK-jN-e40"/>
                             <constraint firstAttribute="trailing" secondItem="pH5-f9-4o9" secondAttribute="trailing" id="roA-TP-QHX"/>
-                            <constraint firstItem="8b4-W4-eIf" firstAttribute="top" secondItem="C26-q8-lto" secondAttribute="bottom" constant="215" id="tvs-9I-0wH">
-                                <variation key="heightClass=regular-widthClass=compact" constant="100"/>
-                            </constraint>
+                            <constraint firstItem="pH5-f9-4o9" firstAttribute="centerY" secondItem="RRi-9a-nnJ" secondAttribute="centerY" id="tae-am-Sg4"/>
                             <constraint firstItem="Nn9-I4-PR5" firstAttribute="centerX" secondItem="RRi-9a-nnJ" secondAttribute="centerX" id="x6M-Ec-yDj"/>
                         </constraints>
                         <variation key="default">
@@ -801,8 +746,8 @@
                                 <exclude reference="Nn9-I4-PR5"/>
                                 <exclude reference="pH5-f9-4o9"/>
                                 <exclude reference="Sl2-wv-suN"/>
-                                <exclude reference="ttr-EE-HXv"/>
                                 <exclude reference="C26-q8-lto"/>
+                                <exclude reference="ttr-EE-HXv"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="NN9-Hy-Es5"/>
@@ -812,16 +757,16 @@
                                 <exclude reference="5x8-4n-a36"/>
                                 <exclude reference="Sz0-Wf-PCx"/>
                                 <exclude reference="hFc-1E-Jlz"/>
-                                <exclude reference="MAI-dV-NxJ"/>
                                 <exclude reference="QnA-mb-egG"/>
                                 <exclude reference="pRb-19-361"/>
+                                <exclude reference="pfK-jN-e40"/>
                                 <exclude reference="roA-TP-QHX"/>
+                                <exclude reference="tae-am-Sg4"/>
                                 <exclude reference="2rK-Bg-euy"/>
                                 <exclude reference="XfF-4K-Me8"/>
                                 <exclude reference="9TY-TO-vXt"/>
                                 <exclude reference="M14-05-MNa"/>
                                 <exclude reference="eG6-iZ-KDt"/>
-                                <exclude reference="tvs-9I-0wH"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -829,8 +774,8 @@
                                 <include reference="Nn9-I4-PR5"/>
                                 <include reference="pH5-f9-4o9"/>
                                 <include reference="Sl2-wv-suN"/>
-                                <include reference="ttr-EE-HXv"/>
                                 <include reference="C26-q8-lto"/>
+                                <include reference="ttr-EE-HXv"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="NN9-Hy-Es5"/>
@@ -840,16 +785,16 @@
                                 <include reference="5x8-4n-a36"/>
                                 <include reference="Sz0-Wf-PCx"/>
                                 <include reference="hFc-1E-Jlz"/>
-                                <include reference="MAI-dV-NxJ"/>
                                 <include reference="QnA-mb-egG"/>
                                 <include reference="pRb-19-361"/>
+                                <include reference="pfK-jN-e40"/>
                                 <include reference="roA-TP-QHX"/>
+                                <exclude reference="tae-am-Sg4"/>
                                 <include reference="2rK-Bg-euy"/>
                                 <include reference="XfF-4K-Me8"/>
                                 <include reference="9TY-TO-vXt"/>
                                 <include reference="M14-05-MNa"/>
                                 <include reference="eG6-iZ-KDt"/>
-                                <exclude reference="tvs-9I-0wH"/>
                             </mask>
                         </variation>
                     </view>

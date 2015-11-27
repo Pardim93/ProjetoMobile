@@ -92,7 +92,7 @@ class PerfilTableViewController: UITableViewController {
 //    MARK: Action Sheet
     func showActionSheet() {
         let actionSheet = UIAlertController(title: "Vestibulandos", message: "", preferredStyle: .ActionSheet)
-        actionSheet.addAction(self.createDenunciarAction())
+//        actionSheet.addAction(self.createDenunciarAction())
         actionSheet.addAction(self.createCancelAction())
         
         self.navigationController?.presentViewController(actionSheet, animated: true, completion: nil)

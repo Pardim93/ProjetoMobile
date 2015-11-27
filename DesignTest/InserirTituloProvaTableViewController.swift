@@ -14,6 +14,8 @@ class InserirTituloProvaTableViewController: UITableViewController, UIGestureRec
     @IBOutlet weak var adicionarImgBotao: ZFRippleButton!
     @IBOutlet weak var tituloTextField: UITextField!
     
+    var imgChange = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,6 +66,11 @@ class InserirTituloProvaTableViewController: UITableViewController, UIGestureRec
     }
     
     func getCapa() -> UIImage?{
+        
+        if(!self.imgChange){
+            return nil
+        }
+        
         return self.imagem.image
     }
     
@@ -115,6 +122,7 @@ class InserirTituloProvaTableViewController: UITableViewController, UIGestureRec
         }
         
         imagem.image = selectedImage
+        self.imgChange = true
 //        cell.deleteButton.hidden = false
         self.configImageView()
         

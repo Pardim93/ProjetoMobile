@@ -283,26 +283,40 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
     
     func deleteFromTableView(object: PFObject) {
         //Remove do array filtered
-        for index in 0...self.filtered.count{
-            if(self.filtered[index].objectId == object.objectId){
-                filtered.removeAtIndex(index)
-                break
+        
+        if(self.filtered.count > 0){
+            
+            for index in 0...self.filtered.count-1{
+                guard let _ = self.filtered[index].objectId else{
+                    break
+                }
+                
+                if(self.filtered[index].objectId == object.objectId){
+                    filtered.removeAtIndex(index)
+                    break
+                }
             }
         }
         
         //Remove do array de populares
-        for index in 0...self.populares.count{
-            if(self.populares[index].objectId == object.objectId){
-                populares.removeAtIndex(index)
-                break
+        
+        if(self.populares.count > 0){
+            for index in 0...self.populares.count-1{
+                if(self.populares[index].objectId == object.objectId){
+                    populares.removeAtIndex(index)
+                    break
+                }
             }
         }
         
         //Remove do array de recentes
-        for index in 0...self.recentes.count{
-            if(self.recentes[index].objectId == object.objectId){
-                recentes.removeAtIndex(index)
-                break
+        
+        if(self.recentes.count > 0){
+            for index in 0...self.recentes.count-1{
+                if(self.recentes[index].objectId == object.objectId){
+                    recentes.removeAtIndex(index)
+                    break
+                }
             }
         }
         
@@ -312,10 +326,18 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
             return
         }
         
-        for index in 0...self.minhas!.count{
-            if(self.minhas![index].objectId == object.objectId){
-                minhas!.removeAtIndex(index)
-                break
+        
+        if(self.minhas!.count > 0){
+            for index in 0...self.minhas!.count-1{
+                
+                guard let _ = self.minhas![index].objectId else{
+                    break
+                }
+                
+                if(self.minhas![index].objectId == object.objectId){
+                    minhas!.removeAtIndex(index)
+                    break
+                }
             }
         }
         

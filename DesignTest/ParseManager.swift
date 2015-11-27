@@ -14,7 +14,7 @@ class ParseManager: NSObject {
     
     static let singleton = ParseManager()
     
-//    MARK: DISCIPLINA INSERIR
+//    MARK: Denuncia
     func criarDenunciaProva(prova: PFObject, completionHandler: (NSError?) -> ()){
         var erro: NSError?
         
@@ -470,8 +470,35 @@ class ParseManager: NSObject {
             }
     })
 }
+    
+//    MARK: PROVA DELETE
+    func deleteProva(prova: PFObject, completionHandler: (NSError?) -> ()){
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var erro: NSError?
+            
+            do{
+                try prova.delete()
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(erro)
+                })
+                return
+            } catch let externalError as NSError{
+                //Falha ao deletar a questão
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(erro)
+                })
+                return
+            }
+            
+        })
+    }
 
-//    MARK: PROVAS GET
+//    MARK: PROVA GET
     func getProvasByAutor(autor: PFUser, completionHandler: ([PFObject], NSError?) -> ()){
         let query = PFQuery(className: "Prova")
         query.orderByDescending("Popularidade")

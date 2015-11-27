@@ -144,7 +144,7 @@ class InserirExTabBarViewController: UITabBarController {
         let tituloView = self.getTituloView()
         let enunciadoView = self.getEnunciadoView()
         let alternativaView = self.getAlternativaView()
-        let img = enunciadoView.img
+        let img: UIImage? = enunciadoView.img
         let titulo = tituloView.titulo
         let disciplina = tituloView.disciplina
         let tags = tituloView.tags

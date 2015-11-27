@@ -432,30 +432,6 @@
                                                 <action selector="pickPhoto:" destination="oTL-6j-vK8" eventType="touchUpInside" id="rTy-Mo-XfR"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cba-We-oGG">
-                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="RlQ-qV-HVo"/>
-                                                <constraint firstAttribute="width" constant="30" id="yaG-Fm-y6d"/>
-                                            </constraints>
-                                            <state key="normal" image="Delete Filled-100"/>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="RlQ-qV-HVo"/>
-                                                    <exclude reference="yaG-Fm-y6d"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="heightClass=regular-widthClass=compact">
-                                                <mask key="constraints">
-                                                    <include reference="RlQ-qV-HVo"/>
-                                                    <include reference="yaG-Fm-y6d"/>
-                                                </mask>
-                                            </variation>
-                                            <connections>
-                                                <action selector="deleteImage:" destination="oTL-6j-vK8" eventType="touchUpInside" id="otZ-Vk-08L"/>
-                                            </connections>
-                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Imagem" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1w-9r-Fzm">
                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                             <animations/>
@@ -484,16 +460,10 @@
                                         <constraint firstItem="B6P-GG-Cde" firstAttribute="top" secondItem="bze-2a-8Sl" secondAttribute="bottom" constant="15" id="8QX-xi-GCd"/>
                                         <constraint firstItem="b1w-9r-Fzm" firstAttribute="leading" secondItem="aBT-zF-52C" secondAttribute="leadingMargin" constant="-8" id="8jf-EU-qur"/>
                                         <constraint firstItem="B6P-GG-Cde" firstAttribute="centerX" secondItem="aBT-zF-52C" secondAttribute="centerX" id="A8K-if-ia0"/>
-                                        <constraint firstItem="Cba-We-oGG" firstAttribute="leading" secondItem="bze-2a-8Sl" secondAttribute="trailing" id="CHu-D4-EBE">
-                                            <variation key="heightClass=regular-widthClass=compact" constant="-5"/>
-                                        </constraint>
                                         <constraint firstItem="b1w-9r-Fzm" firstAttribute="top" secondItem="aBT-zF-52C" secondAttribute="topMargin" constant="-8" id="DhN-o2-KCc"/>
                                         <constraint firstItem="bze-2a-8Sl" firstAttribute="top" secondItem="b1w-9r-Fzm" secondAttribute="bottom" constant="10" id="GtP-gX-WG0"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="B6P-GG-Cde" secondAttribute="trailing" constant="-8" id="KNe-4W-ha7"/>
                                         <constraint firstItem="bze-2a-8Sl" firstAttribute="leading" secondItem="aBT-zF-52C" secondAttribute="leadingMargin" constant="60" id="eOB-NH-ves"/>
-                                        <constraint firstItem="bze-2a-8Sl" firstAttribute="top" secondItem="Cba-We-oGG" secondAttribute="bottom" id="fKO-yN-QM0">
-                                            <variation key="heightClass=regular-widthClass=compact" constant="-5"/>
-                                        </constraint>
                                         <constraint firstItem="B6P-GG-Cde" firstAttribute="leading" secondItem="aBT-zF-52C" secondAttribute="leadingMargin" constant="-8" id="fOz-FP-xS3"/>
                                         <constraint firstItem="B6P-GG-Cde" firstAttribute="centerX" secondItem="aBT-zF-52C" secondAttribute="centerX" id="skk-s2-6bW"/>
                                         <constraint firstItem="bze-2a-8Sl" firstAttribute="centerX" secondItem="aBT-zF-52C" secondAttribute="centerX" id="zqg-fJ-sZg"/>
@@ -502,7 +472,6 @@
                                         <mask key="subviews">
                                             <exclude reference="bze-2a-8Sl"/>
                                             <exclude reference="B6P-GG-Cde"/>
-                                            <exclude reference="Cba-We-oGG"/>
                                             <exclude reference="b1w-9r-Fzm"/>
                                         </mask>
                                         <mask key="constraints">
@@ -511,14 +480,12 @@
                                             <exclude reference="KNe-4W-ha7"/>
                                             <exclude reference="fOz-FP-xS3"/>
                                             <exclude reference="skk-s2-6bW"/>
-                                            <exclude reference="CHu-D4-EBE"/>
                                             <exclude reference="3N6-0w-SGJ"/>
                                             <exclude reference="8jf-EU-qur"/>
                                             <exclude reference="DhN-o2-KCc"/>
                                             <exclude reference="0m0-mF-A2X"/>
                                             <exclude reference="GtP-gX-WG0"/>
                                             <exclude reference="eOB-NH-ves"/>
-                                            <exclude reference="fKO-yN-QM0"/>
                                             <exclude reference="zqg-fJ-sZg"/>
                                         </mask>
                                     </variation>
@@ -526,7 +493,6 @@
                                         <mask key="subviews">
                                             <include reference="bze-2a-8Sl"/>
                                             <include reference="B6P-GG-Cde"/>
-                                            <include reference="Cba-We-oGG"/>
                                             <include reference="b1w-9r-Fzm"/>
                                         </mask>
                                         <mask key="constraints">
@@ -535,14 +501,12 @@
                                             <exclude reference="KNe-4W-ha7"/>
                                             <exclude reference="fOz-FP-xS3"/>
                                             <include reference="skk-s2-6bW"/>
-                                            <include reference="CHu-D4-EBE"/>
                                             <include reference="3N6-0w-SGJ"/>
                                             <include reference="8jf-EU-qur"/>
                                             <include reference="DhN-o2-KCc"/>
                                             <exclude reference="0m0-mF-A2X"/>
                                             <include reference="GtP-gX-WG0"/>
                                             <exclude reference="eOB-NH-ves"/>
-                                            <include reference="fKO-yN-QM0"/>
                                             <include reference="zqg-fJ-sZg"/>
                                         </mask>
                                     </variation>
@@ -550,7 +514,6 @@
                                 <animations/>
                                 <connections>
                                     <outlet property="addBotao" destination="B6P-GG-Cde" id="UlT-Zv-Goc"/>
-                                    <outlet property="deleteButton" destination="Cba-We-oGG" id="MI4-LE-HI9"/>
                                     <outlet property="imagem" destination="bze-2a-8Sl" id="EGS-YR-fFf"/>
                                 </connections>
                             </tableViewCell>
@@ -683,7 +646,6 @@
     </scenes>
     <resources>
         <image name="Ask Question Filled-32" width="32" height="32"/>
-        <image name="Delete Filled-100" width="100" height="100"/>
         <image name="Info-32" width="32" height="32"/>
         <image name="Multiple Choice Filled-32" width="32" height="32"/>
         <image name="picture64" width="512" height="512"/>

@@ -121,9 +121,7 @@ class InserirEnunciadoTableViewController: UITableViewController, QuestaoImagemD
             return
         }
         
-        cell.imagem.image = selectedImage
-        cell.deleteButton.hidden = false
-        cell.configImageView()
+        cell.setNewImage(selectedImage)
         
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
