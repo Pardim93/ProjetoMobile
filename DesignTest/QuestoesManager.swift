@@ -23,6 +23,8 @@ class QuestoesManager: NSObject {
     var respostasUsuario = NSMutableArray()
     var indexQuestaoSelecionada = Int()
 
+    
+    var questaoSelecionada = NSObject()
     var contRespostas = 0
     var questoes = NSMutableArray()
     var acabou = false

@@ -27,6 +27,7 @@ class AltenativasTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.sectionHeaderHeight = 0.0;
         tableView.sectionFooterHeight = 0.0;
+        tableView.tableFooterView = UIView()
 
         self.automaticallyAdjustsScrollViewInsets = false
         if(self.auxData.flag){
@@ -49,6 +50,10 @@ class AltenativasTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+  override  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
     override func viewDidDisappear(animated: Bool) {
         
     }
@@ -60,9 +65,9 @@ class AltenativasTableViewController: UITableViewController {
         return 1
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 100
-    }
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return 100
+//    }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -83,10 +88,29 @@ class AltenativasTableViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! AlternativasProvaTableViewCell
         
         // Configure the cell...
-        cell.textLabel!.text =  self.arrayAlternativas[indexPath.row] as? String
+        
+        
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.lineBreakMode = .ByWordWrapping
+        
+        cell.textLabel?.text =  (self.arrayAlternativas[indexPath.row] as! String) as? String
+        
+        cell.textLabel?.textAlignment = .Center
+
+        
+        
+        
+        
+
+        
+//        cell.textLabel!.text =  self.arrayAlternativas[indexPath.row] as? String
+        
+    
+        
+    
         return cell
     }
     
@@ -145,7 +169,11 @@ class AltenativasTableViewController: UITableViewController {
         print("Resposta do usuario \(self.auxData.questaoSelecionada)")
         print("Index da questaoe escolhida \(self.auxData.indexQuestaoSelecionada)")
         
+        auxData.arrayQuestoesVerficadas[auxData.indexQuestaoSelecionada]  = true
+        
         let cell = self.tableView.cellForRowAtIndexPath(indexPath)
+        
+        
         
         
     }

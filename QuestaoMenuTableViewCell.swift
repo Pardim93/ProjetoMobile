@@ -2,6 +2,7 @@ import UIKit
 
 class QuestaoMenuTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var imgMarker: UIImageView!
     @IBOutlet weak var labelQuestao: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

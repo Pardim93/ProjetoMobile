@@ -11,7 +11,9 @@ import UIKit
 class TabBarQuestaoController: UITabBarController {
     
     private var auxQuestoes = AuxiliarQuestoes.singleton
+    private var questoesManager = QuestoesManager.singleton
     var backItem: UIBarButtonItem!
+//    var auxData = AuxiliarQuestoes.singleton
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.configSideBar()
@@ -19,8 +21,14 @@ class TabBarQuestaoController: UITabBarController {
         if(auxQuestoes.flag){
             //Carrega info de uma questao somente se o usuario tenha escolhido uma questao
             
-            self.sendInfoToView1()
-            self.sendInfoToView2()
+            self.sendInfoToView1(self.auxQuestoes.questao)
+            self.sendInfoToView2(self.auxQuestoes.questao)
+        }else{
+//            self.auxQuestoes.questao = self.questoesManager.questaoSelecionada
+//
+//            self.sendInfoToView1(self.questoesManager.questaoSelecionada)
+//            self.sendInfoToView2(self.questoesManager.questaoSelecionada)
+
         }
         
         
@@ -49,19 +57,19 @@ class TabBarQuestaoController: UITabBarController {
     }
     
     
-    func sendInfoToView1(){
+    func sendInfoToView1(questao: NSObject){
         
         let view =  self.viewControllers?.first as! QuestaoViewController
-        view.questao = self.auxQuestoes.questao
+        view.questao = questao
         
         self.getImageData()
         
     }
     
-    func sendInfoToView2(){
+    func sendInfoToView2(questao: NSObject){
         
         let view =  self.viewControllers?.last as! AltenativasTableViewController
-        view.questao = self.auxQuestoes.questao
+        view.questao = questao
         
     }
     

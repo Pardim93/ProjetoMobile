@@ -21,6 +21,8 @@ class AuxiliarQuestoes: NSObject {
     var indexQuestaoSelecionada = Int()
     var questoesCorretas = NSArray()
     var questoesUsuario = NSArray()
+    var arrayQuestoesVerficadas = [Bool](count: 9000, repeatedValue: false)
+    var choosenIndex = Int()
 
     
     func returnImg()->UIImage{
@@ -31,6 +33,8 @@ class AuxiliarQuestoes: NSObject {
     func getArrayRespostas(arrayRespostas: NSArray){
         
         self.questoesCorretas = arrayRespostas
+        
+       
         
     }
     

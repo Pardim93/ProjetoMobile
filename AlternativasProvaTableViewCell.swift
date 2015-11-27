@@ -15,8 +15,8 @@ class AlternativasProvaTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    @IBOutlet weak var cellAlternativa: UILabel!
     
+    @IBOutlet weak var txtEnunciado: UILabel!
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

@@ -36,27 +36,30 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+   override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 80
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         
-        
         if(indexPath.row > 0 ){
             
+          
             self.questaoSelecionada = self.myArray[indexPath.row - 1]
             self.auxData.questao = self.questaoSelecionada
             self.auxData.flag = true
             let questaoTemp = self.myArray[indexPath.row - 1]
             self.auxData.objectId = questaoTemp.objectId!
             self.auxData.indexQuestaoSelecionada = indexPath.row
+           
+            
+        
         }else{
             
             let view = self.storyboard?.instantiateViewControllerWithIdentifier("NavResultadoViewController")
             print(questoesManager.arrayRespostas.count)
-            print("oia")
-            
             self.auxData.questoesUsuario = questoesManager.arrayRespostas
             self.presentViewController(view!, animated: false, completion: nil)
             
@@ -69,7 +72,6 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.myArray.count + 1
-        
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -79,6 +81,12 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+//        "Checkmark-100"
+        
+        
+        
+        
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("questaoCell", forIndexPath: indexPath) as! QuestaoMenuTableViewCell
         
         
@@ -87,8 +95,15 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
             cell.labelQuestao.text =  "Finalizar"
             
         }else{
+            if(indexPath.row == 1){
+                questoesManager.questaoSelecionada = self.questaoSelecionada
+            }
             
             cell.labelQuestao!.text =  "Questão \(indexPath.row)"
+            
+            if(self.auxData.arrayQuestoesVerficadas[indexPath.row] == true){
+                cell.imgMarker.image = UIImage(named: "Checkmark-100")
+            }
             
         }
         
