@@ -9,13 +9,13 @@
 import UIKit
 
 class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
-
-    
+//    Itens
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var inserirQuestaoButton: ZFRippleButton!
     @IBOutlet weak var inserirProvaButton: ZFRippleButton!
     @IBOutlet weak var estudarProvaButton: ZFRippleButton!
+    
     
     let parseManager = ParseManager.singleton
     let titles = ["Maratona ENEM","Resumão FUVEST","Mack Provas", "#EUQUEROUSP"]
@@ -27,7 +27,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.configureSideBar()
 //        self.configArrayImg()
         self.configProvas()
-        self.configButtons()
+//        self.configButtons()
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -37,7 +37,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewWillAppear(animated)
         self.view.userInteractionEnabled = true
         
-//        self.configButtons()
+        self.configButtons()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -81,49 +81,36 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
-//    
-//    func configArrayImg(){
-//        for index in 0...4{
-//            let newImg = UIImage(named: "prova\(index)")
-//            arrayImg.append(newImg!)
-//        }
-//    }
-    
     func configButtons(){
-        self.inserirQuestaoButton.layer.cornerRadius = 5
-        self.inserirProvaButton.layer.cornerRadius = 5
+        let buttonHeight = self.configButtonHeight()
         
-        self.estudarProvaButton.layer.cornerRadius = 5
-        self.estudarProvaButton.layer.borderColor = UIColor.newBlueColor().CGColor
-        self.estudarProvaButton.layer.borderWidth = 0.3
-//        
-//        let buttonHeight = self.configButtonHeight()
-//        
-//        self.estudarProvaButton.frame.size = CGSizeMake(self.estudarProvaButton.frame.width, buttonHeight)
-//        self.inserirQuestaoButton.frame.size = CGSizeMake(self.inserirQuestaoButton.frame.width, buttonHeight)
-//        self.inserirProvaButton.frame.size = CGSizeMake(self.inserirProvaButton.frame.width, buttonHeight)
+        self.inserirQuestaoButton.addConstraint(NSLayoutConstraint(item: self.inserirQuestaoButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: buttonHeight))
+        
+        self.inserirProvaButton.addConstraint(NSLayoutConstraint(item: self.inserirProvaButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: buttonHeight))
+        
+        self.estudarProvaButton.addConstraint(NSLayoutConstraint(item: self.estudarProvaButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: buttonHeight))
     }
     
-//    func configButtonHeight() -> CGFloat{
-//        let model = self.getDeviceName()
-//        
-//        switch model{
-//        case "iPhone 6":
-//            return 60
-//        case "iPhone 6S":
-//            return 60
-//        case "iPhone 5":
-//            return 40
-//        case "iPhone 5S":
-//            return 40
-//        case "iPhone 4":
-//            return 20
-//        case "iPhone 4S":
-//            return 20
-//        default:
-//            return 60
-//        }
-//    }
+    func configButtonHeight() -> CGFloat{
+        let model = self.getDeviceName()
+        
+        switch model{
+        case "iPhone 6":
+            return 80
+        case "iPhone 6S":
+            return 60
+        case "iPhone 5":
+            return 70
+        case "iPhone 5S":
+            return 70
+        case "iPhone 4":
+            return 20
+        case "iPhone 4S":
+            return 40
+        default:
+            return 60
+        }
+    }
     
     func loadQuestoesFromProva(prova: PFObject){
         self.disabeView()

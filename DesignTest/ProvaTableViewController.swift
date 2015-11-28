@@ -19,6 +19,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
     var questoesManager = QuestoesManager.singleton
     var prova: PFObject!
     var discs: String!
+    var visualizarConteudoDelegate: VisualizarConteudoDelegate?
     let parseManager = ParseManager.singleton
     var auxQuestoes = AuxiliarQuestoes.singleton
     
@@ -121,9 +122,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         self.prova = prova
         self.discs = discs
     }
-    
-    //    MARK: TableView
-    
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.switchSelected(indexPath.row)
     }
@@ -170,11 +169,47 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         }
     }
     
-    //    MARK: Action Sheet
+    func deletarProva(){
+        self.disabeView()
+        
+        parseManager.deleteProva(self.prova!) { (error) -> () in
+            self.enableView()
+            if(error != nil){
+                self.navigationController?.showAlert("Ocorreu um erro. Por favor, tente novamente")
+                return
+            }
+            
+            self.navigationController?.showAlert("Questão deletada com sucesso!")
+            self.visualizarConteudoDelegate?.deleteFromTableView(self.prova!)
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+    }
+    
+    func userIsOwner() -> Bool{
+        guard let userId = PFUser.currentUser()?.objectId else{
+            return false
+        }
+        
+        let autorQuestao = self.prova?.objectForKey("Autor") as! PFUser
+        let autorId = autorQuestao.objectId
+        
+        
+        if(userId == autorId){
+            return true
+        }
+        
+        return false
+    }
+    
+//    MARK: Action Sheet
     func showActionSheet() {
         let actionSheet = UIAlertController(title: "Vestibulandos", message: "", preferredStyle: .ActionSheet)
         actionSheet.addAction(self.createDenunciarAction())
         actionSheet.addAction(self.createCancelAction())
+        
+        if(self.userIsOwner()){
+            actionSheet.addAction(self.createDeleteAction())
+        }
         
         self.navigationController?.presentViewController(actionSheet, animated: true, completion: nil)
     }
@@ -192,7 +227,26 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         return cancelAction
     }
     
-    //    MARK: Funcoes
+    func createDeleteAction() -> UIAlertAction{
+        let deleteAction = UIAlertAction(title: "Deletar", style: .Default) { (action) in
+            self.confirmDelete()
+        }
+        return deleteAction
+    }
+    
+//    MARK: Notification
+    func confirmDelete(){
+        let alertController = UIAlertController(title: "Vestibulandos", message: "Tem certeza de que você quer deletar essa questão?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Ok", style: .Default) { (action) in
+            self.deletarProva()
+            })
+        alertController.addAction(UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil))
+        
+        self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+//    MARK: Funcoes
     func denunciarProva(){
         self.disabeView()
         parseManager.criarDenunciaProva(self.prova) { (erro) -> () in

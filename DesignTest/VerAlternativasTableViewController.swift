@@ -58,9 +58,11 @@ class VerAlternativasTableViewController: UITableViewController {
         cell.setRespostaText(newResposta!)
         
         cell.labelResposta.text = (String( UnicodeScalar ( 65 + indexPath.row)))
-//        let letter = LetraAlternativa(rawValue: indexPath.row)
-//        cell.altLabel.text = "\(letter!)"
-
+        
+        if(indexPath.row == 0){
+            cell.labelResposta.textColor = UIColor.greenColor()
+        }
+        
         return cell
     }
     
