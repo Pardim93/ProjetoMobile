@@ -20,6 +20,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
     var prova: PFObject!
     var discs: String!
     let parseManager = ParseManager.singleton
+    var auxQuestoes = AuxiliarQuestoes.singleton
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         self.navigationController?.setToolbarHidden(true, animated: false)
     }
     
-//    MARK: Config
+    //    MARK: Config
     func configProva(){
         self.configAutor()
         self.configNumQuestoes()
@@ -57,7 +58,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         self.tableView.layoutMargins = UIEdgeInsetsZero
         
         for anyCell in tableView.visibleCells{
-            let cell = anyCell 
+            let cell = anyCell
             cell.separatorInset = UIEdgeInsetsZero
             cell.layoutMargins = UIEdgeInsetsZero
         }
@@ -115,19 +116,19 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         self.createdAt.text = formatter.stringFromDate(creationDate!)
     }
     
-//    MARK: Set
+    //    MARK: Set
     func setNewProva(prova: PFObject, discs: String){
         self.prova = prova
         self.discs = discs
     }
     
-//    MARK: TableView
+    //    MARK: TableView
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.switchSelected(indexPath.row)
     }
     
- 
+    
     func switchSelected(row: Int){
         switch(row){
         case 0:
@@ -138,7 +139,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         }
     }
     
-//    MARK: Button
+    //    MARK: Button
     @IBAction func willEdit(sender: AnyObject) {
         self.showActionSheet()
     }
@@ -169,7 +170,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         }
     }
     
-//    MARK: Action Sheet
+    //    MARK: Action Sheet
     func showActionSheet() {
         let actionSheet = UIAlertController(title: "Vestibulandos", message: "", preferredStyle: .ActionSheet)
         actionSheet.addAction(self.createDenunciarAction())
@@ -191,7 +192,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         return cancelAction
     }
     
-//    MARK: Funcoes
+    //    MARK: Funcoes
     func denunciarProva(){
         self.disabeView()
         parseManager.criarDenunciaProva(self.prova) { (erro) -> () in
@@ -208,15 +209,34 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         return
     }
     
-//    MARK: Navigation
+    //    MARK: Navigation
     func goToQuestoes(questoes: [PFObject]){
         let storyboard = UIStoryboard(name: "IPhoneExercicios", bundle: nil)
         let newView = storyboard.instantiateViewControllerWithIdentifier("QuestaoSWReveal") as! SWRevealViewController
         
-        self.navigationController?.presentViewController(newView, animated: true, completion: nil)
         
+        
+        
+        self.navigationController?.presentViewController(newView, animated: true, completion: nil)
+        //        newView.frontViewController
+        //        self.questaoSelecionada = self.myArray[indexPath.row - 1]
+        //        self.auxData.questao = self.questaoSelecionada
+        //        self.auxData.flag = true
+        //        let questaoTemp = self.myArray[indexPath.row - 1]
+        //        self.auxData.objectId = questaoTemp.objectId!
+        //        self.auxData.indexQuestaoSelecionada = indexPath.row
+        
+        self.auxQuestoes.questao = questoes[0]
+        let questaoTemp = questoes[0]
+        self.auxQuestoes.objectId = questaoTemp.objectId!
+        self.auxQuestoes.indexQuestaoSelecionada = 1
+        
+        self.auxQuestoes.questao = questoes[0]
+//        a.questaoSelecionada = questoes[0]
+        
+        print(self.auxQuestoes.questao.valueForKey("Enunciado"))
         let newMenuView = newView.rearViewController as! QuestaoMenuControllerTableViewController
-    
+        
         newMenuView.myArray = questoes
         questoesManager.tamanhoDasQuestoes(questoes.count)
     }

@@ -21,14 +21,22 @@ class AuxiliarQuestoes: NSObject {
     var indexQuestaoSelecionada = Int()
     var questoesCorretas = NSArray()
     var questoesUsuario = NSArray()
-    var arrayQuestoesVerficadas = [Bool](count: 9000, repeatedValue: false)
+    var arrayQuestoesVerficadas = [Bool](count: 900, repeatedValue: false)
     var choosenIndex = Int()
+    
 
     
     func returnImg()->UIImage{
         return self.imagem
     }
     
+    func limpaArrayBool(){
+        var count = arrayQuestoesVerficadas.count
+        count = count - 1
+        for x in 0...count{
+            arrayQuestoesVerficadas[x] = false
+        }
+    }
     
     func getArrayRespostas(arrayRespostas: NSArray){
         

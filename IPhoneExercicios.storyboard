@@ -1236,7 +1236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W7m-PV-aAq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3786" y="842.25"/>
+            <point key="canvasLocation" x="3621" y="720.75"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="Hf2-bf-Nhx">
@@ -1355,7 +1355,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b8H-Pg-TLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5772" y="1344"/>
+            <point key="canvasLocation" x="5748" y="1344"/>
         </scene>
         <!--Item-->
         <scene sceneID="FZC-nj-DZY">
@@ -1445,7 +1445,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rk8-nQ-KXB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6561" y="1084.5"/>
+            <point key="canvasLocation" x="6561" y="1143"/>
         </scene>
         <!--Item-->
         <scene sceneID="gES-y4-FyQ">
@@ -1483,7 +1483,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="qfN-q7-eYT" customClass="AlternativasProvaTableViewCell" customModule="DesignTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qfN-q7-eYT" id="inr-b3-x9c">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -1550,12 +1550,15 @@
             <objects>
                 <tableViewController id="7GD-sv-Pp9" customClass="AltenativasTableViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="kem-4n-wth">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="cell" id="vJM-OR-0BH" customClass="AlternativasProvaTableViewCell" customModule="DesignTest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vJM-OR-0BH" id="z1K-aB-f6L">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration">

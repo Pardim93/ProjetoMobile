@@ -23,11 +23,13 @@ class TabBarQuestaoController: UITabBarController {
             
             self.sendInfoToView1(self.auxQuestoes.questao)
             self.sendInfoToView2(self.auxQuestoes.questao)
+            
         }else{
+            
+            print("ENTROU NO ELSE LOL")
 //            self.auxQuestoes.questao = self.questoesManager.questaoSelecionada
-//
-//            self.sendInfoToView1(self.questoesManager.questaoSelecionada)
-//            self.sendInfoToView2(self.questoesManager.questaoSelecionada)
+            self.sendInfoToView1(self.auxQuestoes.questao)
+            self.sendInfoToView2(self.auxQuestoes.questao)
 
         }
         
@@ -58,7 +60,7 @@ class TabBarQuestaoController: UITabBarController {
     
     
     func sendInfoToView1(questao: NSObject){
-        
+        print("NOME DA QUESTAO \(questao.valueForKey("Enunciado"))")
         let view =  self.viewControllers?.first as! QuestaoViewController
         view.questao = questao
         

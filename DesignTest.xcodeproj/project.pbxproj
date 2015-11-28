@@ -603,6 +603,8 @@
 		52A8484E1BB06D0E000ECCE9 /* Exercicios */ = {
 			isa = PBXGroup;
 			children = (
+				520CE7EA1C06417300EFE37B /* AlternativasProvaTableViewCell.swift */,
+				52C26A5D1BFE4B3000F5E7D7 /* StarterNavViewController.swift */,
 				52CAB39F1BFE2F8B007A8230 /* NavResultadoViewController.swift */,
 				52CAB39D1BFE2870007A8230 /* QuestaoMenuTableViewCell.swift */,
 				5240D00A1BF3A3E000D56CFD /* SWRevealClasses */,
@@ -624,8 +626,6 @@
 		52DF78971B790EE30047A107 = {
 			isa = PBXGroup;
 			children = (
-				520CE7EA1C06417300EFE37B /* AlternativasProvaTableViewCell.swift */,
-				52C26A5D1BFE4B3000F5E7D7 /* StarterNavViewController.swift */,
 				52DF78A21B790EE30047A107 /* DesignTest */,
 				52DF78BB1B790EE30047A107 /* DesignTestTests */,
 				52DF78A11B790EE30047A107 /* Products */,

@@ -13,6 +13,7 @@ class ResultadoProvaViewController: UITableViewController  {
     var auxQuestoes = AuxiliarQuestoes.singleton
     var singleton = QuestoesManager.singleton
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configBackButton()
@@ -103,6 +104,12 @@ class ResultadoProvaViewController: UITableViewController  {
         }
         
         return cell
+        
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        self.singleton.limpaQuestoesSelecionadas()
+        self.auxQuestoes.limpaArrayBool()
         
     }
     

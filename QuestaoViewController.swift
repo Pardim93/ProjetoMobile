@@ -22,6 +22,37 @@ class QuestaoViewController: UIViewController {
     private var questoesManager = QuestoesManager.singleton
     var questao = NSObject()
     
+//    func getRandomQuestao(){
+//        parseManager.getProvasRecentes { (result, error) -> () in
+//            if(error == nil){
+//               
+//                self.recentes = result
+//                if(result.count > 0){
+//                    self.tableView.separatorStyle = .None
+//                    self.configureDisciplinas()
+//                    return
+//                }
+//                else{
+//                    self.enableView()
+//                    self.configEmptyTableView()
+//                    return
+//                }
+//            }
+//            else{
+//                self.enableView()
+//                self.filtered = []
+//                self.configEmptyTableView()
+//                self.tableView.reloadData()
+//                self.navigationController?.showAlert("Erro ao buscar")
+//                return
+//            }
+//        }
+//    }
+
+    
+    
+    
+    
     
     
     override func viewDidLoad() {
@@ -32,6 +63,8 @@ class QuestaoViewController: UIViewController {
         self.createButton()
         self.view.backgroundColor = UIColor.whiteColor()
         self.checkFlag()
+        self.configView()
+
         self.navigationController?.navigationItem.hidesBackButton = true
     }
     
@@ -72,6 +105,7 @@ class QuestaoViewController: UIViewController {
                     self.popViewController.showInView(self.view, withImage:imgExercicio.image, withMessage: "Imagem", animated: true)
                 }
             } else {
+                
                 self.popViewController = PopUpViewController(nibName: "PopUpViewController", bundle: nil)
                 self.popViewController.title = "Imagem do Enunciado"
                 self.popViewController.showInView(self.view, withImage: imgExercicio.image, withMessage: "Imagem", animated: true)
@@ -127,10 +161,8 @@ class QuestaoViewController: UIViewController {
     
     func checkFlag(){
         
-        if(self.auxData.flag){
             timer = NSTimer.scheduledTimerWithTimeInterval(0.4, target: self, selector: "loadImage", userInfo: nil, repeats: true)
-            self.configView()
-        }
+        
         
     }
     
@@ -145,8 +177,13 @@ class QuestaoViewController: UIViewController {
     func configView(){
         self.questao = self.auxData.questao
         self.txtEnunciado.text = self.questao.valueForKey("Enunciado") as! String
+        
+        
     }
     
+ override   func viewDidDisappear(animated: Bool) {
+        self.timer.invalidate()
+    }
     
     // MARK: - Navigation
     
@@ -154,7 +191,6 @@ class QuestaoViewController: UIViewController {
         
         if(segue.identifier == "goToRespostas"){
             
-            //           let view =  ResultadoProvaViewController()
             self.auxData.questoesUsuario = questoesManager.arrayRespostas
             
             

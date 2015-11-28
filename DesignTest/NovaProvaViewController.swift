@@ -13,11 +13,65 @@ class NovaProvaViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var timeField: UITextField!
     
     let questaoManager = QuestoesManager.singleton
+    var parseManager = ParseManager.singleton
+    var auxQuestoes = AuxiliarQuestoes.singleton
 //    let activityView = CustomActivityView()
+    var prova: [PFObject] = []
+     var arrayQuestoes:[PFObject] = []
+    var questao = NSObject()
+    
+    
+    func getRandomProva(){
+        
+        parseManager.getProvasPopulares { (result, error) -> () in
+           
+            
+            if(error == nil){
+                self.prova = result
+                let maxValue = UInt32(self.prova.count)
+                let randomIndex = Int(arc4random_uniform(maxValue))
+                print(self.prova.count * 2)
+              
+                print(self.questao)
+                let relation = self.prova[randomIndex].relationForKey("Questoes")
+                
+                // generate a query based on that relation
+                let query = relation.query()
+        
+                 self.arrayQuestoes = try! (query?.findObjects())!
+                
+          
+                print(self.arrayQuestoes)
+                
+                
+                self.auxQuestoes.questao = self.arrayQuestoes[0]
+                print(self.auxQuestoes.questao.valueForKey("Enunciado"))
+                self.auxQuestoes.objectId = self.arrayQuestoes[0].objectId!
+                self.auxQuestoes.indexQuestaoSelecionada = 1
+               
+                
+//                self.navigationController?.presentViewController(newView, animated: true, completion: nil)
+//                
+//                
+//                
+//                newView.rearViewController.setValue(questoes, forKey: "myArray")
+//                
+//                QuestoesManager.singleton.tamanhoDasQuestoes(questoes.count)
+
+               
+             
+            }
+         
+        }
+        
+    
+    
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.timeField.delegate = self
+        self.getRandomProva()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -62,10 +116,24 @@ class NovaProvaViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func goToEx(sender: AnyObject) {
         self.disabeView()
-
-        self.performSelector("goToNextView", withObject: nil, afterDelay: 1.0)
+        let newView = storyboard!.instantiateViewControllerWithIdentifier("QuestaoSWReveal") as! SWRevealViewController
         
-        return
+        self.auxQuestoes.indexQuestaoSelecionada = 1
+        
+        self.navigationController?.presentViewController(newView, animated: true, completion: nil)
+        
+        
+        
+        
+        QuestoesManager.singleton.tamanhoDasQuestoes(self.arrayQuestoes.count)
+        
+        
+        
+        newView.rearViewController.setValue(self.arrayQuestoes, forKey:"myArray")
+
+//        self.performSelector("goToNextView", withObject: nil, afterDelay: 1.0)
+//        
+//        return
     }
     
     func goToNextView(){
@@ -82,9 +150,16 @@ class NovaProvaViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
         if(segue.identifier == "goToEx") {
+            
+            
+          
+            
+            
 //            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
                 self.questaoManager.zerar()
                 self.questaoManager.totalQuestoes = 30

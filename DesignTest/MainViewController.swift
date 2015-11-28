@@ -21,7 +21,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     let titles = ["Maratona ENEM","Resumão FUVEST","Mack Provas", "#EUQUEROUSP"]
     var arrayImg: [UIImage?] = []
     var provas: [PFObject] = []
-    
+    var auxQuestoes = AuxiliarQuestoes.singleton
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureSideBar()
@@ -187,14 +187,38 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
 //    MARK: Navigation
     func goToProva(questoes: [PFObject]){
+//        
+//        self.auxQuestoes.questao = questoes[0]
+//        let questaoTemp = questoes[0]
+//        self.auxQuestoes.objectId = questaoTemp.objectId!
+//        self.auxQuestoes.indexQuestaoSelecionada = 1
+//        questoesManager.questaoSelecionada = questoes[0]
+//        
+//        print(self.auxQuestoes.questao.valueForKey("Enunciado"))
+//        let newMenuView = newView.rearViewController as! QuestaoMenuControllerTableViewController
+//        
+//        newMenuView.myArray = questoes
+//        questoesManager.tamanhoDasQuestoes(questoes.count)
+
         let storyboard = UIStoryboard(name: "IPhoneExercicios", bundle: nil)
+        
+        
+        self.auxQuestoes.questao = questoes[0]
+        print(self.auxQuestoes.questao.valueForKey("Enunciado"))
+        self.auxQuestoes.objectId = questoes[0].objectId!
+        self.auxQuestoes.indexQuestaoSelecionada = 1
         let newView = storyboard.instantiateViewControllerWithIdentifier("QuestaoSWReveal") as! SWRevealViewController
         
         self.navigationController?.presentViewController(newView, animated: true, completion: nil)
         
-        let newMenuView = newView.rearViewController as! QuestaoMenuControllerTableViewController
+      
         
-        newMenuView.myArray = questoes
+   newView.rearViewController.setValue(questoes, forKey: "myArray")
+    
         QuestoesManager.singleton.tamanhoDasQuestoes(questoes.count)
+        
+        
+        
+        
     }
 }

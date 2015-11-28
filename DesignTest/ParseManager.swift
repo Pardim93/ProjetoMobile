@@ -1340,6 +1340,9 @@ class ParseManager: NSObject {
         })
     }
     
+  
+
+    
     func setNameForUser(name: String, user: PFUser) -> Bool{
         user.setObject(name, forKey: "Nome")
         user.username = name

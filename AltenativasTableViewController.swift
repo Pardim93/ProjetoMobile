@@ -30,13 +30,13 @@ class AltenativasTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
 
         self.automaticallyAdjustsScrollViewInsets = false
-        if(self.auxData.flag){
+//        if(self.auxData.flag){
             self.getAlternativas(self.questao)
             self.questao = self.auxData.questao
             self.carregaQuestao()
             
             
-        }
+//        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

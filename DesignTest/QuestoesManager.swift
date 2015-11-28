@@ -63,6 +63,12 @@ class QuestoesManager: NSObject {
 
     }
     
+    func limpaQuestoesSelecionadas(){
+        self.arrayRespostas.removeAll()
+    
+    }
+    
+    
     
     func adicionaResposta(resposta: NSString, index:Int){
         

@@ -21,7 +21,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     var minhas: [PFObject]?
     var recentes: [PFObject] = []
     var disciplinas: [String] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,7 +43,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
-//    MARK: Config
+    //    MARK: Config
     func configureSideBar(){
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
@@ -61,7 +61,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     
     func configEmptyTableView(){
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
-//        self.tableView.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
+        //        self.tableView.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
         self.tableView.backgroundColor = UIColor.whiteColor()
     }
     
@@ -75,7 +75,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
         self.navigationItem.rightBarButtonItem = searchButton
     }
     
-//    MARK: ConfigProvas
+    //    MARK: ConfigProvas
     func configureProvasPopulares(){
         if(self.populares.count > 0){
             self.filtered = self.populares
@@ -84,7 +84,6 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
         self.disabeView()
-        
         parseManager.getProvasPopulares { (result, error) -> () in
             if(error == nil){
                 self.filtered = result
@@ -209,7 +208,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
         self.searchBar.delegate = self
     }
     
-//    MARK: SearchBar
+    //    MARK: SearchBar
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.view.endEditing(true)
         self.doSearch()
@@ -233,7 +232,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
         self.segControl.transform.ty = 0
     }
     
-//    MARK: Search
+    //    MARK: Search
     func cleanBusca(){
         self.filtered = []
         self.tableView.reloadData()
@@ -265,8 +264,8 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
             self.tableView.reloadData()
         }
     }
-  
-//    MARK: TableView
+    
+    //    MARK: TableView
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -299,7 +298,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
         self.goToProva(prova, discs: discs)
     }
     
-//    MARK: Delegate
+    //    MARK: Delegate
     func finishEdit(cellRow: Int) {
         self.view.endEditing(true)
         
@@ -312,7 +311,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
         self.goToProva(newProva, discs: discs)
     }
     
-//    MARK: Button Action
+    //    MARK: Button Action
     @IBAction func changeSection(sender: AnyObject) {
         let selected = segControl.selectedSegmentIndex
         
@@ -346,12 +345,12 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
-//    MARK: View
+    //    MARK: View
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
     
-//    MARK: Navigation
+    //    MARK: Navigation
     func goToProva(prova: PFObject, discs: String){
         let newStoryboard = UIStoryboard(name: "IPhoneProva", bundle: nil)
         let newView = newStoryboard.instantiateInitialViewController() as! ProvaTableViewController
