@@ -12,26 +12,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="143.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumbsUp1" translatesAutoresizingMaskIntoConstraints="NO" id="lLR-oo-fBq">
-                        <rect key="frame" x="222" y="53" width="80" height="80"/>
-                        <animations/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="80" id="UPA-4O-k86"/>
-                            <constraint firstAttribute="height" constant="80" id="qsL-TN-KVo"/>
-                        </constraints>
-                    </imageView>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Matemática, química, biologia, história" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd9-Kh-xX6" customClass="CellTextView" customModule="DesignTest" customModuleProvider="target">
-                        <rect key="frame" x="13" y="35" width="189" height="69"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 Questões" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfK-uQ-dIb">
-                        <rect key="frame" x="18" y="109" width="91" height="22"/>
+                        <rect key="frame" x="13" y="115" width="91" height="22"/>
                         <animations/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -40,38 +25,59 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preparação para o ENEM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="4wF-ag-mQJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="25"/>
                         <animations/>
-                        <color key="backgroundColor" red="0.0" green="0.4784313738" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.51942845394736847" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                         <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Matemática, química, biologia, história" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd9-Kh-xX6" customClass="CellTextView" customModule="DesignTest" customModuleProvider="target">
+                        <rect key="frame" x="13" y="30" width="294" height="70"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="6kV-JC-MsA"/>
+                            <constraint firstAttribute="height" constant="65" id="HiT-fw-5SL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="HiT-fw-5SL"/>
+                            </mask>
+                        </variation>
+                    </textView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJQ-2T-4qV" customClass="EDStarRating">
+                        <rect key="frame" x="157" y="113.5" width="150" height="25"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="QTF-AY-FyU"/>
+                            <constraint firstAttribute="width" constant="150" id="hYC-P7-2HQ"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstItem="4wF-ag-mQJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="2d3-Ze-cY3"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="4wF-ag-mQJ" secondAttribute="trailing" constant="-8" id="69Q-RV-icy"/>
-                    <constraint firstItem="jfK-uQ-dIb" firstAttribute="top" secondItem="Xd9-Kh-xX6" secondAttribute="bottom" constant="5" id="E2z-gu-fz8"/>
-                    <constraint firstItem="Xd9-Kh-xX6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="EYV-2w-eJo"/>
-                    <constraint firstItem="4wF-ag-mQJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="EyI-h6-CEa"/>
-                    <constraint firstItem="Xd9-Kh-xX6" firstAttribute="top" secondItem="4wF-ag-mQJ" secondAttribute="bottom" constant="10" id="M54-DR-6gI"/>
-                    <constraint firstItem="lLR-oo-fBq" firstAttribute="leading" secondItem="Xd9-Kh-xX6" secondAttribute="trailing" constant="20" id="RZ4-B7-UUD"/>
-                    <constraint firstItem="jfK-uQ-dIb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="VSm-EM-YTz"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="jfK-uQ-dIb" secondAttribute="bottom" constant="5" id="Zev-Df-flu"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="lLR-oo-fBq" secondAttribute="trailing" constant="10" id="a82-E5-L8a"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="lLR-oo-fBq" secondAttribute="bottom" constant="3" id="wYC-WB-mj8"/>
+                    <constraint firstItem="Xd9-Kh-xX6" firstAttribute="top" secondItem="4wF-ag-mQJ" secondAttribute="bottom" constant="5" id="2SM-X8-26q"/>
+                    <constraint firstItem="GJQ-2T-4qV" firstAttribute="centerY" secondItem="jfK-uQ-dIb" secondAttribute="centerY" id="3TV-3H-uCi"/>
+                    <constraint firstItem="jfK-uQ-dIb" firstAttribute="leading" secondItem="Xd9-Kh-xX6" secondAttribute="leading" id="3vb-iV-uRn"/>
+                    <constraint firstItem="GJQ-2T-4qV" firstAttribute="trailing" secondItem="Xd9-Kh-xX6" secondAttribute="trailing" id="JFD-a1-2lS"/>
+                    <constraint firstItem="Xd9-Kh-xX6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="Mau-YA-WfE"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="4wF-ag-mQJ" secondAttribute="trailing" constant="-8" id="Uzd-Vd-vPN"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Xd9-Kh-xX6" secondAttribute="trailing" constant="5" id="Z8M-oT-g1Y"/>
+                    <constraint firstItem="4wF-ag-mQJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="e4Y-86-ili"/>
+                    <constraint firstItem="4wF-ag-mQJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="sSM-Le-xT8"/>
+                    <constraint firstItem="jfK-uQ-dIb" firstAttribute="top" secondItem="Xd9-Kh-xX6" secondAttribute="bottom" constant="15" id="tRt-G8-cIv"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>
             <connections>
                 <outlet property="disciplinasTextView" destination="Xd9-Kh-xX6" id="xqV-wa-kpD"/>
-                <outlet property="imagemView" destination="lLR-oo-fBq" id="e1h-Dm-G8Z"/>
                 <outlet property="numQuestoesLabel" destination="jfK-uQ-dIb" id="iKb-ob-4Qr"/>
+                <outlet property="starRating" destination="GJQ-2T-4qV" id="EnE-YY-HwM"/>
                 <outlet property="tituloLabel" destination="4wF-ag-mQJ" id="870-mj-Sk2"/>
             </connections>
             <point key="canvasLocation" x="774" y="601"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="thumbsUp1" width="512" height="512"/>
-    </resources>
 </document>

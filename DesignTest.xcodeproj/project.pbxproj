@@ -300,6 +300,7 @@
 		2405E32E1B7E54380091FAFC /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				24EE26EE1BC2EC7E00E0AB6A /* IPad */,
 				24EE26ED1BC2EC6C00E0AB6A /* IPhone */,
 			);
 			name = StoryBoard;
@@ -521,7 +522,6 @@
 		24EE26ED1BC2EC6C00E0AB6A /* IPhone */ = {
 			isa = PBXGroup;
 			children = (
-				24EE26EE1BC2EC7E00E0AB6A /* IPad */,
 				521293371BE2ACB70093D905 /* IphoneExerciciosBackup.storyboard */,
 				52CAB3A11BFE31E3007A8230 /* IPhoneExercicios.storyboard */,
 				529760071BE3ED1E00DB551D /* AvaliacaoExercicios.storyboard */,

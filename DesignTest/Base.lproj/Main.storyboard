@@ -276,85 +276,6 @@
                                             <segue destination="6Be-WU-Fiv" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="bnB-ie-QJZ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="Sau-ic-2eB">
-                                        <rect key="frame" x="0.0" y="195" width="600" height="65"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sau-ic-2eB" id="spb-Ig-CP2">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="64.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bullish-100-Gray" translatesAutoresizingMaskIntoConstraints="NO" id="bZ6-0s-VsV">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <animations/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="32" id="qYt-6C-iO4"/>
-                                                        <constraint firstAttribute="width" constant="32" id="zsT-OD-Eu7"/>
-                                                    </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="qYt-6C-iO4"/>
-                                                            <exclude reference="zsT-OD-Eu7"/>
-                                                        </mask>
-                                                    </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
-                                                        <mask key="constraints">
-                                                            <include reference="qYt-6C-iO4"/>
-                                                            <include reference="zsT-OD-Eu7"/>
-                                                        </mask>
-                                                    </variation>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registros" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zP8-L2-TyE">
-                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstItem="zP8-L2-TyE" firstAttribute="leading" secondItem="spb-Ig-CP2" secondAttribute="leadingMargin" constant="100" id="6iL-kF-hSc">
-                                                    <variation key="heightClass=regular-widthClass=compact" constant="70"/>
-                                                </constraint>
-                                                <constraint firstAttribute="centerX" secondItem="zP8-L2-TyE" secondAttribute="centerX" id="Zk6-3t-UmH"/>
-                                                <constraint firstAttribute="centerY" secondItem="zP8-L2-TyE" secondAttribute="centerY" id="bML-fj-oOX"/>
-                                                <constraint firstItem="bZ6-0s-VsV" firstAttribute="leading" secondItem="spb-Ig-CP2" secondAttribute="leadingMargin" constant="15" id="uD2-MQ-Bmy"/>
-                                                <constraint firstAttribute="centerY" secondItem="bZ6-0s-VsV" secondAttribute="centerY" id="w0n-Pd-gZM"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="subviews">
-                                                    <exclude reference="bZ6-0s-VsV"/>
-                                                    <exclude reference="zP8-L2-TyE"/>
-                                                </mask>
-                                                <mask key="constraints">
-                                                    <exclude reference="6iL-kF-hSc"/>
-                                                    <exclude reference="Zk6-3t-UmH"/>
-                                                    <exclude reference="bML-fj-oOX"/>
-                                                    <exclude reference="uD2-MQ-Bmy"/>
-                                                    <exclude reference="w0n-Pd-gZM"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="heightClass=regular-widthClass=compact">
-                                                <mask key="subviews">
-                                                    <include reference="bZ6-0s-VsV"/>
-                                                    <include reference="zP8-L2-TyE"/>
-                                                </mask>
-                                                <mask key="constraints">
-                                                    <include reference="6iL-kF-hSc"/>
-                                                    <exclude reference="Zk6-3t-UmH"/>
-                                                    <include reference="bML-fj-oOX"/>
-                                                    <include reference="uD2-MQ-Bmy"/>
-                                                    <include reference="w0n-Pd-gZM"/>
-                                                </mask>
-                                            </variation>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <segue destination="21k-6d-6Gg" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="JXn-Qv-8MQ"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="pRQ-yZ-be7">
                                         <rect key="frame" x="0.0" y="260" width="600" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -815,7 +736,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Bullish-100-Gray" width="100" height="100"/>
         <image name="Home Filled-100-White" width="100" height="100"/>
         <image name="List Filled-100" width="100" height="100"/>
         <image name="More Filled-22" width="22" height="22"/>
