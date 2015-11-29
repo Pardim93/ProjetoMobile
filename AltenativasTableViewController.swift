@@ -24,9 +24,12 @@ class AltenativasTableViewController: UITableViewController {
     var questoesManager = QuestoesManager.singleton
     var countLetras = 65
     
-    
+  override  func viewWillAppear(animated: Bool) {
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.countLetras = 65
         tableView.sectionHeaderHeight = 0.0;
         tableView.sectionFooterHeight = 0.0;
@@ -58,7 +61,8 @@ class AltenativasTableViewController: UITableViewController {
 //    }
     
     override func viewDidDisappear(animated: Bool) {
-        
+   
+ 
     }
     
     // MARK: - Table view data source

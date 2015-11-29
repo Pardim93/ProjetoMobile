@@ -17,6 +17,7 @@ class TabBarQuestaoController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.configSideBar()
+        self.title = "Questão 1"
         
         if(auxQuestoes.flag){
             //Carrega info de uma questao somente se o usuario tenha escolhido uma questao

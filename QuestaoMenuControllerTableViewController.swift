@@ -46,6 +46,7 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         
         if(indexPath.row > 0 ){
             
+            
           
             self.questaoSelecionada = self.myArray[indexPath.row - 1]
             self.auxData.questao = self.questaoSelecionada
@@ -53,7 +54,7 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
             let questaoTemp = self.myArray[indexPath.row - 1]
             self.auxData.objectId = questaoTemp.objectId!
             self.auxData.indexQuestaoSelecionada = indexPath.row
-           
+          
             
         
         }else{

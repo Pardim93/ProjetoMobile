@@ -48,7 +48,10 @@ class QuestaoViewController: UIViewController {
 //            }
 //        }
 //    }
-
+    override
+    func viewWillAppear(animated: Bool) {
+        self.tabBarController?.title = "Questão \(self.auxData.indexQuestaoSelecionada)"
+    }
     
     
     

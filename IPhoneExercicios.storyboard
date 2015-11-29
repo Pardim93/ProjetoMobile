@@ -1357,7 +1357,7 @@
             </objects>
             <point key="canvasLocation" x="5748" y="1344"/>
         </scene>
-        <!--Item-->
+        <!--Questão-->
         <scene sceneID="FZC-nj-DZY">
             <objects>
                 <viewController id="nsC-G5-Iqz" customClass="QuestaoViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -1369,23 +1369,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture64" translatesAutoresizingMaskIntoConstraints="NO" id="5Gj-Vz-A4k">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="197" id="ENy-hH-VPC"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="ENy-hH-VPC"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="ENy-hH-VPC"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2oK-b1-J1V">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
@@ -1395,49 +1378,66 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture64" translatesAutoresizingMaskIntoConstraints="NO" id="5Gj-Vz-A4k">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="197" id="vv7-bO-QgA"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="vv7-bO-QgA"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="vv7-bO-QgA"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2oK-b1-J1V" firstAttribute="top" secondItem="5Gj-Vz-A4k" secondAttribute="bottom" constant="81" id="0BV-uj-nA7"/>
-                            <constraint firstItem="5Gj-Vz-A4k" firstAttribute="top" secondItem="cw6-Js-mDY" secondAttribute="bottom" constant="41" id="JSy-bz-swG"/>
-                            <constraint firstItem="2oK-b1-J1V" firstAttribute="centerX" secondItem="Ogu-uX-vVt" secondAttribute="centerX" id="M8x-zf-p5a"/>
-                            <constraint firstItem="5Gj-Vz-A4k" firstAttribute="leading" secondItem="Ogu-uX-vVt" secondAttribute="leadingMargin" constant="61" id="RnX-wD-QSc"/>
-                            <constraint firstItem="8J1-3I-aIM" firstAttribute="top" secondItem="2oK-b1-J1V" secondAttribute="bottom" constant="68" id="SJO-gp-4bh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5Gj-Vz-A4k" secondAttribute="trailing" constant="79" id="bwy-z4-eAu"/>
-                            <constraint firstItem="2oK-b1-J1V" firstAttribute="leading" secondItem="Ogu-uX-vVt" secondAttribute="leadingMargin" constant="15" id="fsP-d1-2ca"/>
+                            <constraint firstItem="2oK-b1-J1V" firstAttribute="leading" secondItem="Ogu-uX-vVt" secondAttribute="leadingMargin" constant="15" id="GeC-Nc-s6N"/>
+                            <constraint firstItem="8J1-3I-aIM" firstAttribute="top" secondItem="2oK-b1-J1V" secondAttribute="bottom" constant="68" id="L0Z-WM-ZWE"/>
+                            <constraint firstItem="5Gj-Vz-A4k" firstAttribute="centerX" secondItem="2oK-b1-J1V" secondAttribute="centerX" id="NHk-wp-0QN"/>
+                            <constraint firstItem="5Gj-Vz-A4k" firstAttribute="leading" secondItem="Ogu-uX-vVt" secondAttribute="leadingMargin" constant="70" id="Rzo-se-lrF"/>
+                            <constraint firstItem="2oK-b1-J1V" firstAttribute="centerX" secondItem="Ogu-uX-vVt" secondAttribute="centerX" id="SiJ-fv-rfW"/>
+                            <constraint firstItem="5Gj-Vz-A4k" firstAttribute="top" secondItem="cw6-Js-mDY" secondAttribute="bottom" constant="36" id="khl-xS-PX8"/>
+                            <constraint firstItem="2oK-b1-J1V" firstAttribute="top" secondItem="5Gj-Vz-A4k" secondAttribute="bottom" constant="86" id="onc-x9-Xy8"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="5Gj-Vz-A4k"/>
                                 <exclude reference="2oK-b1-J1V"/>
+                                <exclude reference="5Gj-Vz-A4k"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="SJO-gp-4bh"/>
-                                <exclude reference="0BV-uj-nA7"/>
-                                <exclude reference="M8x-zf-p5a"/>
-                                <exclude reference="fsP-d1-2ca"/>
-                                <exclude reference="JSy-bz-swG"/>
-                                <exclude reference="RnX-wD-QSc"/>
-                                <exclude reference="bwy-z4-eAu"/>
+                                <exclude reference="NHk-wp-0QN"/>
+                                <exclude reference="Rzo-se-lrF"/>
+                                <exclude reference="khl-xS-PX8"/>
+                                <exclude reference="GeC-Nc-s6N"/>
+                                <exclude reference="SiJ-fv-rfW"/>
+                                <exclude reference="onc-x9-Xy8"/>
+                                <exclude reference="L0Z-WM-ZWE"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="5Gj-Vz-A4k"/>
                                 <include reference="2oK-b1-J1V"/>
+                                <include reference="5Gj-Vz-A4k"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="SJO-gp-4bh"/>
-                                <include reference="0BV-uj-nA7"/>
-                                <include reference="M8x-zf-p5a"/>
-                                <include reference="fsP-d1-2ca"/>
-                                <include reference="JSy-bz-swG"/>
-                                <include reference="RnX-wD-QSc"/>
-                                <include reference="bwy-z4-eAu"/>
+                                <include reference="NHk-wp-0QN"/>
+                                <include reference="Rzo-se-lrF"/>
+                                <include reference="khl-xS-PX8"/>
+                                <include reference="GeC-Nc-s6N"/>
+                                <include reference="SiJ-fv-rfW"/>
+                                <include reference="onc-x9-Xy8"/>
+                                <include reference="L0Z-WM-ZWE"/>
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="6jK-NZ-x3K"/>
+                    <tabBarItem key="tabBarItem" title="Questão" image="Ask Question Filled-32" id="6jK-NZ-x3K"/>
                     <connections>
                         <outlet property="imgExercicio" destination="5Gj-Vz-A4k" id="ka0-Kk-nUB"/>
                         <outlet property="txtEnunciado" destination="2oK-b1-J1V" id="jaA-ob-Ksq"/>
@@ -1545,7 +1545,7 @@
             </objects>
             <point key="canvasLocation" x="7483.5" y="1431.75"/>
         </scene>
-        <!--Item-->
+        <!--Alternativas-->
         <scene sceneID="5Vf-a4-0XI">
             <objects>
                 <tableViewController id="7GD-sv-Pp9" customClass="AltenativasTableViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -1629,7 +1629,7 @@
                             <outlet property="delegate" destination="7GD-sv-Pp9" id="g5Y-S8-HGd"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="0yj-N1-lXh"/>
+                    <tabBarItem key="tabBarItem" title="Alternativas" image="Multiple Choice Filled-32" id="0yj-N1-lXh"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SKJ-iI-JYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1731,6 +1731,7 @@
     <resources>
         <image name="Ask Question Filled-32" width="32" height="32"/>
         <image name="List-32" width="32" height="32"/>
+        <image name="Multiple Choice Filled-32" width="32" height="32"/>
         <image name="picture64" width="512" height="512"/>
         <image name="thumbsDown96" width="512" height="512"/>
         <image name="thumbsUp1" width="512" height="512"/>
