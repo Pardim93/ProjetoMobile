@@ -16,6 +16,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var createdAt: UILabel!
     
+    var enableDelete = true
     var questoesManager = QuestoesManager.singleton
     var prova: PFObject!
     var discs: String!
@@ -207,7 +208,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         actionSheet.addAction(self.createDenunciarAction())
         actionSheet.addAction(self.createCancelAction())
         
-        if(self.userIsOwner()){
+        if(self.userIsOwner() && self.enableDelete){
             actionSheet.addAction(self.createDeleteAction())
         }
         

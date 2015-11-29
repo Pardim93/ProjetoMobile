@@ -22,6 +22,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     var arrayImg: [UIImage?] = []
     var provas: [PFObject] = []
     var auxQuestoes = AuxiliarQuestoes.singleton
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureSideBar()
@@ -173,6 +176,34 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
 //    MARK: Navigation
+    
+    @IBAction func goToRandomProva(sender: AnyObject) {
+        self.disabeView()
+        
+        parseManager.getProvaAleatoria { (prova, error) -> () in
+            if(error != nil){
+                self.enableView()
+                self.navigationController?.showAlert(error!.localizedDescription)
+                return
+            }
+            
+            self.parseManager.getDisciplinasByProva(prova!, completionHandler: { (disciplinas, error) -> () in
+                self.enableView()
+                if(error != nil){
+                    self.navigationController?.showAlert(error!.localizedDescription)
+                    return
+                }
+                
+                let storyBoard = UIStoryboard(name: "IPhoneProva", bundle: nil)
+                let newView = storyBoard.instantiateInitialViewController() as! ProvaTableViewController
+                newView.enableDelete = false
+                newView.setNewProva(prova!, discs: disciplinas)
+                
+                self.navigationController?.pushViewController(newView, animated: true)
+            })
+        }
+    }
+    
     func goToProva(questoes: [PFObject]){
 //        
 //        self.auxQuestoes.questao = questoes[0]
@@ -198,14 +229,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         self.navigationController?.presentViewController(newView, animated: true, completion: nil)
         
-      
+        newView.rearViewController.setValue(questoes, forKey: "myArray")
         
-   newView.rearViewController.setValue(questoes, forKey: "myArray")
-    
         QuestoesManager.singleton.tamanhoDasQuestoes(questoes.count)
-        
-        
-        
-        
     }
 }

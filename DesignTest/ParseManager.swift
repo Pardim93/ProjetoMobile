@@ -204,6 +204,43 @@ class ParseManager: NSObject {
         })
     }
     
+    func getDisciplinasByProva(prova: PFObject, completionHandler: (String, NSError?) -> ()){
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var erro: NSError?
+            
+            let discRelation = prova.objectForKey("Disciplinas") as! PFRelation
+            let query = discRelation.query()
+            
+            do{
+                let result = try query?.findObjects()
+                
+                var newText = ""
+                for disc in result!{
+                    let disciplina = disc
+                    let discString = disciplina.objectForKey("Nome")
+                    newText += "\(discString!) - "
+                }
+                
+                newText = String(newText.characters.dropLast())
+                newText = String(newText.characters.dropLast())
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(newText, erro)
+                })
+                return
+            } catch let externalError as NSError{
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler("", erro)
+                })
+                return
+            }
+        })
+    }
+    
     func getDisciplinasByArrayProvas(provas: [PFObject], completionHandler: ([String], NSError?) -> ()){
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             var discArray: [String] = []
@@ -499,6 +536,39 @@ class ParseManager: NSObject {
     }
 
 //    MARK: PROVA GET
+    func getProvaAleatoria(completionHandler: (PFObject?, NSError?) -> ()){
+        let query = PFQuery(className: "Prova")
+        query.includeKey("Autor")
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var erro: NSError?
+            do{
+                let provas = try query.findObjects()
+                let provasCount: UInt32 = UInt32(provas.count)
+                
+                let randomNum = Int(arc4random_uniform(provasCount))
+                
+                let prova = provas[randomNum]
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(prova, erro)
+                })
+                return
+                
+            } catch let externalError as NSError{
+                //Falha ao buscar provas populares
+                //Expected: -1, 1, 100
+                let errorCode = externalError.code
+                erro = self.getErrorForCode(errorCode)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(nil, erro)
+                })
+                return
+            }
+        })
+    }
+    
     func getProvasByAutor(autor: PFUser, completionHandler: ([PFObject], NSError?) -> ()){
         let query = PFQuery(className: "Prova")
         query.orderByDescending("Popularidade")
