@@ -9,6 +9,8 @@
 
 class PerguntasTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var texto: UITextView!
+    @IBOutlet weak var LETRA: UILabel!
     @IBOutlet weak var textViewResposta: UITextView!
     @IBOutlet weak var labelLetra: UILabel!
     @IBOutlet weak var labelResposta: UILabel!
@@ -19,6 +21,7 @@ class PerguntasTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         if labelLetra != nil{
+            self.texto.font = UIFont (name: "Avenir book", size: 18)
             
 //            self.drawBorders() 
 //            self.frame.size.height = 160

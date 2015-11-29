@@ -15,16 +15,19 @@ class AltenativasTableViewController: UITableViewController {
     //prova acabar quando usuario resolve finalizar a prova
     //compara as resposta do usuario na hora
     
+    @IBOutlet weak var letraAlternativa: UILabel!
     
     private var arrayAlternativas = NSMutableArray()
     var questao = NSObject()
     var auxData = AuxiliarQuestoes.singleton
     var outraArray = NSMutableArray()
     var questoesManager = QuestoesManager.singleton
+    var countLetras = 65
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.countLetras = 65
         tableView.sectionHeaderHeight = 0.0;
         tableView.sectionFooterHeight = 0.0;
         tableView.tableFooterView = UIView()
@@ -49,10 +52,10 @@ class AltenativasTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-  override  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
+//    
+//  override  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return UITableViewAutomaticDimension
+//    }
     
     override func viewDidDisappear(animated: Bool) {
         
@@ -65,9 +68,9 @@ class AltenativasTableViewController: UITableViewController {
         return 1
     }
     
-//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return 100
-//    }
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 100
+    }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -88,18 +91,27 @@ class AltenativasTableViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! AlternativasProvaTableViewCell
+       
         
-        // Configure the cell...
-        
-        
-        cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.lineBreakMode = .ByWordWrapping
-        
-        cell.textLabel?.text =  (self.arrayAlternativas[indexPath.row] as! String) as? String
-        
-        cell.textLabel?.textAlignment = .Center
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! PerguntasTableViewCell
+        cell.texto.text = (self.arrayAlternativas[indexPath.row] as! String) as? String
+                let letra = String(UnicodeScalar(countLetras))
+                cell.LETRA.text = letra
+                countLetras++
 
+        cell.texto.font = UIFont (name: "Avenir book", size: 18)
+
+
+//        for index in 65...69{
+//            let letra = String(UnicodeScalar(index))
+//            outraArray.addObject(questao.valueForKey("Alternativa\(letra)")!)
+//            
+//        }
+//        cell.textLabel?.numberOfLines = 0
+//        cell.textLabel?.lineBreakMode = .ByWordWrapping
+//        cell.textLabel?.text =  (self.arrayAlternativas[indexPath.row] as! String) as? String
+//        cell.textLabel?.textAlignment = .Center
+//
         
         
         

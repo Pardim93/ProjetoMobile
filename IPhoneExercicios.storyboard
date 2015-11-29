@@ -737,7 +737,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sz8-Qu-i4p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10587" y="591"/>
+            <point key="canvasLocation" x="10584" y="585"/>
         </scene>
         <!--Resultado-->
         <scene sceneID="zWz-hr-HgA">
@@ -1554,16 +1554,74 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="cell" id="vJM-OR-0BH" customClass="AlternativasProvaTableViewCell" customModule="DesignTest" customModuleProvider="target">
+                            <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="cell" id="vJM-OR-0BH" customClass="PerguntasTableViewCell" customModule="DesignTest" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vJM-OR-0BH" id="z1K-aB-f6L">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BjX-1L-N6y">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFv-uc-fcq">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="BjX-1L-N6y" firstAttribute="leading" secondItem="z1K-aB-f6L" secondAttribute="leadingMargin" constant="13" id="5bI-aH-Srb"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="NFv-uc-fcq" secondAttribute="bottom" constant="-8.5" id="GQo-gG-Coz"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="NFv-uc-fcq" secondAttribute="trailing" constant="49" id="PkM-nB-fLi"/>
+                                        <constraint firstItem="NFv-uc-fcq" firstAttribute="leading" secondItem="BjX-1L-N6y" secondAttribute="trailing" constant="40" id="TUc-0Z-Vo8"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="BjX-1L-N6y" secondAttribute="bottom" constant="6.5" id="t8H-i1-xQH"/>
+                                        <constraint firstItem="BjX-1L-N6y" firstAttribute="top" secondItem="NFv-uc-fcq" secondAttribute="top" id="uBC-2e-L2h"/>
+                                        <constraint firstItem="NFv-uc-fcq" firstAttribute="top" secondItem="z1K-aB-f6L" secondAttribute="topMargin" id="ykE-mc-dje"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="BjX-1L-N6y"/>
+                                            <exclude reference="NFv-uc-fcq"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="5bI-aH-Srb"/>
+                                            <exclude reference="t8H-i1-xQH"/>
+                                            <exclude reference="uBC-2e-L2h"/>
+                                            <exclude reference="GQo-gG-Coz"/>
+                                            <exclude reference="PkM-nB-fLi"/>
+                                            <exclude reference="TUc-0Z-Vo8"/>
+                                            <exclude reference="ykE-mc-dje"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="BjX-1L-N6y"/>
+                                            <include reference="NFv-uc-fcq"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="5bI-aH-Srb"/>
+                                            <include reference="t8H-i1-xQH"/>
+                                            <include reference="uBC-2e-L2h"/>
+                                            <include reference="GQo-gG-Coz"/>
+                                            <include reference="PkM-nB-fLi"/>
+                                            <include reference="TUc-0Z-Vo8"/>
+                                            <include reference="ykE-mc-dje"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" updatesFrequently="YES" adjustable="YES" allowsDirectInteraction="YES"/>
                                 </accessibility>
+                                <connections>
+                                    <outlet property="LETRA" destination="BjX-1L-N6y" id="5Ys-jI-2SX"/>
+                                    <outlet property="texto" destination="NFv-uc-fcq" id="rv3-CD-K96"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1575,7 +1633,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SKJ-iI-JYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7825.5" y="154.5"/>
+            <point key="canvasLocation" x="7809" y="123"/>
         </scene>
         <!--Avaliacao Questao Tab Bar Controller-->
         <scene sceneID="f0Y-SU-K1Q">
