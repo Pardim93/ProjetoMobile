@@ -182,8 +182,7 @@ class AltenativasTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.auxData.questaoSelecionada = self.arrayAlternativas[indexPath.row] as! String
         questoesManager.addRepostaNoIndex(self.auxData.questaoSelecionada, index:self.auxData.indexQuestaoSelecionada - 1)
-        print("Resposta do usuario \(self.auxData.questaoSelecionada)")
-        print("Index da questaoe escolhida \(self.auxData.indexQuestaoSelecionada)")
+   
         
         auxData.arrayQuestoesVerficadas[auxData.indexQuestaoSelecionada]  = true
         

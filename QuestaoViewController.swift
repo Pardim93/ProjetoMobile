@@ -21,6 +21,7 @@ class QuestaoViewController: UIViewController {
     private var parseManager = ParseManager.singleton
     private var questoesManager = QuestoesManager.singleton
     var questao = NSObject()
+
     
 //    func getRandomQuestao(){
 //        parseManager.getProvasRecentes { (result, error) -> () in
@@ -53,6 +54,54 @@ class QuestaoViewController: UIViewController {
         self.tabBarController?.title = "Questão \(self.auxData.indexQuestaoSelecionada)"
     }
     
+    func createButton(){
+        imgExercicio.userInteractionEnabled = true
+        
+        let button   = UIButton()
+        button.setBackgroundImage(UIImage(named:"LupaZoom"), forState: .Normal )
+        button.tag = 1
+        button.addTarget(self, action: "buttonPopUp:", forControlEvents: .TouchDown)
+        
+        
+        button.frame = CGRectMake(170, 160
+            , 25, 25)
+        
+        self.imgExercicio.addSubview(button)
+        
+        
+        
+    }
+    
+    
+    
+//    func buttonPopUp(sender:UIButton!){
+//        if (UIDevice.currentDevice().userInterfaceIdiom == .Pad)
+//        {
+//            self.popViewController = PopUpViewController(nibName: "PopUpViewController_iPad", bundle: nil)
+//            self.popViewController.title = "This is a popup view"
+//            self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "You just triggered a great popup window", animated: true)
+//        } else {
+//            if UIScreen.mainScreen().bounds.size.width > 320 {
+//                if UIScreen.mainScreen().scale == 3 {
+//                    self.popViewController = PopUpViewController(nibName: "PopUpViewController_iPhone6Plus", bundle: nil)
+//                    self.popViewController.title = "Imagem do Enunciado"
+//                    self.popViewController.showInView(self.view, withImage: imgExercicio.image, withMessage: "Imagem", animated: true)
+//                } else {
+//                    self.popViewController = PopUpViewController(nibName: "PopUpViewController_iPhone6", bundle: nil)
+//                    self.popViewController.title = "Imagem do Enunciado"
+//                    self.popViewController.showInView(self.view, withImage:imgExercicio.image, withMessage: "Imagem", animated: true)
+//                }
+//            } else {
+//                
+//                self.popViewController = PopUpViewController(nibName: "PopUpViewController", bundle: nil)
+//                self.popViewController.title = "Imagem do Enunciado"
+//                self.popViewController.showInView(self.view, withImage: imgExercicio.image, withMessage: "Imagem", animated: true)
+//            }
+//        }
+//        
+//    }
+//
+//    
     
     
     
@@ -71,22 +120,22 @@ class QuestaoViewController: UIViewController {
         self.navigationController?.navigationItem.hidesBackButton = true
     }
     
-    func createButton(){
-        imgExercicio.userInteractionEnabled = true
-        
-        let button   = UIButton()
-        button.setBackgroundImage(UIImage(named:"LupaZoom"), forState: .Normal )
-        button.tag = 1
-        button.addTarget(self, action: "buttonPopUp:", forControlEvents: .TouchDown)
-        
-        
-        button.frame = CGRectMake(220, 180, 30, 30)
-        
-        self.imgExercicio.addSubview(button)
-        
-        
-        
-    }
+//    func createButton(){
+//        imgExercicio.userInteractionEnabled = true
+//        
+//        let button   = UIButton()
+//        button.setBackgroundImage(UIImage(named:"LupaZoom"), forState: .Normal )
+//        button.tag = 1
+//        button.addTarget(self, action: "buttonPopUp:", forControlEvents: .TouchDown)
+//        
+//        
+//        button.frame = CGRectMake(220, 180, 30, 30)
+//        
+//        self.imgExercicio.addSubview(button)
+//        
+//        
+//        
+//    }
     
     
     

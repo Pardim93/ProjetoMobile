@@ -89,6 +89,8 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("questaoCell", forIndexPath: indexPath) as! QuestaoMenuTableViewCell
         
+        cell.labelQuestao.font = UIFont (name: "Avenir light", size: 18)
+
         
         if(indexPath.row == 0){
             
@@ -109,6 +111,7 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
 //            }
             
             cell.labelQuestao!.text =  "Questão \(indexPath.row)"
+
             
             if(self.auxData.arrayQuestoesVerficadas[indexPath.row] == true){
                 cell.imgMarker.image = UIImage(named: "Checkmark-100")

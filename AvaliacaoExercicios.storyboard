@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zgg-Os-HlF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zgg-Os-HlF">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -49,7 +49,7 @@
         <!--Item-->
         <scene sceneID="xLN-KU-MQC">
             <objects>
-                <viewController id="kXa-vc-1Vi" customClass="AvaliacaoEnunciadoViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kXa-vc-1Vi" customClass="AvaliacaoEnunciadoViewController" customModule="Vestibulandos" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k4N-C1-WWV"/>
                         <viewControllerLayoutGuide type="bottom" id="wSa-wc-M3J"/>
@@ -149,7 +149,7 @@
         <!--Menu Controller-->
         <scene sceneID="iJ2-ns-xNR">
             <objects>
-                <tableViewController id="ube-eW-THY" customClass="MenuController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ube-eW-THY" customClass="MenuController" customModule="Vestibulandos" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dRQ-O1-wh7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,14 +193,14 @@
         <!--News-->
         <scene sceneID="X3V-tW-qRx">
             <objects>
-                <tableViewController id="xtQ-WM-bph" customClass="NewsTableViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="xtQ-WM-bph" customClass="NewsTableViewController" customModule="Vestibulandos" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="243" sectionHeaderHeight="22" sectionFooterHeight="22" id="EDh-bE-1Zh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="243" id="7ZQ-MC-lDM" customClass="NewsTableViewCell" customModule="DesignTest" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="243" id="7ZQ-MC-lDM" customClass="NewsTableViewCell" customModule="Vestibulandos" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="22" width="600" height="243"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7ZQ-MC-lDM" id="MdE-N5-YCB">
@@ -300,7 +300,7 @@
         <!--Item-->
         <scene sceneID="UBu-Hb-TAC">
             <objects>
-                <tableViewController id="MHW-RQ-jfz" customClass="AvaliacaoQuestaoTableViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="MHW-RQ-jfz" customClass="AvaliacaoQuestaoTableViewController" customModule="Vestibulandos" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dfb-KT-dce">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -333,7 +333,7 @@
         <!--Avaliacao Tab Bar Controller-->
         <scene sceneID="tJF-0Y-ytr">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8Tl-Cf-53Z" customClass="AvaliacaoTabBarController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8Tl-Cf-53Z" customClass="AvaliacaoTabBarController" customModule="Vestibulandos" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="hfc-xV-ujx">
                         <barButtonItem key="leftBarButtonItem" title="Lista" id="koE-vh-3ax"/>

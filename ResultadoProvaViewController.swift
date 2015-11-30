@@ -91,7 +91,8 @@ class ResultadoProvaViewController: UITableViewController  {
         cell.textLabel?.textAlignment = .Center
         cell.accessoryType = .DisclosureIndicator
         
-        
+        cell.textLabel!.font = UIFont (name: "Avenir Light", size: 18)
+
         
         let respostaCerta = (auxQuestoes.questoesCorretas[(indexPath.row)].objectForKey("AlternativaA") as? String)
         let respostaUsuario = auxQuestoes.questoesUsuario[indexPath.row] as! String
