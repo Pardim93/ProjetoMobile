@@ -11,6 +11,7 @@ import UIKit
 class InserirProvaTabBarViewController: UITabBarController {
     
     let parseManager = ParseManager.singleton
+    let inserirQuestoesManager = InserirQuestoesProvaManager.singleton
     let segmented = UISegmentedControl(items: ["Capa", "Descrição", "Procurar", "Questões"])
     var backItem: UIBarButtonItem!
 
@@ -186,6 +187,7 @@ class InserirProvaTabBarViewController: UITabBarController {
         
         alertController.addAction(UIAlertAction(title: "Ok", style: .Default) { (action) in
             self.navigationItem.leftBarButtonItem = self.backItem
+            self.inserirQuestoesManager.cleanAll()
             self.navigationController?.popViewControllerAnimated(true)
             })
         alertController.addAction(UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil))

@@ -58,8 +58,6 @@ class InserirExTabBarViewController: UITabBarController {
         segmented.frame = CGRectMake(-2.5, 0, self.view.frame.width+5, 40)
         segmented.selectedSegmentIndex = 0
         segmented.backgroundColor = UIColor.whiteColor()
-//        segmented.tintColor = UIColor.newLightBlueColor()
-//        segmented.tintColor = UIColor(red: 0/255, green: 121/255, blue: 1, alpha: 1.0)
         segmented.addTarget(self, action: "changeView", forControlEvents: .ValueChanged)
         
         self.view.addSubview(segmented)

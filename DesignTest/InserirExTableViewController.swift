@@ -19,6 +19,10 @@ class InserirExTableViewController: UITableViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
         let tabBar = self.tabBarController as! InserirExTabBarViewController
         tabBar.configSaveButton()

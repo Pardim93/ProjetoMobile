@@ -13,6 +13,11 @@ class InserirQuestoesProvaManager: NSObject {
     
     var adicionadas: [PFObject] = []
     
+//    MARK: Config
+    func cleanAll(){
+        self.adicionadas = []
+    }
+    
 //    MARK: Compare
     func questaoExiste(questao: PFObject) -> Bool{
         for quest in adicionadas{
