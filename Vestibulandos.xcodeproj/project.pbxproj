@@ -253,14 +253,14 @@
 		52CAB39F1BFE2F8B007A8230 /* NavResultadoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavResultadoViewController.swift; sourceTree = "<group>"; };
 		52CAB3A11BFE31E3007A8230 /* IPhoneExercicios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = IPhoneExercicios.storyboard; path = ../IPhoneExercicios.storyboard; sourceTree = "<group>"; };
 		52D8C9CB1BF09502007E849E /* QuestaoDetalheViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestaoDetalheViewController.swift; sourceTree = "<group>"; };
-		52DF78A01B790EE30047A107 /* DesignTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52DF78A01B790EE30047A107 /* Vestibulandos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vestibulandos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52DF78A41B790EE30047A107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52DF78A51B790EE30047A107 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52DF78A81B790EE30047A107 /* DesignTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DesignTest.xcdatamodel; sourceTree = "<group>"; };
 		52DF78AD1B790EE30047A107 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52DF78AF1B790EE30047A107 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		52DF78B21B790EE30047A107 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		52DF78B81B790EE30047A107 /* DesignTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesignTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		52DF78B81B790EE30047A107 /* Vestibulandos.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Vestibulandos.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52DF78BD1B790EE30047A107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52DF78BE1B790EE30047A107 /* DesignTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTestTests.swift; sourceTree = "<group>"; };
 		52EC8EB61BC7019B002DCF52 /* ResultadoInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultadoInfoViewController.swift; sourceTree = "<group>"; };
@@ -637,8 +637,8 @@
 		52DF78A11B790EE30047A107 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				52DF78A01B790EE30047A107 /* DesignTest.app */,
-				52DF78B81B790EE30047A107 /* DesignTestTests.xctest */,
+				52DF78A01B790EE30047A107 /* Vestibulandos.app */,
+				52DF78B81B790EE30047A107 /* Vestibulandos.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -707,9 +707,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		52DF789F1B790EE30047A107 /* DesignTest */ = {
+		52DF789F1B790EE30047A107 /* Vestibulandos */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52DF78C21B790EE30047A107 /* Build configuration list for PBXNativeTarget "DesignTest" */;
+			buildConfigurationList = 52DF78C21B790EE30047A107 /* Build configuration list for PBXNativeTarget "Vestibulandos" */;
 			buildPhases = (
 				4CA4C5271E46E4BBD3BFC649 /* Check Pods Manifest.lock */,
 				52DF789C1B790EE30047A107 /* Sources */,
@@ -722,14 +722,14 @@
 			);
 			dependencies = (
 			);
-			name = DesignTest;
+			name = Vestibulandos;
 			productName = DesignTest;
-			productReference = 52DF78A01B790EE30047A107 /* DesignTest.app */;
+			productReference = 52DF78A01B790EE30047A107 /* Vestibulandos.app */;
 			productType = "com.apple.product-type.application";
 		};
-		52DF78B71B790EE30047A107 /* DesignTestTests */ = {
+		52DF78B71B790EE30047A107 /* VestibulandosTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52DF78C51B790EE30047A107 /* Build configuration list for PBXNativeTarget "DesignTestTests" */;
+			buildConfigurationList = 52DF78C51B790EE30047A107 /* Build configuration list for PBXNativeTarget "VestibulandosTests" */;
 			buildPhases = (
 				52DF78B41B790EE30047A107 /* Sources */,
 				52DF78B51B790EE30047A107 /* Frameworks */,
@@ -740,9 +740,9 @@
 			dependencies = (
 				52DF78BA1B790EE30047A107 /* PBXTargetDependency */,
 			);
-			name = DesignTestTests;
+			name = VestibulandosTests;
 			productName = DesignTestTests;
-			productReference = 52DF78B81B790EE30047A107 /* DesignTestTests.xctest */;
+			productReference = 52DF78B81B790EE30047A107 /* Vestibulandos.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -764,7 +764,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 52DF789B1B790EE30047A107 /* Build configuration list for PBXProject "DesignTest" */;
+			buildConfigurationList = 52DF789B1B790EE30047A107 /* Build configuration list for PBXProject "Vestibulandos" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -777,8 +777,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				52DF789F1B790EE30047A107 /* DesignTest */,
-				52DF78B71B790EE30047A107 /* DesignTestTests */,
+				52DF789F1B790EE30047A107 /* Vestibulandos */,
+				52DF78B71B790EE30047A107 /* VestibulandosTests */,
 			);
 		};
 /* End PBXProject section */
@@ -987,7 +987,7 @@
 /* Begin PBXTargetDependency section */
 		52DF78BA1B790EE30047A107 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 52DF789F1B790EE30047A107 /* DesignTest */;
+			target = 52DF789F1B790EE30047A107 /* Vestibulandos */;
 			targetProxy = 52DF78B91B790EE30047A107 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1111,7 +1111,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Bepid.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Vestibulandos;
 				SWIFT_OBJC_BRIDGING_HEADER = "DesignTest/DesignTest-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1129,7 +1129,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Bepid.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Vestibulandos;
 				SWIFT_OBJC_BRIDGING_HEADER = "DesignTest/DesignTest-Bridging-Header.h";
 			};
 			name = Release;
@@ -1145,8 +1145,8 @@
 				INFOPLIST_FILE = DesignTestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Bepid.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DesignTest.app/DesignTest";
+				PRODUCT_NAME = Vestibulandos;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vestibulandos.app/Vestibulandos";
 			};
 			name = Debug;
 		};
@@ -1157,15 +1157,15 @@
 				INFOPLIST_FILE = DesignTestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Bepid.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DesignTest.app/DesignTest";
+				PRODUCT_NAME = Vestibulandos;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vestibulandos.app/Vestibulandos";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		52DF789B1B790EE30047A107 /* Build configuration list for PBXProject "DesignTest" */ = {
+		52DF789B1B790EE30047A107 /* Build configuration list for PBXProject "Vestibulandos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52DF78C01B790EE30047A107 /* Debug */,
@@ -1174,7 +1174,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52DF78C21B790EE30047A107 /* Build configuration list for PBXNativeTarget "DesignTest" */ = {
+		52DF78C21B790EE30047A107 /* Build configuration list for PBXNativeTarget "Vestibulandos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52DF78C31B790EE30047A107 /* Debug */,
@@ -1183,7 +1183,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52DF78C51B790EE30047A107 /* Build configuration list for PBXNativeTarget "DesignTestTests" */ = {
+		52DF78C51B790EE30047A107 /* Build configuration list for PBXNativeTarget "VestibulandosTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52DF78C61B790EE30047A107 /* Debug */,

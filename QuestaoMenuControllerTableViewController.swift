@@ -59,10 +59,10 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         
         }else{
             
-            let view = self.storyboard?.instantiateViewControllerWithIdentifier("NavResultadoViewController")
+            let view = self.storyboard?.instantiateViewControllerWithIdentifier("NavResultadoViewController") as! NavResultadoViewController
             print(questoesManager.arrayRespostas.count)
             self.auxData.questoesUsuario = questoesManager.arrayRespostas
-            self.presentViewController(view!, animated: false, completion: nil)
+            self.presentViewController(view, animated: false, completion: nil)
             
         }
     }
