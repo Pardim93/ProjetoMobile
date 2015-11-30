@@ -14,7 +14,6 @@ class InserirTituloTableViewController: UITableViewController, ViewStatusDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationController?.navigationBar.translucent = false
         self.configTabbarHidingCells()
         self.configNavBarHidingCells()
         self.automaticallyAdjustsScrollViewInsets = false
@@ -22,7 +21,6 @@ class InserirTituloTableViewController: UITableViewController, ViewStatusDelegat
     }
     
     override func viewWillAppear(animated: Bool) {
-//        self.configBackButton()
         super.viewWillAppear(animated)
     }
     

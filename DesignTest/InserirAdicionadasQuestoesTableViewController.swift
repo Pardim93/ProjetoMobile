@@ -27,6 +27,9 @@ class InserirAdicionadasQuestoesTableViewController: UITableViewController, Cust
             self.configToolBar()
         }
         
+        let tabBar = self.tabBarController as! InserirProvaTabBarViewController
+        tabBar.configSaveButton()
+        
         self.configTableView()
         self.updateQuestoes()
     }

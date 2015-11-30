@@ -21,6 +21,9 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     var minhas: [PFObject]?
     var recentes: [PFObject] = []
     var disciplinas: [String] = []
+    var disciplinasPopulares: [String] = []
+    var disciplinasRecentes: [String] = []
+    var disciplinasMinhas: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +82,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     func configureProvasPopulares(){
         if(self.populares.count > 0){
             self.filtered = self.populares
+            self.disciplinas = self.disciplinasPopulares
             self.tableView.reloadData()
             return
         }
@@ -90,7 +94,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
                 self.populares = result
                 if(result.count > 0){
                     self.tableView.separatorStyle = .None
-                    self.configureDisciplinas()
+                    self.configureDisciplinas("pop")
                     return
                 }
                 else{
@@ -113,6 +117,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     func configureProvasRecentes(){
         if(self.recentes.count > 0){
             self.filtered = self.recentes
+            self.disciplinas = self.disciplinasRecentes
             self.tableView.reloadData()
             return
         }
@@ -125,7 +130,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
                 self.recentes = result
                 if(result.count > 0){
                     self.tableView.separatorStyle = .None
-                    self.configureDisciplinas()
+                    self.configureDisciplinas("rec")
                     return
                 }
                 else{
@@ -159,7 +164,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
                     self.minhas = result
                     if(result.count > 0){
                         self.tableView.separatorStyle = .None
-                        self.configureDisciplinas()
+                        self.configureDisciplinas("min")
                         return
                     }
                     else{
@@ -180,18 +185,26 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
             
             return
         }
+        
+        self.filtered = self.minhas!
+        self.disciplinas = self.disciplinasMinhas
+        self.tableView.reloadData()
+        return
     }
     
-    func configureDisciplinas(){
+    func configureDisciplinas(arrayToFill: String){
         parseManager.getDisciplinasByArrayProvas(self.filtered) { (arrayDisciplinas, error) -> () in
             self.enableView()
+            
+            self.setNewArray(arrayToFill, arrayDisciplinas: arrayDisciplinas)
+            self.disciplinas = arrayDisciplinas
+            
             if(error == nil){
-                self.disciplinas = arrayDisciplinas
                 self.tableView.reloadData()
                 return
             }
             else{
-                self.disciplinas = []
+//                self.disciplinas = []
                 self.filtered = []
                 self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
                 self.configEmptyTableView()
@@ -199,6 +212,22 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
                 self.navigationController?.showAlert("Erro ao buscar")
                 return
             }
+        }
+    }
+    
+    func setNewArray(arrayToFill: String, arrayDisciplinas: [String]){
+        switch arrayToFill{
+        case "pop":
+            self.disciplinasPopulares = arrayDisciplinas
+            return
+        case "rec":
+            self.disciplinasRecentes = arrayDisciplinas
+            return
+        case "min":
+            self.disciplinasMinhas = arrayDisciplinas
+            return
+        default:
+            return
         }
     }
     

@@ -155,8 +155,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         let img = arrayImg[indexPath.row]
         cell.setNewImage(img)
         
-        cell.backgroundColor = UIColor.grayColor()
-        
         return cell
     }
     

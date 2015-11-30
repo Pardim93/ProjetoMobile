@@ -18,12 +18,18 @@ class CollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        self.frame.size = CGSizeMake(160, 160)
+        
+        self.configCell()
+    }
+    
+//    MARK: Config
+    func configCell(){
         self.layer.cornerRadius = 5
-//        self.imgView.layer.cornerRadius = 5
+        self.layer.borderWidth = 0.3
+        
         self.labelText.layer.cornerRadius = 5
         
-        self.layer.borderWidth = 0.3
+        self.backgroundColor = UIColor.colorWithHexString("#BBBEBF", alph: 0.3)
     }
     
 //    MARK: Set

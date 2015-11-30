@@ -354,13 +354,13 @@
 			name = "Visualizar Questão";
 			sourceTree = "<group>";
 		};
-		24456FE61BF3C36D00338F98 /* ListaExercicio */ = {
+		24456FE61BF3C36D00338F98 /* Lista Questões */ = {
 			isa = PBXGroup;
 			children = (
 				24456FE91BF3C77700338F98 /* LIstaExCell */,
 				24456FE71BF3C39D00338F98 /* ListaExerciciosViewController.swift */,
 			);
-			name = ListaExercicio;
+			name = "Lista Questões";
 			sourceTree = "<group>";
 		};
 		24456FE91BF3C77700338F98 /* LIstaExCell */ = {
@@ -394,7 +394,7 @@
 				24B39FF91B8F9A3500401C21 /* Login */,
 				524E43DB1BA2186F00BBB2E0 /* Main */,
 				248899581BA73B13000CCA21 /* ListaProvas */,
-				24456FE61BF3C36D00338F98 /* ListaExercicio */,
+				24456FE61BF3C36D00338F98 /* Lista Questões */,
 				24A20FA11B97692F00FD2A30 /* Ajustes */,
 				24E088951BA1ED100025E2E6 /* Prova */,
 				249322A01BA33D64005579DD /* Perfil */,

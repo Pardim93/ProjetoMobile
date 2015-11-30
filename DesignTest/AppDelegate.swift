@@ -15,13 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let parseManager = ParseManager.singleton
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        
-        
         //Parse
         Parse.setApplicationId("cnmKI9SvIi10G7n7p74npxdBrHQQFT2Qcw8yMDhH", clientKey: "gasYEiYZAKeCoyyIBxC9IwDHspTxs1mwjTkrFFih")
+        
+        
 //        parseManager.zerar()
         
 //        self.beginEx()
@@ -40,8 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        return true
     }
     
-    
-
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -57,8 +53,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
-//        self.verifyLogin()
-        
         //Facebook
         FBSDKAppEvents.activateApp()
 
@@ -75,8 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
     
-    // MARK: - Core Data stack
-    
+// MARK: - Core Data stack    
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "BEPID.Teste" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
@@ -163,7 +156,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let newStoryboard = UIStoryboard(name: "IPhoneLogin", bundle: nil)
         self.window?.rootViewController = newStoryboard.instantiateViewControllerWithIdentifier("RegistroViewController")
     }
-    
 
     func beginAvaliacao(){
         let newStoryboard = UIStoryboard(name: "AvaliacaoExercicios", bundle: nil)
@@ -182,18 +174,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let newStoryboard = UIStoryboard(name: "IPhoneInserirExercicio", bundle: nil)
         self.window?.rootViewController = newStoryboard.instantiateInitialViewController()
     }
-    
-//    func completeUser() -> Bool{
-//        var actualUser = PFUser.currentUser()
-//        
-//        let userPais: AnyObject? = actualUser?.objectForKey("pais")
-//        let userOcup: AnyObject? = actualUser?.objectForKey("ocupacao")
-//        
-//        if (userPais == nil) || (userOcup == nil){
-//            return false
-//        }
-//        
-//        return true
-//    }
 }
 
