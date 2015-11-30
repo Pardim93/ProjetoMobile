@@ -28,6 +28,7 @@ class PerfilTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.configView()
+        self.configTitulo()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -87,6 +88,14 @@ class PerfilTableViewController: UITableViewController {
         }
         
         self.email.text = emailString
+    }
+    
+    func configTitulo(){
+        guard let titulo = user?.objectForKey("Nome") as? String else{
+            return
+        }
+        
+        self.title = titulo
     }
     
 //    MARK: Action Sheet

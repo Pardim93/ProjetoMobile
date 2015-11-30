@@ -27,13 +27,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureSideBar()
-//        self.configArrayImg()
-        self.configProvas()
-//        self.configButtons()
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        self.configureSideBar()
+        self.configProvas()
+        self.configCollectionView()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -55,6 +52,12 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+    }
+    
+    func configCollectionView(){
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+//        self.collectionView.layer.borderWidth = 0.5
     }
     
     func configProvas(){
@@ -92,6 +95,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.inserirProvaButton.addConstraint(NSLayoutConstraint(item: self.inserirProvaButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: buttonHeight))
         
         self.estudarProvaButton.addConstraint(NSLayoutConstraint(item: self.estudarProvaButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: buttonHeight))
+        
+//        self.inserirQuestaoButton.layer.borderWidth = 0.5
+//        self.inserirProvaButton.layer.borderWidth = 0.5
+//        self.estudarProvaButton.layer.borderWidth = 0.5
     }
     
     func configButtonHeight() -> CGFloat{
@@ -99,36 +106,21 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         switch model{
         case "iPhone 6":
-            return 80
+            return 130
+        case "iPhone 6 Plus":
+            return 145
         case "iPhone 6S":
-            return 60
+            return 120
         case "iPhone 5":
-            return 70
+            return 95
         case "iPhone 5S":
-            return 70
+            return 90
         case "iPhone 4":
-            return 20
+            return 65
         case "iPhone 4S":
-            return 40
+            return 65
         default:
             return 60
-        }
-    }
-    
-    func loadQuestoesFromProva(prova: PFObject){
-        self.disabeView()
-        
-        parseManager.getQuestoesByProva(prova) { (result, error) -> () in
-            self.enableView()
-            guard let erro = error else{
-                print(result.count)
-                self.goToProva(result)
-                
-                return
-            }
-            
-            self.navigationController?.showAlert(erro.localizedDescription)
-            return
         }
     }
     
@@ -163,19 +155,43 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         let img = arrayImg[indexPath.row]
         cell.setNewImage(img)
         
+        cell.backgroundColor = UIColor.grayColor()
+        
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let prova = provas[indexPath.row]
-        self.loadQuestoesFromProva(prova)
+        self.loadProva(prova)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesBegan(touches, withEvent: event)
     }
     
-//    MARK: Navigation
+//    MARK: Load Prova
+    func getDisciplinas(prova: PFObject, disciplinas: String, error: NSError?){
+        self.enableView()
+        if(error != nil){
+            self.navigationController?.showAlert(error!.localizedDescription)
+            return
+        }
+        
+        let storyBoard = UIStoryboard(name: "IPhoneProva", bundle: nil)
+        let newView = storyBoard.instantiateInitialViewController() as! ProvaTableViewController
+        newView.enableDelete = false
+        newView.setNewProva(prova, discs: disciplinas)
+        
+        self.navigationController?.pushViewController(newView, animated: true)
+    }
+    
+    func loadProva(prova: PFObject){
+        self.disabeView()
+        
+        parseManager.getDisciplinasByProva(prova) { (disciplinas, error) -> () in
+            self.getDisciplinas(prova, disciplinas: disciplinas, error: error)
+        }
+    }
     
     @IBAction func goToRandomProva(sender: AnyObject) {
         self.disabeView()
@@ -188,41 +204,18 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             }
             
             self.parseManager.getDisciplinasByProva(prova!, completionHandler: { (disciplinas, error) -> () in
-                self.enableView()
-                if(error != nil){
-                    self.navigationController?.showAlert(error!.localizedDescription)
-                    return
-                }
-                
-                let storyBoard = UIStoryboard(name: "IPhoneProva", bundle: nil)
-                let newView = storyBoard.instantiateInitialViewController() as! ProvaTableViewController
-                newView.enableDelete = false
-                newView.setNewProva(prova!, discs: disciplinas)
-                
-                self.navigationController?.pushViewController(newView, animated: true)
+                self.getDisciplinas(prova!, disciplinas: disciplinas, error: error)
             })
         }
     }
     
+//    MARK: Navigation
+    
     func goToProva(questoes: [PFObject]){
-//        
-//        self.auxQuestoes.questao = questoes[0]
-//        let questaoTemp = questoes[0]
-//        self.auxQuestoes.objectId = questaoTemp.objectId!
-//        self.auxQuestoes.indexQuestaoSelecionada = 1
-//        questoesManager.questaoSelecionada = questoes[0]
-//        
-//        print(self.auxQuestoes.questao.valueForKey("Enunciado"))
-//        let newMenuView = newView.rearViewController as! QuestaoMenuControllerTableViewController
-//        
-//        newMenuView.myArray = questoes
-//        questoesManager.tamanhoDasQuestoes(questoes.count)
-
         let storyboard = UIStoryboard(name: "IPhoneExercicios", bundle: nil)
         
-        
         self.auxQuestoes.questao = questoes[0]
-        print(self.auxQuestoes.questao.valueForKey("Enunciado"))
+//        print(self.auxQuestoes.questao.valueForKey("Enunciado"))
         self.auxQuestoes.objectId = questoes[0].objectId!
         self.auxQuestoes.indexQuestaoSelecionada = 1
         let newView = storyboard.instantiateViewControllerWithIdentifier("QuestaoSWReveal") as! SWRevealViewController

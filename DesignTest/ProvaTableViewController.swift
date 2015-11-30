@@ -34,6 +34,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         super.viewWillAppear(animated)
         
         self.configProva()
+        self.configTitulo()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -46,7 +47,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         self.navigationController?.setToolbarHidden(true, animated: false)
     }
     
-    //    MARK: Config
+//    MARK: Config
     func configProva(){
         self.configAutor()
         self.configNumQuestoes()
@@ -118,7 +119,15 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         self.createdAt.text = formatter.stringFromDate(creationDate!)
     }
     
-    //    MARK: Set
+    func configTitulo(){
+        guard let titulo = prova.objectForKey("Titulo") as? String else{
+            return
+        }
+        
+        self.title = titulo
+    }
+    
+//    MARK: Set
     func setNewProva(prova: PFObject, discs: String){
         self.prova = prova
         self.discs = discs

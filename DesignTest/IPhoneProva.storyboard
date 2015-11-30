@@ -10,7 +10,7 @@
         <!--Prova-->
         <scene sceneID="3Wb-nb-Tyd">
             <objects>
-                <tableViewController id="5UP-Ov-4kL" customClass="ProvaTableViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="5UP-Ov-4kL" customClass="ProvaTableViewController" customModule="Vestibulandos" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="7" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cx0-zB-Q6K">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,7 +59,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clique para ver mais" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l83-1V-gKd">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perfil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l83-1V-gKd">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
@@ -354,7 +354,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xh3-ql-J7h" customClass="ZFRippleButton" customModule="DesignTest" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xh3-ql-J7h" customClass="ZFRippleButton" customModule="Vestibulandos" customModuleProvider="target">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <animations/>
                                                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -441,7 +441,7 @@
         <!--Custom Navigation View Controller-->
         <scene sceneID="77P-kI-rnB">
             <objects>
-                <navigationController storyboardIdentifier="VizualizarProvaNavigationController" id="GwZ-jb-K9D" customClass="CustomNavigationViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="VizualizarProvaNavigationController" id="GwZ-jb-K9D" customClass="CustomNavigationViewController" customModule="Vestibulandos" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="h3l-1h-hfB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

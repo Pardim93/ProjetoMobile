@@ -397,11 +397,11 @@
 				24456FE61BF3C36D00338F98 /* ListaExercicio */,
 				24A20FA11B97692F00FD2A30 /* Ajustes */,
 				24E088951BA1ED100025E2E6 /* Prova */,
+				249322A01BA33D64005579DD /* Perfil */,
 				52A8484E1BB06D0E000ECCE9 /* Exercicios */,
 				244C2FC41BB1BF67008E3BE1 /* Inserir Exercicio */,
 				24BF93BB1BD8178C0085DBD8 /* Inserir Prova */,
 				242C9B1B1BE3E4D6004AD703 /* Visualizar Questão */,
-				249322A01BA33D64005579DD /* Perfil */,
 			);
 			name = Views;
 			sourceTree = "<group>";
