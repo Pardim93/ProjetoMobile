@@ -15,7 +15,9 @@ class ResultadoInfoViewController: UIViewController {
     var strResposta = String()
     var strEnunciado = String()
     var strUserResposta = String()
+    var boolResultado = Bool()
     
+    @IBOutlet weak var labelSuaResposta: UILabel!
     
     @IBOutlet weak var usrRespostaLabel: UILabel!
     @IBOutlet weak var respostaLabel: UILabel!
@@ -28,9 +30,8 @@ class ResultadoInfoViewController: UIViewController {
         self.getInfo()
         self.customLabels()
         self.customTextView()
-        
-        updateSizes()
-        
+        self.checkResultado()
+                
     }
     
     func getInfo(){
@@ -70,9 +71,12 @@ class ResultadoInfoViewController: UIViewController {
         
     }
     
-    
-    func updateSizes(){
-        
+    func checkResultado(){
+        if(self.boolResultado){
+            labelSuaResposta.textColor = UIColor.greenColor()
+        }else{
+            labelSuaResposta.textColor = UIColor.redColor()
+        }
     }
     
     

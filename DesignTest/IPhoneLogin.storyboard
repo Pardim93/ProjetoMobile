@@ -10,7 +10,7 @@
         <!--Custom Navigation View Controller-->
         <scene sceneID="9kk-JZ-97d">
             <objects>
-                <navigationController storyboardIdentifier="HomeNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iSP-bG-waz" customClass="CustomNavigationViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iSP-bG-waz" customClass="CustomNavigationViewController" customModule="Vestibulandos" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ae8-d3-vg7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -27,7 +27,7 @@
         <!--GetReady-->
         <scene sceneID="Lb2-dd-9iL">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" title="GetReady" useStoryboardIdentifierAsRestorationIdentifier="YES" id="J7m-nz-p4X" customClass="HomeViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" title="GetReady" useStoryboardIdentifierAsRestorationIdentifier="YES" id="J7m-nz-p4X" customClass="HomeViewController" customModule="Vestibulandos" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d9V-pc-O6h"/>
                         <viewControllerLayoutGuide type="bottom" id="s1K-L6-dMd"/>
@@ -40,7 +40,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAq-0D-EeF" customClass="ZFRippleButton" customModule="DesignTest" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAq-0D-EeF" customClass="ZFRippleButton" customModule="Vestibulandos" customModuleProvider="target">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.4784313738" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -77,7 +77,7 @@
                                     <action selector="doLogin:" destination="J7m-nz-p4X" eventType="touchUpInside" id="zrE-wu-MT1"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GDn-3T-FsG" customClass="CustomTextField" customModule="DesignTest" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GDn-3T-FsG" customClass="CustomTextField" customModule="Vestibulandos" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
@@ -103,7 +103,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fd3-5G-TUa" customClass="CustomTextField" customModule="DesignTest" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fd3-5G-TUa" customClass="CustomTextField" customModule="Vestibulandos" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
@@ -398,7 +398,7 @@
         <!--Recuperar Senha View Controller-->
         <scene sceneID="fcm-7m-nqE">
             <objects>
-                <viewController id="Lv7-hb-Pca" customClass="RecuperarSenhaViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Lv7-hb-Pca" customClass="RecuperarSenhaViewController" customModule="Vestibulandos" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oI5-Ni-miM"/>
                         <viewControllerLayoutGuide type="bottom" id="eVW-wl-rSd"/>
@@ -411,7 +411,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dx1-Pm-pYh" customClass="ZFRippleButton" customModule="DesignTest" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dx1-Pm-pYh" customClass="ZFRippleButton" customModule="Vestibulandos" customModuleProvider="target">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.4784313738" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -451,7 +451,7 @@
                                     <action selector="tryRetrieve:" destination="Lv7-hb-Pca" eventType="touchUpInside" id="AhM-4F-Afz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRA-Hg-kyU" customClass="ZFRippleButton" customModule="DesignTest" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRA-Hg-kyU" customClass="ZFRippleButton" customModule="Vestibulandos" customModuleProvider="target">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.77254901960784317" green="0.078431372549019607" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -501,7 +501,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x7l-ad-MmA" customClass="CustomTextField" customModule="DesignTest" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x7l-ad-MmA" customClass="CustomTextField" customModule="Vestibulandos" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
@@ -630,7 +630,7 @@
         <!--Complete seu perfil-->
         <scene sceneID="2Wk-kJ-e51">
             <objects>
-                <viewController storyboardIdentifier="RegistroViewController" title="Complete seu perfil" useStoryboardIdentifierAsRestorationIdentifier="YES" id="v2J-gP-4Te" customClass="RegistroViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistroViewController" title="Complete seu perfil" useStoryboardIdentifierAsRestorationIdentifier="YES" id="v2J-gP-4Te" customClass="RegistroViewController" customModule="Vestibulandos" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u9N-Ke-KtY"/>
                         <viewControllerLayoutGuide type="bottom" id="3w0-i1-alW"/>
@@ -701,7 +701,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLg-wa-Qb6" customClass="ZFRippleButton" customModule="DesignTest" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLg-wa-Qb6" customClass="ZFRippleButton" customModule="Vestibulandos" customModuleProvider="target">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>

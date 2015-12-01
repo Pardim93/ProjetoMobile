@@ -20,6 +20,9 @@ class PerguntasTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .None
+        
+
         if labelLetra != nil{
             self.texto.font = UIFont (name: "Avenir book", size: 18)
             
@@ -46,6 +49,8 @@ class PerguntasTableViewCell: UITableViewCell {
         self.textViewResposta.layer.cornerRadius = 10
         self.textViewResposta.clipsToBounds = true
     }
+    
+  
     
 //    func drawBorders(){
 //        let border = CALayer()

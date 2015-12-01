@@ -44,6 +44,11 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         
+        
+        
+        
+        
+        
         if(indexPath.row > 0 ){
             
             
@@ -59,10 +64,11 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         
         }else{
             
-            let view = self.storyboard?.instantiateViewControllerWithIdentifier("NavResultadoViewController") as! NavResultadoViewController
+            let view = self.storyboard?.instantiateViewControllerWithIdentifier("NavResultadoViewController") as! CustomNavigationViewController
             print(questoesManager.arrayRespostas.count)
             self.auxData.questoesUsuario = questoesManager.arrayRespostas
             self.presentViewController(view, animated: false, completion: nil)
+        
             
         }
     }

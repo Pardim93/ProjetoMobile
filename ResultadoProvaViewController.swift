@@ -12,6 +12,7 @@ class ResultadoProvaViewController: UITableViewController  {
     
     var auxQuestoes = AuxiliarQuestoes.singleton
     var singleton = QuestoesManager.singleton
+    var boolResultado = Bool()
     
     
     override func viewDidLoad() {
@@ -100,8 +101,10 @@ class ResultadoProvaViewController: UITableViewController  {
         
         if(respostaCerta! == respostaUsuario){
             cell.imgCell?.image = UIImage(named:"rightAnswerIco")
+            self.boolResultado = true
         }else{
             cell.imgCell?.image = UIImage(named:"wrongAns")
+            self.boolResultado = false
         }
         
         return cell
@@ -124,6 +127,8 @@ class ResultadoProvaViewController: UITableViewController  {
             upcoming!.strResposta  = (auxQuestoes.questoesCorretas[(indexPath?.row)!].objectForKey("AlternativaA") as? String)!
             upcoming!.strEnunciado = (auxQuestoes.questoesCorretas[(indexPath?.row)!].objectForKey("Enunciado") as? String)!
             upcoming?.strUserResposta = respostaUsuario
+            upcoming?.boolResultado = self.boolResultado
+            
             
             
             

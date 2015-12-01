@@ -24,25 +24,24 @@ class AltenativasTableViewController: UITableViewController {
     var questoesManager = QuestoesManager.singleton
     var countLetras = 65
     
-  override  func viewWillAppear(animated: Bool) {
-
+    override  func viewWillAppear(animated: Bool) {
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.countLetras = 65
         tableView.sectionHeaderHeight = 0.0;
         tableView.sectionFooterHeight = 0.0;
         tableView.tableFooterView = UIView()
-
+        
         self.automaticallyAdjustsScrollViewInsets = false
-//        if(self.auxData.flag){
-            self.getAlternativas(self.questao)
-            self.questao = self.auxData.questao
-            self.carregaQuestao()
-            
-            
-//        }
+        self.getAlternativas(self.questao)
+        self.questao = self.auxData.questao
+        self.carregaQuestao()
+        
+        
+        //        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -55,14 +54,14 @@ class AltenativasTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-//    
-//  override  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return UITableViewAutomaticDimension
-//    }
+    //
+    //  override  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    //        return UITableViewAutomaticDimension
+    //    }
     
     override func viewDidDisappear(animated: Bool) {
-   
- 
+        
+        
     }
     
     // MARK: - Table view data source
@@ -95,38 +94,38 @@ class AltenativasTableViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-       
+        
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! PerguntasTableViewCell
         cell.texto.text = (self.arrayAlternativas[indexPath.row] as! String) as? String
-                let letra = String(UnicodeScalar(countLetras))
-                cell.LETRA.text = letra
-                countLetras++
-
+        let letra = String(UnicodeScalar(countLetras))
+        cell.LETRA.text = letra
+        countLetras++
+        
         cell.texto.font = UIFont (name: "Avenir book", size: 18)
-
-
-//        for index in 65...69{
-//            let letra = String(UnicodeScalar(index))
-//            outraArray.addObject(questao.valueForKey("Alternativa\(letra)")!)
-//            
-//        }
-//        cell.textLabel?.numberOfLines = 0
-//        cell.textLabel?.lineBreakMode = .ByWordWrapping
-//        cell.textLabel?.text =  (self.arrayAlternativas[indexPath.row] as! String) as? String
-//        cell.textLabel?.textAlignment = .Center
-//
+        
+        
+        //        for index in 65...69{
+        //            let letra = String(UnicodeScalar(index))
+        //            outraArray.addObject(questao.valueForKey("Alternativa\(letra)")!)
+        //
+        //        }
+        //        cell.textLabel?.numberOfLines = 0
+        //        cell.textLabel?.lineBreakMode = .ByWordWrapping
+        //        cell.textLabel?.text =  (self.arrayAlternativas[indexPath.row] as! String) as? String
+        //        cell.textLabel?.textAlignment = .Center
+        //
         
         
         
         
-
         
-//        cell.textLabel!.text =  self.arrayAlternativas[indexPath.row] as? String
         
-    
+        //        cell.textLabel!.text =  self.arrayAlternativas[indexPath.row] as? String
         
-    
+        
+        
+        
         return cell
     }
     
@@ -169,7 +168,6 @@ class AltenativasTableViewController: UITableViewController {
         
         while(arrayAlternativas.count < 5){
             let  rndNum = Int(arc4random_uniform(5))
-            //                    let letra = String(UnicodeScalar(65 + rndNum))
             
             if(!arrayAlternativas.containsObject((self.outraArray[rndNum]))){
                 arrayAlternativas.addObject((self.outraArray[rndNum]))
@@ -182,17 +180,50 @@ class AltenativasTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.auxData.questaoSelecionada = self.arrayAlternativas[indexPath.row] as! String
         questoesManager.addRepostaNoIndex(self.auxData.questaoSelecionada, index:self.auxData.indexQuestaoSelecionada - 1)
-   
-        
+        self.iterateCells()
         auxData.arrayQuestoesVerficadas[auxData.indexQuestaoSelecionada]  = true
         
-        let cell = self.tableView.cellForRowAtIndexPath(indexPath)
+        let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! PerguntasTableViewCell
+        //        self.setSelectedCell(indexPath)
+        
+                cell.LETRA.textColor = UIColor.newOrangeColor()
         
         
         
         
     }
+    func iterateCells(){
+        for x in 0...self.arrayAlternativas.count - 1{
+            var cellPath = NSIndexPath(forRow: x, inSection: 0)
+            let cell = self.tableView.cellForRowAtIndexPath(cellPath) as! PerguntasTableViewCell
+            cell.LETRA.textColor = UIColor.blackColor()
+        
+        }
+
+   
+    }
     
+//    override func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//        let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! PerguntasTableViewCell
+//        cell.LETRA.textColor = UIColor.yellowColor()
+//        
+//    }
+//    
+//    override func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
+//        let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! PerguntasTableViewCell
+//        cell.LETRA.textColor = UIColor.blackColor()
+//    }
+    
+    func setSelectedCell(indexPath:NSIndexPath){
+        
+        for row in 1...self.arrayAlternativas.count - 1{
+            let tmpIndexPath = NSIndexPath(index: row)
+            let cell = self.tableView.cellForRowAtIndexPath(tmpIndexPath) as! PerguntasTableViewCell
+            cell.LETRA.textColor = UIColor.blackColor()
+            
+        }
+    }
     /*
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
