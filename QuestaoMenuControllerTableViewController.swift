@@ -39,28 +39,21 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
    override func viewWillAppear(animated: Bool) {
         self.tableView.reloadData()
     }
+    
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 80
     }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         
-        
-        
-        
-        
-        
+
         if(indexPath.row > 0 ){
-            
-            
-          
             self.questaoSelecionada = self.myArray[indexPath.row - 1]
             self.auxData.questao = self.questaoSelecionada
             self.auxData.flag = true
             let questaoTemp = self.myArray[indexPath.row - 1]
             self.auxData.objectId = questaoTemp.objectId!
             self.auxData.indexQuestaoSelecionada = indexPath.row
-          
-            
         
         }else{
             
@@ -87,11 +80,6 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        
-        
-        
-        
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("questaoCell", forIndexPath: indexPath) as! QuestaoMenuTableViewCell
         
         cell.labelQuestao.font = UIFont (name: "Avenir light", size: 18)
@@ -104,8 +92,6 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         }else{
 
             cell.labelQuestao!.text =  "Questão \(indexPath.row)"
-
-            
             if(self.auxData.arrayQuestoesVerficadas[indexPath.row] == true){
                 cell.imgMarker.image = UIImage(named: "Checkmark-100")
             }
@@ -156,14 +142,13 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     //            // Delete the row from the data source
     //            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     //        } else if editingStyle == .Insert {
-    //            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    //            // Create a new  instance of the appropriate class, insert it into the array, and add a new row to the table view
     //        }
     //    }
     
     
     
     /*
-    // Override to support rearranging the table view.
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
     
     }

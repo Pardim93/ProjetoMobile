@@ -100,6 +100,7 @@
 		52499F551BB5B0BE004B5E21 /* QuestoesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52499F541BB5B0BE004B5E21 /* QuestoesManager.swift */; };
 		524E43DA1BA2185C00BBB2E0 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E43D91BA2185C00BBB2E0 /* CollectionViewCell.swift */; };
 		524E43E51BA3614600BBB2E0 /* AlternativaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E43E41BA3614600BBB2E0 /* AlternativaTableViewController.swift */; };
+		524F70921C0E00BF00DC5EAF /* x-button-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 524F70911C0E00BF00DC5EAF /* x-button-black.png */; };
 		52514CFE1BD3078F006289B2 /* PopUpViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52514CFC1BD3078F006289B2 /* PopUpViewController_iPad.xib */; };
 		52514CFF1BD3078F006289B2 /* PopUpViewController_iPhone6Plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52514CFD1BD3078F006289B2 /* PopUpViewController_iPhone6Plus.xib */; };
 		527763C41BB1C1E9003B037D /* PerguntasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527763C31BB1C1E9003B037D /* PerguntasTableViewCell.swift */; };
@@ -234,6 +235,7 @@
 		52499F541BB5B0BE004B5E21 /* QuestoesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestoesManager.swift; sourceTree = "<group>"; };
 		524E43D91BA2185C00BBB2E0 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = ../CollectionViewCell.swift; sourceTree = "<group>"; };
 		524E43E41BA3614600BBB2E0 /* AlternativaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlternativaTableViewController.swift; path = DesignTest/AlternativaTableViewController.swift; sourceTree = "<group>"; };
+		524F70911C0E00BF00DC5EAF /* x-button-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "x-button-black.png"; path = "../x-button-black.png"; sourceTree = "<group>"; };
 		52514CFC1BD3078F006289B2 /* PopUpViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController_iPad.xib; sourceTree = "<group>"; };
 		52514CFD1BD3078F006289B2 /* PopUpViewController_iPhone6Plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController_iPhone6Plus.xib; sourceTree = "<group>"; };
 		527763C31BB1C1E9003B037D /* PerguntasTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerguntasTableViewCell.swift; sourceTree = "<group>"; };
@@ -626,6 +628,7 @@
 		52DF78971B790EE30047A107 = {
 			isa = PBXGroup;
 			children = (
+				524F70911C0E00BF00DC5EAF /* x-button-black.png */,
 				52DF78A21B790EE30047A107 /* DesignTest */,
 				52DF78BB1B790EE30047A107 /* DesignTestTests */,
 				52DF78A11B790EE30047A107 /* Products */,
@@ -812,6 +815,7 @@
 				529760081BE3ED1E00DB551D /* AvaliacaoExercicios.storyboard in Resources */,
 				24EE26F01BC2ECA400E0AB6A /* IPhoneAjustes.storyboard in Resources */,
 				521293381BE2ACB70093D905 /* IphoneExerciciosBackup.storyboard in Resources */,
+				524F70921C0E00BF00DC5EAF /* x-button-black.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

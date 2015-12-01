@@ -64,7 +64,7 @@ class QuestaoViewController: UIViewController {
         
         
         button.frame = CGRectMake(170, 160
-            , 25, 25)
+            , 30, 30)
         
         self.imgExercicio.addSubview(button)
         
@@ -140,8 +140,7 @@ class QuestaoViewController: UIViewController {
     
     
     func buttonPopUp(sender:UIButton!){
-        if (UIDevice.currentDevice().userInterfaceIdiom == .Pad)
-        {
+        if (UIDevice.currentDevice().userInterfaceIdiom == .Pad){
             self.popViewController = PopUpViewController(nibName: "PopUpViewController_iPad", bundle: nil)
             self.popViewController.title = "This is a popup view"
             self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "You just triggered a great popup window", animated: true)
@@ -156,8 +155,8 @@ class QuestaoViewController: UIViewController {
                     self.popViewController.title = "Imagem do Enunciado"
                     self.popViewController.showInView(self.view, withImage:imgExercicio.image, withMessage: "Imagem", animated: true)
                 }
-            } else {
                 
+            } else {
                 self.popViewController = PopUpViewController(nibName: "PopUpViewController", bundle: nil)
                 self.popViewController.title = "Imagem do Enunciado"
                 self.popViewController.showInView(self.view, withImage: imgExercicio.image, withMessage: "Imagem", animated: true)
