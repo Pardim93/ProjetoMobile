@@ -10,7 +10,7 @@
         <!--Custom Navigation View Controller-->
         <scene sceneID="OJv-A8-b9N">
             <objects>
-                <navigationController id="LCM-3l-aa7" customClass="CustomNavigationViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="LCM-3l-aa7" customClass="CustomNavigationViewController" customModule="Vestibulandos" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bvd-DM-zWd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -31,7 +31,7 @@
         <!--Provas-->
         <scene sceneID="yCo-7X-Fqz">
             <objects>
-                <viewController title="Provas" id="7Dm-Ic-arh" customClass="ProvasViewController" customModule="DesignTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Provas" id="7Dm-Ic-arh" customClass="ProvasViewController" customModule="Vestibulandos" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W9Y-F2-tsi"/>
                         <viewControllerLayoutGuide type="bottom" id="Dnp-ox-LYX"/>
