@@ -95,16 +95,17 @@ class AltenativasTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! PerguntasTableViewCell
         cell.texto.text = (self.arrayAlternativas[indexPath.row] as! String) as? String
+        if(countLetras <= 69){
+ 
         let letra = String(UnicodeScalar(countLetras))
         cell.LETRA.text = letra
         countLetras++
         
+        }
         cell.texto.font = UIFont (name: "Avenir book", size: 18)
-        
-        
+
         //        for index in 65...69{
         //            let letra = String(UnicodeScalar(index))
         //            outraArray.addObject(questao.valueForKey("Alternativa\(letra)")!)
