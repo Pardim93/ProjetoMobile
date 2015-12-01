@@ -202,29 +202,7 @@ class AltenativasTableViewController: UITableViewController {
 
    
     }
-    
-//    override func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
-//        
-//        let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! PerguntasTableViewCell
-//        cell.LETRA.textColor = UIColor.yellowColor()
-//        
-//    }
-//    
-//    override func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
-//        let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! PerguntasTableViewCell
-//        cell.LETRA.textColor = UIColor.blackColor()
-//    }
-    
-    func setSelectedCell(indexPath:NSIndexPath){
-        
-        for row in 1...self.arrayAlternativas.count - 1{
-            let tmpIndexPath = NSIndexPath(index: row)
-            let cell = self.tableView.cellForRowAtIndexPath(tmpIndexPath) as! PerguntasTableViewCell
-            cell.LETRA.textColor = UIColor.blackColor()
-            
-        }
-    }
-    /*
+     /*
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
     // Return false if you do not want the item to be re-orderable.

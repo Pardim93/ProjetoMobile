@@ -65,7 +65,6 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         }else{
             
             let view = self.storyboard?.instantiateViewControllerWithIdentifier("NavResultadoViewController") as! CustomNavigationViewController
-            print(questoesManager.arrayRespostas.count)
             self.auxData.questoesUsuario = questoesManager.arrayRespostas
             self.presentViewController(view, animated: false, completion: nil)
         
@@ -103,19 +102,7 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
             cell.labelQuestao.text =  "Finalizar"
             
         }else{
-//            if(indexPath.row == 1){
-//                print("Entrou no IF")
-//                //                self.questaoSelecionada =
-//                self.questaoSelecionada = self.myArray[3]
-//                self.auxData.questao = self.questaoSelecionada
-//                self.auxData.flag = true
-//                let questaoTemp = self.myArray[3]
-//                self.auxData.objectId = questaoTemp.objectId!
-//                self.auxData.indexQuestaoSelecionada = indexPath.row
-//                
-//
-//            }
-            
+
             cell.labelQuestao!.text =  "Questão \(indexPath.row)"
 
             

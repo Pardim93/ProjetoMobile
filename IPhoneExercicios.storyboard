@@ -814,7 +814,7 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFv-uc-fcq">
+                                        <textView clipsSubviews="YES" contentMode="scaleToFill" pagingEnabled="YES" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFv-uc-fcq">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             <animations/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -825,13 +825,13 @@
                                     </subviews>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="NFv-uc-fcq" secondAttribute="trailing" constant="53" id="0M3-km-rrc"/>
-                                        <constraint firstItem="NFv-uc-fcq" firstAttribute="leading" secondItem="z1K-aB-f6L" secondAttribute="leadingMargin" constant="90" id="B29-5v-fyu"/>
-                                        <constraint firstItem="NFv-uc-fcq" firstAttribute="top" secondItem="z1K-aB-f6L" secondAttribute="topMargin" constant="19" id="E1H-1W-860"/>
+                                        <constraint firstItem="NFv-uc-fcq" firstAttribute="top" secondItem="z1K-aB-f6L" secondAttribute="topMargin" constant="16" id="JPN-vM-CuO"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="NFv-uc-fcq" secondAttribute="bottom" constant="-8.5" id="Xrp-1l-RJl"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="BjX-1L-N6y" secondAttribute="bottom" constant="6.5" id="c1A-Q5-730"/>
                                         <constraint firstItem="BjX-1L-N6y" firstAttribute="top" secondItem="z1K-aB-f6L" secondAttribute="topMargin" id="cOO-IR-zze"/>
+                                        <constraint firstItem="NFv-uc-fcq" firstAttribute="trailing" secondItem="z1K-aB-f6L" secondAttribute="trailingMargin" id="dyu-as-Tw2"/>
                                         <constraint firstItem="BjX-1L-N6y" firstAttribute="leading" secondItem="z1K-aB-f6L" secondAttribute="leadingMargin" constant="13" id="e5R-i8-cUV"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="NFv-uc-fcq" secondAttribute="bottom" constant="-14.5" id="wwF-sH-I7J"/>
+                                        <constraint firstItem="NFv-uc-fcq" firstAttribute="leading" secondItem="BjX-1L-N6y" secondAttribute="trailing" constant="13" id="sfg-yn-BAE"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="subviews">
@@ -842,10 +842,10 @@
                                             <exclude reference="c1A-Q5-730"/>
                                             <exclude reference="cOO-IR-zze"/>
                                             <exclude reference="e5R-i8-cUV"/>
-                                            <exclude reference="0M3-km-rrc"/>
-                                            <exclude reference="B29-5v-fyu"/>
-                                            <exclude reference="E1H-1W-860"/>
-                                            <exclude reference="wwF-sH-I7J"/>
+                                            <exclude reference="JPN-vM-CuO"/>
+                                            <exclude reference="Xrp-1l-RJl"/>
+                                            <exclude reference="dyu-as-Tw2"/>
+                                            <exclude reference="sfg-yn-BAE"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
@@ -857,10 +857,10 @@
                                             <include reference="c1A-Q5-730"/>
                                             <include reference="cOO-IR-zze"/>
                                             <include reference="e5R-i8-cUV"/>
-                                            <include reference="0M3-km-rrc"/>
-                                            <include reference="B29-5v-fyu"/>
-                                            <include reference="E1H-1W-860"/>
-                                            <include reference="wwF-sH-I7J"/>
+                                            <include reference="JPN-vM-CuO"/>
+                                            <include reference="Xrp-1l-RJl"/>
+                                            <include reference="dyu-as-Tw2"/>
+                                            <include reference="sfg-yn-BAE"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -921,7 +921,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ztm-2b-4an" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6561" y="237"/>
+            <point key="canvasLocation" x="6561" y="232.5"/>
         </scene>
         <!--Custom Navigation View Controller-->
         <scene sceneID="FIm-2x-9i3">

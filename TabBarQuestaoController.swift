@@ -13,26 +13,14 @@ class TabBarQuestaoController: UITabBarController {
     private var auxQuestoes = AuxiliarQuestoes.singleton
     private var questoesManager = QuestoesManager.singleton
     var backItem: UIBarButtonItem!
-//    var auxData = AuxiliarQuestoes.singleton
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.configSideBar()
         self.title = "Questão 1"
+
         
-        if(auxQuestoes.flag){
-            //Carrega info de uma questao somente se o usuario tenha escolhido uma questao
-            
-            self.sendInfoToView1(self.auxQuestoes.questao)
-            self.sendInfoToView2(self.auxQuestoes.questao)
-            
-        }else{
-            
-            print("ENTROU NO ELSE LOL")
-//            self.auxQuestoes.questao = self.questoesManager.questaoSelecionada
             self.sendInfoToView1(self.auxQuestoes.questao)
             self.sendInfoToView2(self.auxQuestoes.questao)
 
-        }
         
         
         // Do any additional setup after loading the view.
