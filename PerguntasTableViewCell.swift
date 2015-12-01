@@ -39,6 +39,7 @@ class PerguntasTableViewCell: UITableViewCell {
 //        self.configRespostaView()
     }
     
+
 //    MARK: Config
     func  configRespostaView(){
         self.textViewResposta.editable = false

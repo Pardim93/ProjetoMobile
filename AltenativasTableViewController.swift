@@ -41,6 +41,7 @@ class AltenativasTableViewController: UITableViewController {
         self.carregaQuestao()
         
         
+        
         //        }
         
         // Uncomment the following line to preserve selection between presentations
