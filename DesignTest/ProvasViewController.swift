@@ -237,7 +237,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
         self.searchBar.delegate = self
     }
     
-    //    MARK: SearchBar
+//    MARK: SearchBar
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.view.endEditing(true)
         self.doSearch()

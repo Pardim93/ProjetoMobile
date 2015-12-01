@@ -25,11 +25,12 @@ class CollectionViewCell: UICollectionViewCell {
 //    MARK: Config
     func configCell(){
         self.layer.cornerRadius = 5
-        self.layer.borderWidth = 0.3
+        self.layer.borderWidth = 1.5
         
         self.labelText.layer.cornerRadius = 5
         
-        self.backgroundColor = UIColor.colorWithHexString("#BBBEBF", alph: 0.3)
+//        self.backgroundColor = UIColor.colorWithHexString("#BBBEBF", alph: 0.3)
+//        self.backgroundColor = UIColor.colorWithHexString("#FFBB00", alph: 1.0)
     }
     
 //    MARK: Set

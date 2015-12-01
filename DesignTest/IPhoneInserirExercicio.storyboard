@@ -56,7 +56,9 @@
                                     <animations/>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="dIb-ZC-lXl" secondAttribute="trailing" constant="30" id="3TM-Qk-rFV"/>
-                                        <constraint firstItem="WTy-UF-9qO" firstAttribute="top" secondItem="Byi-26-QLB" secondAttribute="topMargin" constant="5" id="5Yh-sT-n9v"/>
+                                        <constraint firstItem="WTy-UF-9qO" firstAttribute="top" secondItem="Byi-26-QLB" secondAttribute="topMargin" constant="5" id="5Yh-sT-n9v">
+                                            <variation key="heightClass=regular-widthClass=compact" constant="2"/>
+                                        </constraint>
                                         <constraint firstItem="WTy-UF-9qO" firstAttribute="leading" secondItem="Byi-26-QLB" secondAttribute="leadingMargin" constant="-8" id="9si-uY-YcT"/>
                                         <constraint firstItem="WTy-UF-9qO" firstAttribute="top" secondItem="Byi-26-QLB" secondAttribute="topMargin" constant="5" id="Fcc-C5-yr5"/>
                                         <constraint firstItem="dIb-ZC-lXl" firstAttribute="top" secondItem="WTy-UF-9qO" secondAttribute="bottom" constant="10" id="Lh2-Gk-BQ7"/>
@@ -325,7 +327,9 @@
                                         <constraint firstItem="IAX-QM-hz8" firstAttribute="top" secondItem="jr8-lO-VLv" secondAttribute="topMargin" constant="-8" id="NUD-3d-jeF"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="IAX-QM-hz8" secondAttribute="trailing" constant="-8" id="OwY-xe-zOL"/>
                                         <constraint firstItem="IAX-QM-hz8" firstAttribute="leading" secondItem="jr8-lO-VLv" secondAttribute="leadingMargin" constant="-8" id="Rhs-fy-svs"/>
-                                        <constraint firstItem="IAX-QM-hz8" firstAttribute="top" secondItem="jr8-lO-VLv" secondAttribute="topMargin" constant="5" id="bNr-SQ-IdV"/>
+                                        <constraint firstItem="IAX-QM-hz8" firstAttribute="top" secondItem="jr8-lO-VLv" secondAttribute="topMargin" constant="5" id="bNr-SQ-IdV">
+                                            <variation key="heightClass=regular-widthClass=compact" constant="2"/>
+                                        </constraint>
                                         <constraint firstItem="pH0-yw-dXe" firstAttribute="centerX" secondItem="jr8-lO-VLv" secondAttribute="centerX" constant="55" id="eW7-uw-HKr">
                                             <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                                         </constraint>

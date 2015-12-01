@@ -757,7 +757,7 @@ class ParseManager: NSObject {
         prova.setObject(descricao, forKey: "Descricao")
         
         //Set numQuestões
-        prova.setObject(questoes.count, forKey: "NumQuestoes")
+        prova.setObject(questoes.count-1, forKey: "NumQuestoes")
         
         //Set popularidade
         prova.setObject(10, forKey: "Popularidade")

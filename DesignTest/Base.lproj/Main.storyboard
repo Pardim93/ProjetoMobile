@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -386,14 +386,6 @@
             </objects>
             <point key="canvasLocation" x="795.75" y="-27"/>
         </scene>
-        <!--IPhoneRegistros-->
-        <scene sceneID="Dy4-pw-ZuI">
-            <objects>
-                <viewControllerPlaceholder storyboardName="IPhoneRegistros" id="21k-6d-6Gg" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FR5-lE-eQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="797.25" y="29.25"/>
-        </scene>
         <!--Custom Navigation View Controller-->
         <scene sceneID="hBr-a8-7GX">
             <objects>
@@ -473,7 +465,9 @@
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="cLh-Vq-x3i"/>
+                                    <constraint firstAttribute="height" constant="180" id="cLh-Vq-x3i">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="170"/>
+                                    </constraint>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bwz-dV-WoR">
                                     <size key="itemSize" width="149" height="149"/>
@@ -496,7 +490,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="x63-KS-fuR">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <animations/>
-                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.51544024489999996" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.52000000000000002" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                                     <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -510,17 +504,17 @@
                                             <constraint firstItem="x63-KS-fuR" firstAttribute="leading" secondItem="0nn-xD-FuV" secondAttribute="leading" id="3Gs-25-UK4"/>
                                             <constraint firstItem="x63-KS-fuR" firstAttribute="trailing" secondItem="0nn-xD-FuV" secondAttribute="trailing" id="HM3-IZ-m2G"/>
                                             <constraint firstItem="0nn-xD-FuV" firstAttribute="top" secondItem="XYa-eX-cXy" secondAttribute="topMargin" constant="10" id="XIY-yq-WB8">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="1"/>
+                                                <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
                                             </constraint>
                                             <constraint firstItem="0nn-xD-FuV" firstAttribute="leading" secondItem="XYa-eX-cXy" secondAttribute="leadingMargin" constant="10" id="rWt-KC-mgS">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="1"/>
+                                                <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
                                             </constraint>
                                             <constraint firstAttribute="bottomMargin" secondItem="0nn-xD-FuV" secondAttribute="bottom" constant="10" id="rbM-HY-dTo">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="1"/>
+                                                <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
                                             </constraint>
                                             <constraint firstItem="x63-KS-fuR" firstAttribute="bottom" secondItem="0nn-xD-FuV" secondAttribute="bottom" id="wfn-Oc-gKA"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="0nn-xD-FuV" secondAttribute="trailing" constant="10" id="y3Q-37-7rD">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="1"/>
+                                                <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
                                             </constraint>
                                         </constraints>
                                         <size key="customSize" width="149" height="149"/>
@@ -574,7 +568,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C26-q8-lto" customClass="ZFRippleButton" customModule="Vestibulandos" customModuleProvider="target">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.04651521381578947" green="0.6875" blue="0.44528680098684209" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.047058823529411764" green="0.68627450980392157" blue="0.44705882352941173" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="Estudar uma prova aleatória">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

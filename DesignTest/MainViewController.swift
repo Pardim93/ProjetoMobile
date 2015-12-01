@@ -16,14 +16,12 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var inserirProvaButton: ZFRippleButton!
     @IBOutlet weak var estudarProvaButton: ZFRippleButton!
     
-    
     let parseManager = ParseManager.singleton
     let titles = ["Maratona ENEM","Resumão FUVEST","Mack Provas", "#EUQUEROUSP"]
+    
     var arrayImg: [UIImage?] = []
     var provas: [PFObject] = []
     var auxQuestoes = AuxiliarQuestoes.singleton
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +29,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.configureSideBar()
         self.configProvas()
         self.configCollectionView()
+        
+        self.view.backgroundColor = UIColor.colorWithHexString("#F5F5F5", alph: 1.0)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -58,6 +58,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
 //        self.collectionView.layer.borderWidth = 0.5
+        
+//        self.collectionView.backgroundColor = UIColor.colorWithHexString("#000000", alph: 0.52)
+        self.collectionView.backgroundColor = UIColor.clearColor()
     }
     
     func configProvas(){
