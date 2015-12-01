@@ -95,7 +95,6 @@
 		5240D00C1BF3A63800D56CFD /* TabBarQuestaoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5240D00B1BF3A63800D56CFD /* TabBarQuestaoController.swift */; };
 		5240D00E1BF3B32600D56CFD /* QuestaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5240D00D1BF3B32600D56CFD /* QuestaoViewController.swift */; };
 		5240D0101BF3B33B00D56CFD /* AltenativasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5240D00F1BF3B33B00D56CFD /* AltenativasTableViewController.swift */; };
-		52436FDA1C0E406D009AC9E3 /* blue_sky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 52436FD91C0E406D009AC9E3 /* blue_sky.jpg */; };
 		5243FBD91BD2F74800462071 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5243FBD71BD2F74800462071 /* PopUpViewController.swift */; };
 		5243FBDC1BD2FE6A00462071 /* PopUpViewController_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5243FBDB1BD2FE6A00462071 /* PopUpViewController_iPhone6.xib */; };
 		52499F551BB5B0BE004B5E21 /* QuestoesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52499F541BB5B0BE004B5E21 /* QuestoesManager.swift */; };
@@ -230,7 +229,6 @@
 		5240D00B1BF3A63800D56CFD /* TabBarQuestaoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarQuestaoController.swift; sourceTree = "<group>"; };
 		5240D00D1BF3B32600D56CFD /* QuestaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestaoViewController.swift; sourceTree = "<group>"; };
 		5240D00F1BF3B33B00D56CFD /* AltenativasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltenativasTableViewController.swift; sourceTree = "<group>"; };
-		52436FD91C0E406D009AC9E3 /* blue_sky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = blue_sky.jpg; path = ../blue_sky.jpg; sourceTree = "<group>"; };
 		5243FBD71BD2F74800462071 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		5243FBDB1BD2FE6A00462071 /* PopUpViewController_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController_iPhone6.xib; sourceTree = "<group>"; };
 		52499F541BB5B0BE004B5E21 /* QuestoesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestoesManager.swift; sourceTree = "<group>"; };
@@ -628,7 +626,6 @@
 		52DF78971B790EE30047A107 = {
 			isa = PBXGroup;
 			children = (
-				52436FD91C0E406D009AC9E3 /* blue_sky.jpg */,
 				52DF78A21B790EE30047A107 /* DesignTest */,
 				52DF78BB1B790EE30047A107 /* DesignTestTests */,
 				52DF78A11B790EE30047A107 /* Products */,
@@ -813,7 +810,6 @@
 				24EE26F41BC2ED8500E0AB6A /* IPhoneListaExercicios.storyboard in Resources */,
 				52DF78B01B790EE30047A107 /* Images.xcassets in Resources */,
 				529760081BE3ED1E00DB551D /* AvaliacaoExercicios.storyboard in Resources */,
-				52436FDA1C0E406D009AC9E3 /* blue_sky.jpg in Resources */,
 				24EE26F01BC2ECA400E0AB6A /* IPhoneAjustes.storyboard in Resources */,
 				521293381BE2ACB70093D905 /* IphoneExerciciosBackup.storyboard in Resources */,
 			);
