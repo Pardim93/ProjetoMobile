@@ -93,6 +93,7 @@ class VerQuestaoViewController: UIViewController, UIScrollViewDelegate {
         self.txtExercicio.backgroundColor = UIColor.colorWithHexString("EBEFFF", alph: 0.5)
         self.txtExercicio.layer.cornerRadius = 10
         self.txtExercicio.clipsToBounds = true
+        self.txtExercicio.textAlignment = .Center
         
         self.txtExercicio.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
     }

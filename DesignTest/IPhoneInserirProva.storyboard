@@ -629,13 +629,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="77"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pD-MJ-hxs">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                            <animations/>
-                                            <string key="text">O engenheiro usa o próprio Pixel C como parâmetro para testar os cabos vendidos pela internet, e alerta os usuários de que o Google segue padrões internacionais para a fabricação de seus dispositivos com porta USB-C. Por conta disso, ele sugere aos interessados que sempre comprem cabos e acessórios para seus laptops com a própria fabricante dos dispositivos.</string>
-                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="YC8-10-U7y">
                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                             <animations/>
@@ -656,37 +649,49 @@
                                                 </mask>
                                             </variation>
                                         </label>
+                                        <textView clipsSubviews="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pD-MJ-hxs">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <animations/>
+                                            <string key="text">O engenheiro usa o próprio Pixel C como parâmetro para testar os cabos vendidos pela internet, e alerta os usuários de que o Google segue padrões internacionais para a fabricação de seus dispositivos com porta USB-C. Por conta disso, ele sugere aos interessados que sempre comprem cabos e acessórios para seus laptops com a própria fabricante dos dispositivos.</string>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
                                     </subviews>
                                     <animations/>
                                     <constraints>
                                         <constraint firstItem="YC8-10-U7y" firstAttribute="leading" secondItem="vk7-j3-qKK" secondAttribute="leadingMargin" constant="10" id="7kr-C6-FvZ">
                                             <variation key="heightClass=regular-widthClass=compact" constant="15"/>
                                         </constraint>
-                                        <constraint firstItem="6pD-MJ-hxs" firstAttribute="leading" secondItem="YC8-10-U7y" secondAttribute="trailing" constant="15" id="AAo-i9-4c1"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="6pD-MJ-hxs" secondAttribute="bottom" constant="5" id="FS2-4L-mt0"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="6pD-MJ-hxs" secondAttribute="trailing" constant="25" id="G1U-CJ-X7Q">
+                                            <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                        </constraint>
                                         <constraint firstItem="YC8-10-U7y" firstAttribute="leading" secondItem="vk7-j3-qKK" secondAttribute="leadingMargin" constant="39" id="Goq-40-ish">
                                             <variation key="heightClass=regular-widthClass=compact" constant="25"/>
                                         </constraint>
-                                        <constraint firstItem="6pD-MJ-hxs" firstAttribute="top" secondItem="vk7-j3-qKK" secondAttribute="topMargin" constant="5" id="IOU-q8-Er0"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="YC8-10-U7y" secondAttribute="trailing" constant="91" id="MAR-Cx-tkY"/>
                                         <constraint firstItem="YC8-10-U7y" firstAttribute="centerY" secondItem="vk7-j3-qKK" secondAttribute="centerY" id="Qcn-nv-C7s"/>
-                                        <constraint firstItem="6pD-MJ-hxs" firstAttribute="centerY" secondItem="vk7-j3-qKK" secondAttribute="centerY" id="aV5-52-9EH"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="6pD-MJ-hxs" secondAttribute="trailing" constant="53" id="b27-08-oij">
-                                            <variation key="heightClass=regular-widthClass=compact" constant="30"/>
+                                        <constraint firstItem="6pD-MJ-hxs" firstAttribute="bottom" secondItem="YC8-10-U7y" secondAttribute="bottom" id="Uho-Ez-CTk">
+                                            <variation key="heightClass=regular-widthClass=compact" constant="36"/>
                                         </constraint>
                                         <constraint firstItem="6pD-MJ-hxs" firstAttribute="top" secondItem="YC8-10-U7y" secondAttribute="bottom" constant="7" id="e3R-3s-Trn">
                                             <variation key="heightClass=regular-widthClass=compact" constant="5"/>
+                                        </constraint>
+                                        <constraint firstItem="6pD-MJ-hxs" firstAttribute="top" secondItem="vk7-j3-qKK" secondAttribute="topMargin" constant="-9" id="fgb-5Z-5lB">
+                                            <variation key="heightClass=regular-widthClass=compact" constant="27"/>
                                         </constraint>
                                         <constraint firstItem="YC8-10-U7y" firstAttribute="leading" secondItem="6pD-MJ-hxs" secondAttribute="leading" id="h4a-4b-d3U"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="6pD-MJ-hxs" secondAttribute="bottom" constant="13.5" id="hfi-wK-TKa">
                                             <variation key="heightClass=regular-widthClass=compact" constant="12"/>
                                         </constraint>
                                         <constraint firstItem="YC8-10-U7y" firstAttribute="top" secondItem="vk7-j3-qKK" secondAttribute="topMargin" constant="-5" id="mdv-T2-3pn"/>
+                                        <constraint firstItem="6pD-MJ-hxs" firstAttribute="leading" secondItem="YC8-10-U7y" secondAttribute="trailing" constant="20" id="ze5-MG-gbH">
+                                            <variation key="heightClass=regular-widthClass=compact" constant="25"/>
+                                        </constraint>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="subviews">
-                                            <exclude reference="6pD-MJ-hxs"/>
                                             <exclude reference="YC8-10-U7y"/>
+                                            <exclude reference="6pD-MJ-hxs"/>
                                         </mask>
                                         <mask key="constraints">
                                             <exclude reference="7kr-C6-FvZ"/>
@@ -695,19 +700,18 @@
                                             <exclude reference="Qcn-nv-C7s"/>
                                             <exclude reference="h4a-4b-d3U"/>
                                             <exclude reference="mdv-T2-3pn"/>
-                                            <exclude reference="AAo-i9-4c1"/>
-                                            <exclude reference="FS2-4L-mt0"/>
-                                            <exclude reference="IOU-q8-Er0"/>
-                                            <exclude reference="aV5-52-9EH"/>
-                                            <exclude reference="b27-08-oij"/>
+                                            <exclude reference="G1U-CJ-X7Q"/>
+                                            <exclude reference="Uho-Ez-CTk"/>
                                             <exclude reference="e3R-3s-Trn"/>
+                                            <exclude reference="fgb-5Z-5lB"/>
                                             <exclude reference="hfi-wK-TKa"/>
+                                            <exclude reference="ze5-MG-gbH"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
                                         <mask key="subviews">
-                                            <include reference="6pD-MJ-hxs"/>
                                             <include reference="YC8-10-U7y"/>
+                                            <include reference="6pD-MJ-hxs"/>
                                         </mask>
                                         <mask key="constraints">
                                             <include reference="7kr-C6-FvZ"/>
@@ -716,13 +720,12 @@
                                             <include reference="Qcn-nv-C7s"/>
                                             <exclude reference="h4a-4b-d3U"/>
                                             <exclude reference="mdv-T2-3pn"/>
-                                            <include reference="AAo-i9-4c1"/>
-                                            <include reference="FS2-4L-mt0"/>
-                                            <include reference="IOU-q8-Er0"/>
-                                            <include reference="aV5-52-9EH"/>
-                                            <include reference="b27-08-oij"/>
+                                            <include reference="G1U-CJ-X7Q"/>
+                                            <include reference="Uho-Ez-CTk"/>
                                             <exclude reference="e3R-3s-Trn"/>
+                                            <include reference="fgb-5Z-5lB"/>
                                             <exclude reference="hfi-wK-TKa"/>
+                                            <include reference="ze5-MG-gbH"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -780,7 +783,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <textView clipsSubviews="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jm3-zb-J8A">
+                            <textView clipsSubviews="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Jm3-zb-J8A">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
