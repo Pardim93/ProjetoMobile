@@ -110,7 +110,7 @@ class QuestaoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.customImg()
+//        self.customImg()
         self.customTextView()
         self.createButton()
         self.view.backgroundColor = UIColor.whiteColor()
@@ -193,18 +193,10 @@ class QuestaoViewController: UIViewController {
     }
     
     func customImg(){
-        
-        self.imgExercicio.layer.borderColor = UIColor.blueColor().colorWithAlphaComponent(0.5).CGColor
-//        self.imgExercicio.layer.borderWidth = 0.5
-        self.imgExercicio.layer.cornerRadius = 6
-        self.imgExercicio.clipsToBounds = true
-        
         self.imgExercicio.layer.borderColor = UIColor.blueColor().colorWithAlphaComponent(0.5).CGColor
         self.imgExercicio.layer.borderWidth = 0.5
         self.imgExercicio.layer.cornerRadius = 6
         self.imgExercicio.clipsToBounds = true
-        
-        
     }
     
     
@@ -222,6 +214,8 @@ class QuestaoViewController: UIViewController {
             self.imgExercicio.image = auxData.returnImg()
             self.auxData.imgIsReady = false
             timer.invalidate()
+            
+            self.customImg()
         }
     }
     

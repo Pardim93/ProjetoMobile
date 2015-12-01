@@ -20,7 +20,15 @@ class ResultadoProvaViewController: UITableViewController  {
         self.configBackButton()
         self.configHomeButton()
         self.tableView.reloadData()
+        self.configTable()
         self.view.userInteractionEnabled = true
+        
+    }
+    
+    func configTable(){
+        self.title = "Resultado"
+        CGRectZero
+        self.tableView.tableFooterView = UIView(frame: CGRectZero)
     }
     
     func configBackButton(){
@@ -88,7 +96,7 @@ class ResultadoProvaViewController: UITableViewController  {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("exercicioCell") as! PerguntasTableViewCell
-        cell.textLabel?.text = "Pergunta \(indexPath.row + 1)"
+        cell.textLabel?.text = "    Pergunta \(indexPath.row + 1)"
         cell.textLabel?.textAlignment = .Center
         cell.accessoryType = .DisclosureIndicator
         

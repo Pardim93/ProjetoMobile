@@ -598,11 +598,11 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="questaoCell" rowHeight="40" id="O9b-HS-HA2" customClass="QuestaoMenuTableViewCell" customModule="Vestibulandos" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="1" width="600" height="40"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="questaoCell" id="O9b-HS-HA2" customClass="QuestaoMenuTableViewCell" customModule="Vestibulandos" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="1" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O9b-HS-HA2" id="aWT-R5-bpf">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="39.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5M-e5-eOh">
@@ -728,13 +728,13 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2oK-b1-J1V" firstAttribute="leading" secondItem="Ogu-uX-vVt" secondAttribute="leadingMargin" constant="15" id="GeC-Nc-s6N"/>
-                            <constraint firstItem="8J1-3I-aIM" firstAttribute="top" secondItem="2oK-b1-J1V" secondAttribute="bottom" constant="68" id="L0Z-WM-ZWE"/>
-                            <constraint firstItem="5Gj-Vz-A4k" firstAttribute="centerX" secondItem="2oK-b1-J1V" secondAttribute="centerX" id="NHk-wp-0QN"/>
+                            <constraint firstItem="8J1-3I-aIM" firstAttribute="top" secondItem="2oK-b1-J1V" secondAttribute="bottom" constant="45" id="56V-WW-BiL"/>
+                            <constraint firstItem="2oK-b1-J1V" firstAttribute="leading" secondItem="Ogu-uX-vVt" secondAttribute="leadingMargin" constant="15" id="8cg-Yr-dBc"/>
+                            <constraint firstItem="2oK-b1-J1V" firstAttribute="top" secondItem="5Gj-Vz-A4k" secondAttribute="bottom" constant="56" id="HJm-6G-pVf"/>
+                            <constraint firstItem="2oK-b1-J1V" firstAttribute="centerX" secondItem="Ogu-uX-vVt" secondAttribute="centerX" id="QCt-Jg-9Yu"/>
                             <constraint firstItem="5Gj-Vz-A4k" firstAttribute="leading" secondItem="Ogu-uX-vVt" secondAttribute="leadingMargin" constant="70" id="Rzo-se-lrF"/>
-                            <constraint firstItem="2oK-b1-J1V" firstAttribute="centerX" secondItem="Ogu-uX-vVt" secondAttribute="centerX" id="SiJ-fv-rfW"/>
+                            <constraint firstItem="2oK-b1-J1V" firstAttribute="centerX" secondItem="5Gj-Vz-A4k" secondAttribute="centerX" id="gOx-er-RVb"/>
                             <constraint firstItem="5Gj-Vz-A4k" firstAttribute="top" secondItem="cw6-Js-mDY" secondAttribute="bottom" constant="36" id="khl-xS-PX8"/>
-                            <constraint firstItem="2oK-b1-J1V" firstAttribute="top" secondItem="5Gj-Vz-A4k" secondAttribute="bottom" constant="86" id="onc-x9-Xy8"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -742,11 +742,11 @@
                                 <exclude reference="5Gj-Vz-A4k"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="L0Z-WM-ZWE"/>
-                                <exclude reference="GeC-Nc-s6N"/>
-                                <exclude reference="SiJ-fv-rfW"/>
-                                <exclude reference="onc-x9-Xy8"/>
-                                <exclude reference="NHk-wp-0QN"/>
+                                <exclude reference="56V-WW-BiL"/>
+                                <exclude reference="8cg-Yr-dBc"/>
+                                <exclude reference="HJm-6G-pVf"/>
+                                <exclude reference="QCt-Jg-9Yu"/>
+                                <exclude reference="gOx-er-RVb"/>
                                 <exclude reference="Rzo-se-lrF"/>
                                 <exclude reference="khl-xS-PX8"/>
                             </mask>
@@ -757,11 +757,11 @@
                                 <include reference="5Gj-Vz-A4k"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="L0Z-WM-ZWE"/>
-                                <include reference="GeC-Nc-s6N"/>
-                                <include reference="SiJ-fv-rfW"/>
-                                <include reference="onc-x9-Xy8"/>
-                                <include reference="NHk-wp-0QN"/>
+                                <include reference="56V-WW-BiL"/>
+                                <include reference="8cg-Yr-dBc"/>
+                                <include reference="HJm-6G-pVf"/>
+                                <include reference="QCt-Jg-9Yu"/>
+                                <include reference="gOx-er-RVb"/>
                                 <include reference="Rzo-se-lrF"/>
                                 <include reference="khl-xS-PX8"/>
                             </mask>

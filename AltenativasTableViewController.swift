@@ -30,6 +30,9 @@ class AltenativasTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+      
+        
         self.countLetras = 65
         tableView.sectionHeaderHeight = 0.0;
         tableView.sectionFooterHeight = 0.0;
@@ -39,9 +42,8 @@ class AltenativasTableViewController: UITableViewController {
         self.getAlternativas(self.questao)
         self.questao = self.auxData.questao
         self.carregaQuestao()
-        
-        
-        
+       
+  
         //        }
         
         // Uncomment the following line to preserve selection between presentations
@@ -73,7 +75,7 @@ class AltenativasTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 100
+        return 111
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,16 +99,18 @@ class AltenativasTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! PerguntasTableViewCell
-        cell.texto.text = (self.arrayAlternativas[indexPath.row] as! String) as? String
+        cell.texto.text = self.arrayAlternativas[indexPath.row] as! String
         if(countLetras <= 69){
- 
-        let letra = String(UnicodeScalar(countLetras))
-        cell.LETRA.text = letra
-        countLetras++
+            
+            let letra = String(UnicodeScalar(countLetras))
+            cell.LETRA.text = letra
+            countLetras++
         
+            
+
         }
         cell.texto.font = UIFont (name: "Avenir book", size: 18)
-
+        
         //        for index in 65...69{
         //            let letra = String(UnicodeScalar(index))
         //            outraArray.addObject(questao.valueForKey("Alternativa\(letra)")!)
@@ -164,10 +168,7 @@ class AltenativasTableViewController: UITableViewController {
     
     
     func carregaQuestao(){
-        
-        //        self.arrayAlternativas = [1, 2, 3, 4, 5]
-        
-        
+  
         while(arrayAlternativas.count < 5){
             let  rndNum = Int(arc4random_uniform(5))
             
@@ -186,25 +187,22 @@ class AltenativasTableViewController: UITableViewController {
         auxData.arrayQuestoesVerficadas[auxData.indexQuestaoSelecionada]  = true
         
         let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! PerguntasTableViewCell
-        //        self.setSelectedCell(indexPath)
-        
-                cell.LETRA.textColor = UIColor.newOrangeColor()
-        
-        
-        
+        cell.LETRA.textColor = UIColor.newOrangeColor()
         
     }
+    
+    
     func iterateCells(){
         for x in 0...self.arrayAlternativas.count - 1{
-            var cellPath = NSIndexPath(forRow: x, inSection: 0)
+            let  cellPath = NSIndexPath(forRow: x, inSection: 0)
             let cell = self.tableView.cellForRowAtIndexPath(cellPath) as! PerguntasTableViewCell
             cell.LETRA.textColor = UIColor.blackColor()
-        
+            
         }
-
-   
+        
+        
     }
-     /*
+    /*
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
     // Return false if you do not want the item to be re-orderable.

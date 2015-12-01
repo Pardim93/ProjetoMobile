@@ -88,7 +88,7 @@ class PerguntasTableViewCell: UITableViewCell {
     
     func defaultSize(){
         
-        self.frame.size.height = 160
+//        self.frame.size.height = 60
         self.textViewResposta.hidden = true
         
         
