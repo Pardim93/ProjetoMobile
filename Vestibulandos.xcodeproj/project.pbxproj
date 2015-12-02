@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04E3FB1BDD28EC88D4B5D6DC /* libPods-DesignTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE47242BA517C28A90D6FBC /* libPods-DesignTest.a */; };
+		2401DD181C0F5C7F0059BE31 /* LicensasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2401DD171C0F5C7F0059BE31 /* LicensasTableViewController.swift */; };
 		240248D91BD9505E0016C94A /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240248D81BD9505E0016C94A /* ZFRippleButton.swift */; };
 		240248DE1BD96BE30016C94A /* InserirDescricaoProvaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240248DD1BD96BE30016C94A /* InserirDescricaoProvaTableViewController.swift */; };
 		2405E32D1B7E54320091FAFC /* IPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2405E32C1B7E54320091FAFC /* IPad.storyboard */; };
@@ -140,6 +141,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2401DD171C0F5C7F0059BE31 /* LicensasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicensasTableViewController.swift; sourceTree = "<group>"; };
 		240248D81BD9505E0016C94A /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
 		240248DD1BD96BE30016C94A /* InserirDescricaoProvaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InserirDescricaoProvaTableViewController.swift; sourceTree = "<group>"; };
 		2405E32C1B7E54320091FAFC /* IPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPad.storyboard; sourceTree = "<group>"; };
@@ -289,6 +291,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2401DD161C0F5C680059BE31 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				245095F01BD7F56500E5E468 /* AjustesTableViewCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		240248D71BD950400016C94A /* Externo */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,11 +470,12 @@
 		24A20FA11B97692F00FD2A30 /* Ajustes */ = {
 			isa = PBXGroup;
 			children = (
+				2401DD161C0F5C680059BE31 /* Cell */,
 				24C1BCCE1B8B864F00119539 /* AjustesTableViewController.swift */,
 				24A20FA21B97695500FD2A30 /* UpdateTableViewController.swift */,
 				245095EE1BD7F1E700E5E468 /* TrocarInfoTableViewController.swift */,
-				245095F01BD7F56500E5E468 /* AjustesTableViewCell.swift */,
 				2415FFF31BFBB25E00EAA29F /* SobreViewController.swift */,
+				2401DD171C0F5C7F0059BE31 /* LicensasTableViewController.swift */,
 			);
 			name = Ajustes;
 			sourceTree = "<group>";
@@ -950,6 +961,7 @@
 				52AB5E881BF1173F00A4FE5D /* AvaliacaoTabBarController.swift in Sources */,
 				24175F9C1BB5EB700064C048 /* DisciplinaTableViewCell.swift in Sources */,
 				240248D91BD9505E0016C94A /* ZFRippleButton.swift in Sources */,
+				2401DD181C0F5C7F0059BE31 /* LicensasTableViewController.swift in Sources */,
 				24A418661B9778C0007E97F1 /* ModelList.swift in Sources */,
 				2415AF711BE125CB009BBC7A /* InserirAdicionadasQuestoesTableViewController.swift in Sources */,
 				24CA658D1BBF0E71002CBCCD /* EnunciadoTableViewCell.swift in Sources */,
@@ -1109,7 +1121,7 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = DesignTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks\"";
 				PRODUCT_BUNDLE_IDENTIFIER = "Bepid.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Vestibulandos;
 				SWIFT_OBJC_BRIDGING_HEADER = "DesignTest/DesignTest-Bridging-Header.h";
@@ -1127,7 +1139,7 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = DesignTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks\"";
 				PRODUCT_BUNDLE_IDENTIFIER = "Bepid.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Vestibulandos;
 				SWIFT_OBJC_BRIDGING_HEADER = "DesignTest/DesignTest-Bridging-Header.h";

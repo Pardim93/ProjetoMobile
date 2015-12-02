@@ -1305,7 +1305,7 @@ class ParseManager: NSObject {
         newUser.password = newPassword
         newUser.email = usernameLowerString
         newUser.setObject(usernameLowerString, forKey: "Nome")
-        newUser.setObject("Brasil", forKey: "pais")
+        newUser.setObject("Brazil", forKey: "pais")
         newUser.setObject("Aluno", forKey: "ocupacao")
         newUser.setObject(true, forKey: "HasPassword")
         newUser.setObject(false, forKey: "FacebookLinked")
@@ -1344,7 +1344,7 @@ class ParseManager: NSObject {
         newUser.username = usernameLowerString
         newUser.email = usernameLowerString
         newUser.setObject(name, forKey: "Nome")
-        newUser.setObject("Brasil", forKey: "pais")
+        newUser.setObject("Brazil", forKey: "pais")
         newUser.setObject("Aluno", forKey: "ocupacao")
         newUser.setObject(true, forKey: "FacebookLinked")
         newUser.setObject(false, forKey: "HasPassword")
