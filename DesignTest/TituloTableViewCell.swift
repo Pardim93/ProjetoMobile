@@ -15,8 +15,9 @@ class TituloTableViewCell: UITableViewCell, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        descricaoTextView.limitHeight = 80
-        descricaoTextView.enableScroll = true
+//        descricaoTextView.limitHeight = 80
+//        descricaoTextView.enableScroll = true
+        self.descricaoTextView.scrollEnabled = true
         descricaoTextView.limitChar = 400
         descricaoTextView.placeholder = "Uma breve descrição do seu exercício.\nExemplo: Analisar trecho do livro 'A hora da estrela', de Clarisse Lispector."
     }

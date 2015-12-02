@@ -10,12 +10,23 @@ import UIKit
 
 class InserirExTableViewController: UITableViewController {
     
+    @IBOutlet weak var cellA: InserirExTableViewCell!
+    @IBOutlet weak var cellB: InserirExTableViewCell!
+    @IBOutlet weak var cellC: InserirExTableViewCell!
+    @IBOutlet weak var cellD: InserirExTableViewCell!
+    @IBOutlet weak var cellE: InserirExTableViewCell!
+
     var arrayCell = NSMutableArray()
+    var cellHeight: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "Alternativas"
         self.configureTableView()
+        self.configCellHeight()
+        self.configArray()
+        self.configCells()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -28,12 +39,20 @@ class InserirExTableViewController: UITableViewController {
         tabBar.configSaveButton()
     }
     
+    func configArray(){
+        self.arrayCell.addObject(cellA)
+        self.arrayCell.addObject(cellB)
+        self.arrayCell.addObject(cellC)
+        self.arrayCell.addObject(cellD)
+        self.arrayCell.addObject(cellE)
+    }
+    
     func configureTableView(){
         self.tableView.separatorInset = UIEdgeInsetsZero
         self.tableView.layoutMargins = UIEdgeInsetsZero
         
-        for anyCell in tableView.visibleCells{
-            let cell = anyCell
+        for anyCell in arrayCell{
+            let cell = anyCell as! InserirExTableViewCell
             cell.sizeToFit()
             cell.separatorInset = UIEdgeInsetsZero
             cell.layoutMargins = UIEdgeInsetsZero
@@ -53,6 +72,29 @@ class InserirExTableViewController: UITableViewController {
         let footer = UIView(frame: CGRectMake(0, 0, 1, 1))
         footer.backgroundColor = UIColor.clearColor()
         self.tableView.tableFooterView = footer
+    }
+    
+    func configCellHeight(){
+        let viewHeight = self.view.frame.height
+        let navBarHeight = self.navigationController?.navigationBar.frame.height
+        let segmentedHeight: CGFloat = 40
+        
+        self.cellHeight = (viewHeight - (navBarHeight! + segmentedHeight + 15))/5
+    }
+    
+    func configCells(){
+        for anyCell in arrayCell{
+            let cell = anyCell as! InserirExTableViewCell
+            cell.textView.limitChar = 140
+            //        cell.textView.limitHeight = 110
+            if(cell.textLabel!.text == "A"){
+                cell.textView.placeholder = "Alternativa Correta"
+                cell.altLabel.textColor = UIColor.greenColor()
+            } else{
+                cell.textView.placeholder = "Alternativa Errada"
+                cell.altLabel.textColor = UIColor.redColor()
+            }
+        }
     }
     
 //    MARK: CheckConteudo
@@ -76,36 +118,38 @@ class InserirExTableViewController: UITableViewController {
     }
     
 //    MARK: TableView
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
+//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        return 1
+//    }
+//    
+//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 5
+//    }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("alternativaCell", forIndexPath: indexPath) as! InserirExTableViewCell
-        
-        let letter = LetraAlternativa(rawValue: indexPath.row)
-        cell.altLabel.text = "\(letter!)"
-        cell.textView.limitChar = 140
-        cell.textView.limitHeight = 110
-        if(indexPath.row == 0){
-            cell.textView.placeholder = "Alternativa Correta"
-            cell.altLabel.textColor = UIColor.greenColor()
-        } else{
-            cell.textView.placeholder = "Alternativa Errada"
-            cell.altLabel.textColor = UIColor.redColor()
-        }
-        
-        arrayCell.addObject(cell)
-        
-        return cell
-    }
+//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCellWithIdentifier("alternativaCell", forIndexPath: indexPath) as! InserirExTableViewCell
+//        
+//        let letter = LetraAlternativa(rawValue: indexPath.row)
+//        cell.altLabel.text = "\(letter!)"
+//        cell.textView.limitChar = 140
+////        cell.textView.limitHeight = 110
+//        if(indexPath.row == 0){
+//            cell.textView.placeholder = "Alternativa Correta"
+//            cell.altLabel.textColor = UIColor.greenColor()
+//        } else{
+//            cell.textView.placeholder = "Alternativa Errada"
+//            cell.altLabel.textColor = UIColor.redColor()
+//        }
+//        
+////        cell.textView.insertPlaceHolder()
+//        
+//        arrayCell.addObject(cell)
+//        
+//        return cell
+//    }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 140
+        return self.cellHeight
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

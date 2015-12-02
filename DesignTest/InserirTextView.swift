@@ -13,14 +13,15 @@ class InserirTextView: UITextView, UITextViewDelegate {
     var placeHolderActive = true
     var placeholder = ""
     var limitChar = 400
-    var limitHeight: CGFloat = 0
-    var limitHeightEnable = true
-    var enableScroll = false
+//    var limitHeight: CGFloat = 0
+//    var limitHeightEnable = true
+//    var enableScroll = false
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         self.delegate = self
+        self.scrollEnabled = true
         self.configFont()
         self.configBorder()
         self.showsHorizontalScrollIndicator = false
@@ -119,23 +120,24 @@ class InserirTextView: UITextView, UITextViewDelegate {
             }
         }
         
-        if(self.limitHeightEnable == true){
-            if(self.contentSize.height >= limitHeight && enableScroll && !scrollEnabled){
-                self.scrollEnabled = true
-                return true
-            }
+//        if(self.limitHeightEnable == true){
+//            if(self.contentSize.height >= limitHeight && enableScroll && !scrollEnabled){
+//                self.scrollEnabled = true
+//                return true
+//            }
+//        
+//            if (self.contentSize.height > limitHeight && enableScroll){
+//                return true
+//            }
+//            
+//            scrollEnabled =  false
+//        }
+//        else{
+//            scrollEnabled = true
+//        }
         
-            if (self.contentSize.height > limitHeight && enableScroll){
-                return true
-            }
-            
-            scrollEnabled =  false
-        }
-        else{
-            scrollEnabled = true
-        }
-        
-        return (((newText.length <= limitChar) && (!self.limitHeightEnable || (self.contentSize.height <= self.limitHeight))) || (text == ""))
+//        return (((newText.length <= limitChar) && (!self.limitHeightEnable || (self.contentSize.height <= self.limitHeight))) || (text == ""))
+        return ((newText.length <= limitChar) || (text == ""))
     }
     
     func makeRed(){

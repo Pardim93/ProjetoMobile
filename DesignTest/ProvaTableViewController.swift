@@ -185,7 +185,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         parseManager.deleteProva(self.prova!) { (error) -> () in
             self.enableView()
             if(error != nil){
-                self.navigationController?.showAlert("Ocorreu um erro. Por favor, tente novamente")
+                self.navigationController?.showAlertPopView("Ocorreu um erro. Por favor, tente novamente")
                 return
             }
             
