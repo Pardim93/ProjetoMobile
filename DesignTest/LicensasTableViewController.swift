@@ -25,9 +25,6 @@ class LicensasTableViewController: UITableViewController {
         self.view.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
     }
 
-// MARK: - Table view data source
-
-    
 //    MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let nextView = segue.destinationViewController as! SobreViewController

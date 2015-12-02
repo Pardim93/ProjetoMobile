@@ -27,7 +27,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrição" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTy-UF-9qO">
                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                             <animations/>
-                                            <color key="backgroundColor" red="0.89803921568627454" green="0.85882352941176465" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.92422269570707061" green="0.92422269570707061" blue="0.92422269570707061" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="chr-Zl-scf"/>
                                             </constraints>
@@ -114,7 +114,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disciplina" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4X-A3-ROR">
                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                             <animations/>
-                                            <color key="backgroundColor" red="0.89803921568627454" green="0.85882352941176465" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.92422269570000004" green="0.92422269570000004" blue="0.92422269570000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="A1J-qW-W7U"/>
                                             </constraints>
@@ -195,7 +195,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Palavras Chave" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7G-l3-gmH">
                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                             <animations/>
-                                            <color key="backgroundColor" red="0.89803921568627454" green="0.85882352941176465" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.92422269570000004" green="0.92422269570000004" blue="0.92422269570000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="ru5-ay-eXG"/>
                                             </constraints>
@@ -302,7 +302,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enunciado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAX-QM-hz8">
                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                             <animations/>
-                                            <color key="backgroundColor" red="0.89803921568627454" green="0.85882352941176465" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.92422269570000004" green="0.92422269570000004" blue="0.92422269570000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="2G4-8o-C83"/>
                                             </constraints>
@@ -451,7 +451,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Imagem" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1w-9r-Fzm">
                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                             <animations/>
-                                            <color key="backgroundColor" red="0.89803921568627454" green="0.85882352941176465" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.92422269570000004" green="0.92422269570000004" blue="0.92422269570000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="AgH-fF-TUm"/>
                                             </constraints>

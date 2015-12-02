@@ -47,7 +47,7 @@
                         <sections>
                             <tableViewSection id="7wc-aW-OwY">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="gCh-i1-33v">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="gCh-i1-33v">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gCh-i1-33v" id="7C2-Jv-zmQ">
@@ -58,10 +58,13 @@
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="0.0" green="0.46666666666666667" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="78" y="19" width="55" height="27"/>
+                                                    </variation>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home Filled-100-White" translatesAutoresizingMaskIntoConstraints="NO" id="ubM-6a-hAl">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home Filled-101" translatesAutoresizingMaskIntoConstraints="NO" id="ubM-6a-hAl">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <animations/>
                                                     <constraints>
@@ -74,7 +77,8 @@
                                                             <exclude reference="blh-Cl-5aA"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="23" y="17" width="32" height="32"/>
                                                         <mask key="constraints">
                                                             <include reference="DOr-Y6-tq4"/>
                                                             <include reference="blh-Cl-5aA"/>
@@ -120,12 +124,12 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="k6P-ay-gWX" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="qh4-mK-IBS"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="tgS-Nl-9C3">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="tgS-Nl-9C3">
                                         <rect key="frame" x="0.0" y="65" width="600" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tgS-Nl-9C3" id="duL-hN-Vov">
@@ -136,10 +140,13 @@
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="0.0" green="0.46666666670000001" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="78" y="19" width="59" height="27"/>
+                                                    </variation>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="List Filled-100" translatesAutoresizingMaskIntoConstraints="NO" id="lAl-SU-uhe">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="List Filled-101" translatesAutoresizingMaskIntoConstraints="NO" id="lAl-SU-uhe">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <animations/>
                                                     <constraints>
@@ -152,7 +159,8 @@
                                                             <exclude reference="nhh-Ho-fgT"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="23" y="17" width="32" height="32"/>
                                                         <mask key="constraints">
                                                             <include reference="a2O-Og-dnj"/>
                                                             <include reference="nhh-Ho-fgT"/>
@@ -193,12 +201,12 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="pTQ-Ja-egi" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="91T-Ku-zWY"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="Eox-oq-ADF">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="Eox-oq-ADF">
                                         <rect key="frame" x="0.0" y="130" width="600" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Eox-oq-ADF" id="zg5-fW-8Vv">
@@ -209,10 +217,13 @@
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="0.0" green="0.46666666670000001" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="78" y="19" width="86" height="27"/>
+                                                    </variation>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="School Filled-100-Whte" translatesAutoresizingMaskIntoConstraints="NO" id="Vpx-Xw-yqD">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="School Filled-101" translatesAutoresizingMaskIntoConstraints="NO" id="Vpx-Xw-yqD">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <animations/>
                                                     <constraints>
@@ -225,7 +236,8 @@
                                                             <exclude reference="vqc-Gl-IEa"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="23" y="17" width="32" height="32"/>
                                                         <mask key="constraints">
                                                             <include reference="SJs-R2-Kzn"/>
                                                             <include reference="vqc-Gl-IEa"/>
@@ -268,12 +280,12 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="6Be-WU-Fiv" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="bnB-ie-QJZ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="pRQ-yZ-be7">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="pRQ-yZ-be7">
                                         <rect key="frame" x="0.0" y="195" width="600" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pRQ-yZ-be7" id="w5l-3J-L6p">
@@ -284,10 +296,13 @@
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="0.0" green="0.46666666670000001" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="78" y="19" width="65" height="27"/>
+                                                    </variation>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Support-100-White" translatesAutoresizingMaskIntoConstraints="NO" id="SdC-zf-z0J">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Settings Filled-101" translatesAutoresizingMaskIntoConstraints="NO" id="SdC-zf-z0J">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <animations/>
                                                     <constraints>
@@ -300,7 +315,8 @@
                                                             <exclude reference="chM-IZ-Jgl"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="23" y="17" width="32" height="32"/>
                                                         <mask key="constraints">
                                                             <include reference="3f6-Qj-7N8"/>
                                                             <include reference="chM-IZ-Jgl"/>
@@ -343,7 +359,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" red="0.98013336490000003" green="0.98013336490000003" blue="0.98013336490000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="b2T-Yl-nVW" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="ajZ-Lw-pxO"/>
@@ -715,11 +731,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Home Filled-100-White" width="100" height="100"/>
-        <image name="List Filled-100" width="100" height="100"/>
+        <image name="Home Filled-101" width="100" height="100"/>
+        <image name="List Filled-101" width="100" height="100"/>
         <image name="More Filled-22" width="22" height="22"/>
-        <image name="School Filled-100-Whte" width="100" height="100"/>
-        <image name="Support-100-White" width="100" height="100"/>
+        <image name="School Filled-101" width="100" height="100"/>
+        <image name="Settings Filled-101" width="100" height="100"/>
         <image name="student3" width="530" height="356"/>
     </resources>
     <inferredMetricsTieBreakers>

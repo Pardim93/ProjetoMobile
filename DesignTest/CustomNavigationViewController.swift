@@ -14,7 +14,6 @@ class CustomNavigationViewController: UINavigationController, UINavigationBarDel
         self.setBarStyle()
         self.setButtonStyle()
         self.setBackButton()
-        self.navigationBar.backItem?.title = "testeeeee"
         self.navigationItem.setHidesBackButton(true, animated: false)
         self.title = "yes"
         

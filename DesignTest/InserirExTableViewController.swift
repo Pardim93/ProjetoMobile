@@ -83,17 +83,20 @@ class InserirExTableViewController: UITableViewController {
     }
     
     func configCells(){
+        var index = 0
         for anyCell in arrayCell{
             let cell = anyCell as! InserirExTableViewCell
             cell.textView.limitChar = 140
             //        cell.textView.limitHeight = 110
-            if(cell.textLabel!.text == "A"){
+            if(index == 0){
                 cell.textView.placeholder = "Alternativa Correta"
                 cell.altLabel.textColor = UIColor.greenColor()
             } else{
                 cell.textView.placeholder = "Alternativa Errada"
                 cell.altLabel.textColor = UIColor.redColor()
             }
+            
+            index++
         }
     }
     
