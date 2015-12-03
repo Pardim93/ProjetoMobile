@@ -222,27 +222,27 @@ class AjustesTableViewController: UITableViewController, UIGestureRecognizerDele
     }
     
     func removeFacebook(){
-        if(self.userHasEmail() && self.userHasPassword()){
-            //Usuário possui email e senha cadastrados
-            self.disabeView()
-            self.facebookManager.unlinkFacebook({ (error) -> () in
-                self.enableView()
-                
-                if(error != nil){
-                    //Ocorreu um erro
-                    self.navigationController?.showAlert(error!.localizedDescription)
-                    return
-                }
-                
-                //Unlink com sucesso
-                self.navigationController?.showAlert("Conta desvinculada com sucesso.")
-                return
-            })
-        }
-        else{
-            //Usuário não possui email e senha cadastrados
-            self.navigationController?.showAlert("Não é possível desvincular a conta. Por favor, cadastre um email e uma senha.")
-        }
+//        if(self.userHasEmail() && self.userHasPassword()){
+//            //Usuário possui email e senha cadastrados
+//            self.disabeView()
+//            self.facebookManager.unlinkFacebook({ (error) -> () in
+//                self.enableView()
+//                
+//                if(error != nil){
+//                    //Ocorreu um erro
+//                    self.navigationController?.showAlert(error!.localizedDescription)
+//                    return
+//                }
+//                
+//                //Unlink com sucesso
+//                self.navigationController?.showAlert("Conta desvinculada com sucesso.")
+//                return
+//            })
+//        }
+//        else{
+//            //Usuário não possui email e senha cadastrados
+//            self.navigationController?.showAlert("Não é possível desvincular a conta. Por favor, cadastre um email e uma senha.")
+//        }
     }
     
     func removeGoogle(){

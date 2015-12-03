@@ -18,7 +18,6 @@ class CustomNavigationViewController: UINavigationController, UINavigationBarDel
         self.title = "yes"
         
          self.interactivePopGestureRecognizer!.enabled = false;
-
     }
     
 //    MARK: Estilo

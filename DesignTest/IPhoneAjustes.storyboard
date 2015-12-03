@@ -1231,6 +1231,53 @@
                                             <segue destination="LEN-4y-MmY" kind="show" identifier="SWRevealLicense" id="V9D-Yt-MlR"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="XTu-Lv-mIS">
+                                        <rect key="frame" x="0.0" y="274" width="600" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XTu-Lv-mIS" id="avN-BF-e6e">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="54.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZFRippleButton" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wT7-cX-dkd">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="145" y="17" width="112" height="21"/>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="wT7-cX-dkd" firstAttribute="centerX" secondItem="avN-BF-e6e" secondAttribute="centerX" id="3Rm-iI-70b"/>
+                                                <constraint firstItem="wT7-cX-dkd" firstAttribute="centerY" secondItem="avN-BF-e6e" secondAttribute="centerY" id="MEx-Kl-7By"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="wT7-cX-dkd"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="MEx-Kl-7By"/>
+                                                    <exclude reference="3Rm-iI-70b"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="wT7-cX-dkd"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="MEx-Kl-7By"/>
+                                                    <include reference="3Rm-iI-70b"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <connections>
+                                            <segue destination="LEN-4y-MmY" kind="show" identifier="ZFRippleLicense" id="c37-1h-Ncj"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -1873,6 +1920,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="ZhC-ku-l7T"/>
         <segue reference="e6p-93-vMA"/>
-        <segue reference="V9D-Yt-MlR"/>
+        <segue reference="c37-1h-Ncj"/>
     </inferredMetricsTieBreakers>
 </document>

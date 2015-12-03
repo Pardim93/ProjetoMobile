@@ -38,6 +38,7 @@ class MenuTableViewController: UITableViewController{
         super.viewWillAppear(animated)
         
         self.configArray()
+        self.configFooter()
         self.configureTableView()
     }
     
@@ -79,7 +80,13 @@ class MenuTableViewController: UITableViewController{
         return UIStatusBarStyle.Default
     }
     
-    //MARK: Alert
+    func configFooter(){
+        let footer = UIView(frame: CGRectMake(0, 0, 1, 1))
+        footer.backgroundColor = UIColor.clearColor()
+        self.tableView.tableFooterView = footer
+    }
+    
+//MARK: Alert
     func showConfirmAlert(){
         let alertController = UIAlertController(title: "Vestibulandos", message: "Você deseja mesmo sair?", preferredStyle: UIAlertControllerStyle.Alert)
         
@@ -91,7 +98,7 @@ class MenuTableViewController: UITableViewController{
         self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    // MARK: Navigation
+// MARK: Navigation
     func doLogout(){
         self.disabeView()
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
