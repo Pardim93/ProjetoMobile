@@ -108,7 +108,6 @@ class InserirQuestaoTableViewCell: UITableViewCell, EDStarRatingProtocol{
         
         switch self.buttonStatus{
         case .Adicionar:
-//            self.adicionarButton.setTitle("Adicionar", forState: UIControlState.Normal)
             self.actionLabel.text = "Adicionar"
             self.adicionarButton.backgroundColor = UIColor.colorWithHexString("007AFF", alph: 1.0)
             self.adicionarButton.rippleBackgroundColor = UIColor.colorWithHexString("007AFF", alph: 0.5)
@@ -116,7 +115,6 @@ class InserirQuestaoTableViewCell: UITableViewCell, EDStarRatingProtocol{
             break
             
         case .Remover:
-//            self.adicionarButton.setTitle("Remover", forState: UIControlState.Normal)
             self.actionLabel.text = "Remover"
             self.adicionarButton.backgroundColor = UIColor.colorWithHexString("C51419", alph: 1.0)
             self.adicionarButton.rippleBackgroundColor = UIColor.colorWithHexString("C51419", alph: 0.5)
@@ -124,7 +122,6 @@ class InserirQuestaoTableViewCell: UITableViewCell, EDStarRatingProtocol{
             break
             
         case .Editar:
-//            self.adicionarButton.setTitle("Editar", forState: UIControlState.Normal)
             self.actionLabel.text = "Editar"
             self.adicionarButton.backgroundColor = UIColor.colorWithHexString("00D126", alph: 1.0)
             self.adicionarButton.rippleBackgroundColor = UIColor.colorWithHexString("00D126", alph: 0.5)

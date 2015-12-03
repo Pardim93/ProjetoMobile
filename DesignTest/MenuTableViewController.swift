@@ -10,8 +10,16 @@ import UIKit
 
 class MenuTableViewController: UITableViewController{
     
+    @IBOutlet weak var headerCell: UITableViewCell!
+    @IBOutlet weak var homeCell: UITableViewCell!
+    @IBOutlet weak var provasCell: UITableViewCell!
+    @IBOutlet weak var questoesCell: UITableViewCell!
+    @IBOutlet weak var ajustesCell: UITableViewCell!
+    
     let parseManager = ParseManager.singleton
     let logoffButton = UIButton()
+    
+    var arrayCell: [UITableViewCell] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +34,13 @@ class MenuTableViewController: UITableViewController{
 //        self.configLogoffButton()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.configArray()
+        self.configureTableView()
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -33,6 +48,25 @@ class MenuTableViewController: UITableViewController{
     }
     
 //    MARK: Config
+    func configArray(){
+        self.arrayCell.append(homeCell)
+        self.arrayCell.append(provasCell)
+        self.arrayCell.append(questoesCell)
+        self.arrayCell.append(ajustesCell)
+    }
+    
+    func configureTableView(){
+        self.tableView.separatorInset = UIEdgeInsetsZero
+        self.tableView.layoutMargins = UIEdgeInsetsZero
+        self.tableView.separatorColor = UIColor.blackColor()
+        
+        for anyCell in arrayCell{
+            let cell = anyCell
+            cell.separatorInset = UIEdgeInsetsZero
+            cell.layoutMargins = UIEdgeInsetsZero
+        }
+    }
+    
     func configLogoffButton(){
         logoffButton.setImage(UIImage(named: "Shutdown-100"), forState: .Normal)
         logoffButton.frame = CGRectMake(self.view.frame.origin.x + 20, self.view.frame.size.height - 70, 40, 40)

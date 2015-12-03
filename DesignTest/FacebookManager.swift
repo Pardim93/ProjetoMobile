@@ -18,10 +18,12 @@ class FacebookManager: NSObject {
     
     var delegate: FacebookDelegate? = nil
     
+//    MARK: Link Facebook
     func linkFBAccount(){
 //        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
         
             PFFacebookUtils.logInInBackgroundWithAccessToken(FBSDKAccessToken.currentAccessToken(), block: {
+                //Pega o token de facebook usado atualmente e linka ele com a conta correspondente no parse. Se não houver ele cria uma nova.
                 (loggedUser: PFUser?, error: NSError?) -> Void in
                 
                 var erro: NSError?
@@ -113,6 +115,53 @@ class FacebookManager: NSObject {
         //        })
     }
     
+//    MARK: Unlink Facebook
+    func unlinkFacebook(completionHandler: (NSError?) -> ()){
+        var erro: NSError?
+        
+        guard let user = PFUser.currentUser() else{
+            let userInfo:[NSObject : AnyObject] = [
+                NSLocalizedDescriptionKey : NSLocalizedString("Erro. Por favor, tente novamente.", comment: ""),
+                NSLocalizedFailureReasonErrorKey : NSLocalizedString("Erro.", comment: ""),
+                NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente, verifique sua conexão com a internet.", comment: "")
+            ]
+            erro = NSError(domain: "FacebookManager", code: 5, userInfo: userInfo)
+            
+            completionHandler(erro)
+            return
+        }
+        
+        PFFacebookUtils.unlinkUserInBackground(user) { (result, error) -> Void in
+            var erro: NSError?
+            
+            if(error != nil){
+                let userInfo:[NSObject : AnyObject] = [
+                    NSLocalizedDescriptionKey : NSLocalizedString("Erro. Por favor, tente novamente.", comment: ""),
+                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Erro.", comment: ""),
+                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente, verifique sua conexão com a internet.", comment: "")
+                ]
+                erro = NSError(domain: "FacebookManager", code: 4, userInfo: userInfo)
+                
+                completionHandler(erro)
+                return
+            }
+            
+            if(!result){
+                let userInfo:[NSObject : AnyObject] = [
+                    NSLocalizedDescriptionKey : NSLocalizedString("Erro. Por favor, tente novamente.", comment: ""),
+                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("Erro.", comment: ""),
+                    NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString("Tente novamente, verifique sua conexão com a internet.", comment: "")
+                ]
+                erro = NSError(domain: "FacebookManager", code: 5, userInfo: userInfo)
+                
+                completionHandler(erro)
+                return
+            }
+            
+            completionHandler(erro)
+            return
+        }
+    }
     
     
 //    MARK: NOT USING - Login com parse

@@ -64,6 +64,8 @@
 		248899651BA757FA000CCA21 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248899641BA757FA000CCA21 /* CoreDataManager.swift */; };
 		248E4A1E1BB4761100C6E0CD /* InserirExTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248E4A1D1BB4761100C6E0CD /* InserirExTabBarViewController.swift */; };
 		249013811BC1DFF600E9477B /* ResultadoProvaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249013801BC1DFF600E9477B /* ResultadoProvaViewController.swift */; };
+		249273331C10A40000D2EF2D /* IPhoneListaUsuarios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 249273321C10A40000D2EF2D /* IPhoneListaUsuarios.storyboard */; };
+		249273361C10A4DC00D2EF2D /* ListaUsuariosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249273351C10A4DC00D2EF2D /* ListaUsuariosViewController.swift */; };
 		249322A21BA33DA3005579DD /* IPhonePerfil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 249322A11BA33DA3005579DD /* IPhonePerfil.storyboard */; };
 		249322A41BA33DD3005579DD /* PerfilTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249322A31BA33DD3005579DD /* PerfilTableViewController.swift */; };
 		249322A61BA356D7005579DD /* RegisterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249322A51BA356D7005579DD /* RegisterManager.swift */; };
@@ -199,6 +201,8 @@
 		248899641BA757FA000CCA21 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		248E4A1D1BB4761100C6E0CD /* InserirExTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InserirExTabBarViewController.swift; sourceTree = "<group>"; };
 		249013801BC1DFF600E9477B /* ResultadoProvaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultadoProvaViewController.swift; sourceTree = "<group>"; };
+		249273321C10A40000D2EF2D /* IPhoneListaUsuarios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneListaUsuarios.storyboard; sourceTree = "<group>"; };
+		249273351C10A4DC00D2EF2D /* ListaUsuariosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaUsuariosViewController.swift; sourceTree = "<group>"; };
 		249322A11BA33DA3005579DD /* IPhonePerfil.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhonePerfil.storyboard; sourceTree = "<group>"; };
 		249322A31BA33DD3005579DD /* PerfilTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfilTableViewController.swift; sourceTree = "<group>"; };
 		249322A51BA356D7005579DD /* RegisterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterManager.swift; sourceTree = "<group>"; };
@@ -404,14 +408,15 @@
 				24B39FF91B8F9A3500401C21 /* Login */,
 				524E43DB1BA2186F00BBB2E0 /* Main */,
 				248899581BA73B13000CCA21 /* ListaProvas */,
-				24456FE61BF3C36D00338F98 /* Lista Questões */,
-				24A20FA11B97692F00FD2A30 /* Ajustes */,
 				24E088951BA1ED100025E2E6 /* Prova */,
-				249322A01BA33D64005579DD /* Perfil */,
+				24456FE61BF3C36D00338F98 /* Lista Questões */,
+				242C9B1B1BE3E4D6004AD703 /* Visualizar Questão */,
+				249273341C10A49B00D2EF2D /* Lista Usuários */,
+				249322A01BA33D64005579DD /* Usuário */,
 				52A8484E1BB06D0E000ECCE9 /* Exercicios */,
 				244C2FC41BB1BF67008E3BE1 /* Inserir Exercicio */,
 				24BF93BB1BD8178C0085DBD8 /* Inserir Prova */,
-				242C9B1B1BE3E4D6004AD703 /* Visualizar Questão */,
+				24A20FA11B97692F00FD2A30 /* Ajustes */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -437,12 +442,20 @@
 			name = "Core Data";
 			sourceTree = "<group>";
 		};
-		249322A01BA33D64005579DD /* Perfil */ = {
+		249273341C10A49B00D2EF2D /* Lista Usuários */ = {
+			isa = PBXGroup;
+			children = (
+				249273351C10A4DC00D2EF2D /* ListaUsuariosViewController.swift */,
+			);
+			name = "Lista Usuários";
+			sourceTree = "<group>";
+		};
+		249322A01BA33D64005579DD /* Usuário */ = {
 			isa = PBXGroup;
 			children = (
 				249322A31BA33DD3005579DD /* PerfilTableViewController.swift */,
 			);
-			name = Perfil;
+			name = "Usuário";
 			sourceTree = "<group>";
 		};
 		249322A91BA362D4005579DD /* Classes */ = {
@@ -541,6 +554,7 @@
 				246F29BC1BA0B9A6007C9F73 /* IPhoneLogin.storyboard */,
 				246F29BE1BA0C90B007C9F73 /* IPhoneProva.storyboard */,
 				249322A11BA33DA3005579DD /* IPhonePerfil.storyboard */,
+				249273321C10A40000D2EF2D /* IPhoneListaUsuarios.storyboard */,
 				52BE35CA1BBC55830092042D /* IPhoneListaProvas.storyboard */,
 				24EE26F31BC2ED8500E0AB6A /* IPhoneListaExercicios.storyboard */,
 				2406630C1BD1627D007032F3 /* IPhoneInserirProva.storyboard */,
@@ -806,6 +820,7 @@
 				52514CFE1BD3078F006289B2 /* PopUpViewController_iPad.xib in Resources */,
 				2406630D1BD1627D007032F3 /* IPhoneInserirProva.storyboard in Resources */,
 				246F29BF1BA0C90B007C9F73 /* IPhoneProva.storyboard in Resources */,
+				249273331C10A40000D2EF2D /* IPhoneListaUsuarios.storyboard in Resources */,
 				24862C0F1BE90E640082FF72 /* IPhoneInserirExercicio.storyboard in Resources */,
 				240DB1DA1BE149CA00654178 /* InserirQuestaoTableViewCell.xib in Resources */,
 				5297600A1BE3F13F00DB551D /* AvaliarPerguntas.storyboard in Resources */,
@@ -945,6 +960,7 @@
 				244BB5181BC459BE001BD0ED /* LoginManager.swift in Sources */,
 				246B149B1B90E140009DF283 /* CustomNavigationViewController.swift in Sources */,
 				249013811BC1DFF600E9477B /* ResultadoProvaViewController.swift in Sources */,
+				249273361C10A4DC00D2EF2D /* ListaUsuariosViewController.swift in Sources */,
 				2412954F1B8515F2006B93C0 /* HomeViewController.swift in Sources */,
 				24CA65891BBF0D94002CBCCD /* InserirEnunciadoTableViewController.swift in Sources */,
 				24175F9E1BB5EB7E0064C048 /* PalavrasChaveTableViewCell.swift in Sources */,
