@@ -68,7 +68,7 @@ class VerQuestaoTabBarViewController: UITabBarController {
         parseManager.deleteQuestao(self.questao!) { (error) -> () in
             self.enableView()
             if(error != nil){
-                self.navigationController?.showAlert("Ocorreu um erro. Por favor, tente novamente")
+                self.navigationController?.showAlertPopView("Ocorreu um erro. Por favor, tente novamente")
                 return
             }
             

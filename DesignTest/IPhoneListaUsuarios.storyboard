@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fcj-Iz-4uu">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Custom Navigation View Controller-->
+        <scene sceneID="GkF-23-4xD">
+            <objects>
+                <navigationController id="fcj-Iz-4uu" customClass="CustomNavigationViewController" customModule="Vestibulandos" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="suN-ZO-cJk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gdh-kD-XBl" kind="relationship" relationship="rootViewController" id="oLK-ty-Yba"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JJJ-gw-51j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="39" y="517"/>
+        </scene>
+        <!--Usuários-->
+        <scene sceneID="x4N-jb-LYl">
+            <objects>
+                <viewController title="Usuários" id="gdh-kD-XBl" customClass="ListaUsuariosViewController" customModule="Vestibulandos" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h4t-bu-V0P"/>
+                        <viewControllerLayoutGuide type="bottom" id="wKr-vm-w5b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rbR-6X-nxR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sH2-zm-13Y">
+                                <rect key="frame" x="-61" y="-14" width="123" height="29"/>
+                                <animations/>
+                                <segments>
+                                    <segment title="Populares"/>
+                                    <segment title="Recentes"/>
+                                    <segment title="Minhas Provas"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeSection:" destination="gdh-kD-XBl" eventType="valueChanged" id="n1J-o5-08X"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qpE-ys-HPy">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="gqj-K3-mtg">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sH2-zm-13Y" firstAttribute="top" secondItem="gqj-K3-mtg" secondAttribute="bottom" constant="15" id="0gB-5f-mHZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gqj-K3-mtg" secondAttribute="trailing" constant="-20" id="4pV-gf-ZVe"/>
+                            <constraint firstItem="gqj-K3-mtg" firstAttribute="top" secondItem="h4t-bu-V0P" secondAttribute="bottom" id="Aet-Gy-zhd"/>
+                            <constraint firstItem="qpE-ys-HPy" firstAttribute="leading" secondItem="rbR-6X-nxR" secondAttribute="leadingMargin" constant="-20" id="BDG-TL-1fd"/>
+                            <constraint firstItem="qpE-ys-HPy" firstAttribute="top" secondItem="sH2-zm-13Y" secondAttribute="bottom" constant="30" id="FR7-2O-b7M">
+                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                            </constraint>
+                            <constraint firstItem="sH2-zm-13Y" firstAttribute="centerX" secondItem="rbR-6X-nxR" secondAttribute="centerX" id="K5S-be-etg"/>
+                            <constraint firstItem="qpE-ys-HPy" firstAttribute="bottom" secondItem="wKr-vm-w5b" secondAttribute="top" id="Zp2-ZY-ni0"/>
+                            <constraint firstItem="sH2-zm-13Y" firstAttribute="top" secondItem="h4t-bu-V0P" secondAttribute="bottom" constant="15" id="d4x-P1-ULT"/>
+                            <constraint firstItem="gqj-K3-mtg" firstAttribute="leading" secondItem="rbR-6X-nxR" secondAttribute="leadingMargin" constant="-20" id="nKr-Bz-LeC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qpE-ys-HPy" secondAttribute="trailing" constant="-20" id="s9i-yl-rDg"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="sH2-zm-13Y"/>
+                                <exclude reference="qpE-ys-HPy"/>
+                                <exclude reference="gqj-K3-mtg"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Aet-Gy-zhd"/>
+                                <exclude reference="nKr-Bz-LeC"/>
+                                <exclude reference="4pV-gf-ZVe"/>
+                                <exclude reference="0gB-5f-mHZ"/>
+                                <exclude reference="K5S-be-etg"/>
+                                <exclude reference="d4x-P1-ULT"/>
+                                <exclude reference="s9i-yl-rDg"/>
+                                <exclude reference="Zp2-ZY-ni0"/>
+                                <exclude reference="FR7-2O-b7M"/>
+                                <exclude reference="BDG-TL-1fd"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="sH2-zm-13Y"/>
+                                <include reference="qpE-ys-HPy"/>
+                                <include reference="gqj-K3-mtg"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Aet-Gy-zhd"/>
+                                <include reference="nKr-Bz-LeC"/>
+                                <include reference="4pV-gf-ZVe"/>
+                                <include reference="0gB-5f-mHZ"/>
+                                <include reference="K5S-be-etg"/>
+                                <exclude reference="d4x-P1-ULT"/>
+                                <include reference="s9i-yl-rDg"/>
+                                <include reference="Zp2-ZY-ni0"/>
+                                <include reference="FR7-2O-b7M"/>
+                                <include reference="BDG-TL-1fd"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Usuários" id="8si-td-rih">
+                        <barButtonItem key="leftBarButtonItem" image="More Filled-22" id="66U-yj-dpe"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="meg-gM-SLk">
+                            <connections>
+                                <action selector="searchButton:" destination="gdh-kD-XBl" id="gzb-fo-Ra5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="66U-yj-dpe" id="AWe-VB-lwW"/>
+                        <outlet property="searchBar" destination="gqj-K3-mtg" id="hyC-Sh-5ml"/>
+                        <outlet property="segControl" destination="sH2-zm-13Y" id="0Dp-6T-tAQ"/>
+                        <outlet property="tableView" destination="qpE-ys-HPy" id="Ph8-lP-l1q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HoL-mB-yK1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="955.5" y="516.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="More Filled-22" width="22" height="22"/>
+    </resources>
+</document>

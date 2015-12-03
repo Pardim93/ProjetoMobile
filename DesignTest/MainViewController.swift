@@ -17,7 +17,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var estudarProvaButton: ZFRippleButton!
     
     let parseManager = ParseManager.singleton
-    let titles = ["Maratona ENEM","Resumão FUVEST","Mack Provas", "#EUQUEROUSP"]
+//    let titles = ["Maratona ENEM","Resumão FUVEST","Mack Provas", "#EUQUEROUSP"]
     
     var arrayImg: [UIImage?] = []
     var provas: [PFObject] = []

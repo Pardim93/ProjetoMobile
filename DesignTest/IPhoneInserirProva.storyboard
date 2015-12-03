@@ -60,7 +60,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWf-zc-w53">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <animations/>
-                                                    <color key="backgroundColor" red="0.89803922176361084" green="0.85882353782653809" blue="0.81176471710205078" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.92422269570000004" green="0.92422269570000004" blue="0.92422269570000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="HPr-7S-0g8"/>
                                                     </constraints>
@@ -134,7 +134,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Imagem de Capa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJB-aJ-05q">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <animations/>
-                                                    <color key="backgroundColor" red="0.89803922179999995" green="0.85882353779999998" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.92422269570000004" green="0.92422269570000004" blue="0.92422269570000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="ziu-Ui-0oc"/>
                                                     </constraints>
@@ -409,17 +409,17 @@
                         <sections>
                             <tableViewSection id="iqh-s3-cec">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="InserirProvaDescricaoCell" rowHeight="369" id="O01-Zn-33F">
-                                        <rect key="frame" x="0.0" y="64" width="600" height="369"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="InserirProvaDescricaoCell" rowHeight="400" id="O01-Zn-33F">
+                                        <rect key="frame" x="0.0" y="64" width="600" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O01-Zn-33F" id="0vO-L1-Ztk">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="368.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="399.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrição" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWW-aW-Jm3">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <animations/>
-                                                    <color key="backgroundColor" red="0.8980392157" green="0.85882352939999995" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.92422269570000004" green="0.92422269570000004" blue="0.92422269570000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="VzV-jx-wKw"/>
                                                     </constraints>
@@ -495,17 +495,24 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="InserirProvaTagsCell" rowHeight="302" id="Fa1-1Q-Iej">
-                                        <rect key="frame" x="0.0" y="433" width="600" height="302"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="InserirProvaTagsCell" rowHeight="160" id="Fa1-1Q-Iej">
+                                        <rect key="frame" x="0.0" y="464" width="600" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fa1-1Q-Iej" id="HWO-Wt-qAo">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="301.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="159.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMX-qx-wZh" customClass="InserirTextView" customModule="Vestibulandos" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <animations/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip </string>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="alphabet"/>
+                                                </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Palavras Chave" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lA0-DG-MUM">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <animations/>
-                                                    <color key="backgroundColor" red="0.8980392157" green="0.85882352939999995" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.92422269570000004" green="0.92422269570000004" blue="0.92422269570000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="BO7-AO-F0h"/>
                                                     </constraints>
@@ -516,23 +523,18 @@
                                                             <exclude reference="BO7-AO-F0h"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="0.0" y="15" width="400" height="50"/>
                                                         <mask key="constraints">
                                                             <include reference="BO7-AO-F0h"/>
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMX-qx-wZh" customClass="InserirTextView" customModule="Vestibulandos" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <animations/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip </string>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="alphabet"/>
-                                                </textView>
                                             </subviews>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="lA0-DG-MUM" secondAttribute="trailing" constant="-8" id="0ze-6o-W7z"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BMX-qx-wZh" secondAttribute="bottom" constant="10" id="5u0-Aq-BVD"/>
                                                 <constraint firstItem="lA0-DG-MUM" firstAttribute="top" secondItem="HWO-Wt-qAo" secondAttribute="topMargin" constant="5" id="M27-zj-3bW"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="BMX-qx-wZh" secondAttribute="trailing" constant="30" id="QH1-EL-sdR"/>
                                                 <constraint firstItem="BMX-qx-wZh" firstAttribute="top" secondItem="lA0-DG-MUM" secondAttribute="bottom" constant="10" id="all-QU-B8E"/>
@@ -541,13 +543,14 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
-                                                    <exclude reference="lA0-DG-MUM"/>
                                                     <exclude reference="BMX-qx-wZh"/>
+                                                    <exclude reference="lA0-DG-MUM"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="0ze-6o-W7z"/>
                                                     <exclude reference="M27-zj-3bW"/>
                                                     <exclude reference="gug-ho-ddi"/>
+                                                    <exclude reference="5u0-Aq-BVD"/>
                                                     <exclude reference="QH1-EL-sdR"/>
                                                     <exclude reference="all-QU-B8E"/>
                                                     <exclude reference="em2-U8-qiL"/>
@@ -555,13 +558,14 @@
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="subviews">
-                                                    <include reference="lA0-DG-MUM"/>
                                                     <include reference="BMX-qx-wZh"/>
+                                                    <include reference="lA0-DG-MUM"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <include reference="0ze-6o-W7z"/>
                                                     <include reference="M27-zj-3bW"/>
                                                     <include reference="gug-ho-ddi"/>
+                                                    <include reference="5u0-Aq-BVD"/>
                                                     <include reference="QH1-EL-sdR"/>
                                                     <include reference="all-QU-B8E"/>
                                                     <include reference="em2-U8-qiL"/>

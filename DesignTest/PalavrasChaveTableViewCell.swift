@@ -19,9 +19,10 @@ class PalavrasChaveTableViewCell: UITableViewCell {
     
 //    MARK: Config
     func configTextView(){
-        self.textView.enableScroll = true
+//        self.textView.enableScroll = true
+        self.textView.scrollEnabled = true
         self.textView.limitChar = 400
-        self.textView.limitHeight = 80
+//        self.textView.limitHeight = 80
         self.textView.placeholder = "Palavras chave. Separe-as com ,"
     }
 

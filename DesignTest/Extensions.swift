@@ -46,12 +46,20 @@ extension UINavigationController{
 //Mostrar alertas na view
     func showAlert(mensagem: String){
         let alertController = UIAlertController(title: "Vestibulandos", message: mensagem, preferredStyle: UIAlertControllerStyle.Alert)
+//        alertController.addAction(UIAlertAction(title: "Fechar", style: .Default) { (action) in
+//            self.popViewControllerAnimated(true)
+//        })
+        alertController.addAction(UIAlertAction(title: "Fechar", style: .Default, handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+//Mostrar alertar e dar pop na view
+    func showAlertPopView(mensagem: String){
+        let alertController = UIAlertController(title: "Vestibulandos", message: mensagem, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Fechar", style: .Default) { (action) in
             self.popViewControllerAnimated(true)
-//            if let navController = self.navigationController {
-//                navController.popViewControllerAnimated(true)
-//            }
-        })
+            })
+        alertController.addAction(UIAlertAction(title: "Fechar", style: .Default, handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
     }
 }

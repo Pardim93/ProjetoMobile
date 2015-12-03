@@ -35,16 +35,18 @@ class InserirDescricaoProvaTableViewController: UITableViewController {
     
 //    MARK: ConfigCells
     func configTagsCell(){
-        self.tagsTextView.enableScroll = true
+//        self.tagsTextView.enableScroll = true
+        self.tagsTextView.scrollEnabled = true
         self.tagsTextView.limitChar = 400
-        self.tagsTextView.limitHeight = 120
+//        self.tagsTextView.limitHeight = 120
         self.tagsTextView.placeholder = "Palavras chave. Separe-as com ,"
     }
     
     func configDescricaoCell(){
-        self.descricaoTextView.enableScroll = true
+//        self.descricaoTextView.enableScroll = true
+        self.descricaoTextView.scrollEnabled = true
         self.descricaoTextView.limitChar = 400
-        self.descricaoTextView.limitHeightEnable = false
+//        self.descricaoTextView.limitHeightEnable = false
 //        self.descricaoTextView.limitHeight = self.descricaoTextView.frame.height
         self.descricaoTextView.placeholder = "Descrição da Prova"
     }

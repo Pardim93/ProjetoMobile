@@ -189,7 +189,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
                 return
             }
             
-            self.navigationController?.showAlert("Questão deletada com sucesso!")
+            self.navigationController?.showAlertPopView("Questão deletada com sucesso!")
             self.visualizarConteudoDelegate?.deleteFromTableView(self.prova!)
             self.navigationController?.popViewControllerAnimated(true)
         }
@@ -246,7 +246,7 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
     
 //    MARK: Notification
     func confirmDelete(){
-        let alertController = UIAlertController(title: "Vestibulandos", message: "Tem certeza de que você quer deletar essa questão?", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Vestibulandos", message: "Tem certeza de que você quer deletar essa prova?", preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "Ok", style: .Default) { (action) in
             self.deletarProva()

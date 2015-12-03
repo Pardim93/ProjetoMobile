@@ -87,6 +87,13 @@ class InserirExTabBarViewController: UITabBarController {
         return enunciadoView.enunciadoValido()
     }
     
+    func checkImagem() -> Bool{
+        guard let enunciadoView = self.viewControllers![1] as? InserirEnunciadoTableViewController else{
+            return false
+        }
+        return enunciadoView.imagemValida()
+    }
+    
     func checkAlternativa() -> Bool{
         guard let alternativaView = self.viewControllers![2] as? InserirExTableViewController else{
             return false
@@ -118,7 +125,7 @@ class InserirExTabBarViewController: UITabBarController {
             return
         }
         
-        if (!self.checkEnunciado()){
+        if (!self.checkEnunciado() && !self.checkImagem()){
             self.enableView()
             self.navigationController!.showAlert("Enunciado inválido")
             return

@@ -12,16 +12,17 @@ import MessageUI
 class AjustesTableViewController: UITableViewController, UIGestureRecognizerDelegate, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
-//    @IBOutlet weak var activityView: UIActivityIndicatorView!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var senhaLabel: UILabel!
     @IBOutlet weak var paisLabel: UILabel!
     @IBOutlet weak var ocupacaoLabel: UILabel!
     @IBOutlet weak var editDadosImg: UIImageView!
-    @IBOutlet weak var facebookSwitch: UISwitch!
-    @IBOutlet weak var googleSwitch: UISwitch!
+    @IBOutlet weak var facebookButton: ZFRippleButton!
+    @IBOutlet weak var googleButton: ZFRippleButton!
     
     let parseManager = ParseManager.singleton
+    let facebookManager = FacebookManager.singleton
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,8 +60,8 @@ class AjustesTableViewController: UITableViewController, UIGestureRecognizerDele
         self.paisLabel.text = self.configurePais()
         self.ocupacaoLabel.text = self.configureOcupacao()
         
-        self.facebookSwitch.on = self.configFaceSwitch()
-        self.googleSwitch.on = self.configGoogleSwitch()
+        self.configFacebookButton()
+        self.configGoogleButton()
     }
     
     func configureEmail() -> String{
@@ -72,11 +73,7 @@ class AjustesTableViewController: UITableViewController, UIGestureRecognizerDele
     }
     
     func configurePassword() -> String{
-        guard let hasPassword: Bool = PFUser.currentUser()?.objectForKey("HasPassword") as? Bool else{
-            return "●●●●●●●●●●"
-        }
-        
-        if(hasPassword){
+        if(self.userHasPassword()){
             return "●●●●●●●●●●"
         }
         
@@ -99,6 +96,28 @@ class AjustesTableViewController: UITableViewController, UIGestureRecognizerDele
         return ocupacaoText
     }
     
+    func configFacebookButton(){
+        self.facebookButton.layer.cornerRadius = 5
+        
+        if(self.facebookLogged()){
+            self.facebookButton.backgroundColor = UIColor.colorWithHexString("C51419", alph: 1.0)
+            self.facebookButton.rippleBackgroundColor = UIColor.colorWithHexString("C51419", alph: 0.5)
+            self.facebookButton.rippleColor = UIColor.colorWithHexString("791619", alph: 1.0)
+            self.facebookButton.setTitle("Logoff", forState: .Normal)
+        }
+    }
+    
+    func configGoogleButton(){
+        self.googleButton.layer.cornerRadius = 5
+        
+        if(self.googleLogged()){
+            self.googleButton.backgroundColor = UIColor.colorWithHexString("C51419", alph: 1.0)
+            self.googleButton.rippleBackgroundColor = UIColor.colorWithHexString("C51419", alph: 0.5)
+            self.googleButton.rippleBackgroundColor = UIColor.colorWithHexString("791619", alph: 1.0)
+            self.googleButton.setTitle("Logoff", forState: .Normal)
+        }
+    }
+    
     func configGestureRecognizer(){
         self.editDadosImg.layer
         
@@ -116,7 +135,7 @@ class AjustesTableViewController: UITableViewController, UIGestureRecognizerDele
         }
     }
     
-    func configGoogleSwitch() -> Bool{
+    func googleLogged() -> Bool{
         guard let hasGoogleAcc: Bool = PFUser.currentUser()?.objectForKey("GoogleLinked") as? Bool else{
             return false
         }
@@ -124,7 +143,7 @@ class AjustesTableViewController: UITableViewController, UIGestureRecognizerDele
         return hasGoogleAcc
     }
     
-    func configFaceSwitch() -> Bool{
+    func facebookLogged() -> Bool{
         guard let hasFacebookAcc: Bool = PFUser.currentUser()?.objectForKey("FacebookLinked") as? Bool else{
             return false
         }
@@ -148,7 +167,7 @@ class AjustesTableViewController: UITableViewController, UIGestureRecognizerDele
     func switchCell(identifier: String){
         switch identifier{
         case "sairCell":
-            self.showConfirmAlert()
+            self.showConfirmLogoffAlert()
             break
             
         case "feedbackCell":
@@ -164,6 +183,71 @@ class AjustesTableViewController: UITableViewController, UIGestureRecognizerDele
         self.performSegueWithIdentifier("goToAjustes", sender: self)
     }
     
+//    MARK: Check
+    func userHasEmail() -> Bool{
+        guard let _ = PFUser.currentUser()?.email else{
+            return false
+        }
+        
+        return true
+    }
+    
+    func userHasPassword() -> Bool{
+        guard let hasPassword: Bool = PFUser.currentUser()?.objectForKey("HasPassword") as? Bool else{
+            return false
+        }
+        
+        return hasPassword
+    }
+    
+//    MARK: Social
+    @IBAction func facebookAction(sender: AnyObject) {
+        if(self.facebookLogged()){
+            //Unlink Facebook
+            self.showConfirmLogoffFacebookAlert()
+            return
+        }
+        else{
+            //Link Facebook
+        }
+    }
+    
+    @IBAction func googleAction(sender: AnyObject) {
+        if(self.googleLogged()){
+            self.showConfirmLogoffGoogleAlert()
+            return
+        } else{
+            
+        }
+    }
+    
+    func removeFacebook(){
+//        if(self.userHasEmail() && self.userHasPassword()){
+//            //Usuário possui email e senha cadastrados
+//            self.disabeView()
+//            self.facebookManager.unlinkFacebook({ (error) -> () in
+//                self.enableView()
+//                
+//                if(error != nil){
+//                    //Ocorreu um erro
+//                    self.navigationController?.showAlert(error!.localizedDescription)
+//                    return
+//                }
+//                
+//                //Unlink com sucesso
+//                self.navigationController?.showAlert("Conta desvinculada com sucesso.")
+//                return
+//            })
+//        }
+//        else{
+//            //Usuário não possui email e senha cadastrados
+//            self.navigationController?.showAlert("Não é possível desvincular a conta. Por favor, cadastre um email e uma senha.")
+//        }
+    }
+    
+    func removeGoogle(){
+        
+    }
     
 //    MARK: Email
     func showEmailView(){
@@ -216,11 +300,33 @@ class AjustesTableViewController: UITableViewController, UIGestureRecognizerDele
     }
     
 //MARK: Alert
-    func showConfirmAlert(){
+    func showConfirmLogoffAlert(){
         let alertController = UIAlertController(title: "Vestibulandos", message: "Você deseja mesmo sair?", preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "Ok", style: .Default) { (action) in
             self.doLogout()
+            })
+        alertController.addAction(UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil))
+        
+        self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func showConfirmLogoffFacebookAlert(){
+        let alertController = UIAlertController(title: "Vestibulandos", message: "Você deseja mesmo desvincular seu Facebook?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Ok", style: .Default) { (action) in
+            self.removeFacebook()
+            })
+        alertController.addAction(UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil))
+        
+        self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func showConfirmLogoffGoogleAlert(){
+        let alertController = UIAlertController(title: "Vestibulandos", message: "Você deseja mesmo desvincular sua conta google?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Ok", style: .Default) { (action) in
+            self.removeGoogle()
             })
         alertController.addAction(UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil))
         
