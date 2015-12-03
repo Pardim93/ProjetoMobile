@@ -8,7 +8,9 @@
 
 import UIKit
 
-class AltenativasTableViewController: UITableViewController {
+
+
+class AltenativasTableViewController: UITableViewController , CustomTextViewDelegate{
     //singleton vai ter um nsquestion para a questao temp selecionada
     //a questao tmp, ira ser armazenada em uma array do singleton questoes
     //o usuario ira escolher outra questao
@@ -27,11 +29,15 @@ class AltenativasTableViewController: UITableViewController {
     override  func viewWillAppear(animated: Bool) {
         
     }
+    
+    
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-      
         
         self.countLetras = 65
         tableView.sectionHeaderHeight = 0.0;
@@ -99,12 +105,20 @@ class AltenativasTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! PerguntasTableViewCell
+        
+        cell.texto.customDelegate = self
+        cell.texto.cellRow = indexPath.row
+        cell.texto.sizeToFit()
+        cell.texto.layoutIfNeeded()
+        
         cell.texto.text = self.arrayAlternativas[indexPath.row] as! String
         if(countLetras <= 69){
             
             let letra = String(UnicodeScalar(countLetras))
             cell.LETRA.text = letra
             countLetras++
+            
+            
         
             
 
@@ -189,6 +203,7 @@ class AltenativasTableViewController: UITableViewController {
         let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! PerguntasTableViewCell
         cell.LETRA.textColor = UIColor.newOrangeColor()
         
+        
     }
     
     
@@ -219,5 +234,20 @@ class AltenativasTableViewController: UITableViewController {
     // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: -Delegate
+    func finishEdit(cellRow: Int) {
+        
+        self.auxData.questaoSelecionada = self.arrayAlternativas[cellRow] as! String
+        questoesManager.addRepostaNoIndex(self.auxData.questaoSelecionada, index:self.auxData.indexQuestaoSelecionada - 1)
+        self.iterateCells()
+        auxData.arrayQuestoesVerficadas[auxData.indexQuestaoSelecionada]  = true
+        
+        let indexPath = NSIndexPath(forRow: cellRow, inSection: 0)
+        let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! PerguntasTableViewCell
+        cell.LETRA.textColor = UIColor.newOrangeColor()
+        
+
+    }
     
 }

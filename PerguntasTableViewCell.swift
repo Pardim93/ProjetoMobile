@@ -9,13 +9,14 @@
 
 class PerguntasTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var texto: UITextView!
+    @IBOutlet weak var texto: CellTextView!
     @IBOutlet weak var LETRA: UILabel!
     @IBOutlet weak var textViewResposta: UITextView!
     @IBOutlet weak var labelLetra: UILabel!
     @IBOutlet weak var labelResposta: UILabel!
     var index = 0
     
+    @IBOutlet weak var btn: UIButton!
     @IBOutlet weak var imgCell: UIImageView!
     
     override func awakeFromNib() {
@@ -39,6 +40,21 @@ class PerguntasTableViewCell: UITableViewCell {
 //        self.configRespostaView()
     }
     
+    @IBAction func funcTest(sender: AnyObject) {
+
+    
+    }
+    
+    func a(){
+        self
+    }
+    
+    @IBAction func selectCell(sender: AnyObject) {
+        
+        
+        
+    }
+    @IBOutlet weak var selectCell: UIButton!
 
 //    MARK: Config
     func  configRespostaView(){
