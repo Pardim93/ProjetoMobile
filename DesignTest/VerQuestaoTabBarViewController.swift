@@ -78,6 +78,10 @@ class VerQuestaoTabBarViewController: UITabBarController {
         }
     }
     
+    func editQuestao(){
+        self.goToEditQuestao()
+    }
+    
     func finishEditing(){
         self.navigationController?.setToolbarHidden(true, animated: true)
     }
@@ -107,6 +111,7 @@ class VerQuestaoTabBarViewController: UITabBarController {
         
         if(self.userIsOwner()){
             actionSheet.addAction(self.createDeleteAction())
+            actionSheet.addAction(self.createEditAction())
         }
         
         self.navigationController?.presentViewController(actionSheet, animated: true, completion: nil)
@@ -132,6 +137,13 @@ class VerQuestaoTabBarViewController: UITabBarController {
         return deleteAction
     }
     
+    func createEditAction() -> UIAlertAction{
+        let editAction = UIAlertAction(title: "Editar", style: .Default) { (action) in
+            self.editQuestao()
+        }
+        return editAction
+    }
+    
 //    MARK: Notification
     func confirmDelete(){
         let alertController = UIAlertController(title: "Vestibulandos", message: "Tem certeza de que você quer deletar essa questão?", preferredStyle: UIAlertControllerStyle.Alert)
@@ -142,5 +154,14 @@ class VerQuestaoTabBarViewController: UITabBarController {
         alertController.addAction(UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil))
         
         self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+//    MARK: Navigation
+    func goToEditQuestao(){
+        let newStoryBoard = UIStoryboard(name: "IPhoneInserirExercicio", bundle: nil)
+        let newView = newStoryBoard.instantiateInitialViewController() as! InserirExTabBarViewController
+        newView.oldQuestao = self.questao!
+        
+        self.navigationController?.pushViewController(newView, animated: true)
     }
 }

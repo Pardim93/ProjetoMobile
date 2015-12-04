@@ -11,10 +11,11 @@ import UIKit
 class InserirExTabBarViewController: UITabBarController {
     
     let parseManager = ParseManager.singleton
-//    let activityView = CustomActivityView()
     let segmented = UISegmentedControl(items: ["Informações", "Enunciado", "Alternativas"])
+    
     var cont = 0
     var backItem: UIBarButtonItem!
+    var oldQuestao: PFObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,16 +27,23 @@ class InserirExTabBarViewController: UITabBarController {
         super.viewWillAppear(animated)
         self.configBackButton()
         self.configProxButton()
+        
+        if(self.oldQuestao != nil){
+            self.setEdit()
+        }
+        
+        self.configActivityView()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.configActivityView()
-        
-        let tituloView = self.viewControllers![0] as? InserirTituloTableViewController
-        tituloView?.configDisciplinas()
+//        self.configActivityView()
+//        
+//        let tituloView = self.viewControllers![0] as? InserirTituloTableViewController
+//        tituloView?.configDisciplinas()
     }
     
+//    MARK: Config
     func configBackButton(){
         backItem = self.navigationItem.leftBarButtonItem
         
@@ -62,6 +70,37 @@ class InserirExTabBarViewController: UITabBarController {
         segmented.addTarget(self, action: "changeView", forControlEvents: .ValueChanged)
         
         self.view.addSubview(segmented)
+    }
+    
+//    MARK: Edit
+    func setEdit(){
+        self.configTituloView()
+        self.configEnunciadoView()
+        self.configAlternativasView()
+    }
+    
+    func configTituloView(){
+        guard let titleView = self.viewControllers![0] as? InserirTituloTableViewController else{
+            return
+        }
+        
+        titleView.oldQuestao = self.oldQuestao
+    }
+    
+    func configEnunciadoView(){
+        guard let enunciadoView = self.viewControllers![1] as? InserirEnunciadoTableViewController else{
+            return
+        }
+        
+        enunciadoView.setToEdit(self.oldQuestao!)
+    }
+    
+    func configAlternativasView(){
+        guard let alternativaView = self.viewControllers![2] as? InserirExTableViewController else{
+            return
+        }
+        
+        alternativaView.setToEdit(self.oldQuestao!)
     }
 
 //    MARK: CheckStatus

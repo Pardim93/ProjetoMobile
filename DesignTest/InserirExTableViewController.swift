@@ -39,6 +39,7 @@ class InserirExTableViewController: UITableViewController {
         tabBar.configSaveButton()
     }
     
+//    MARK: Config
     func configArray(){
         self.arrayCell.addObject(cellA)
         self.arrayCell.addObject(cellB)
@@ -98,6 +99,11 @@ class InserirExTableViewController: UITableViewController {
             
             index++
         }
+    }
+    
+//    MARK: Edit
+    func setToEdit(oldQuestao: PFObject){
+        
     }
     
 //    MARK: CheckConteudo

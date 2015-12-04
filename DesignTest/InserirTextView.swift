@@ -58,6 +58,11 @@ class InserirTextView: UITextView, UITextViewDelegate {
         self.textColor = UIColor.blackColor()
     }
     
+    func setOldText(oldText: String){
+        self.removePlaceholder()
+        self.text = oldText
+    }
+    
 //    MARK: Edition
     func textViewDidBeginEditing(textView: UITextView) {
         if(placeHolderActive){

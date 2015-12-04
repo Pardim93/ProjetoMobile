@@ -12,14 +12,25 @@ class TituloTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var descricaoTextView: InserirTextView!
     
+    var oldDescricao: String?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
 //        descricaoTextView.limitHeight = 80
 //        descricaoTextView.enableScroll = true
         self.descricaoTextView.scrollEnabled = true
         descricaoTextView.limitChar = 400
         descricaoTextView.placeholder = "Uma breve descrição do seu exercício.\nExemplo: Analisar trecho do livro 'A hora da estrela', de Clarisse Lispector."
+    }
+    
+//    MARK: Config
+    func configOldDescricao(){
+        guard let _ = self.oldDescricao else{
+            return
+        }
+        
+        self.descricaoTextView.setOldText(oldDescricao!)
     }
     
 //    MARK: CheckConteudo

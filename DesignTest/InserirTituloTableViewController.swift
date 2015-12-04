@@ -11,6 +11,7 @@ import UIKit
 class InserirTituloTableViewController: UITableViewController, ViewStatusDelegate{
     
     var arrayCell = NSMutableArray()
+    var oldQuestao: PFObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +42,11 @@ class InserirTituloTableViewController: UITableViewController, ViewStatusDelegat
         footer.backgroundColor = UIColor.clearColor()
         self.tableView.tableFooterView = footer
     }
-    
-    func configDisciplinas(){
-        let cell = arrayCell.objectAtIndex(1) as! DisciplinaTableViewCell
-        cell.getDisciplinas()
-    }
+//    
+//    func configDisciplinas(){
+//        let cell = arrayCell.objectAtIndex(1) as! DisciplinaTableViewCell
+//        cell.getDisciplinas()
+//    }
     
 //    MARK: TableView
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -53,6 +54,12 @@ class InserirTituloTableViewController: UITableViewController, ViewStatusDelegat
         
         if (row == 0){
             let cell = tableView.dequeueReusableCellWithIdentifier("tituloCell", forIndexPath: indexPath) as! TituloTableViewCell
+            
+            if(self.oldQuestao != nil){
+                cell.oldDescricao = self.oldQuestao?.objectForKey("Descricao") as? String
+                cell.configOldDescricao()
+            }
+            
             arrayCell.addObject(cell)
             return cell
         }
@@ -61,12 +68,24 @@ class InserirTituloTableViewController: UITableViewController, ViewStatusDelegat
             let cell = tableView.dequeueReusableCellWithIdentifier("disciplinaCell", forIndexPath: indexPath) as! DisciplinaTableViewCell
             cell.viewStatusDelegate = self
             
+            if(self.oldQuestao != nil){
+                cell.oldDisciplina = self.oldQuestao?.objectForKey("Disciplina") as? PFObject
+            }
+            
+            cell.getDisciplinas()
+            
             arrayCell.addObject(cell)
             return cell
         }
         
         if(row == 2){
             let cell = tableView.dequeueReusableCellWithIdentifier("palavrasChaveCell", forIndexPath: indexPath) as! PalavrasChaveTableViewCell
+            
+            if(self.oldQuestao != nil){
+                cell.oldTags = self.oldQuestao?.objectForKey("Tags") as? [String]
+                cell.setOldTags()
+            }
+            
             arrayCell.addObject(cell)
             return cell
         }

@@ -115,5 +115,17 @@ class PerguntasTableViewCell: UITableViewCell {
         self.textViewResposta.text = newText
         self.textViewResposta.font = UIFont(name: "Avenir Book", size: 16)
     }
+    
+    func setAsResposta(){
+        //Marca como resposta
+        self.texto.textColor = UIColor.greenColor()
+        self.LETRA.textColor = UIColor.greenColor()
+    }
+    
+    func setAsNormal(){
+        //Marca como não selecionada
+        self.texto.textColor = UIColor.blackColor()
+        self.LETRA.textColor = UIColor.blackColor()
+    }
 }
 

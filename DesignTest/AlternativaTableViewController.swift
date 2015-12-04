@@ -149,16 +149,11 @@ class AlternativaTableViewController: UITableViewController  {
         
         
         selected = arrayCell.objectAtIndex(indexPath.row) as? PerguntasTableViewCell
-        
-        
-        
         questoesManager.adicionaResposta((selected?.textViewResposta.text)!, index: questoesManager.contRespostas)
         
         print("INDEX DA CELL SELCECIONADA\(indexPath.row)")
         print("CELL SELECIONADA \(selected?.textViewResposta.text)")
         selected!.setHighlighted(true, animated: true)
-        
-        
     }
     
     func reloadTableView(){

@@ -37,6 +37,11 @@ class InserirEnunciadoTableViewController: UITableViewController, QuestaoImagemD
         self.tableView.tableFooterView = footer
     }
     
+//    MARK: Edit
+    func setToEdit(oldQuestao: PFObject){
+        
+    }
+    
 //    MARK: CheckConteudo
     func enunciadoValido() -> Bool{
         if !(self.arrayCell.count > 0){

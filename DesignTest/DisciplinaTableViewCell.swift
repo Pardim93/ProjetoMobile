@@ -19,6 +19,7 @@ class DisciplinaTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVi
     
     var viewStatusDelegate: ViewStatusDelegate?
     var disciplinas: [PFObject] = []
+    var oldDisciplina: PFObject?
     let parseManager = ParseManager.singleton
     
     override func awakeFromNib() {
@@ -29,7 +30,20 @@ class DisciplinaTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerVi
     
 //    MARK: Config
     func configPickerView(){
-        disciplinaPicker.selectRow(disciplinas.count/2, inComponent: 0, animated: false)
+        guard let _ = self.oldDisciplina else{
+            disciplinaPicker.selectRow(disciplinas.count/2, inComponent: 0, animated: false)
+            return
+        }
+        
+        let oldDiscId = self.oldDisciplina?.objectId
+        
+        for index in 0...self.disciplinas.count-1{
+            let discId = self.disciplinas[index].objectId
+            if(oldDiscId == discId){
+                self.disciplinaPicker.selectRow(index, inComponent: 0, animated: false)
+                return
+            }
+        }
     }
     
 //    MARK: Get

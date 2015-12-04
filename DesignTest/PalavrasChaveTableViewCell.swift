@@ -9,7 +9,9 @@
 import UIKit
 
 class PalavrasChaveTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var textView: InserirTextView!
+    var oldTags: [String]?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +26,21 @@ class PalavrasChaveTableViewCell: UITableViewCell {
         self.textView.limitChar = 400
 //        self.textView.limitHeight = 80
         self.textView.placeholder = "Palavras chave. Separe-as com ,"
+    }
+    
+    func setOldTags(){
+        guard let _ = self.oldTags else{
+            return
+        }
+        
+        var newText = ""
+        
+        for palavraChave in self.oldTags!{
+            newText += palavraChave
+            newText += ","
+        }
+        
+        self.textView.setOldText(newText)
     }
 
 //    MARK: CheckConteudo
