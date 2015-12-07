@@ -87,6 +87,7 @@
 		24EE26F21BC2ED2800E0AB6A /* IPhoneRegistros.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24EE26F11BC2ED2800E0AB6A /* IPhoneRegistros.storyboard */; };
 		24EE26F41BC2ED8500E0AB6A /* IPhoneListaExercicios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24EE26F31BC2ED8500E0AB6A /* IPhoneListaExercicios.storyboard */; };
 		24EE26F71BC2EE3700E0AB6A /* IPhoneAmigos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24EE26F61BC2EE3700E0AB6A /* IPhoneAmigos.storyboard */; };
+		52066D991C15EC32002B5391 /* QuestaoMenuTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52066D981C15EC32002B5391 /* QuestaoMenuTableView.swift */; };
 		520CE7EB1C06417300EFE37B /* AlternativasProvaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520CE7EA1C06417300EFE37B /* AlternativasProvaTableViewCell.swift */; };
 		521293341BE2AC720093D905 /* AvaliacaoQuestaoTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521293311BE2AC720093D905 /* AvaliacaoQuestaoTabBarController.swift */; };
 		521293351BE2AC720093D905 /* AvaliacaoQuestaoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521293321BE2AC720093D905 /* AvaliacaoQuestaoTableViewController.swift */; };
@@ -224,6 +225,7 @@
 		24EE26F11BC2ED2800E0AB6A /* IPhoneRegistros.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneRegistros.storyboard; sourceTree = "<group>"; };
 		24EE26F31BC2ED8500E0AB6A /* IPhoneListaExercicios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneListaExercicios.storyboard; sourceTree = "<group>"; };
 		24EE26F61BC2EE3700E0AB6A /* IPhoneAmigos.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneAmigos.storyboard; sourceTree = "<group>"; };
+		52066D981C15EC32002B5391 /* QuestaoMenuTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestaoMenuTableView.swift; sourceTree = "<group>"; };
 		520CE7EA1C06417300EFE37B /* AlternativasProvaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlternativasProvaTableViewCell.swift; sourceTree = "<group>"; };
 		521293311BE2AC720093D905 /* AvaliacaoQuestaoTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliacaoQuestaoTabBarController.swift; sourceTree = "<group>"; };
 		521293321BE2AC720093D905 /* AvaliacaoQuestaoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliacaoQuestaoTableViewController.swift; sourceTree = "<group>"; };
@@ -628,6 +630,7 @@
 		52A8484E1BB06D0E000ECCE9 /* Exercicios */ = {
 			isa = PBXGroup;
 			children = (
+				52066D981C15EC32002B5391 /* QuestaoMenuTableView.swift */,
 				520CE7EA1C06417300EFE37B /* AlternativasProvaTableViewCell.swift */,
 				52C26A5D1BFE4B3000F5E7D7 /* StarterNavViewController.swift */,
 				52CAB39F1BFE2F8B007A8230 /* NavResultadoViewController.swift */,
@@ -994,6 +997,7 @@
 				2488995A1BA73B33000CCA21 /* ProvasCollectionViewCell.swift in Sources */,
 				246CBC7D1B87B6B7002E6A6E /* RegistrosViewController.swift in Sources */,
 				240A00EF1BEA7EC900ADDE24 /* Extensions.swift in Sources */,
+				52066D991C15EC32002B5391 /* QuestaoMenuTableView.swift in Sources */,
 				24456FEE1BF3C7AC00338F98 /* ListaExTableViewCell.swift in Sources */,
 				24BF93BD1BD817A70085DBD8 /* InserirProvaTabBarViewController.swift in Sources */,
 				52FF8EA31BB32BE900A5BC7A /* TabBarControllerExercicios.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuestaoMenuControllerTableViewController: UITableViewController {
+class QuestaoMenuTableView: UITableViewController {
     
     private var questaoSelecionada = NSObject()
     private var parseManager = ParseManager.singleton
@@ -27,9 +27,11 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.tableView.reloadData()
+        
     }
     
-//    MARK: Config
+    
+    //    MARK: Config
     func configTable(){
         tableView.sectionHeaderHeight = 0.0;
         tableView.sectionFooterHeight = 0.0;
@@ -37,14 +39,14 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         let frame = UIView(frame: CGRectZero)
         self.tableView.tableFooterView = frame
         
-        let sfondo = UIImage(named:"Table")
-        self.view.backgroundColor = UIColor(patternImage: sfondo!)
-        
-        let blur = UIBlurEffect(style: UIBlurEffectStyle.Dark)
-        let blurView = UIVisualEffectView(effect: blur)
-        blurView.frame = self.view.bounds
-        
-        self.tableView.headerViewForSection(0)?.backgroundColor? = UIColor.blueColor()
+//        let sfondo = UIImage(named:"Table")
+//        self.view.backgroundColor = UIColor(patternImage: sfondo!)
+//        
+//        let blur = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+//        let blurView = UIVisualEffectView(effect: blur)
+//        blurView.frame = self.view.bounds
+//        
+//        self.tableView.headerViewForSection(0)?.backgroundColor? = UIColor.blueColor()
     }
     
     func getQuestoes(){
@@ -57,7 +59,7 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
         //
     }
     
-// MARK: - Table view data source
+    // MARK: - Table view data source
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.myArray.count + 1
     }
@@ -70,22 +72,23 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("questaoCell", forIndexPath: indexPath) as! QuestaoMenuTableViewCell
-   
+        
         cell.labelQuestao.font = UIFont (name: "Avenir light", size: 18)
         
         if(self.firstTime){
+           
             if(indexPath.row == myArray.count ){
                 self.firstTime = false
             }
-            
-            let sfondo = UIImage(named:"blue_sky")
-            cell.backgroundColor = UIColor(patternImage: sfondo!)
-        
-            let blur = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
-            let blurView = UIVisualEffectView(effect: blur)
-            blurView.frame = cell.bounds
-        
-            cell.insertSubview(blurView, atIndex: 0)
+//            
+//            let sfondo = UIImage(named:"blue_sky")
+//            cell.backgroundColor = UIColor(patternImage: sfondo!)
+//            
+//            let blur = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
+//            let blurView = UIVisualEffectView(effect: blur)
+//            blurView.frame = cell.bounds
+//            
+//            cell.insertSubview(blurView, atIndex: 0)
         }
         
         if(indexPath.row == 0){
@@ -93,7 +96,7 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
             cell.labelQuestao.textColor = UIColor.redColor()
         }else{
             cell.labelQuestao!.text =  "Questão \(indexPath.row)"
-            cell.labelQuestao!.textColor = UIColor.whiteColor()
+            cell.labelQuestao!.textColor = UIColor.blackColor()
             
             if(self.auxData.arrayQuestoesVerficadas[indexPath.row] == true){
                 cell.imgMarker.image = UIImage(named: "Checkmark-100")
@@ -104,6 +107,8 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+       
+        
         if(indexPath.row == 0){
             let view = self.storyboard?.instantiateViewControllerWithIdentifier("NavResultadoViewController") as! CustomNavigationViewController
             self.auxData.questoesUsuario = questoesManager.arrayRespostas
@@ -111,20 +116,21 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
             return
         }
         else{
-            let tabBar = self.tabBarController as! TabBarQuestaoController
-            
             self.questaoSelecionada = self.myArray[indexPath.row - 1]
             self.auxData.questao = self.questaoSelecionada
             self.auxData.flag = true
+            
+            
             
             let questaoTemp = self.myArray[indexPath.row - 1]
             self.auxData.objectId = questaoTemp.objectId!
             self.auxData.indexQuestaoSelecionada = indexPath.row
             
+            let tabBar = self.tabBarController as! TabBarQuestaoController
+            
             tabBar.sendInfoToView1(self.auxData.questao)
             tabBar.sendInfoToView2(self.auxData.questao)
-            print(self.auxData.questao.valueForKey("Enunciado"))
-
+            
         }
     }
     

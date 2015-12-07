@@ -276,12 +276,28 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
     //    MARK: Navigation
     func goToQuestoes(questoes: [PFObject]){
         let storyboard = UIStoryboard(name: "IPhoneExercicios", bundle: nil)
-        let newView = storyboard.instantiateViewControllerWithIdentifier("QuestaoSWReveal") as! SWRevealViewController
+        let tabBar = storyboard.instantiateViewControllerWithIdentifier("TabBarExercicios") as! TabBarQuestaoController
+        
+        let tableViewPerguntas = tabBar.viewControllers![2] as! QuestaoMenuTableView
+//        tableViewPerguntas.myArray = questoes
+        self.auxQuestoes.questoes = questoes
+        self.auxQuestoes.questao = questoes[0]
+        let questaoTemp = questoes[0]
+        self.auxQuestoes.objectId = questaoTemp.objectId!
+        self.auxQuestoes.indexQuestaoSelecionada = 1
+//
+        self.auxQuestoes.questao = questoes[0]
+        
+        let navCon = storyboard.instantiateViewControllerWithIdentifier("NavigationExercicios") as! CustomNavigationViewController
         
         
+        //        a.questaoSelecionada = questoes[0]
         
+        //        print(self.auxQuestoes.questao.valueForKey("Enunciado"))
         
-        self.navigationController?.presentViewController(newView, animated: true, completion: nil)
+        //        newMenuView.myArray = questoes
+        questoesManager.tamanhoDasQuestoes(questoes.count)
+        self.navigationController?.presentViewController(navCon, animated: true, completion: nil)
         //        newView.frontViewController
         //        self.questaoSelecionada = self.myArray[indexPath.row - 1]
         //        self.auxData.questao = self.questaoSelecionada
@@ -290,18 +306,6 @@ class ProvaTableViewController: UITableViewController, EDStarRatingProtocol {
         //        self.auxData.objectId = questaoTemp.objectId!
         //        self.auxData.indexQuestaoSelecionada = indexPath.row
         
-        self.auxQuestoes.questao = questoes[0]
-        let questaoTemp = questoes[0]
-        self.auxQuestoes.objectId = questaoTemp.objectId!
-        self.auxQuestoes.indexQuestaoSelecionada = 1
-        
-        self.auxQuestoes.questao = questoes[0]
-//        a.questaoSelecionada = questoes[0]
-        
-        print(self.auxQuestoes.questao.valueForKey("Enunciado"))
-        let newMenuView = newView.rearViewController as! QuestaoMenuControllerTableViewController
-        
-        newMenuView.myArray = questoes
-        questoesManager.tamanhoDasQuestoes(questoes.count)
+     
     }
 }

@@ -23,6 +23,7 @@ class AuxiliarQuestoes: NSObject {
     var questoesUsuario = NSArray()
     var arrayQuestoesVerficadas = [Bool](count: 900, repeatedValue: false)
     var choosenIndex = Int()
+    var questoes = [PFObject]()
     
 
     

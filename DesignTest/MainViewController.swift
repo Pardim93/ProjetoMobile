@@ -219,11 +219,18 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 //        print(self.auxQuestoes.questao.valueForKey("Enunciado"))
         self.auxQuestoes.objectId = questoes[0].objectId!
         self.auxQuestoes.indexQuestaoSelecionada = 1
-        let newView = storyboard.instantiateViewControllerWithIdentifier("QuestaoSWReveal") as! SWRevealViewController
+        let tabBar = storyboard.instantiateViewControllerWithIdentifier("TabBarExercicios") as! TabBarControllerExercicios
         
-        self.navigationController?.presentViewController(newView, animated: true, completion: nil)
+        let tableView = tabBar.viewControllers![2] as! QuestaoMenuTableView
+        tableView.myArray = questoes
         
-        newView.rearViewController.setValue(questoes, forKey: "myArray")
+        
+//        let newView = storyboard.instantiateViewControllerWithIdentifier("QuestaoSWReveal") as! SWRevealViewController
+//        
+//        self.navigationController?.presentViewController(newView, animated: true, completion: nil)
+//        
+//        newView.rearViewController.setValue(questoes, forKey: "myArray")
+        
         
         QuestoesManager.singleton.tamanhoDasQuestoes(questoes.count)
     }

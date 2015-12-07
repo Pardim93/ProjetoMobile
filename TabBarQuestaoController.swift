@@ -13,18 +13,21 @@ class TabBarQuestaoController: UITabBarController {
     private var auxQuestoes = AuxiliarQuestoes.singleton
     private var questoesManager = QuestoesManager.singleton
     var backItem: UIBarButtonItem!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "Questão 1"
-
-        
-            self.sendInfoToView1(self.auxQuestoes.questao)
-            self.sendInfoToView2(self.auxQuestoes.questao)
-
         
         
-        // Do any additional setup after loading the view.
+        self.sendInfoToView1(self.auxQuestoes.questao)
+        self.sendInfoToView2(self.auxQuestoes.questao)
+        self.sendInfoToView3(self.auxQuestoes.questoes)
+        
     }
+    
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.createMenuButton()
@@ -36,22 +39,39 @@ class TabBarQuestaoController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-//    MARK: CONFIG 
+    //    MARK: CONFIG
     
     func createMenuButton(){
         
         backItem = self.navigationItem.leftBarButtonItem
+        let backBtn = UIBarButtonItem(image: UIImage(named: "Back-44"), style: .Plain, target: self, action: "getBackQuestion")
+        let nextBtn = UIBarButtonItem(image: UIImage(named: "Forward-44"), style: .Plain, target: self, action: "getNextQuestion")
         
-        let backButton = UIBarButtonItem(image: UIImage(named: "More Filled-22"), style: .Plain, target: self.revealViewController(), action: "revealToggle:")
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        self.navigationItem.leftBarButtonItem = backButton
+        self.navigationItem.leftBarButtonItems = [backBtn]
+        self.navigationItem.rightBarButtonItems = [nextBtn]
+        
+        
+        
+        
+        //        let backButton = UIBarButtonItem(image: UIImage(named: "More Filled-22"), style: .Plain, target: self.revealViewController(), action: "revealToggle:")
+        //                self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        //        self.navigationItem.leftBarButtonItem = backButton
+    }
+    
+    func getBackQuestion(){
+        
+    }
+    
+    func getNextQuestion(){
+        
     }
     
     
     func sendInfoToView1(questao: NSObject){
-        print("NOME DA QUESTAO \(questao.valueForKey("Enunciado"))")
         let view =  self.viewControllers?.first as! QuestaoViewController
         view.questao = questao
+        
+        view.callMethods()
         
         self.getImageData()
         
@@ -59,8 +79,23 @@ class TabBarQuestaoController: UITabBarController {
     
     func sendInfoToView2(questao: NSObject){
         
-        let view =  self.viewControllers?.last as! AltenativasTableViewController
+        let view =  self.viewControllers?[1] as! AltenativasTableViewController
+        
+        view.outraArray.removeAllObjects()
+        view.arrayAlternativas.removeAllObjects()
+        
+        //        view.tableView.reloadData()
         view.questao = questao
+        view.configView()
+        view.tableView.reloadData()
+        
+    }
+    
+    func sendInfoToView3(questoes: [PFObject]){
+        
+        let view = self.viewControllers![2] as! QuestaoMenuTableView
+        view.myArray = questoes
+        
         
     }
     
@@ -84,14 +119,14 @@ class TabBarQuestaoController: UITabBarController {
     
     
     
-//    func configSideBar(){
-//        if self.revealViewController() != nil {
-//            menuButton.target = self.revealViewController()
-//            menuButton.action = "revealToggle:"
-//            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-//        }
-//    }
-//    
+    //    func configSideBar(){
+    //        if self.revealViewController() != nil {
+    //            menuButton.target = self.revealViewController()
+    //            menuButton.action = "revealToggle:"
+    //            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+    //        }
+    //    }
+    //
     /*
     // MARK: - Navigation
     

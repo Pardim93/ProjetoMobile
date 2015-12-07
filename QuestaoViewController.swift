@@ -109,15 +109,10 @@ class QuestaoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        self.customImg()
         self.customTextView()
-        self.createButton()
-        self.view.backgroundColor = UIColor.whiteColor()
-        self.checkFlag()
-        self.configView()
-
-        self.navigationController?.navigationItem.hidesBackButton = true
+        self.createButton() 
+//        self.customImg()
+       
     }
     
 //    func createButton(){
@@ -128,7 +123,7 @@ class QuestaoViewController: UIViewController {
 //        button.tag = 1
 //        button.addTarget(self, action: "buttonPopUp:", forControlEvents: .TouchDown)
 //        
-//        
+//        xxxxxxxxxxxxxxxxxxxxx
 //        button.frame = CGRectMake(220, 180, 30, 30)
 //        
 //        self.imgExercicio.addSubview(button)
@@ -136,6 +131,15 @@ class QuestaoViewController: UIViewController {
 //        
 //        
 //    }
+    func callMethods(){
+        
+       
+        self.view.backgroundColor = UIColor.whiteColor()
+        self.checkFlag()
+        self.configView()
+        
+        self.navigationController?.navigationItem.hidesBackButton = true
+    }
     
     
     

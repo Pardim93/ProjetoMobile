@@ -21,7 +21,7 @@ class AltenativasTableViewController: UITableViewController , CustomTextViewDele
     
     let questoesManager = QuestoesManager.singleton
     
-    private var arrayAlternativas = NSMutableArray()
+     var arrayAlternativas = NSMutableArray()
     var questao = NSObject()
     var auxData = AuxiliarQuestoes.singleton
     var outraArray = NSMutableArray()
@@ -30,7 +30,7 @@ class AltenativasTableViewController: UITableViewController , CustomTextViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.configView()
+//        self.configView()
     }
     
 //    MARK: Config
@@ -38,8 +38,9 @@ class AltenativasTableViewController: UITableViewController , CustomTextViewDele
         self.countLetras = 65
         
         self.automaticallyAdjustsScrollViewInsets = false
-        self.getAlternativas(self.questao)
         self.questao = self.auxData.questao
+        self.getAlternativas(self.questao)
+
         self.carregaQuestao()
     }
     
@@ -55,6 +56,14 @@ class AltenativasTableViewController: UITableViewController , CustomTextViewDele
             let letra = String(UnicodeScalar(index))
             outraArray.addObject(questao.valueForKey("Alternativa\(letra)")!)
         }
+    }
+    override func viewDidAppear(animated: Bool) {
+        self.tableView.reloadData()
+        self.iterateCells()
+        self.configView()
+     
+      
+
     }
     
     func carregaQuestao(){
@@ -122,6 +131,7 @@ class AltenativasTableViewController: UITableViewController , CustomTextViewDele
             let  cellPath = NSIndexPath(forRow: x, inSection: 0)
             let cell = self.tableView.cellForRowAtIndexPath(cellPath) as! PerguntasTableViewCell
             cell.setAsNormal()
+            cell.LETRA.textColor = UIColor.blackColor()
         }
     }
 
