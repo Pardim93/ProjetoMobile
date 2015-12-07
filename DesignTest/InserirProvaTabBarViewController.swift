@@ -59,7 +59,7 @@ class InserirProvaTabBarViewController: UITabBarController {
         segmented.frame = CGRectMake(-2.5, 0, self.view.frame.width+5, 40)
         segmented.selectedSegmentIndex = 0
         segmented.backgroundColor = UIColor.whiteColor()
-        segmented.tintColor = UIColor.newLightBlueColor()
+        segmented.tintColor = UIColor.colorWithHexString("006AA8", alph: 1.0)
         segmented.addTarget(self, action: "changeView", forControlEvents: .ValueChanged)
         
         self.view.addSubview(segmented)

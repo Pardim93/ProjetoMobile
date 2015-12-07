@@ -11,6 +11,7 @@ import UIKit
 class EnunciadoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var textView: InserirTextView!
+    var oldEnunciado: String?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +26,14 @@ class EnunciadoTableViewCell: UITableViewCell {
         self.textView.limitChar = 400
 //        self.textView.limitHeight = 100
         self.textView.placeholder = "Enunciado do exercício"
+    }
+    
+    func configOldEnunciado(){
+        guard let oldEnun = self.oldEnunciado else{
+            return
+        }
+        
+        self.textView.setOldText(oldEnun)
     }
     
 //    MARK: CheckConteudo

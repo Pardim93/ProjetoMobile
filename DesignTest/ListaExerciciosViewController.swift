@@ -16,24 +16,27 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segControl: UISegmentedControl!
     
+    let parseManager = ParseManager.singleton
+    let emptyLabel = UILabel()
+    
     var filtered: [PFObject] = []
     var populares: [PFObject] = []
     var recentes: [PFObject] = []
     var minhas: [PFObject]?
-    let parseManager = ParseManager.singleton
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.configureSideBar()
         self.configSearchBar()
-        self.configTableView()
+        self.configEmptyLabel()
         
-        self.view.backgroundColor = UIColor.whiteColor()
+//        self.view.backgroundColor = UIColor.whiteColor()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.configTableView()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -61,10 +64,26 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
         self.tableView.registerNib(UINib(nibName: "ListaExTableViewCell", bundle: nil), forCellReuseIdentifier: "newCell")
     }
     
+    func configFullTableView(){
+        self.tableView.separatorStyle = .SingleLine
+        self.emptyLabel.removeFromSuperview()
+    }
+    
     func configEmptyTableView(){
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 //        self.tableView.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
-        self.tableView.backgroundColor = UIColor.whiteColor()
+//        self.tableView.backgroundColor = UIColor.whiteColor()
+        self.view.addSubview(emptyLabel)
+    }
+    
+    func configEmptyLabel(){
+        self.emptyLabel.text = "Não há provas correspondentes."
+        self.emptyLabel.textColor = UIColor.lightGrayColor()
+        self.emptyLabel.font = UIFont(name: "Avenir Book", size: 18)
+        self.emptyLabel.sizeToFit()
+        self.emptyLabel.alpha = 1
+        
+        self.emptyLabel.center = self.view.center
     }
     
     func configSearchBar(){
@@ -75,6 +94,7 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
     
     func configQuestoesPopulares(){
         if(self.populares.count > 0){
+            self.configFullTableView()
             self.filtered = self.populares
             self.tableView.reloadData()
             return
@@ -87,8 +107,12 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
             if(error == nil){
                 self.populares = result
                 self.filtered = result
-                if(!(self.filtered.count > 0)){
+                
+                if(self.filtered.count <= 0){
                     self.configEmptyTableView()
+                }
+                else{
+                    self.configFullTableView()
                 }
                 
                 self.tableView.reloadData()
@@ -101,6 +125,7 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
     
     func configQuestoesRecentes(){
         if(self.recentes.count > 0){
+            self.configFullTableView()
             self.filtered = self.recentes
             self.tableView.reloadData()
             return
@@ -113,8 +138,11 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
             if(error == nil){
                 self.recentes = result
                 self.filtered = result
-                if(!(self.filtered.count > 0)){
+                if(self.filtered.count <= 0){
                     self.configEmptyTableView()
+                }
+                else{
+                    self.configFullTableView()
                 }
                 
                 self.tableView.reloadData()
@@ -139,8 +167,11 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
                 if(error == nil){
                     self.minhas = result
                     self.filtered = result
+                    
                     if(self.filtered.count <= 0){
                         self.configEmptyTableView()
+                    } else{
+                        self.configFullTableView()
                     }
                     
                     self.tableView.reloadData()
@@ -156,6 +187,8 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
         
         if(self.minhas?.count < 0){
             self.configEmptyTableView()
+        } else{
+            self.configFullTableView()
         }
         
         self.filtered = self.minhas!
@@ -230,6 +263,12 @@ class ListaExerciciosViewController: UIViewController, UISearchBarDelegate, UITa
             }
             
             self.filtered = result
+            
+            if(result.count <= 0){
+                self.configEmptyTableView()
+            } else{
+                self.configFullTableView()
+            }
             
             self.tableView.reloadData()
         }

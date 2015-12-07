@@ -16,6 +16,8 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var searchBar: UISearchBar!
     
     let parseManager = ParseManager.singleton
+    let emptyLabel = UILabel()
+    
     var filtered: [PFObject] = []
     var populares: [PFObject] = []
     var minhas: [PFObject]?
@@ -30,6 +32,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.configureSideBar()
         self.configSearchBar()
+        self.configEmptyLabel()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -63,9 +66,21 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func configEmptyTableView(){
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
-        //        self.tableView.backgroundColor = UIColor(red: 0.937254905700684, green: 0.937254905700684, blue: 0.95686274766922, alpha: 1)
-        self.tableView.backgroundColor = UIColor.whiteColor()
+//        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+//        self.tableView.backgroundColor = UIColor.colorWithHexString("#F5F5F5", alph: 1.0)
+//        self.tableView.backgroundColor = UIColor.whiteColor()
+        self.view.addSubview(emptyLabel)
+        self.emptyLabel.center = self.view.center
+    }
+    
+    func configEmptyLabel(){
+        self.emptyLabel.text = "Não há provas correspondentes."
+        self.emptyLabel.textColor = UIColor.lightGrayColor()
+        self.emptyLabel.font = UIFont(name: "Avenir Book", size: 18)
+        self.emptyLabel.sizeToFit()
+        self.emptyLabel.alpha = 1
+        
+        self.emptyLabel.center = self.view.center
     }
     
     func configCancelButton(){
@@ -81,6 +96,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
     //    MARK: ConfigProvas
     func configureProvasPopulares(){
         if(self.populares.count > 0){
+            self.emptyLabel.removeFromSuperview()
             self.filtered = self.populares
             self.disciplinas = self.disciplinasPopulares
             self.tableView.reloadData()
@@ -94,6 +110,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
                 self.populares = result
                 if(result.count > 0){
                     self.tableView.separatorStyle = .None
+                    self.emptyLabel.removeFromSuperview()
                     self.configureDisciplinas("pop")
                     return
                 }
@@ -130,6 +147,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
                 self.recentes = result
                 if(result.count > 0){
                     self.tableView.separatorStyle = .None
+                    self.emptyLabel.removeFromSuperview()
                     self.configureDisciplinas("rec")
                     return
                 }
@@ -164,6 +182,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
                     self.minhas = result
                     if(result.count > 0){
                         self.tableView.separatorStyle = .None
+                        self.emptyLabel.removeFromSuperview()
                         self.configureDisciplinas("min")
                         return
                     }
@@ -206,7 +225,7 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
             else{
 //                self.disciplinas = []
                 self.filtered = []
-                self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+//                self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
                 self.configEmptyTableView()
                 self.tableView.reloadData()
                 self.navigationController?.showAlert("Erro ao buscar")
@@ -289,6 +308,13 @@ class ProvasViewController: UIViewController, UITableViewDataSource, UITableView
             }
             
             self.filtered = result
+            
+            if(result.count <= 0){
+                self.configEmptyTableView()
+            }
+            else{
+                self.emptyLabel.removeFromSuperview()
+            }
             
             self.tableView.reloadData()
         }

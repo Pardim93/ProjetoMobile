@@ -1262,7 +1262,7 @@ class ParseManager: NSObject {
                 
                 do{
                     try newImageFile?.save()
-                    questao.setObject(newImageFile!, forKey: "imagem")
+                    questao.setObject(newImageFile!, forKey: "Imagem")
                 } catch let externalError as NSError{
                     //Falha ao salvar a imagem
                     //Expected: -1, 1, 100

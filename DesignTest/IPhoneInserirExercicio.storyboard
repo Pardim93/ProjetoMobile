@@ -545,11 +545,11 @@
             </objects>
             <point key="canvasLocation" x="1282.5" y="482.25"/>
         </scene>
-        <!--Inserir Exercício-->
+        <!--Inserir Questão-->
         <scene sceneID="Xjh-iF-ibz">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8GB-E4-3h6" customClass="InserirExTabBarViewController" customModule="Vestibulandos" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Inserir Exercício" id="8IU-qT-tCJ">
+                    <navigationItem key="navigationItem" title="Inserir Questão" id="8IU-qT-tCJ">
                         <barButtonItem key="rightBarButtonItem" title="Proximo" id="LFZ-Yd-JRe"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
