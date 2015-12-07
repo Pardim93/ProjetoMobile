@@ -40,12 +40,19 @@ class MenuTableViewController: UITableViewController{
         self.configArray()
         self.configFooter()
         self.configureTableView()
+        self.disableFrontView()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         self.configActivityView()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.enableFrontView()
     }
     
 //    MARK: Config
@@ -66,6 +73,17 @@ class MenuTableViewController: UITableViewController{
             cell.separatorInset = UIEdgeInsetsZero
             cell.layoutMargins = UIEdgeInsetsZero
         }
+    }
+    
+    func disableFrontView(){
+        self.revealViewController().view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.revealViewController().frontViewController.revealViewController().tapGestureRecognizer()
+        self.revealViewController().frontViewController.view.userInteractionEnabled = false
+    }
+    
+    func enableFrontView(){
+        self.revealViewController().frontViewController.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.revealViewController().frontViewController.view.userInteractionEnabled = true
     }
     
     func configLogoffButton(){

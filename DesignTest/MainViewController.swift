@@ -97,11 +97,14 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         self.inserirProvaButton.addConstraint(NSLayoutConstraint(item: self.inserirProvaButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: buttonHeight))
         
-        self.estudarProvaButton.addConstraint(NSLayoutConstraint(item: self.estudarProvaButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: buttonHeight))
+        self.estudarProvaButton.addConstraint(NSLayoutConstraint(item: self.estudarProvaButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: buttonHeight-40))
         
 //        self.inserirQuestaoButton.layer.borderWidth = 0.5
 //        self.inserirProvaButton.layer.borderWidth = 0.5
-//        self.estudarProvaButton.layer.borderWidth = 0.5
+        
+//        self.estudarProvaButton.layer.borderColor = UIColor.blackColor().CGColor
+//        self.estudarProvaButton.layer.borderWidth = 1.5
+//        self.estudarProvaButton.layer.cornerRadius = 5
     }
     
     func configButtonHeight() -> CGFloat{
@@ -109,7 +112,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         switch model{
         case "iPhone 6":
-            return 130
+            return 125
         case "iPhone 6 Plus":
             return 145
         case "iPhone 6S":

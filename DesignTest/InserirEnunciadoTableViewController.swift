@@ -9,8 +9,10 @@
 import UIKit
 
 class InserirEnunciadoTableViewController: UITableViewController, QuestaoImagemDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     let arrayCell = NSMutableArray()
-
+    var oldQuestao: PFObject?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configTabbarHidingCells()
@@ -35,11 +37,6 @@ class InserirEnunciadoTableViewController: UITableViewController, QuestaoImagemD
         let footer = UIView(frame: CGRectMake(0, 0, 1, 1))
         footer.backgroundColor = UIColor.clearColor()
         self.tableView.tableFooterView = footer
-    }
-    
-//    MARK: Edit
-    func setToEdit(oldQuestao: PFObject){
-        
     }
     
 //    MARK: CheckConteudo
@@ -73,11 +70,21 @@ class InserirEnunciadoTableViewController: UITableViewController, QuestaoImagemD
         
         if (row == 0){
             let cell = tableView.dequeueReusableCellWithIdentifier("enunciadoCell", forIndexPath: indexPath) as! EnunciadoTableViewCell
+            
+            if(self.oldQuestao != nil){
+                cell.oldEnunciado = self.oldQuestao?.objectForKey("Enunciado") as? String
+            }
+            
             arrayCell.addObject(cell)
             return cell
         } else{
             let cell = tableView.dequeueReusableCellWithIdentifier("imagemCell", forIndexPath: indexPath) as! ImagemTableViewCell
             cell.delegate = self
+            
+            if(self.oldQuestao != nil){
+                
+            }
+            
             arrayCell.addObject(cell)
             return cell
         }

@@ -388,7 +388,7 @@
 			name = LIstaExCell;
 			sourceTree = "<group>";
 		};
-		244C2FC41BB1BF67008E3BE1 /* Inserir Exercicio */ = {
+		244C2FC41BB1BF67008E3BE1 /* Inserir Questão */ = {
 			isa = PBXGroup;
 			children = (
 				24175F981BB5EB480064C048 /* TituloCells */,
@@ -399,7 +399,7 @@
 				244C2FC51BB1BFA2008E3BE1 /* InserirExTableViewController.swift */,
 				248E4A1D1BB4761100C6E0CD /* InserirExTabBarViewController.swift */,
 			);
-			name = "Inserir Exercicio";
+			name = "Inserir Questão";
 			sourceTree = "<group>";
 		};
 		24857ED51BA0993100DF2938 /* Views */ = {
@@ -416,7 +416,7 @@
 				249273341C10A49B00D2EF2D /* Lista Usuários */,
 				249322A01BA33D64005579DD /* Usuário */,
 				52A8484E1BB06D0E000ECCE9 /* Exercicios */,
-				244C2FC41BB1BF67008E3BE1 /* Inserir Exercicio */,
+				244C2FC41BB1BF67008E3BE1 /* Inserir Questão */,
 				24BF93BB1BD8178C0085DBD8 /* Inserir Prova */,
 				24A20FA11B97692F00FD2A30 /* Ajustes */,
 			);

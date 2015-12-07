@@ -53,6 +53,10 @@ class ImagemTableViewCell: UITableViewCell{
     override func setHighlighted(highlighted: Bool, animated: Bool) {
     }
     
+    func configOldImg(oldImg: UIImage?){
+//        guard let _ =
+    }
+    
 //    MARK: Get
     func getImage() -> UIImage?{
         if(!self.imgChange){
