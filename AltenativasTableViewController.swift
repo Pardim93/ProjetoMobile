@@ -38,11 +38,13 @@ class AltenativasTableViewController: UITableViewController , CustomTextViewDele
         self.countLetras = 65
         
         self.automaticallyAdjustsScrollViewInsets = false
-        self.questao = self.auxData.questao
+//        self.questao = self.auxData.questao
         self.getAlternativas(self.questao)
 
         self.carregaQuestao()
     }
+    
+    
     
     func configTableView(){
         tableView.sectionHeaderHeight = 0.0;
@@ -61,6 +63,7 @@ class AltenativasTableViewController: UITableViewController , CustomTextViewDele
         self.tableView.reloadData()
         self.iterateCells()
         self.configView()
+        self.tabBarController?.title = "Questão \(self.auxData.indexQuestaoSelecionada )"
      
       
 
@@ -79,6 +82,7 @@ class AltenativasTableViewController: UITableViewController , CustomTextViewDele
     
     func marcaCorreta(row: Int){
         self.auxData.questaoSelecionada = self.arrayAlternativas[row] as! String
+        print(auxData.questaoSelecionada)
         questoesManager.addRepostaNoIndex(self.auxData.questaoSelecionada, index:self.auxData.indexQuestaoSelecionada - 1)
         
         self.iterateCells()

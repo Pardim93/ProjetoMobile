@@ -53,6 +53,15 @@ class AuxiliarQuestoes: NSObject {
         
     }
     
+    func cleanVariables(){
+        
+        arrayQuestoesVerficadas = [Bool](count: 900, repeatedValue: false)
+        imgIsReady = false
+        choosenIndex = 0
+        indexQuestaoSelecionada = 0
+        
+
+    }
     
     
     

@@ -224,7 +224,7 @@ class QuestaoViewController: UIViewController {
     }
     
     func configView(){
-        self.questao = self.auxData.questao
+//        self.questao = self.auxData.questao
         self.txtEnunciado.text = self.questao.valueForKey("Enunciado") as! String
         
         

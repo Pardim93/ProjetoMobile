@@ -24,10 +24,12 @@ class QuestaoMenuTableView: UITableViewController {
         self.getQuestoes()
         self.configTable()
     }
-    
-    override func viewWillAppear(animated: Bool) {
+  
+    override
+    func viewWillAppear(animated: Bool) {
         self.tableView.reloadData()
-        
+
+        self.tabBarController?.title = "Questão \(self.auxData.indexQuestaoSelecionada)"
     }
     
     
@@ -114,22 +116,36 @@ class QuestaoMenuTableView: UITableViewController {
             self.auxData.questoesUsuario = questoesManager.arrayRespostas
             self.presentViewController(view, animated: true, completion: nil)
             return
-        }
-        else{
+       
+            
+        }else{
+            
+            self.tabBarController?.title = "Questão \(indexPath.row)"
+            if(indexPath.row == 1){
+                self.tabBarController?.navigationItem.leftBarButtonItem?.enabled = false
+                self.tabBarController?.navigationItem.rightBarButtonItem?.enabled = true
+            }
+            else if(indexPath.row == self.myArray.count){
+                self.tabBarController?.navigationItem.leftBarButtonItem?.enabled = true
+                self.tabBarController?.navigationItem.rightBarButtonItem?.enabled = false
+            }else{
+                
+                self.tabBarController?.navigationItem.leftBarButtonItem?.enabled = true
+                self.tabBarController?.navigationItem.rightBarButtonItem?.enabled = true
+                
+            }
+            
             self.questaoSelecionada = self.myArray[indexPath.row - 1]
             self.auxData.questao = self.questaoSelecionada
             self.auxData.flag = true
             
-            
-            
             let questaoTemp = self.myArray[indexPath.row - 1]
             self.auxData.objectId = questaoTemp.objectId!
             self.auxData.indexQuestaoSelecionada = indexPath.row
-            
             let tabBar = self.tabBarController as! TabBarQuestaoController
-            
             tabBar.sendInfoToView1(self.auxData.questao)
             tabBar.sendInfoToView2(self.auxData.questao)
+            
             
         }
     }
