@@ -115,7 +115,7 @@ class AltenativasTableViewController: UITableViewController , CustomTextViewDele
         cell.texto.cellRow = indexPath.row
         cell.texto.sizeToFit()
         cell.texto.layoutIfNeeded()
-        
+        cell.LETRA.textColor = UIColor.blackColor()
         cell.texto.text = self.arrayAlternativas[indexPath.row] as! String
         if(countLetras <= 69){
             let letra = String(UnicodeScalar(countLetras))

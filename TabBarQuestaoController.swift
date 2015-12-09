@@ -25,6 +25,7 @@ class TabBarQuestaoController: UITabBarController {
         self.sendInfoToView2(self.auxQuestoes.questao)
         self.sendInfoToView3(self.auxQuestoes.questoes)
         self.checkQuestoes(self.auxQuestoes.questoes)
+        self.navigationItem.leftBarButtonItem?.enabled = false
         
     }
     
@@ -32,6 +33,8 @@ class TabBarQuestaoController: UITabBarController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.createMenuButton()
+        self.navigationItem.leftBarButtonItem?.enabled = false
+
     }
     
     
