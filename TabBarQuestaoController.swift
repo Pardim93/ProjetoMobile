@@ -72,8 +72,12 @@ class TabBarQuestaoController: UITabBarController, UITabBarControllerDelegate {
             self.sendInfoToView1(questao)
             self.sendInfoToView2(questao)
             let questaoTemp = questao
+            self.auxQuestoes.indexAlternativa = -1
             self.auxQuestoes.objectId = questaoTemp.objectId!
+            self.selectedIndex = 0
+
         }
+        
         
         
     }
@@ -93,6 +97,9 @@ class TabBarQuestaoController: UITabBarController, UITabBarControllerDelegate {
             self.sendInfoToView2(questao)
             let questaoTemp = questao
             self.auxQuestoes.objectId = questaoTemp.objectId!
+            self.auxQuestoes.indexAlternativa = -1
+            self.selectedIndex = 0
+            
         }
         
         
@@ -103,7 +110,7 @@ class TabBarQuestaoController: UITabBarController, UITabBarControllerDelegate {
     // MARK: Relationship Views
     func sendInfoToView1(questao: NSObject){
         let view =  self.viewControllers?.first as! QuestaoViewController
-       
+        
         view.questao = questao
         view.callMethods()
         self.getImageData()
