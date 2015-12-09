@@ -110,6 +110,7 @@ class QuestaoMenuTableView: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
        
+        self.auxData.indexAlternativa = -1
         
         if(indexPath.row == 0){
             let view = self.storyboard?.instantiateViewControllerWithIdentifier("NavResultadoViewController") as! CustomNavigationViewController
@@ -147,9 +148,9 @@ class QuestaoMenuTableView: UITableViewController {
             let tabBar = self.tabBarController as! TabBarQuestaoController
             tabBar.sendInfoToView1(self.auxData.questao)
             tabBar.sendInfoToView2(self.auxData.questao)
-      
             
-//            let animation = UIViewAnimationOptions.TransitionFlipFromLeft
+            
+//            let animation = UIViewAnimationOption
 //            UIView.transitionFromView((tabBar.selectedViewController?.view)!, toView:tabBar.viewControllers![0].view , duration: 0.7, options: animation , completion: nil)
             tabBar.selectedIndex = 0
             

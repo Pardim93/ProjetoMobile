@@ -21,8 +21,12 @@ class AltenativasTableViewController: UITableViewController , CustomTextViewDele
     var outraArray = NSMutableArray()
     var countLetras = 65
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.clearsSelectionOnViewWillAppear = false
+        
+     
     }
     
     //    MARK: Configuration
@@ -42,9 +46,14 @@ class AltenativasTableViewController: UITableViewController , CustomTextViewDele
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.tableView.reloadData()
+//        self.tableView.reloadData()
         self.iterateCells()
         self.configView()
+        
+        if(auxData.indexAlternativa != -1){
+            marcaCorreta(auxData.indexAlternativa)
+        }
+        
     }
     
     
@@ -69,6 +78,7 @@ class AltenativasTableViewController: UITableViewController , CustomTextViewDele
     
     func marcaCorreta(row: Int){
         self.auxData.questaoSelecionada = self.arrayAlternativas[row] as! String
+        self.auxData.indexAlternativa = row 
         questoesManager.addRepostaNoIndex(self.auxData.questaoSelecionada, index:self.auxData.indexQuestaoSelecionada - 1)
         
         self.iterateCells()

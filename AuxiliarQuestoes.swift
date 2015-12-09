@@ -24,7 +24,7 @@ class AuxiliarQuestoes: NSObject {
     var arrayQuestoesVerficadas = [Bool](count: 900, repeatedValue: false)
     var choosenIndex = Int()
     var questoes = [PFObject]()
-    
+    var  indexAlternativa = -1 
 
     
     func returnImg()->UIImage{
