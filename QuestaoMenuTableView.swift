@@ -117,19 +117,20 @@ class QuestaoMenuTableView: UITableViewController {
             self.presentViewController(view, animated: true, completion: nil)
             return
        
-            
         }else{
             
             self.tabBarController?.title = "Questão \(indexPath.row)"
             if(indexPath.row == 1){
+            
                 self.tabBarController?.navigationItem.leftBarButtonItem?.enabled = false
                 self.tabBarController?.navigationItem.rightBarButtonItem?.enabled = true
-            }
-            else if(indexPath.row == self.myArray.count){
+          
+            }else if (indexPath.row == self.myArray.count){
+            
                 self.tabBarController?.navigationItem.leftBarButtonItem?.enabled = true
                 self.tabBarController?.navigationItem.rightBarButtonItem?.enabled = false
+            
             }else{
-                
                 self.tabBarController?.navigationItem.leftBarButtonItem?.enabled = true
                 self.tabBarController?.navigationItem.rightBarButtonItem?.enabled = true
                 
@@ -146,6 +147,13 @@ class QuestaoMenuTableView: UITableViewController {
             tabBar.sendInfoToView1(self.auxData.questao)
             tabBar.sendInfoToView2(self.auxData.questao)
             
+            tabBar.selectedViewController?.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+            tabBar.selectedViewController?.modalPresentationStyle = UIModalPresentationStyle.FullScreen
+            
+            
+//            let animation = UIViewAnimationOptions.TransitionFlipFromLeft
+//            UIView.transitionFromView((tabBar.selectedViewController?.view)!, toView:tabBar.viewControllers![0].view , duration: 0.7, options: animation , completion: nil)
+            tabBar.selectedIndex = 0
             
         }
     }

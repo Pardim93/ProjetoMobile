@@ -782,7 +782,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aPj-7T-8cF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5664" y="1100.25"/>
+            <point key="canvasLocation" x="5664" y="1079.25"/>
         </scene>
         <!--Questão-->
         <scene sceneID="FZC-nj-DZY">
@@ -896,7 +896,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             <animations/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
@@ -920,59 +920,45 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nf-BJ-JNC">
-                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                            <animations/>
-                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="89" y="10" width="291" height="30"/>
-                                            </variation>
-                                            <connections>
-                                                <action selector="selectCell:" destination="vJM-OR-0BH" eventType="touchUpInside" id="Znj-Ak-oNV"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstItem="NFv-uc-fcq" firstAttribute="top" secondItem="z1K-aB-f6L" secondAttribute="topMargin" constant="16" id="JPN-vM-CuO"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="NFv-uc-fcq" secondAttribute="bottom" constant="-8.5" id="Xrp-1l-RJl"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="NFv-uc-fcq" secondAttribute="bottom" constant="-8.5" id="0ZN-7P-TP5"/>
+                                        <constraint firstItem="NFv-uc-fcq" firstAttribute="top" secondItem="z1K-aB-f6L" secondAttribute="topMargin" constant="23" id="EZ7-yV-ut1"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="NFv-uc-fcq" secondAttribute="trailing" constant="12" id="a8E-0O-fJl"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="BjX-1L-N6y" secondAttribute="bottom" constant="6.5" id="c1A-Q5-730"/>
                                         <constraint firstItem="BjX-1L-N6y" firstAttribute="top" secondItem="z1K-aB-f6L" secondAttribute="topMargin" id="cOO-IR-zze"/>
-                                        <constraint firstItem="NFv-uc-fcq" firstAttribute="trailing" secondItem="z1K-aB-f6L" secondAttribute="trailingMargin" id="dyu-as-Tw2">
-                                            <variation key="heightClass=regular-widthClass=compact" constant="-12"/>
-                                        </constraint>
                                         <constraint firstItem="BjX-1L-N6y" firstAttribute="leading" secondItem="z1K-aB-f6L" secondAttribute="leadingMargin" constant="13" id="e5R-i8-cUV"/>
-                                        <constraint firstItem="NFv-uc-fcq" firstAttribute="leading" secondItem="BjX-1L-N6y" secondAttribute="trailing" constant="13" id="sfg-yn-BAE"/>
+                                        <constraint firstItem="NFv-uc-fcq" firstAttribute="leading" secondItem="z1K-aB-f6L" secondAttribute="leadingMargin" constant="68" id="koV-58-L8d"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="subviews">
                                             <exclude reference="NFv-uc-fcq"/>
                                             <exclude reference="BjX-1L-N6y"/>
-                                            <exclude reference="0Nf-BJ-JNC"/>
                                         </mask>
                                         <mask key="constraints">
                                             <exclude reference="c1A-Q5-730"/>
                                             <exclude reference="cOO-IR-zze"/>
                                             <exclude reference="e5R-i8-cUV"/>
-                                            <exclude reference="JPN-vM-CuO"/>
-                                            <exclude reference="Xrp-1l-RJl"/>
-                                            <exclude reference="dyu-as-Tw2"/>
-                                            <exclude reference="sfg-yn-BAE"/>
+                                            <exclude reference="0ZN-7P-TP5"/>
+                                            <exclude reference="EZ7-yV-ut1"/>
+                                            <exclude reference="a8E-0O-fJl"/>
+                                            <exclude reference="koV-58-L8d"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
                                         <mask key="subviews">
                                             <include reference="NFv-uc-fcq"/>
                                             <include reference="BjX-1L-N6y"/>
-                                            <include reference="0Nf-BJ-JNC"/>
                                         </mask>
                                         <mask key="constraints">
                                             <include reference="c1A-Q5-730"/>
                                             <include reference="cOO-IR-zze"/>
                                             <include reference="e5R-i8-cUV"/>
-                                            <include reference="JPN-vM-CuO"/>
-                                            <include reference="Xrp-1l-RJl"/>
-                                            <include reference="dyu-as-Tw2"/>
-                                            <include reference="sfg-yn-BAE"/>
+                                            <include reference="0ZN-7P-TP5"/>
+                                            <include reference="EZ7-yV-ut1"/>
+                                            <include reference="a8E-0O-fJl"/>
+                                            <include reference="koV-58-L8d"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -982,7 +968,6 @@
                                 </accessibility>
                                 <connections>
                                     <outlet property="LETRA" destination="BjX-1L-N6y" id="5Ys-jI-2SX"/>
-                                    <outlet property="selectCell" destination="0Nf-BJ-JNC" id="MUb-9r-AIp"/>
                                     <outlet property="texto" destination="NFv-uc-fcq" id="rv3-CD-K96"/>
                                 </connections>
                             </tableViewCell>
@@ -1064,7 +1049,7 @@
         <image name="watchkit-intro" width="1051" height="598"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XwL-zA-EiB"/>
+        <segue reference="nuM-XK-V4I"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
 </document>

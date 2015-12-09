@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TabBarQuestaoController: UITabBarController {
+class TabBarQuestaoController: UITabBarController, UITabBarControllerDelegate {
     
     private var auxQuestoes = AuxiliarQuestoes.singleton
     private var questoesManager = QuestoesManager.singleton
@@ -20,12 +20,30 @@ class TabBarQuestaoController: UITabBarController {
         
         self.title = "Questão 1"
         
-        
         self.sendInfoToView1(self.auxQuestoes.questao)
         self.sendInfoToView2(self.auxQuestoes.questao)
         self.sendInfoToView3(self.auxQuestoes.questoes)
         self.checkQuestoes(self.auxQuestoes.questoes)
         self.navigationItem.leftBarButtonItem?.enabled = false
+        
+    }
+    
+//    func makeTansition(){
+//        
+//        tabBarController(self, animationControllerForTransitionFromViewController: , toViewController: <#T##UIViewController#>)
+//    }
+    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+       
+//        var modalStyle: UIModalTransitionStyle = UIModalTransitionStyle.CoverVertical
+
+        //        item.modalTransitionStyle = modalStyle
+//        self.presentViewController(mySettings, animated: true, completion: nil)
+        print(self.selectedIndex)
+    
+        
+    }
+    
+    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
         
     }
     
@@ -53,13 +71,7 @@ class TabBarQuestaoController: UITabBarController {
         
         self.navigationItem.leftBarButtonItems = [backBtn]
         self.navigationItem.rightBarButtonItems = [nextBtn]
-        
-        
-        
-        
-        //        let backButton = UIBarButtonItem(image: UIImage(named: "More Filled-22"), style: .Plain, target: self.revealViewController(), action: "revealToggle:")
-        //                self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        //        self.navigationItem.leftBarButtonItem = backButton
+    
     }
     
     func checkQuestoes(questoes:[PFObject]){
@@ -104,10 +116,8 @@ class TabBarQuestaoController: UITabBarController {
             self.title = "Questão \(self.auxQuestoes.indexQuestaoSelecionada )"
             
             let questao = self.auxQuestoes.questoes[self.auxQuestoes.indexQuestaoSelecionada - 1 ]
-            //        self.auxQuestoes.questao = questao
             self.sendInfoToView1(questao)
             self.sendInfoToView2(questao)
-            print(questao.valueForKey("Enunciado"))
             let questaoTemp = questao
             self.auxQuestoes.objectId = questaoTemp.objectId!
         }

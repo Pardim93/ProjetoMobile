@@ -123,7 +123,6 @@ class QuestaoMenuControllerTableViewController: UITableViewController {
             
             tabBar.sendInfoToView1(self.auxData.questao)
             tabBar.sendInfoToView2(self.auxData.questao)
-            print(self.auxData.questao.valueForKey("Enunciado"))
 
         }
     }
