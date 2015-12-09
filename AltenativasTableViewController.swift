@@ -11,17 +11,11 @@ import UIKit
 
 
 class AltenativasTableViewController: UITableViewController , CustomTextViewDelegate{
-    //singleton vai ter um nsquestion para a questao temp selecionada
-    //a questao tmp, ira ser armazenada em uma array do singleton questoes
-    //o usuario ira escolher outra questao
-    //prova acabar quando usuario resolve finalizar a prova
-    //compara as resposta do usuario na hora
     
-    @IBOutlet weak var letraAlternativa: UILabel!
     
     let questoesManager = QuestoesManager.singleton
     
-     var arrayAlternativas = NSMutableArray()
+    var arrayAlternativas = NSMutableArray()
     var questao = NSObject()
     var auxData = AuxiliarQuestoes.singleton
     var outraArray = NSMutableArray()
@@ -29,18 +23,13 @@ class AltenativasTableViewController: UITableViewController , CustomTextViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        self.configView()
     }
     
-//    MARK: Config
+    //    MARK: Configuration
     func configView(){
         self.countLetras = 65
-        
         self.automaticallyAdjustsScrollViewInsets = false
-//        self.questao = self.auxData.questao
         self.getAlternativas(self.questao)
-
         self.carregaQuestao()
     }
     
@@ -52,21 +41,19 @@ class AltenativasTableViewController: UITableViewController , CustomTextViewDele
         tableView.tableFooterView = UIView()
     }
     
-//    MARK: Questao
+    override func viewDidAppear(animated: Bool) {
+        self.tableView.reloadData()
+        self.iterateCells()
+        self.configView()
+    }
+    
+    
+    //  MARK: - Questao
     func getAlternativas(obj:NSObject){
         for index in 65...69{
             let letra = String(UnicodeScalar(index))
             outraArray.addObject(questao.valueForKey("Alternativa\(letra)")!)
         }
-    }
-    override func viewDidAppear(animated: Bool) {
-        self.tableView.reloadData()
-        self.iterateCells()
-        self.configView()
-        self.tabBarController?.title = "Questão \(self.auxData.indexQuestaoSelecionada )"
-     
-      
-
     }
     
     func carregaQuestao(){
@@ -82,7 +69,6 @@ class AltenativasTableViewController: UITableViewController , CustomTextViewDele
     
     func marcaCorreta(row: Int){
         self.auxData.questaoSelecionada = self.arrayAlternativas[row] as! String
-        print(auxData.questaoSelecionada)
         questoesManager.addRepostaNoIndex(self.auxData.questaoSelecionada, index:self.auxData.indexQuestaoSelecionada - 1)
         
         self.iterateCells()
@@ -93,7 +79,7 @@ class AltenativasTableViewController: UITableViewController , CustomTextViewDele
         cell.setAsResposta()
     }
     
-// MARK: - Table view data source
+    // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -117,17 +103,20 @@ class AltenativasTableViewController: UITableViewController , CustomTextViewDele
         cell.texto.layoutIfNeeded()
         cell.LETRA.textColor = UIColor.blackColor()
         cell.texto.text = self.arrayAlternativas[indexPath.row] as! String
+        
         if(countLetras <= 69){
             let letra = String(UnicodeScalar(countLetras))
             cell.LETRA.text = letra
             countLetras++
         }
+        
         cell.texto.font = UIFont (name: "Avenir book", size: 18)
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.marcaCorreta(indexPath.row)
+        
     }
     
     func iterateCells(){
@@ -135,11 +124,10 @@ class AltenativasTableViewController: UITableViewController , CustomTextViewDele
             let  cellPath = NSIndexPath(forRow: x, inSection: 0)
             let cell = self.tableView.cellForRowAtIndexPath(cellPath) as! PerguntasTableViewCell
             cell.setAsNormal()
-            cell.LETRA.textColor = UIColor.blackColor()
         }
     }
-
-// MARK: -Delegate
+    
+    // MARK: -Delegate
     func finishEdit(cellRow: Int) {
         self.marcaCorreta(cellRow)
     }

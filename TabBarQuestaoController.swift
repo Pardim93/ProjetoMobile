@@ -11,8 +11,6 @@ import UIKit
 class TabBarQuestaoController: UITabBarController, UITabBarControllerDelegate {
     
     private var auxQuestoes = AuxiliarQuestoes.singleton
-    private var questoesManager = QuestoesManager.singleton
-    var backItem: UIBarButtonItem!
     
     
     override func viewDidLoad() {
@@ -23,27 +21,7 @@ class TabBarQuestaoController: UITabBarController, UITabBarControllerDelegate {
         self.sendInfoToView1(self.auxQuestoes.questao)
         self.sendInfoToView2(self.auxQuestoes.questao)
         self.sendInfoToView3(self.auxQuestoes.questoes)
-        self.checkQuestoes(self.auxQuestoes.questoes)
         self.navigationItem.leftBarButtonItem?.enabled = false
-        
-    }
-    
-//    func makeTansition(){
-//        
-//        tabBarController(self, animationControllerForTransitionFromViewController: , toViewController: <#T##UIViewController#>)
-//    }
-    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
-       
-//        var modalStyle: UIModalTransitionStyle = UIModalTransitionStyle.CoverVertical
-
-        //        item.modalTransitionStyle = modalStyle
-//        self.presentViewController(mySettings, animated: true, completion: nil)
-        print(self.selectedIndex)
-    
-        
-    }
-    
-    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
         
     }
     
@@ -52,7 +30,7 @@ class TabBarQuestaoController: UITabBarController, UITabBarControllerDelegate {
         super.viewWillAppear(animated)
         self.createMenuButton()
         self.navigationItem.leftBarButtonItem?.enabled = false
-
+        
     }
     
     
@@ -65,27 +43,22 @@ class TabBarQuestaoController: UITabBarController, UITabBarControllerDelegate {
     
     func createMenuButton(){
         
-        backItem = self.navigationItem.leftBarButtonItem
         let backBtn = UIBarButtonItem(image: UIImage(named: "Back-44"), style: .Plain, target: self, action: "getBackQuestion")
         let nextBtn = UIBarButtonItem(image: UIImage(named: "Forward-44"), style: .Plain, target: self, action: "getNextQuestion")
         
         self.navigationItem.leftBarButtonItems = [backBtn]
         self.navigationItem.rightBarButtonItems = [nextBtn]
-    
-    }
-    
-    func checkQuestoes(questoes:[PFObject]){
         
-        for x in 0...questoes.count - 1{
-            print(questoes[x].valueForKey("Enunciado"))
-        }
     }
+    
+    
+    // MARK: NavigationBar
     
     func getBackQuestion(){
         
         
         self.navigationItem.rightBarButtonItem?.enabled = true
-
+        
         if(self.auxQuestoes.indexQuestaoSelecionada > 1){
             print(self.auxQuestoes.indexQuestaoSelecionada)
             if(self.auxQuestoes.indexQuestaoSelecionada ==
@@ -127,12 +100,12 @@ class TabBarQuestaoController: UITabBarController, UITabBarControllerDelegate {
     }
     
     
+    // MARK: Relationship Views
     func sendInfoToView1(questao: NSObject){
         let view =  self.viewControllers?.first as! QuestaoViewController
+       
         view.questao = questao
-        
         view.callMethods()
-        
         self.getImageData()
         
     }
@@ -158,7 +131,7 @@ class TabBarQuestaoController: UITabBarController, UITabBarControllerDelegate {
     }
     
     
-    
+    // MARK: PFObject handling
     func getImageData(){
         if self.auxQuestoes.questao.valueForKey("Imagem") != nil{
             let userImageFile = self.auxQuestoes.questao.valueForKey("Imagem") as! PFFile
@@ -177,14 +150,6 @@ class TabBarQuestaoController: UITabBarController, UITabBarControllerDelegate {
     
     
     
-    //    func configSideBar(){
-    //        if self.revealViewController() != nil {
-    //            menuButton.target = self.revealViewController()
-    //            menuButton.action = "revealToggle:"
-    //            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-    //        }
-    //    }
-    //
     /*
     // MARK: - Navigation
     

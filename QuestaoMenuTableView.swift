@@ -131,6 +131,7 @@ class QuestaoMenuTableView: UITableViewController {
                 self.tabBarController?.navigationItem.rightBarButtonItem?.enabled = false
             
             }else{
+              
                 self.tabBarController?.navigationItem.leftBarButtonItem?.enabled = true
                 self.tabBarController?.navigationItem.rightBarButtonItem?.enabled = true
                 
@@ -146,10 +147,7 @@ class QuestaoMenuTableView: UITableViewController {
             let tabBar = self.tabBarController as! TabBarQuestaoController
             tabBar.sendInfoToView1(self.auxData.questao)
             tabBar.sendInfoToView2(self.auxData.questao)
-            
-            tabBar.selectedViewController?.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-            tabBar.selectedViewController?.modalPresentationStyle = UIModalPresentationStyle.FullScreen
-            
+      
             
 //            let animation = UIViewAnimationOptions.TransitionFlipFromLeft
 //            UIView.transitionFromView((tabBar.selectedViewController?.view)!, toView:tabBar.viewControllers![0].view , duration: 0.7, options: animation , completion: nil)
