@@ -118,8 +118,8 @@ class PerguntasTableViewCell: UITableViewCell {
     
     func setAsResposta(){
         //Marca como resposta
-        self.texto.textColor = UIColor.blueColor()
-        self.LETRA.textColor = UIColor.blueColor()
+        self.texto.textColor = UIColor.colorWithHexString("0059FF", alph: 1.0)
+        self.LETRA.textColor = UIColor.colorWithHexString("0059FF", alph: 1.0)
     }
     
     func setAsNormal(){
