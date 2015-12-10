@@ -24,25 +24,24 @@ class QuestaoMenuTableView: UITableViewController {
         super.viewDidLoad()
         
         self.getQuestoes()
-        self.configTable()
+//        self.configTable()
     }
     
-    
-    override
-    func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         self.tableView.reloadData()
         
         self.tabBarController?.title = "Questão \(self.auxData.indexQuestaoSelecionada)"
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.configTable()
+    }
     
     //    MARK: Config
     func configTable(){
-        tableView.sectionHeaderHeight = 0.0;
-        tableView.sectionFooterHeight = 0.0;
-        
-        let frame = UIView(frame: CGRectZero)
-        self.tableView.tableFooterView = frame
+        self.configTabbarHidingCells()
         
         //        let sfondo = UIImage(named:"Table")
         //        self.view.backgroundColor = UIColor(patternImage: sfondo!)
@@ -52,6 +51,12 @@ class QuestaoMenuTableView: UITableViewController {
         //        blurView.frame = self.view.bounds
         //
         //        self.tableView.headerViewForSection(0)?.backgroundColor? = UIColor.blueColor()
+    }
+    
+    func configTabbarHidingCells(){
+        let footer = UIView(frame: CGRectMake(0, 0, 1, 40))
+        footer.backgroundColor = UIColor.clearColor()
+        self.tableView.tableFooterView = footer
     }
     
     func getQuestoes(){

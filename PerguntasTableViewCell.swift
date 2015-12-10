@@ -65,6 +65,8 @@ class PerguntasTableViewCell: UITableViewCell {
         self.textViewResposta.backgroundColor = UIColor.colorWithHexString("EBEFFF", alph: 0.5)
         self.textViewResposta.layer.cornerRadius = 10
         self.textViewResposta.clipsToBounds = true
+        
+        self.textViewResposta.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
     }
     
   

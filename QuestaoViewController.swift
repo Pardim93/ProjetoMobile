@@ -136,7 +136,8 @@ class QuestaoViewController: UIViewController {
        
         self.view.backgroundColor = UIColor.whiteColor()
         self.checkFlag()
-        self.configView()
+//        self.configView()
+        self.customTextView()
         
         self.navigationController?.navigationItem.hidesBackButton = true
     }
@@ -188,11 +189,29 @@ class QuestaoViewController: UIViewController {
     
     func customTextView(){
         
-        self.txtEnunciado.layer.borderColor = UIColor.blueColor().colorWithAlphaComponent(0.5).CGColor
-//        self.txtEnunciado.layer.borderWidth = 0.5
-        self.txtEnunciado.layer.cornerRadius = 6
-        self.txtEnunciado.clipsToBounds = true
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.headIndent = 15
+        paragraphStyle.firstLineHeadIndent = 15
+        paragraphStyle.tailIndent = -15
         
+        let txt = self.questao.valueForKey("Enunciado") as! String
+        let attrsDictionary:[String : AnyObject]? = [
+            NSFontAttributeName : UIFont(name: "Avenir Book", size: 16)!, NSParagraphStyleAttributeName: paragraphStyle]
+        self.txtEnunciado.attributedText = NSAttributedString(string: txt, attributes: attrsDictionary)
+        
+        self.txtEnunciado.backgroundColor = UIColor.colorWithHexString("EBEFFF", alph: 0.5)
+        self.txtEnunciado.layer.cornerRadius = 10
+        self.txtEnunciado.clipsToBounds = true
+        self.txtEnunciado.textAlignment = .Left
+        
+        self.txtEnunciado.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
+        
+//        self.txtEnunciado.text = self.questao.valueForKey("Enunciado") as! String
+//        self.txtEnunciado.layer.borderColor = UIColor.blueColor().colorWithAlphaComponent(0.5).CGColor
+////        self.txtEnunciado.layer.borderWidth = 0.5
+//        self.txtEnunciado.layer.cornerRadius = 6
+//        self.txtEnunciado.clipsToBounds = true
+//        self.txtEnunciado.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
         
     }
     
@@ -221,14 +240,16 @@ class QuestaoViewController: UIViewController {
             
             self.customImg()
         }
+        
+        self.txtEnunciado.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
     }
     
-    func configView(){
-//        self.questao = self.auxData.questao
-        self.txtEnunciado.text = self.questao.valueForKey("Enunciado") as! String
-        
-        
-    }
+//    func configView(){
+////        self.questao = self.auxData.questao
+//        self.txtEnunciado.text = self.questao.valueForKey("Enunciado") as! String
+//        
+//        
+//    }
     
  override   func viewDidDisappear(animated: Bool) {
         self.timer.invalidate()

@@ -121,6 +121,7 @@ class AltenativasTableViewController: UITableViewController , CustomTextViewDele
         }
         
         cell.texto.font = UIFont (name: "Avenir book", size: 18)
+        cell.texto.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
         return cell
     }
     
