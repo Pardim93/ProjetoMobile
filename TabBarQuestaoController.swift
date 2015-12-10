@@ -55,8 +55,8 @@ class TabBarQuestaoController: UITabBarController, UITabBarControllerDelegate {
     // MARK: NavigationBar
     
     func getBackQuestion(){
-        
-        
+        self.resetImageView()
+
         self.navigationItem.rightBarButtonItem?.enabled = true
         
         if(self.auxQuestoes.indexQuestaoSelecionada > 1){
@@ -69,12 +69,16 @@ class TabBarQuestaoController: UITabBarController, UITabBarControllerDelegate {
             self.title = "Questão \(self.auxQuestoes.indexQuestaoSelecionada )"
             
             let questao = self.auxQuestoes.questoes[self.auxQuestoes.indexQuestaoSelecionada - 1]
+            self.auxQuestoes.questao = questao
+
             self.sendInfoToView1(questao)
             self.sendInfoToView2(questao)
+
             let questaoTemp = questao
             self.auxQuestoes.indexAlternativa = -1
             self.auxQuestoes.objectId = questaoTemp.objectId!
             self.selectedIndex = 0
+            
 
         }
         
@@ -83,7 +87,10 @@ class TabBarQuestaoController: UITabBarController, UITabBarControllerDelegate {
     }
     
     func getNextQuestion(){
+        self.resetImageView()
+
         
+
         self.navigationItem.leftBarButtonItem?.enabled = true
         if(self.auxQuestoes.indexQuestaoSelecionada  < self.auxQuestoes.questoes.count ){
             if(self.auxQuestoes.indexQuestaoSelecionada == self.auxQuestoes.questoes.count - 1){
@@ -93,8 +100,10 @@ class TabBarQuestaoController: UITabBarController, UITabBarControllerDelegate {
             self.title = "Questão \(self.auxQuestoes.indexQuestaoSelecionada )"
             
             let questao = self.auxQuestoes.questoes[self.auxQuestoes.indexQuestaoSelecionada - 1 ]
+            self.auxQuestoes.questao = questao
             self.sendInfoToView1(questao)
             self.sendInfoToView2(questao)
+
             let questaoTemp = questao
             self.auxQuestoes.objectId = questaoTemp.objectId!
             self.auxQuestoes.indexAlternativa = -1
@@ -137,6 +146,10 @@ class TabBarQuestaoController: UITabBarController, UITabBarControllerDelegate {
         
     }
     
+    func resetImageView(){
+        let questaoView = self.viewControllers![0]  as! QuestaoViewController
+        questaoView.imgExercicio.image = UIImage(named:"picture64")
+    }
     
     // MARK: PFObject handling
     func getImageData(){

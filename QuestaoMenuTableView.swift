@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import QuartzCore
+
 
 class QuestaoMenuTableView: UITableViewController {
     
@@ -24,11 +26,12 @@ class QuestaoMenuTableView: UITableViewController {
         self.getQuestoes()
         self.configTable()
     }
-  
+    
+    
     override
     func viewWillAppear(animated: Bool) {
         self.tableView.reloadData()
-
+        
         self.tabBarController?.title = "Questão \(self.auxData.indexQuestaoSelecionada)"
     }
     
@@ -41,24 +44,21 @@ class QuestaoMenuTableView: UITableViewController {
         let frame = UIView(frame: CGRectZero)
         self.tableView.tableFooterView = frame
         
-//        let sfondo = UIImage(named:"Table")
-//        self.view.backgroundColor = UIColor(patternImage: sfondo!)
-//        
-//        let blur = UIBlurEffect(style: UIBlurEffectStyle.Dark)
-//        let blurView = UIVisualEffectView(effect: blur)
-//        blurView.frame = self.view.bounds
-//        
-//        self.tableView.headerViewForSection(0)?.backgroundColor? = UIColor.blueColor()
+        //        let sfondo = UIImage(named:"Table")
+        //        self.view.backgroundColor = UIColor(patternImage: sfondo!)
+        //
+        //        let blur = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        //        let blurView = UIVisualEffectView(effect: blur)
+        //        blurView.frame = self.view.bounds
+        //
+        //        self.tableView.headerViewForSection(0)?.backgroundColor? = UIColor.blueColor()
     }
     
     func getQuestoes(){
         
         self.respostasQuestoes(self.myArray)
-        
-        //        self.myArray = (parseManager.getLeastRatedQuestions())
         self.auxData.questao = self.myArray[0] as AnyObject as! NSObject
-        //        questoesManager.tamanhoDasQuestoes(self.myArray.count)
-        //
+        
     }
     
     // MARK: - Table view data source
@@ -78,19 +78,11 @@ class QuestaoMenuTableView: UITableViewController {
         cell.labelQuestao.font = UIFont (name: "Avenir light", size: 18)
         
         if(self.firstTime){
-           
+            
             if(indexPath.row == myArray.count ){
                 self.firstTime = false
             }
-//            
-//            let sfondo = UIImage(named:"blue_sky")
-//            cell.backgroundColor = UIColor(patternImage: sfondo!)
-//            
-//            let blur = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
-//            let blurView = UIVisualEffectView(effect: blur)
-//            blurView.frame = cell.bounds
-//            
-//            cell.insertSubview(blurView, atIndex: 0)
+         
         }
         
         if(indexPath.row == 0){
@@ -109,7 +101,7 @@ class QuestaoMenuTableView: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-       
+        
         self.auxData.indexAlternativa = -1
         
         if(indexPath.row == 0){
@@ -117,26 +109,29 @@ class QuestaoMenuTableView: UITableViewController {
             self.auxData.questoesUsuario = questoesManager.arrayRespostas
             self.presentViewController(view, animated: true, completion: nil)
             return
-       
+            
         }else{
             
             self.tabBarController?.title = "Questão \(indexPath.row)"
             if(indexPath.row == 1){
-            
+                
                 self.tabBarController?.navigationItem.leftBarButtonItem?.enabled = false
                 self.tabBarController?.navigationItem.rightBarButtonItem?.enabled = true
-          
+                
             }else if (indexPath.row == self.myArray.count){
-            
+                
                 self.tabBarController?.navigationItem.leftBarButtonItem?.enabled = true
                 self.tabBarController?.navigationItem.rightBarButtonItem?.enabled = false
-            
+                
             }else{
-              
+                
                 self.tabBarController?.navigationItem.leftBarButtonItem?.enabled = true
                 self.tabBarController?.navigationItem.rightBarButtonItem?.enabled = true
                 
             }
+            
+            
+            
             
             self.questaoSelecionada = self.myArray[indexPath.row - 1]
             self.auxData.questao = self.questaoSelecionada
@@ -145,18 +140,42 @@ class QuestaoMenuTableView: UITableViewController {
             let questaoTemp = self.myArray[indexPath.row - 1]
             self.auxData.objectId = questaoTemp.objectId!
             self.auxData.indexQuestaoSelecionada = indexPath.row
-            let tabBar = self.tabBarController as! TabBarQuestaoController
-            tabBar.sendInfoToView1(self.auxData.questao)
-            tabBar.sendInfoToView2(self.auxData.questao)
             
             
-//            let animation = UIViewAnimationOption
-//            UIView.transitionFromView((tabBar.selectedViewController?.view)!, toView:tabBar.viewControllers![0].view , duration: 0.7, options: animation , completion: nil)
-            tabBar.selectedIndex = 0
+            self.makeTransition()
+            
+    
             
         }
     }
     
+    func makeTransition(){
+        let tabBar = self.tabBarController as! TabBarQuestaoController
+        
+        tabBar.sendInfoToView1(self.auxData.questao)
+        tabBar.sendInfoToView2(self.auxData.questao)
+        
+        tabBar.resetImageView()
+
+        
+        let animation = UIViewAnimationOptions.AllowUserInteraction
+        UIViewAnimationOptions.Repeat
+        
+        let transition: CATransition = CATransition()
+        let timeFunc : CAMediaTimingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.duration = 0.25
+        transition.timingFunction = timeFunc
+        transition.type = kCATransitionPush
+        transition.subtype = kCATransitionFromLeft
+        
+        tabBar.viewControllers![2].view.layer.addAnimation(transition, forKey: kCATransitionPush)
+        tabBar.viewControllers![0].view.layer.addAnimation(transition, forKey: kCATransition)
+        
+        
+        UITabBar.transitionFromView((toView:tabBar.viewControllers![2].view), toView:tabBar.viewControllers![0].view , duration: 1.9, options: animation , completion:nil)
+        tabBar.selectedIndex = 0
+        
+    }
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 70
     }
